@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,15 +25,16 @@
             margin-bottom: 10px;
         }
     </style>
-    <script src="/ProjectWeb/services/home.js"></script>
+    <script src="/services/home.js"></script>
 </head>
+
 <body>
     <div id="product">
         <!-- Product container -->
     </div>
     <script>
         // JavaScript code
-        fetch("/ProjectWeb/database/db.json")
+        fetch("/database/db.json")
             .then((res) => res.json())
             .then((data) => {
                 const productList = data.product;
@@ -46,8 +48,7 @@
                             <p>New Price: ${product.newPrice}</p>
                             <p>Quantity: ${product.quantity}</p>
                             <img src="${product.image}" alt="${product.name}">
-                          
-                            <a href="/ProjectWeb/page/product_detail/product_detail.html?id=${product.id}">Buy</a>
+                            <a href="/page/product_detail/product_detail.html?id=${product.id}">Buy</a>
                           
                         </div>
                     `;
@@ -59,10 +60,11 @@
                         ${productHTML.join("")}
                     </div>
                 `;
-           
+
             });
-        
-            
+
+
     </script>
 </body>
+
 </html>
