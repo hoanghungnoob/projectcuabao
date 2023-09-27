@@ -1,0 +1,120 @@
+:root{
+    --while-color : #ffff;
+    --black-color : #0000;
+    --brown-light-color : #f8d8a9;
+    --gray-light-color : #f6ebda;
+    --orange-color : #ff902a;
+    --orange-light-color : #f4ae26;
+    --brown-dark : #2f2105;
+    --font-size-heading1 : 48px;
+    --font-size-heading2 : 32px;
+    --font-size-heading3 : 24px;
+    --font-size-button : 14px;
+    --font-size-paragraph : 18px;
+    --font-family:'Poppins', sans-serif;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+body{
+    font-family: var(--font-family);
+}
+#product__name{
+    font-size: var(--font-size-heading1);
+}
+.con_item_productDetail{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.con_item_productDetail p, .con_item_productDetail div {
+    font-size: var(--font-size-heading3);
+}
+.container__productDetail{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.qnty__box{
+    display: flex;
+    align-items: center;
+    gap: 85px;
+}
+.main__img__box{
+    width: 672px;
+    height: 504px;  
+    padding: 20px;
+    box-sizing: border-box;
+}
+#main__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.secondary__img{
+    width: 84%;
+    height: 200px;
+    display: flex;
+    margin-left: 15px;
+    display: flex;
+    gap: 20px;
+}
+.secodary__img__item{
+    width: 40%;
+    height: 100%;
+
+}
+
+.secondary__img__item{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.btn__box{
+    display: flex;
+    gap: 20px;
+}
+#input__qty,.btn__box button{
+    width: 40px;
+    height: 30px;
+}
+.btn__box button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--orange-color);
+    border-radius: 5px;
+    border: 0 solid;
+}
+.btn__buy{
+    display: flex;
+    gap: 50px;
+    margin-top: 20px;
+}
+#product__btn__add, #product__btn__buy{
+   
+    width: 225px;
+    height: 60px;
+    border-radius: 20px;
+}
+#product__btn__buy{
+    background-color: var(--orange-color);
+    border: 0 solid ;
+}
+#describe{
+   
+    height: 100px;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.price{
+    display: flex;
+    gap: 30px;
+    font-size: var(--font-size-heading3);
+}
+.price p:last-child{
+    text-decoration-line: line-through;
+
+}

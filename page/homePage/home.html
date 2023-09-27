@@ -24,6 +24,7 @@
             height: auto;
             margin-bottom: 10px;
         }
+        
     </style>
     <script src="/services/home.js"></script>
 </head>
@@ -41,6 +42,7 @@
 
                 const productHTML = productList.map((product) => {
                     return `
+                    <a href="/page/product_detail/product_detail.html?id=${product.id}">
                         <div class="product">
                             <h2>${product.name}</h2>
                             <p>${product.description}</p>
@@ -48,9 +50,10 @@
                             <p>New Price: ${product.newPrice}</p>
                             <p>Quantity: ${product.quantity}</p>
                             <img src="${product.image}" alt="${product.name}">
-                            <a href="/page/product_detail/product_detail.html?id=${product.id}">Buy</a>
+                            
                           
-                        </div>
+                        </div></a>
+                       
                     `;
                 });
 
