@@ -1,41 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Detail</title>
 </head>
+
 <body>
     <div id="product-detail">
         <!-- Product detail content will be inserted here -->
     </div>
 
     <script>
+        // JavaScript code
         const urlParams = new URLSearchParams(window.location.search);
         const productId = urlParams.get('id');
+        // console.log(urlParams)
+        // console.log(productId)
 
-        fetch("/ProjectWeb/database/db.json") // Điều chỉnh đường dẫn đến tệp db.json
+
+        fetch("/ProjectWeb/database/db.json")
             .then((res) => res.json())
             .then((data) => {
+                var product = false;
+                const productList = data.product;
+                data.product.forEach(element => {
+                    if (productId == element.id) {
+                        product = true;
+                        var productDetailHTML = '';
 
-                const productList = data.product;// trả về 1 mảng chứa sản phẩm
-                const product = productList.find((item) => item.id === productId);
-                var productDetailHTML = '';
-                if (product) {
-                    productDetailHTML = `
-                        <div class="product">
-                            <h2>${product.name}</h2>
-                            <p>Description: ${product.description}</p>
-                            <p>Price: $${product.price}</p>
-                            <img src="${product.image}" alt="${product.name}">
-                        </div>
-                    `;
+                        if (product) {
+                            productDetailHTML = `
+                                <div class="product">
+                                    <h2>${element.name}</h2>
+                                    <p>Description: ${element.description}</p>
+                                    <p>Old Price: ${element.oldPrice}</p>
+                                    <p>New Price: ${element.newPrice}</p>
+                                    <p>Quantity: ${element.quantity}</p>
+                                    <img src="${element.image}" alt="${element.name}">
+                                </div>
+                            `;
 
-                    document.getElementById("product-detail").innerHTML += productDetailHTML;
-                } else {
-                    document.getElementById("product-detail").innerHTML = "Product not found.";
-                }
+                            document.getElementById("product-detail").innerHTML = productDetailHTML;
+                        } else {
+                            document.getElementById("product-detail").innerHTML = "Product not found.";
+                        }
+                    }
+
+                });
             });
     </script>
 </body>
+
 </html>
