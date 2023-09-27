@@ -14,10 +14,11 @@
         const urlParams = new URLSearchParams(window.location.search);
         const productId = urlParams.get('id');
 
-        fetch("../db.json") // Điều chỉnh đường dẫn đến tệp db.json
+        fetch("/ProjectWeb/database/db.json") // Điều chỉnh đường dẫn đến tệp db.json
             .then((res) => res.json())
             .then((data) => {
-                const productList = data.product;
+
+                const productList = data.product;// trả về 1 mảng chứa sản phẩm
                 const product = productList.find((item) => item.id === productId);
                 var productDetailHTML = '';
                 if (product) {
