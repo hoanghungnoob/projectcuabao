@@ -1,23 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./product_detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>Document</title>
 </head>
+
 <body>
     <header>
         header
     </header>
     <main>
-        <div class="container__productDetail">
+        <div class="container__productDetail" id="container__productDetail">
             <!-- photo's area -->
-            <div class="con_item_productDetail"> 
-
+            <div class="con_item_productDetail">
+                <div class="main__img__box">
+                    <img id="main__img" src="/ProjectWeb/images/img_product/product4.svg" alt="Photo">
+                </div>
+                <div class="secondary__img">
+                    <img id="secondary__img__item1" class="secondary__img__item"
+                        src="/ProjectWeb/images/img_product/product4.svg" alt="Photo">
+                    <img id="secondary__img__item2" class="secondary__img__item"
+                        src="/ProjectWeb/images/img_product/product4.svg" alt="Photo">
+                    <img id="secondary__img__item3" class="secondary__img__item"
+                        src="/ProjectWeb/images/img_product/product4.svg" alt="Photo">
+                </div>
             </div>
             <!-- information of product -->
-            <div class="con_item_productDetail"> 
-
+            <div class="con_item_productDetail">
+                <h2 id="product__name">Crushed chocolate</h2>
+                <div class="product__stars__box">
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="product__stars__box">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>100 riviews</p>
+                <p>Crushed chocolate refers to broken or crushed pieces of chocolate commonly used in baking and
+                    desserts. It adds flavor, texture, and visual appeal to treats like cookies, cakes, and ice creams.
+                </p>
+                <p>
+                    Quantity purchased : 
+                </p>
+                <input id="product__btn__adđ" type="button" value="Add cart" onclick="addToCart()" >
+                <input id="product__btn__adđ" type="button" value="Buy" onclick="goToOrder()" >
             </div>
         </div>
     </main>
@@ -25,4 +62,5 @@
         footer
     </footer>
 </body>
+
 </html>
