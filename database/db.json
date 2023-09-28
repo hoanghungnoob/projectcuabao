@@ -20,334 +20,426 @@
       "password": "Hue.com123",
       "roleId": 1
     }
-    
   ],
-  "customer":[
-  {
-    "id":1,
-    "name": "Ho Thi Mai",
-    "phoneNumber": "0397208980",
-    "address": "Mai Son village Ba Long commune Dakrong district Quang Tri province",
-    "roleId": 2
-  },
-  {
-    "id": 2,
-    "name": "Ho Thi Hue",
-    "phoneNumber": "0397456231",
-    "address": "101B Le Huu Trac, Son Tra district, Da Nang city",
-    "roleId": 2
-  },
-  {
-    "id": 3,
-    "name": "Nguyen Thi Kim Tuyen",
-    "phoneNumber": "0123456231",
-    "address": "Lang Cat village Mo O commune Dakrong district Quang Tri province",
-    "roleId": 2
-  },
-  {
-    "id":4,
-    "name": "Pham Gia Bao",
-    "phoneNumber": "0125437681",
-    "address": "101B Le Huu Trac, Son Tra district, Da Nang city",
-    "roleId": 2
-  },
-  {
-    "id":5,
-    "name": "Ho Thi Nguyen Thi",
-    "phoneNumber": "0123432431",
-    "address": "Chan Ro village Dakrong commune Dakrong district Quang Tri province",
-    "roleId": 2
-  },
-  {
-    "id":6,
-    "name": "Ho Mai Huyen",
-    "phoneNumber": "0123432111",
-    "address": "56 Phuoc My ward Son Tra district Da Nang city",
-    "roleId": 2
-  },
-  {
-    "id":7,
-    "name": "Ho Thi Liu",
-    "phoneNumber": "0123432222",
-    "address": "56 Phuoc My ward Son Tra district Da Nang city",
-    "roleId": 2
-  },
-  {
-    "id":8,
-    "name": "To Ngol Nien",
-    "phoneNumber": "0123432444",
-    "address": "101B Le Huu Trac Son Tra district Da Nang city",
-    "roleId": 2
-  },
-  {
-    "id":9,
-    "name": "Kasor Rina",
-    "phoneNumber": "0123432666",
-    "address": "Lang Cat village Mo O commune Dakrong district Quang Tri province",
-    "roleId": 2
-  },
-  {
-    "id":10,
-    "name": "Dinh Thi Duyen",
-    "phoneNumber": "0123432888",
-    "address": "56 Phuoc My ward Son Tra district Da Nang city",
-    "roleId": 2
-  },
-  {
-    "id":11,
-    "name": "Le Van Thao",
-    "phoneNumber": "0124782999",
-    "address": "101B Le Huu Trac Son Tra district Da Nang city",
-    "roleId": 2
-  },
-  {
-    "id":12,
-    "name": "Ho Thi Linh",
-    "phoneNumber": "0123432111",
-    "address": "56 Phuoc My ward Son Tra district Da Nang city",
-    "roleId": 2
-  }
-],
-"product":[
-{
-  "id": 1,
-  "name": "Black coffee",
-  "oldPrice":12.990,
-  "newPrice":10.990,
-  "quantity": 60,
-  "description": "Strong coffee, only black coffee, rich aroma",
-  "image": "/ProjectWeb/images/img_product/product1.svg"
-},
-{
-  "id": 2,
-  "name": "Americano",
-  "oldPrice":15.000,
-  "newPrice":13.500,
-  "quantity": 50,
-  "description": "Coffee made using the Espresso method but with hot water added.",
-  "image": "/ProjectWeb/images/img_product/product2.svg"
-},
-{
-  "id":3,
-  "name": "Espresso",
-  "oldPrice":30.000,
-"newPrice":28.500,
-  "quantity": 40,
-  "description": "Coffee is brewed with a small amount of boiling water that is almost pressed under pressure (squeezing) the ground coffee beans.",
-  "image": "/ProjectWeb/images/img_product/product3.svg"
-},
-{
-  "id":4,
-  "name": "Latte",
-  "oldPrice":55.000,
-  "newPrice":50.000,
-  "quantity": 70,
-  "description": "Coffee is made using the Espresso method but with steamed milk added.",
-  "image": "/ProjectWeb/images/img_product/product4.svg"
-},
-{
-  "id":5,
-  "name": "Cappuccino",
-  "oldPrice":23.000,
-  "newPrice":22.000,
-  "quantity": 55,
-  "description": "Coffee is made using the Espresso method but with steamed milk and foam added",
-  "image": "/ProjectWeb/images/img_product/product5.svg"
-},
-{
-  "id":6,
-  "name": "Doppio",
-  "oldPrice":35.000,
-  "newPrice":33.000,
-  "quantity": 40,
-  "description": "double coffee, extracted by double filter of coffee in total filter, the same ingredients as Espresso.",
-  "image": "/ProjectWeb/images/img_product/product6.svg"
-},
-{
-  "id":7,
-  "name": "Cortado",
-  "oldPrice":30.500,
-  "newPrice":29.500,
-  "quantity": 49,
-  "description": "a type of coffee with milk that cuts the intensity of the espresso, reducing its acidity while preserving the coffee's flavor.",
-  "image": "/ProjectWeb/images/img_product/product1.svg"
-},
-{
-  "id":8,
-  "name": "Macchiato",
-  "oldPrice":60.000,
-  "newPrice":58.000,
-  "quantity": 48,
-  "description":"a coffee based on the perfect combination of coffee, milk tea, goat tea with a layer of rich cream.",
-  "image": "/ProjectWeb/images/img_product/product2.svg"
-},
-{
-  "id":9,
-  "name": "Mocha",
-  "oldPrice":32.600,
-  "newPrice":30.800,
-  "quantity": 65,
-  "description":"Coffee is brewed using the Espresso method and then adding coffee and hot milk.",
-  "image": "/ProjectWeb/images/img_product/mocha.svg"
-},
-{
-  "id":10,
-  "name": "Red Eye",
-  "oldPrice":80.000,
-  "newPrice":78.800,
-  "quantity": 30,
-  "description":"An enhanced coffee drink in which espresso is combined with normal drip coffee",
-  "image": "/ProjectWeb/images/img_product/product5.svg"
-},
-{
-  "id":11,
-  "name": "Lungo",
-  "oldPrice":37.000,
-  "newPrice":35.800,
-  "quantity": 63,
-  "description":"a coffee beverage made using an espresso machine to make an Italian-style coffee - short black (a single shot of espresso) with more water ",
-  "image": "/ProjectWeb/images/img_product/product3.svg"
-}
-],
-
-"order":[
-  {
-    "id":1,
-    "customerId": 1,
-    "productId": 3,
-    "date":"2023-09-24",
-    "quantity": 9,
-    "totalPrice":256.500
-  },
-  {
-    "id":2,
-    "customerId": 2,
-    "productId": 1,
-    "date":"2023-09-15",
-    "quantity": 5,
-    "totalPrice":54.950
-  },
-  {
-    "id":3,
-    "customerId": 3,
-    "productId": 4,
-    "date":"2023-08-25",
-    "quantity": 3,
-    "totalPrice":150.000
-  },
-  {
-    "id":4,
-    "customerId": 4,
-    "productId": 2,
-    "date":"2023-08-10",
-    "quantity": 14,
-    "totalPrice":189.000
-  },
-  {
-    "id":5,
-    "customerId": 5,
-    "productId": 5,
-"date":"2023-07-22",
-    "quantity": 10,
-    "totalPrice":220.000
-  },
-  {
-    "id":6,
-    "customerId": 6,
-    "productId": 8,
-    "date":"2023-04-30",
-    "quantity": 4,
-    "totalPrice":232.000
-  },
-  {
-    "id":7,
-    "customerId": 7,
-    "productId": 6,
-    "date":"2023-04-26",
-    "quantity":11,
-    "totalPrice":363.000
-  },
-  {
-    "id":8,
-    "customerId": 8,
-    "productId": 7,
-    "date":"2023-06-12",
-    "quantity":6,
-    "totalPrice":171.000
-  },
-  {
-    "id":9,
-    "customerId": 9,
-    "productId": 10,
-    "date":"2023-07-12",
-    "quantity":5,
-    "totalPrice":394.000
-  },
-  {
-    "id":10,
-    "customerId": 10,
-    "productId": 3,
-    "date":"2023-05-30",
-    "quantity":8,
-    "totalPrice":228.000
-  },
-  {
-    "id":11,
-    "customerId": 11,
-    "productId": 6,
-    "date":"2023-08-03",
-    "quantity":6,
-    "totalPrice":198.000
-  },
-  {
-    "id":12,
-    "customerId": 12,
-    "productId": 8,
-    "date":"2023-03-24",
-    "quantity":7,
-    "totalPrice":406.000
-  },
-  {
-    "id":13,
-    "customerId": 7,
-    "productId": 11,
-    "date":"2023-06-12",
-    "quantity":6,
-    "totalPrice":210.000
-  },
-  {
-    "id":14,
-    "customerId": 8,
-    "productId": 2,
-    "date":"2023-03-29",
-    "quantity":9,
-    "totalPrice":121.500
-  },
-  {
-    "id":15,
-    "customerId": 4,
-    "productId": 10,
-    "date":"2023-02-22",
-    "quantity":7,
-    "totalPrice":551.600
-  },
-  {
-    "id":16,
-    "customerId": 9,
-    "productId": 3,
-    "date":"2023-07-30",
-    "quantity":6,
-    "totalPrice":171.000
-  },
-  {
-    "id":17,
-    "customerId": 5,
-    "productId": 6,
-    "date":"2023-05-27",
-    "quantity":6,
-    "totalPrice":198.000
-  }
-
-]
-
+  "customer": [
+    {
+      "id": 1,
+      "name": "Ho Thi Mai",
+      "phoneNumber": "0397208980",
+      "address": "Mai Son village Ba Long commune Dakrong district Quang Tri province",
+      "roleId": 2
+    },
+    {
+      "id": 2,
+      "name": "Ho Thi Hue",
+      "phoneNumber": "0397456231",
+      "address": "101B Le Huu Trac, Son Tra district, Da Nang city",
+      "roleId": 2
+    },
+    {
+      "id": 3,
+      "name": "Nguyen Thi Kim Tuyen",
+      "phoneNumber": "0123456231",
+      "address": "Lang Cat village Mo O commune Dakrong district Quang Tri province",
+      "roleId": 2
+    },
+    {
+      "id": 4,
+      "name": "Pham Gia Bao",
+      "phoneNumber": "0125437681",
+      "address": "101B Le Huu Trac, Son Tra district, Da Nang city",
+      "roleId": 2
+    },
+    {
+      "id": 5,
+      "name": "Ho Thi Nguyen Thi",
+      "phoneNumber": "0123432431",
+      "address": "Chan Ro village Dakrong commune Dakrong district Quang Tri province",
+      "roleId": 2
+    },
+    {
+      "id": 6,
+      "name": "Ho Mai Huyen",
+      "phoneNumber": "0123432111",
+      "address": "56 Phuoc My ward Son Tra district Da Nang city",
+      "roleId": 2
+    },
+    {
+      "id": 7,
+      "name": "Ho Thi Liu",
+      "phoneNumber": "0123432222",
+      "address": "56 Phuoc My ward Son Tra district Da Nang city",
+      "roleId": 2
+    },
+    {
+      "id": 8,
+      "name": "To Ngol Nien",
+      "phoneNumber": "0123432444",
+      "address": "101B Le Huu Trac Son Tra district Da Nang city",
+      "roleId": 2
+    },
+    {
+      "id": 9,
+      "name": "Kasor Rina",
+      "phoneNumber": "0123432666",
+      "address": "Lang Cat village Mo O commune Dakrong district Quang Tri province",
+      "roleId": 2
+    },
+    {
+      "id": 10,
+      "name": "Dinh Thi Duyen",
+      "phoneNumber": "0123432888",
+      "address": "56 Phuoc My ward Son Tra district Da Nang city",
+      "roleId": 2
+    },
+    {
+      "id": 11,
+      "name": "Le Van Thao",
+      "phoneNumber": "0124782999",
+      "address": "101B Le Huu Trac Son Tra district Da Nang city",
+      "roleId": 2
+    },
+    {
+      "id": 12,
+      "name": "Ho Thi Linh",
+      "phoneNumber": "0123432111",
+      "address": "56 Phuoc My ward Son Tra district Da Nang city",
+      "roleId": 2
+    }
+  ],
+  "product": [
+    {
+      "id": 1,
+      "name": "Black coffee",
+      "oldPrice": 12.990,
+      "newPrice": 10.990,
+      "quantity": 60,
+      "description": "Strong coffee, only black coffee, rich aroma. L'amant instant black coffee is made from 100% pure coffee. Now you can enjoy the taste of traditional black coffee every day in just a few minutes.",
+      "image1": "/images/img_product/black-coffee1.jpg",
+      "image2": "/images/img_product/Black coffee2.jpeg",
+      "image3": "/images/img_product/Black-coffee3.jpg",
+      "type": "",
+      "productReviews": 3
+    },
+    {
+      "id": 2,
+      "name": "Americano",
+      "oldPrice": 15.000,
+      "newPrice": 13.500,
+      "quantity": 50,
+      "description": "Coffee made using the Espresso method but with hot water added.Caffè Americano, or Americano, is a style of coffee prepared by adding hot water to espresso, giving the coffee a similar strength but a different flavor, similar to filter coffee.",
+      "image1": "/images/img_product/Americano1.jpg",
+      "image2": "/images/img_product/Americano2.jpg",
+      "image3": "/images/img_product/Americano3.jpg",
+      "type": "",
+      "productReviews": 5
+    },
+    {
+      "id": 3,
+      "name": "Espresso",
+      "oldPrice": 30.000,
+      "newPrice": 28.500,
+      "quantity": 40,
+      "description": "Coffee is brewed with a small amount of boiling water that is almost pressed under pressure (squeezing) the ground coffee beans.Espresso, is a method of roasting and preparing coffee originating from Italy, in which a small amount of boiling water is forced under pressure through ground coffee beans. Espresso is also the basis for many drinks from Other coffees such as latte, cappuccino, macchiato, mocha, flat white, Americano.",
+      "image1": "/images/img_product/Espresso1.jpg",
+      "image2": "/images/img_product/Espresso2.jpg",
+      "image3": "/images/img_product/Espresso3.jpg",
+      "type": "",
+      "productReviews": 4.8
+    },
+    {
+      "id": 4,
+      "name": "Latte",
+      "oldPrice": 55.000,
+      "newPrice": 50.000,
+      "quantity": 70,
+      "description": "Coffee is made using the Espresso method but with steamed milk added.Coffee latte is a drink originating from Italy consisting of the main ingredients of coffee and whipped milk. This drink is consumed regularly both at home and in cafes and bars.",
+      "image1": "/images/img_product/Latte1.jpg",
+      "image2": "/images/img_product/Latte2.jpg",
+      "image3": "/images/img_product/Latte3.jpg",
+      "type": "",
+      "productReviews": 4.5
+    },
+    {
+      "id": 5,
+      "name": "Cappuccino",
+      "oldPrice": 23.000,
+      "newPrice": 22.000,
+      "quantity": 55,
+      "description": "Coffee is made using the Espresso method but with steamed milk and foam added. Cappuccino is a type of coffee consisting of coffee and milk foam (whipped on top), along with a little cocoa powder or cinnamon powder sprinkled on the surface of the drink before serving.",
+      "image1": "/images/img_product/Cappuccino1.jpg",
+      "image2": "/images/img_product/Cappuccino2.jpg",
+      "image3": "/images/img_product/Cappuccino3.jpg",
+      "type": "",
+      "productReviews": 5
+    },
+    {
+      "id": 6,
+      "name": "Doppio",
+      "oldPrice": 35.000,
+      "newPrice": 33.000,
+      "quantity": 40,
+      "description": "Double coffee, extracted by double filter of coffee in total filter, the same ingredients as Espresso. Always careful in the ingredients to make a standard cup of Cappuccino coffee, always taking care of Latte art cups from Barista artisans. If you don't like drinking traditional cappuccino, why not try cool Smoothies that have the sweet taste of milk cream mixed with the slight sourness of fruit.",
+      "image1": "/images/img_product/Doppio1.jpg",
+      "image2": "/images/img_product/Doppio2.jpg",
+      "image3": "/images/img_product/Doppio3.jpg",
+      "type": "",
+      "productReviews": 4.3
+    },
+    {
+      "id": 7,
+      "name": "Cortado",
+      "oldPrice": 30.500,
+      "newPrice": 29.500,
+      "quantity": 49,
+      "description": "A type of coffee with milk that cuts the intensity of the espresso, reducing its acidity while preserving the coffee's flavor. A cortado is a drink consisting of espresso mixed with roughly an equal amount of warm milk to reduce acidity, although the exact proportions vary significantly from region to region. The milk in the cortado is steamed, but does not foam.",
+      "image1": "/images/img_product/Cortado1.jpg",
+      "image2": "/images/img_product/Cortado2.jpg",
+      "image3": "/images/img_product/Cortado3.jpg",
+      "type": "",
+      "productReviews": 4.7
+    },
+    {
+      "id": 8,
+      "name": "Macchiato",
+      "oldPrice": 60.000,
+      "newPrice": 58.000,
+      "quantity": 48,
+      "description": "A coffee based on the perfect combination of coffee, milk tea, goat tea with a layer of rich cream. Macchiato has the characteristic fatty taste of milk mixed with a slightly sweet or slightly salty taste depending on the recipe of the drink maker.",
+      "image1": "/images/img_product/Macchiato1.jpg",
+      "image2": "/images/img_product/Macchiato2.jpg",
+      "image3": "/images/img_product/Macchiato3.jpg",
+      "type": "",
+      "productReviews": 5
+    },
+    {
+      "id": 9,
+      "name": "Mocha",
+      "oldPrice": 32.600,
+      "newPrice": 30.800,
+      "quantity": 65,
+      "description": "Coffee is brewed using the Espresso method and then adding coffee and hot milk.Mocha is a drink mixed between coffee, milk and chocolate. The name Mocha originates from the city of Mocha in Yemen where the coffee was discovered and began to be popular around the world.",
+      "image1": "/images/img_product/Mocha1.jpg",
+      "image2": "/images/img_product/Mocha2.jpg",
+      "image3": "/images/img_product/Mocha3.jpg",
+      "type": "",
+      "productReviews": 3
+    },
+    {
+      "id": 10,
+      "name": "Red Eye",
+      "oldPrice": 80.000,
+      "newPrice": 78.800,
+      "quantity": 30,
+      "description": "An enhanced coffee drink in which espresso is combined with normal drip coffee.A red eye, black eye, and dead eye coffee basically mean how much caffeine you want in your cup of brewed coffee. The red eye has one shot of espresso added, the black eye has two shots, and the dead eye has three whole shots of espresso! These will definitely keep you up as long as you want.",
+      "image1": "/images/img_product/Red Eye1.jpg",
+      "image2": "/images/img_product/Red Eye2.png",
+      "image3": "/images/img_product/Red Eye3.png",
+      "type": "",
+      "productReviews": 4
+    },
+    {
+      "id": 11,
+      "name": "Lungo",
+      "oldPrice": 37.000,
+      "newPrice": 35.800,
+      "quantity": 63,
+      "description": "A coffee beverage made using an espresso machine to make an Italian-style coffee - short black (a single shot of espresso) with more water. A lungo is a coffee beverage made using an espresso machine to brew a short black Italian-style coffee with more water, creating a larger coffee, the lungo. ",
+      "image1": "/images/img_product/Lungo1.jpg",
+      "image2": "/images/img_product/Lungo2.jpg",
+      "image3": "/images/img_product/Lungo3.jpg",
+      "type": "",
+      "productReviews": 5
+    },
+    {
+      "id": 12,
+      "name": "Arabica",
+      "oldPrice": 40.000,
+      "newPrice": 38.000,
+      "quantity": 40,
+      "description": "There are 2 types of Arabica. Moka has a charming aroma and light taste; Catimor has a strong aroma and a slightly sour taste. When mentioning Arabica coffee, people immediately think of coffee with natural fruit aroma, floral aroma, honey flavor, balanced body and sweet aftertaste.",
+      "image1": "/images/img_product/Arabica1.jpg",
+      "image2": "/images/img_product/Arabica2.jpg",
+      "image3": "/images/img_product/Arabica3.jpg",
+      "type": "",
+      "productReviews": 3.5
+    },
+    {
+      "id": 13,
+      "name": "Culi",
+      "oldPrice": 40.000,
+      "newPrice": 39.000,
+      "quantity": 60,
+      "description": "Culi coffee has a bitter taste, an intoxicating aroma, and dark water.Culi coffee is also known by another name, Peaberry. In Spanish, people call this coffee Caracol. This type of coffee is characterized by a round shape like. This type of coffee has a richer flavor, more bitterness, more fat, more caffeine than regular robusta coffee, and a deep aroma. ",
+      "image1": "/images/img_product/Culi1.jpg",
+      "image2": "/images/img_product/Culi2.jpg",
+      "image3": "/images/img_product/Culi3.jpg",
+      "type": "",
+      "productReviews": 4
+    },
+    {
+      "id": 14,
+      "name": "Cherry",
+      "oldPrice": 54.000,
+      "newPrice": 50.000,
+      "quantity": 56,
+      "description": "Cherry coffee gives off a faint scent when brewed and the sour taste of Cherry creates a refreshing inspiration. Although the flavor is not as rich as Robusta, nor as passionate as Arabica, Cherry coffee has its own characteristics: mildly sour, slightly astringent, low caffeine content.",
+      "image1": "/images/img_product/Cherry1.jpg",
+      "image2": "/images/img_product/Cherry2.jpg",
+      "image3": "/images/img_product/Cherry3.jpg",
+      "type": "",
+      "productReviews": 5
+    },
+    {
+      "id": 15,
+      "name": "Robusta",
+      "oldPrice": 68.000,
+      "newPrice": 67.000,
+      "quantity": 47,
+      "description": "This coffee has a rather bitter taste, a rich drink, very suitable for men. Pure Robusta coffee is popular with many people because of its rich taste and unique aroma. In general, pure Robusta often has a much more astringent and bitter taste than.",
+      "image1": "/images/img_product/Robusta1.jpg",
+      "image2": "/images/img_product/Robusta2.jpg",
+      "image3": "/images/img_product/Robusta3.jpg",
+      "type": "",
+      "productReviews": 4
+    }
+  ],
+  "order": [
+    {
+      "id": 1,
+      "customerId": 1,
+      "productId": 3,
+      "date": "2023-09-24",
+      "quantity": 9,
+      "totalPrice": 256.500
+    },
+    {
+      "id": 2,
+      "customerId": 2,
+      "productId": 1,
+      "date": "2023-09-15",
+      "quantity": 5,
+      "totalPrice": 54.950
+    },
+    {
+      "id": 3,
+      "customerId": 3,
+      "productId": 4,
+      "date": "2023-08-25",
+      "quantity": 3,
+      "totalPrice": 150.000
+    },
+    {
+      "id": 4,
+      "customerId": 4,
+      "productId": 2,
+      "date": "2023-08-10",
+      "quantity": 14,
+      "totalPrice": 189.000
+    },
+    {
+      "id": 5,
+      "customerId": 5,
+      "productId": 5,
+      "date": "2023-07-22",
+      "quantity": 10,
+      "totalPrice": 220.000
+    },
+    {
+      "id": 6,
+      "customerId": 6,
+      "productId": 8,
+      "date": "2023-04-30",
+      "quantity": 4,
+      "totalPrice": 232.000
+    },
+    {
+      "id": 7,
+      "customerId": 7,
+      "productId": 6,
+      "date": "2023-04-26",
+      "quantity": 11,
+      "totalPrice": 363.000
+    },
+    {
+      "id": 8,
+      "customerId": 8,
+      "productId": 7,
+      "date": "2023-06-12",
+      "quantity": 6,
+      "totalPrice": 171.000
+    },
+    {
+      "id": 9,
+      "customerId": 9,
+      "productId": 10,
+      "date": "2023-07-12",
+      "quantity": 5,
+      "totalPrice": 394.000
+    },
+    {
+      "id": 10,
+      "customerId": 10,
+      "productId": 3,
+      "date": "2023-05-30",
+      "quantity": 8,
+      "totalPrice": 228.000
+    },
+    {
+      "id": 11,
+      "customerId": 11,
+      "productId": 6,
+      "date": "2023-08-03",
+      "quantity": 6,
+      "totalPrice": 198.000
+    },
+    {
+      "id": 12,
+      "customerId": 12,
+      "productId": 8,
+      "date": "2023-03-24",
+      "quantity": 7,
+      "totalPrice": 406.000
+    },
+    {
+      "id": 13,
+      "customerId": 7,
+      "productId": 11,
+      "date": "2023-06-12",
+      "quantity": 6,
+      "totalPrice": 210.000
+    },
+    {
+      "id": 14,
+      "customerId": 8,
+      "productId": 2,
+      "date": "2023-03-29",
+      "quantity": 9,
+      "totalPrice": 121.500
+    },
+    {
+      "id": 15,
+      "customerId": 4,
+      "productId": 10,
+      "date": "2023-02-22",
+      "quantity": 7,
+      "totalPrice": 551.600
+    },
+    {
+      "id": 16,
+      "customerId": 9,
+      "productId": 3,
+      "date": "2023-07-30",
+      "quantity": 6,
+      "totalPrice": 171.000
+    },
+    {
+      "id": 17,
+      "customerId": 5,
+      "productId": 6,
+      "date": "2023-05-27",
+      "quantity": 6,
+      "totalPrice": 198.000
+    }
+  ]
 }
