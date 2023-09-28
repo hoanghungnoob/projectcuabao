@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- style -->
     <link rel="stylesheet" href="./product_detail.css">
+    <link rel="stylesheet" href="/page/homePage/home.css">
     <!-- font text -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,10 +31,26 @@
 </head>
 
 <body>
-    <header>
-        header
-    </header>
-    <main>
+    <div class="header">
+        <div class="logo">
+            <img src="/images/img_icon/logo_coffe.svg" alt="">
+        </div>
+        <div class="search">
+            <i class="fa-solid fa-magnifying-glass icon-search"></i>
+            <input type="text" placeholder="Search" class="input-field">
+        </div>
+        <div class="listmenu">
+            <div><a href="#" class="menuitem">Home</a></div>
+            <div><a href="#" class="menuitem">Contact Us</a></div>
+            <div><a href="#" class="menuitem">Order</a></div>
+            <div><a href="#" class="menuitem">History</a></div>
+        </div>
+        <div class="listmenu">
+            <div><a href="#" class="menuitem">Login</a></div>
+            <div><a href="#" class="menuitem">Sign up</a></div>
+        </div>
+    </div>
+    <main class="main">
         <div class="container__productDetail" id="container__productDetail">
             <!-- photo's area -->
             <div class="con_item_productDetail">
@@ -100,9 +117,44 @@
         </div>
     </main>
 
-    <footer>
-        footer
-    </footer>
+    <div class="footer">
+        <div class="row-first">
+            <div class="row-first-content">Get in Touch with Us</div>
+        </div>
+        <div class="row-final">
+            <div class="menu-footer">
+                <div class="menu-footer-item">
+                    <div class="footer-item-heading">Merchandise</div>
+                    <div class="footer-item-paragrap">T-shirts</div>
+                    <div class="footer-item-paragrap">Caps</div>
+                    <div class="footer-item-paragrap">Masks</div>
+                </div>
+                <div class="menu-footer-item">
+                    <div class="footer-item-heading">Franchise</div>
+                    <div class="footer-item-paragrap">Coffee Outlet</div>
+                    <div class="footer-item-paragrap">Coffee Vending Machine</div>
+                    <div class="footer-item-paragrap">Contact Us</div>
+                </div>
+                <div class="menu-footer-item">
+                    <div class="footer-item-heading">About us</div>
+                    <div class="footer-item-paragrap"><a href="#">Promotions</a></div>
+                    <div class="footer-item-paragrap">Customer Care</div>
+                    <div class="footer-item-paragrap">Legal Information</div>
+                    <div class="footer-item-paragrap">Achievements </div>
+                    <div class="footer-item-paragrap">Careers</div>
+                </div>
+                <div class="menu-footer-item">
+                    <div class="footer-item-heading">Follow us</div>
+                    <div class="icon-footer">
+                        <div class="icon-footer-item"><i class="fa-brands fa-instagram"></i></div>
+                        <div class="icon-footer-item"><i class="fa-brands fa-facebook"></i></div>
+                        <div class="icon-footer-item"><i class="fa-brands fa-twitter"></i></i></div>
+                        <div class="icon-footer-item"><i class="fa-brands fa-pinterest"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="/services/product_detail.js"></script>
 </body>
 
