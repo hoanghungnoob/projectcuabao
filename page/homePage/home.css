@@ -37,7 +37,7 @@
 
 #card{
     width: auto;
-    height: 550px;
+    height: 600px;
     margin-bottom: 30px;
     text-decoration: none;
     color: var(--brown-dark);
@@ -61,7 +61,7 @@
     width: 100%;
     object-fit: cover;
     margin-bottom: 10px;
-    height: 70%;
+    height: 60%;
 }
 
 .descriptiom_and_btn{
@@ -69,8 +69,9 @@
 
     width: 100%;
     /* height: 200px; */
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+   
+    align-items: start;
     gap: 10px;
 
 }
@@ -83,7 +84,7 @@
     width: 70%;
 }
 .descriptiom_and_btn button{
-    width:100px;
+    width:100%;
     height: 60px;
     border: 0 solid;
     /* background-color: var(--orange-color); */
