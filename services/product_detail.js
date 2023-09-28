@@ -37,26 +37,11 @@ fetch("/database/db.json")
                     document.getElementById('item__img1').src = element.image;
                     document.getElementById('item__img2').src = element.image;
                     document.getElementById('item__img3').src = element.image;
+                    document.getElementById('new__price').innerHTML = "$" + element.newPrice ;
+                    document.getElementById('old__price').innerHTML ="$" +  element.oldPrice;
+
                     document.getElementById('describe').innerHTML = element.description;
 
-                    // productDetailHTML = `
-                    
-                    //      <div class="product">
-                    //          <h2>${element.name}</h2>
-                    //          <p>Description: ${element.description}</p>
-                    //          <p>Old Price: ${element.oldPrice}</p>
-                    //          <p>New Price: ${element.newPrice}</p>
-                    //          <p>Quantity: ${element.quantity}</p>
-                    //          <img src="${element.image}" alt="${element.name}">
-                    //          <img src="${element.image}" alt="${element.name}">
-                    //          <img src="${element.image}" alt="${element.name}">
-                    //          <img src="${element.image}" alt="${element.name}">
-
-                    //      </div>
-                    //  `;
-                     
-
-                    // document.getElementById("product-detail").innerHTML = productDetailHTML;
                 } else {
                     document.getElementById("product-detail").innerHTML = "Product not found.";
                 }
