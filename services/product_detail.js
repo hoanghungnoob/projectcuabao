@@ -33,10 +33,10 @@ fetch("/database/db.json")
 
                 if (product) {
                     document.getElementById('product__name').innerHTML = element.name;
-                    document.getElementById('main__img').src = element.image;
-                    document.getElementById('item__img1').src = element.image;
-                    document.getElementById('item__img2').src = element.image;
-                    document.getElementById('item__img3').src = element.image;
+                    document.getElementById('main__img').src = element.image1;
+                    document.getElementById('item__img1').src = element.image2;
+                    document.getElementById('item__img2').src = element.image3;
+                    document.getElementById('item__img3').src = element.image1;
                     document.getElementById('new__price').innerHTML = "$" + element.newPrice ;
                     document.getElementById('old__price').innerHTML ="$" +  element.oldPrice;
 

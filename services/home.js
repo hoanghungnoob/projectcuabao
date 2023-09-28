@@ -9,8 +9,8 @@
                     return `
                     <a target="_blank" id="card" href="/page/product_detail/product_detail.html?id=${product.id} ">
                         <div class="product">
-                            <p id="evaluate">4.8<i class="material-symbols-outlined">star</i></p>
-                            <img id="main_img" src="${product.image}" alt="${product.name}">
+                            <p id="evaluate">${product.productReviews}<i class="material-symbols-outlined">star</i></p>
+                            <img id="main_img" src="${product.image1}" alt="${product.name}">
                             <h2>${product.name}</h2>
                             <div class="price">
                                 <p>$${product.newPrice}</p>
@@ -36,5 +36,12 @@
                         ${productHTML.join("")}
                     </div>
                 `;
+                document.getElementById("card_top").innerHTML = `
+                    <div class="product-container_top">
+                        ${productHTML.join("")}
+                    </div>
+                `;
+                
+
 
             });
