@@ -44,6 +44,7 @@ body {
     justify-content: space-between;
     z-index: 1;
     transition: all 0.5 ease;
+    top: 0;
     padding-top: 30px;
     padding-bottom: 30px;
     font-weight: 400;
@@ -122,7 +123,7 @@ span{
     color: #FF902B;
 }
 p{
-    color: #7E7D7A;
+    color: #000000;
     font-size: 18px;
     font-weight: 400;
     margin-top: 30px;
