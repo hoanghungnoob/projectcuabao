@@ -17,6 +17,7 @@ function decrement() {
 
 }
 
+
 // JavaScript code
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('id');
@@ -33,14 +34,25 @@ fetch("/database/db.json")
 
                 if (product) {
                     document.getElementById('product__name').innerHTML = element.name;
-                    document.getElementById('main__img').src = element.image;
-                    document.getElementById('item__img1').src = element.image;
-                    document.getElementById('item__img2').src = element.image;
-                    document.getElementById('item__img3').src = element.image;
-                    document.getElementById('new__price').innerHTML = "$" + element.newPrice ;
-                    document.getElementById('old__price').innerHTML ="$" +  element.oldPrice;
+                    document.getElementById('main__img').src = element.image1;
+                    document.getElementById('item__img1').src = element.image2;
+                    document.getElementById('item__img2').src = element.image3;
+                    document.getElementById('item__img3').src = element.image1;
+                    document.getElementById('new__price').innerHTML = "$" + element.newPrice;
+                    document.getElementById('old__price').innerHTML = "$" + element.oldPrice;
 
                     document.getElementById('describe').innerHTML = element.description;
+                    // Đánh giá sản phẩm (từ 1 đến 5)
+                    var rating = element.productReviews; // Đây chỉ là ví dụ, bạn có thể thay đổi giá trị này.
+
+                    // Lấy tất cả các ngôi sao
+                    var stars = document.getElementsByClassName("star");
+
+                    // Lặp qua từng ngôi sao và làm cho các ngôi sao tương ứng sáng lên
+                    for (var i = 0; i < rating; i++) {
+                        stars[i].classList.add("selected");
+                    }
+
 
                 } else {
                     document.getElementById("product-detail").innerHTML = "Product not found.";
@@ -48,44 +60,4 @@ fetch("/database/db.json")
             }
 
         });
-    });
-
-    // JavaScript code
-    fetch("/database/db.json")
-    .then((res) => res.json())
-    .then((data) => {
-        const productList = data.product;
-
-        const productHTML = productList.map((product) => {
-            return `
-            <a target="_blank" id="card" href="/page/product_detail/product_detail.html?id=${product.id} ">
-                <div class="product">
-                    <p id="evaluate">4.8<i class="material-symbols-outlined">star</i></p>
-                    <img id="main_img" src="${product.image}" alt="${product.name}">
-                    <h2>${product.name}</h2>
-                    <div class="price">
-                        <p>$${product.newPrice}</p>
-                        <p>$${product.oldPrice}</p>
-                    </div>
-                    <div class="descriptiom_and_btn">
-                        <p>${product.description}</p>
-                        <button><i id="icon_cart" class="fas fa-shopping-cart"></i></button>
-                    </div>
-                </div></a>
-               
-            `;
-        });
-
-        // Gắn nối chuỗi HTML vào phần tử có id "product"
-        document.getElementById("product").innerHTML = `
-            <div class="product-container">
-                ${productHTML.join("")}
-            </div>
-        `;
-        document.getElementById("product1").innerHTML = `
-            <div class="product-container">
-                ${productHTML.join("")}
-            </div>
-        `;
-
     });
