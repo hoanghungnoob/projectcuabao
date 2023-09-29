@@ -28,7 +28,9 @@
     font-weight: 600;
     word-wrap: "break-word"
 }
-
+body {
+    overflow-x: hidden;
+  }
 .header{
     width: 100%;
     display: grid;
@@ -53,6 +55,7 @@
     font-family: 'Poppins';
 
 }
+
 .menuitem{
     color: black;
     font-size: 18px;
@@ -60,6 +63,7 @@
     font-weight: 400;
     word-wrap: break-word
 }
+
 .menuitem:hover{
     color:#FF902B;
     transition: all;

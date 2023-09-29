@@ -13,8 +13,8 @@
                             <img id="main_img" src="${product.image1}" alt="${product.name}">
                             <h2>${product.name}</h2>
                             <div class="price">
-                                <p>$${product.newPrice}</p>
-                                <p>$${product.oldPrice}</p>
+                                <p>${product.newPrice}</p>
+                                <p>${product.oldPrice}</p>
                             </div>
                             <div class="descriptiom_and_btn">
                                 <p>${product.description}</p>
