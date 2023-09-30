@@ -28,7 +28,8 @@
       "phoneNumber": "0397208980",
       "address": "Mai Son village Ba Long commune Dakrong district Quang Tri province",
       "roleId": 2,
-      "email":"mai.ho25@student.com"
+      "email":"mai.ho25@student.com",
+      "password": "mai.com123"
       
     },
     {
@@ -37,7 +38,8 @@
       "phoneNumber": "0397456231",
       "address": "101B Le Huu Trac, Son Tra district, Da Nang city",
       "roleId": 2,
-      "email":"hue.ho25@student.com"
+      "email":"hue.ho25@student.com",
+      "password":"hue.com123"
     },
     {
       "id": 3,
@@ -45,7 +47,8 @@
       "phoneNumber": "0123456231",
       "address": "Lang Cat village Mo O commune Dakrong district Quang Tri province",
       "roleId": 2,
-      "email":"tuyen.nguyen25@student.com"
+      "email":"tuyen.nguyen25@student.com",
+      "password":"tuyen.com123"
     },
     {
       "id": 4,
@@ -53,7 +56,8 @@
       "phoneNumber": "0125437681",
       "address": "101B Le Huu Trac, Son Tra district, Da Nang city",
       "roleId": 2,
-      "email":"bao.ho25@student.com"
+      "email":"bao.ho25@student.com",
+      "password":"bao.com123"
     },
     {
       "id": 5,
@@ -61,7 +65,8 @@
       "phoneNumber": "0123432431",
       "address": "Chan Ro village Dakrong commune Dakrong district Quang Tri province",
       "roleId": 2,
-      "email":"thi.ho25@student.com"
+      "email":"thi.ho25@student.com",
+      "password":"thi.com123"
     },
     {
       "id": 6,
@@ -69,7 +74,8 @@
       "phoneNumber": "0123432111",
       "address": "56 Phuoc My ward Son Tra district Da Nang city",
       "roleId": 2,
-      "email":"huyen.ho25@student.com"
+      "email":"huyen.ho25@student.com",
+      "password":"huyen.com123"
     },
     {
       "id": 7,
@@ -77,7 +83,8 @@
       "phoneNumber": "0123432222",
       "address": "56 Phuoc My ward Son Tra district Da Nang city",
       "roleId": 2,
-      "email":"liu.ho25@student.com"
+      "email":"liu.ho25@student.com",
+      "password":"liu.com123"
     },
     {
       "id": 8,
@@ -85,7 +92,8 @@
       "phoneNumber": "0123432444",
       "address": "101B Le Huu Trac Son Tra district Da Nang city",
       "roleId": 2,
-      "email":"nien.to25@student.com"
+      "email":"nien.to25@student.com",
+      "password":"nien.com123"
     },
     {
       "id": 9,
@@ -93,7 +101,8 @@
       "phoneNumber": "0123432666",
       "address": "Lang Cat village Mo O commune Dakrong district Quang Tri province",
       "roleId": 2,
-      "email":"rina.ho25@student.com"
+      "email":"rina.ho25@student.com",
+      "password":"rina.com123"
       
     },
     {
@@ -102,7 +111,8 @@
       "phoneNumber": "0123432888",
       "address": "56 Phuoc My ward Son Tra district Da Nang city",
       "roleId": 2,
-      "email":"duyen.ho25@student.com"
+      "email":"duyen.ho25@student.com",
+      "password":"duyen.com123"
     },
     {
       "id": 11,
@@ -110,7 +120,8 @@
       "phoneNumber": "0124782999",
       "address": "101B Le Huu Trac Son Tra district Da Nang city",
       "roleId": 2,
-      "email":"thao.ho25@student.com"
+      "email":"thao.ho25@student.com",
+      "password":"thao.com123"
     },
     {
       "id": 12,
@@ -118,7 +129,8 @@
       "phoneNumber": "0123432111",
       "address": "56 Phuoc My ward Son Tra district Da Nang city",
       "roleId": 2,
-      "email":"linh.ho25@student.com"
+      "email":"linh.ho25@student.com",
+      "password":"linh.com123"
     }
   ],
   "product": [
