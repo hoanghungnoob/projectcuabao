@@ -30,6 +30,8 @@
 }
 body {
     overflow-x: hidden;
+    width: 100%;
+    margin: 0 auto;
   }
 .header{
     width: 100%;
@@ -566,7 +568,13 @@ padding: 6px;
     font-weight: 500;
     line-height: normal;
 }
+.title1{
+     left: -5px;
+}
+.title2{
 
+    margin-bottom: 30px;
+}
 /* bao update code */
 :root{
     --while-color : #ffff;
@@ -627,22 +635,50 @@ padding: 6px;
     color: var(--brown-dark);
 }
 
-
+/* 
 
 .product{
-    width: 100%;
+    width: 90%;
     height: 450px;
     background-color: rgb(255, 255, 255);
-    border: 1px solid #ccc;
    padding: 10px;
    position: relative;
+
 
 
 }
 .product:hover {
     transform: scale(1.03);
+    
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2), 0px 0px 20px rgba(0, 0, 0, 0.15);
+} */
+.product {
+    width: 90%;
+    height: 450px;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product:hover {
+    transform: scale(1.03);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2), 0px 0px 20px rgba(0, 0, 0, 0.15);
 }
+
+
+
+.product:hover::before {
+    opacity: 1;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+}
+
+
+
 /* .product div:first-child{
     margin: 0;
     padding: 0;
@@ -677,20 +713,34 @@ padding: 6px;
     margin: 0;
     margin-bottom: 5px;
 }
+.descriptiom_and_btn div{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    gap: 15px;
+}
 .descriptiom_and_btn button{
-    width:100%;
-    height: 60px;
+    cursor: pointer;
+    width:50%;
+    height: 50px;
     border: 0 solid;
     /* background-color: var(--orange-color); */
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+
 
    
     
 }
 #icon_cart{
-    color: var(--orange-color);
+    color: black;
     font-size: var(--font-size-heading2);
+    width: 30px;
+
 }
 .product:hover .descriptiom_and_btn button #icon_cart{
     color: var(--while-color);
@@ -729,3 +779,78 @@ padding: 6px;
 #evaluate i{
     color: var(--orange-color);
 }
+
+/* side bar */
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #000000;
+    display: block;
+    transition: 0.3s;
+    margin: 10px;
+  }
+  
+  .sidenav a:hover {
+    color: var(--orange-color);
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  #open_sideBar{
+    display: none;
+  }
+  #opacity{
+    width: 100%;
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: #00000057;
+    visibility: visible;
+    display: none;
+
+  }
+
+
+@media only screen and (min-width: 740px) and (max-width: 1024px) {
+      .sidenav {padding-top: 15px;}
+      .sidenav a {font-size: 18px;}
+      #open_sideBar{
+        display: block;
+      }
+      .listmenu{
+        display: none;
+      }
+
+  }
+
+  @media only screen and (max-width: 739px) {
+    #open_sideBar{
+        display: block;
+      }
+      .listmenu{
+        display: none;
+      }
+  }

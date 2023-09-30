@@ -38,8 +38,8 @@ fetch("/database/db.json")
                     document.getElementById('item__img1').src = element.image2;
                     document.getElementById('item__img2').src = element.image3;
                     document.getElementById('item__img3').src = element.image1;
-                    document.getElementById('new__price').innerHTML = "$" + element.newPrice;
-                    document.getElementById('old__price').innerHTML = "$" + element.oldPrice;
+                    document.getElementById('new__price').innerHTML = element.newPrice + " VND";
+                    document.getElementById('old__price').innerHTML = element.oldPrice + " VND";
 
                     document.getElementById('describe').innerHTML = element.description;
                     // Đánh giá sản phẩm (từ 1 đến 5)
