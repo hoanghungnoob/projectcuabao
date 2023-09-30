@@ -27,84 +27,98 @@
       "name": "Ho Thi Mai",
       "phoneNumber": "0397208980",
       "address": "Mai Son village Ba Long commune Dakrong district Quang Tri province",
-      "roleId": 2
+      "roleId": 2,
+      "email":"mai.ho25@student.com"
+      
     },
     {
       "id": 2,
       "name": "Ho Thi Hue",
       "phoneNumber": "0397456231",
       "address": "101B Le Huu Trac, Son Tra district, Da Nang city",
-      "roleId": 2
+      "roleId": 2,
+      "email":"hue.ho25@student.com"
     },
     {
       "id": 3,
       "name": "Nguyen Thi Kim Tuyen",
       "phoneNumber": "0123456231",
       "address": "Lang Cat village Mo O commune Dakrong district Quang Tri province",
-      "roleId": 2
+      "roleId": 2,
+      "email":"tuyen.nguyen25@student.com"
     },
     {
       "id": 4,
       "name": "Pham Gia Bao",
       "phoneNumber": "0125437681",
       "address": "101B Le Huu Trac, Son Tra district, Da Nang city",
-      "roleId": 2
+      "roleId": 2,
+      "email":"bao.ho25@student.com"
     },
     {
       "id": 5,
       "name": "Ho Thi Nguyen Thi",
       "phoneNumber": "0123432431",
       "address": "Chan Ro village Dakrong commune Dakrong district Quang Tri province",
-      "roleId": 2
+      "roleId": 2,
+      "email":"thi.ho25@student.com"
     },
     {
       "id": 6,
       "name": "Ho Mai Huyen",
       "phoneNumber": "0123432111",
       "address": "56 Phuoc My ward Son Tra district Da Nang city",
-      "roleId": 2
+      "roleId": 2,
+      "email":"huyen.ho25@student.com"
     },
     {
       "id": 7,
       "name": "Ho Thi Liu",
       "phoneNumber": "0123432222",
       "address": "56 Phuoc My ward Son Tra district Da Nang city",
-      "roleId": 2
+      "roleId": 2,
+      "email":"liu.ho25@student.com"
     },
     {
       "id": 8,
       "name": "To Ngol Nien",
       "phoneNumber": "0123432444",
       "address": "101B Le Huu Trac Son Tra district Da Nang city",
-      "roleId": 2
+      "roleId": 2,
+      "email":"nien.to25@student.com"
     },
     {
       "id": 9,
       "name": "Kasor Rina",
       "phoneNumber": "0123432666",
       "address": "Lang Cat village Mo O commune Dakrong district Quang Tri province",
-      "roleId": 2
+      "roleId": 2,
+      "email":"rina.ho25@student.com"
+      
     },
     {
       "id": 10,
       "name": "Dinh Thi Duyen",
       "phoneNumber": "0123432888",
       "address": "56 Phuoc My ward Son Tra district Da Nang city",
-      "roleId": 2
+      "roleId": 2,
+      "email":"duyen.ho25@student.com"
     },
     {
       "id": 11,
       "name": "Le Van Thao",
       "phoneNumber": "0124782999",
       "address": "101B Le Huu Trac Son Tra district Da Nang city",
-      "roleId": 2
+      "roleId": 2,
+      "email":"thao.ho25@student.com"
     },
     {
       "id": 12,
       "name": "Ho Thi Linh",
       "phoneNumber": "0123432111",
       "address": "56 Phuoc My ward Son Tra district Da Nang city",
-      "roleId": 2
+      "roleId": 2,
+      "email":"linh.ho25@student.com"
     }
   ],
   "product": [
