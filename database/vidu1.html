@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Thêm liên kết CSS của Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Tùy chỉnh CSS */
+        .container {
+            margin-top: 20px;
+        }
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .image-container img {
+            width: 48%;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="d-flex justify-content-between">
+                <div class="logo">
+                    <img src="/images/img_icon/logo_coffe.svg" alt="">
+                </div>
+                <div class="search">
+                    <i class="fas fa-search icon-search"></i>
+                    <input type="text" placeholder="Search" class="form-control input-field">
+                </div>
+                <div class="listmenu">
+                    <a href="/page/homePage/home.html" class="menuitem">Home</a>
+                    <a href="#" class="menuitem">Contact Us</a>
+                    <a href="#" class="menuitem">Order</a>
+                    <a href="#" class="menuitem">History</a>
+                </div>
+                <div class="listmenu">
+                    <a href="#" class="menuitem">Login</a>
+                    <a href="#" class="menuitem">Sign up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="image-container d-flex">
+                  <img src="https://img.taste.com.au/UHFv39Ks/taste/2020/05/jun20_vietnamese-iced-coffee-161761-1.jpg" alt="ice coffee">
+                  <div class="content d-flex flex-column justify-content-between align-items-start">
+                    <div>
+                      <h1>Ice coffee</h1>
+                      <p>The classic Vietnamese pick-me-up combo of rich black coffee and condensed milk is made ready for.</p>
+                      <p>x1</p>
+                      <p>$35 $19</p>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <p>Total: $23</p>
+                      <div class="buttons">
+                        <button id="product__btn__buy" class="btn btn-primary btn_buy_qtt" type="button" onclick="buy()">Buy again</button>
+                        <button id="product__btn__detail" class="btn btn-secondary btn_detail_qtt" type="button" onclick="detail()">Product detail</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          <div class="col-md-12">
+            <div class="image-container">
+              <img src="https://i.guim.co.uk/img/media/3eb709d3ba0e7b1e121ac0efd934c9128eeec873/0_0_4631_2778/master/4631.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=1ac5ad1bcf791576f845e60bc3fdd58a" alt="Black-coffee">
+              <div class="content">
+                <h1>Milk coffee</h1>
+                <p>Milk coffee is a category of coffee-based drinks made with milk. Johan Nieuhof, the Dutch ambassador to China, is credited as the first person to drink.</p>
+                <p>x1</p>
+                <p>$40 $25</p>
+                <p>Total: $30</p>
+                <div class="buttons">
+                  <button id="product__btn__buy" class="btn btn-primary btn_buy_qtt" type="button" onclick="buy()">Buy again</button>
+                  <button id="product__btn__detail" class="btn btn-secondary btn_detail_qtt" type="button" onclick="detail()">Product detail</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- Thêm liên kết các script của Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+   
