@@ -1,13 +1,15 @@
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
     document.getElementById("opacity").style.display = "block";
-  }
-  
-  function closeNav() {
+    document.getElementById('open_sideBar').style.opacity = 0;
+}
+
+function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("opacity").style.display = "none";
+    document.getElementById('open_sideBar').style.opacity = 1;
 
-  }
+}
 // JavaScript code
 fetch("/database/db.json")
     .then((res) => res.json())
@@ -17,7 +19,7 @@ fetch("/database/db.json")
         const productHTML = productList.map((product) => {
             return `
             <div class="product">
-            <a target="_blank" id="card" href="/page/product_detail/product_detail.html?id=${product.id} ">
+                    <a target="_blank" id="card" href="/page/product_detail/product_detail.html?id=${product.id} ">
                             <p id="evaluate">${product.productReviews}<i class="material-symbols-outlined">star</i></p>
                             <img id="main_img" src="${product.image1}" alt="${product.name}">
                             <h2>${product.name}</h2>
@@ -60,3 +62,12 @@ fetch("/database/db.json")
 
 
     });
+    const menuIcon = document.querySelector(".navbar_menu-icon")
+    const navList = document.querySelector(".navbar__ul");
+    menuIcon.addEventListener('click', () => {
+        menuIcon.classList.toggle("active");
+        navList.classList.toggle("active")
+    
+    })
+    
+    
