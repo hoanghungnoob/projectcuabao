@@ -40,7 +40,6 @@ fetch("/database/db.json")
                     document.getElementById('item__img3').src = element.image1;
                     document.getElementById('new__price').innerHTML = element.newPrice + " VND";
                     document.getElementById('old__price').innerHTML = element.oldPrice + " VND";
-
                     document.getElementById('describe').innerHTML = element.description;
                     // Đánh giá sản phẩm (từ 1 đến 5)
                     var rating = element.productReviews; // Đây chỉ là ví dụ, bạn có thể thay đổi giá trị này.

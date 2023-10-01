@@ -33,25 +33,6 @@ body {
     margin: 0 auto;
 }
 
-.header {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 20% 30% 30% 20%;
-    background-color: #ffffff;
-    position: fixed;
-    padding-top: 10px;
-    padding-left: 70px;
-    padding-right: 0px;
-    top: 0;
-    justify-content: space-between;
-    z-index: 1;
-    transition: all 0.5 ease;
-    top: 0;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    font-weight: 400;
-}
-
 
 .container {
     background-color: rgb(144, 82, 0);
@@ -317,9 +298,9 @@ p {
     height: 484px;
     margin-top: 14%;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/images/img_product/about-background.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 
 }
 
@@ -335,7 +316,7 @@ p {
     background-image: url(/images/img_product/annie-spratt-QckxruozjRg-unsplash.jpg);
     background-size: cover;
     -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
 }
 
 /* .about-us-image{
@@ -358,7 +339,8 @@ p {
     margin-right: 110px;
     color: var(--white-color);
 }
-.dicription-about-us div{
+
+.dicription-about-us div {
     color: var(--white-color);
     font-weight: bolder;
 }
@@ -685,14 +667,15 @@ p {
     padding: 10px;
     position: relative;
     transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 19px 0px;
 }
 
 .product:hover {
-    transform: scale(1.03);
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 15px 50px 4px;
+
+    transform: scale(1.05);
+    transition: all 0.2s ease;
+
 }
-
-
 
 .product:hover::before {
     opacity: 1;
@@ -872,6 +855,3 @@ p {
     display: none;
 
 }
-
-
-
