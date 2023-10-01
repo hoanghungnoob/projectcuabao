@@ -20,7 +20,7 @@ fetch("/database/db.json")
             return `
             <div class="product">
                     <a target="_blank" id="card" href="/page/product_detail/product_detail.html?id=${product.id} ">
-                            <p id="evaluate">${product.productReviews}<i class="material-symbols-outlined">star</i></p>
+                            <p id="evaluate1">${product.productReviews}<i class="material-symbols-outlined">star</i></p>
                             <img id="main_img" src="${product.image1}" alt="${product.name}">
                             <h2>${product.name}</h2>
                             <div class="price">

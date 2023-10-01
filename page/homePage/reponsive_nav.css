@@ -52,27 +52,27 @@
 .navbar ul {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 3.5rem;
+    justify-content: space-evenly;
+   
     flex-wrap: nowrap;
     transition: .5s;
+    width: 60%;
+    gap: 0;
 }
-
 .navbar ul li {
     list-style: none;
     transition: .5s;
-
-}
-
-
-.navbar ul li a {
-    color: white;
+    width: max-content;
+  }
+  
+  .navbar ul li a {
+    display: flex;
+    align-items: center; /* Căn icon và nội dung ngang thẳng với nhau */
+    color: rgb(0, 0, 0);
     text-decoration: none;
-
-    font-weight: 500;
-
     position: relative;
-}
+    gap: 5px;
+  }
 
 .navbar ul li a:hover {
     color: var(--orange-color);
@@ -176,7 +176,7 @@
 /* input search and icon search here */
 .search-container {
     margin-right: 20px;
-    width: 35%;
+    width: 20%;
     display: flex;
     position: relative;
 
@@ -369,11 +369,37 @@
         border-radius: 10px;
 
     }
+    #open_sideBar {
+        opacity: 1;
+        display: block;
 
+    }
 
+    .listmenu {
+        display: none;
+    }
 
-
-
+    .product {
+        width: 95%;
+        margin: 0 auto;
+    }
+    .delivery>h2 {
+        font-size: 30px;
+    }
+    .about-image{
+        width :90% ;
+        margin-left: 30px;
+    }
+    .about-us-background{
+        margin-top: 200px;
+        
+    }
+    .about-us{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
 }
 
 /* screen of tablet */
@@ -433,6 +459,35 @@
     .navbar ul li a {
         font-size: 20px;
         line-height: 2;
+    }
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+
+    #open_sideBar {
+        opacity: 1;
+        display: block;
+        position: relative;
+        right: 20px;
+    }
+
+    .product {
+        width: 90%;
+        margin: 0 auto;
+
+    }
+
+    #product {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    .about-image{
+        width :57% ;
+        margin-left: 30px;
     }
 
 
