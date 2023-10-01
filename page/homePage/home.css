@@ -325,7 +325,8 @@ p {
     justify-content: space-around;
     margin: 0;
     background-color: red;
-    ba
+    background: url(/images/img_product/annie-spratt-QckxruozjRg-unsplash.jpg) no-repeat;
+    background-size: cover;
 }
 
 /* .about-us-image{
