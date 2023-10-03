@@ -52,7 +52,7 @@ margin-right: 50px;
 
 }
 .buttons {
-margin-bottom: 30px;
+margin-bottom: 20px;
 }
 #product__btn__buy {
 padding-bottom: 2px;
@@ -60,6 +60,7 @@ color:black;
 background-color:#ff902a;
 border:none;
 font-size: var(--font-size-heading3);
+margin-right: 50px;
 
 }
 #product__btn__detail {
@@ -67,7 +68,7 @@ padding-bottom: 2px;
 padding-right: 3px;
 padding-left: 3px;
 font-size: var(--font-size-heading3);
-margin-left: 40px;
+margin-right: 200px;
 color:black;
 background-color:white;
 border-color: black;
