@@ -1,24 +1,25 @@
 .contact{
   height: 90vh;
   padding: 20px;
-  margin-top: 100px;
+  margin-top: 40px;
   background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(/images/img_icon/lgbtqia2+-life.svg);
   
 }
-
 .container_contact {
-  margin-top: 300px;
-  max-width: 600px;
+  max-width: 900px;
   height: 98%;
   margin: 0 auto;
   border-radius: 5px;
   padding: 20px;
-  background-color: rgba(170, 170, 170, 0.826);
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
+  background-image: url(/images/img_icon/person-passing-through-a-location.svg);
 
 }
-
 h1 {
   text-align: center;
   color: #333;
@@ -66,4 +67,72 @@ button[type="submit"]:hover {
   border: 1px solid #3c763d;
   color: #3c763d;
   border-radius: 4px;
+}
+
+/*  */#successMessage, #errorMessage {
+  display: none;
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 30px;
+}
+
+#errorMessage {
+  background-color: red;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#successMessage.show, #errorMessage.show {
+  display: block;
+  animation: fade-in 0.5s ease-in-out forwards, spin 3s linear 0.5s forwards;
+  animation-delay: 0.5s;
+}
+
+#successMessage.hide, #errorMessage.hide {
+  animation: fade-out 0.5s ease-in-out forwards, spin-back 0.5s linear;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes spin-back {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.team{
+   margin-top: 40px;
+}
+.myTeam{
+  margin-top: 150px;
+  text-align: center;
+  font-weight: bolder;
+  color: var(--orange-color);
 }

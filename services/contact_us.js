@@ -1,34 +1,84 @@
-document.getElementById("contactForm").addEventListener("submit", function(event) {
-  event.preventDefault(); // Ngăn chặn gửi biểu mẫu
+function fetchCustomer() {
+  fetch("http://localhost:3000/customer")
+    .then((res) => res.json())
+    .then((data) => {
+      const productList = data;
+    });
+}
+function saveUser(event) {
+  var check = false;
+  event.preventDefault();
+  const userId = document.querySelector("#userId").value;
+  const nameCustomer = document.getElementById("name").value;
+  const emailCustomer = document.getElementById("email").value;
+  const phoneCustomer = document.getElementById("phone").value;
+  const messageCustomer = document.getElementById("message").value;
 
-  // Lấy dữ liệu từ biểu mẫu
-  var name = document.getElementById("name").value;
-  var email = document.getElementById("email").value;
-  var message = document.getElementById("phone").value;
-  var message = document.getElementById("message").value;
+  if (userId) {
+    fetch(`http://localhost:3000/contact/${userId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: nameCustomer,
+        phoneNumber: phoneCustomer,
+        email: emailCustomer,
+        message: messageCustomer,
+      }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          document.getElementById('successMessage').style.display = "block";
+          check = true;
+        } else {
+          document.getElementById('errorMessage').style.display = "block";
+          check = false;
 
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        document.getElementById('errorMessage').style.display = "block";
+        check = false;
 
-  // Tạo một đối tượng chứa dữ liệu
-  var data = {
-    name: name,
-    email: email,
-    phoneNumber: phone,
-    message: message
-  };
+      });
+  } else {
+    fetch("http://localhost:3000/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: nameCustomer,
+        phoneNumber: phoneCustomer,
+        email: emailCustomer,
+        message: messageCustomer,
+      }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          document.getElementById('successMessage').style.display = "block";
+          check = true;
 
-  // Lấy dữ liệu hiện có từ tệp JSON (nếu có)
-  var existingData = [];
-  if (localStorage.getItem("messages")) {
-    existingData = JSON.parse(localStorage.getItem("messages"));
+        } else {
+          document.getElementById('errorMessage').style.display = "block";
+          check = false;
+
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        document.getElementById('errorMessage').style.display = "block";
+        check = false;
+
+      });
   }
+}
 
-  // Thêm dữ liệu mới vào mảng
-  existingData.push(data);
+fetchCustomer();
 
-  // Lưu dữ liệu vào localStorage
-  localStorage.setItem("messages", JSON.stringify(existingData));
+const contactForm = document.getElementById("contactForm");
+contactForm.addEventListener("submit", saveUser);
 
-  document.getElementById("messageSent").style.display = "block";
-  document.getElementById("contactForm").reset();
-});
 

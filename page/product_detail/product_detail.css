@@ -503,3 +503,8 @@ body a {
     font-size: 100%;
     line-height: 2;
 }
+
+/*  */
+.secodary__img__item img{
+    cursor: pointer;
+}
