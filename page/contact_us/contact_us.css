@@ -5,9 +5,7 @@
   background-position: center;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background: url(/images/img_icon/lgbtqia2+-life.svg);
-  
+  align-items: center;  
 }
 .container_contact {
   max-width: 900px;
@@ -17,8 +15,7 @@
   padding: 20px;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
-  background-image: url(/images/img_icon/person-passing-through-a-location.svg);
-
+  background-color: rgb(249, 220, 165);
 }
 h1 {
   text-align: center;
