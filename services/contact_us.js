@@ -5,8 +5,8 @@ function fetchCustomer() {
       const productList = data;
     });
 }
+
 function saveUser(event) {
-  var check = false;
   event.preventDefault();
   const userId = document.querySelector("#userId").value;
   const nameCustomer = document.getElementById("name").value;
@@ -30,17 +30,15 @@ function saveUser(event) {
       .then((response) => {
         if (response.ok) {
           document.getElementById('successMessage').style.display = "block";
-          check = true;
+          
         } else {
           document.getElementById('errorMessage').style.display = "block";
-          check = false;
 
         }
       })
       .catch((error) => {
         console.error("Error:", error);
-        document.getElementById('errorMessage').style.display = "block";
-        check = false;
+        document.getElementById('errorMessage').style.display = "block"
 
       });
   } else {
@@ -59,18 +57,16 @@ function saveUser(event) {
       .then((response) => {
         if (response.ok) {
           document.getElementById('successMessage').style.display = "block";
-          check = true;
+          
 
         } else {
           document.getElementById('errorMessage').style.display = "block";
-          check = false;
 
         }
       })
       .catch((error) => {
         console.error("Error:", error);
-        document.getElementById('errorMessage').style.display = "block";
-        check = false;
+        document.getElementById('errorMessage').style.display = "block"
 
       });
   }

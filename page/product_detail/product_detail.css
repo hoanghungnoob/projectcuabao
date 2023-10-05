@@ -38,7 +38,7 @@ main {
     top: 0 !important;
     left: 0;
     width: 100%;
-    
+
 }
 
 
@@ -505,6 +505,6 @@ body a {
 }
 
 /*  */
-.secodary__img__item img{
+.secodary__img__item img {
     cursor: pointer;
 }

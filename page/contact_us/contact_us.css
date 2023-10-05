@@ -46,12 +46,13 @@ textarea {
   height: 100px;
 }
 
-button[type="submit"] {
-  background-color: #4CAF50;
+.container_contact button[type="submit"] {
+  background-color: orangered;
   color: #fff;
   border: none;
   padding: 10px 20px;
   border-radius: 4px;
+  margin-top: 20px;
   cursor: pointer;
 }
 
