@@ -1,0 +1,136 @@
+.contact{
+  height: 90vh;
+  padding: 20px;
+  margin-top: 40px;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+.container_contact {
+  max-width: 900px;
+  height: 98%;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 20px;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  background-color: rgb(249, 220, 165);
+}
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+label {
+  font-weight: bold;
+  color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+textarea {
+  height: 100px;
+}
+
+.container_contact button[type="submit"] {
+  background-color: orangered;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+#messageSent {
+  display: none;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #dff0d8;
+  border: 1px solid #3c763d;
+  color: #3c763d;
+  border-radius: 4px;
+}
+
+/*  */#successMessage, #errorMessage {
+  display: none;
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 30px;
+}
+
+#errorMessage {
+  background-color: red;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#successMessage.show, #errorMessage.show {
+  display: block;
+  animation: fade-in 0.5s ease-in-out forwards, spin 3s linear 0.5s forwards;
+  animation-delay: 0.5s;
+}
+
+#successMessage.hide, #errorMessage.hide {
+  animation: fade-out 0.5s ease-in-out forwards, spin-back 0.5s linear;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes spin-back {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.team{
+   margin-top: 40px;
+}
+.myTeam{
+  margin-top: 150px;
+  text-align: center;
+  font-weight: bolder;
+  color: var(--orange-color);
+}
