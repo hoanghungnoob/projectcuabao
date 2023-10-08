@@ -10,11 +10,11 @@ function closeNav() {
     document.getElementById('open_sideBar').style.opacity = 1;
 
 }
-// JavaScript code
 fetch("http://localhost:3000/product")
     .then((res) => res.json())
     .then((data) => {
         const productList = data;
+
         const productHTML = productList.map((product) => {
             return `
             <div class="product">
@@ -26,16 +26,17 @@ fetch("http://localhost:3000/product")
                                 <p>${product.newPrice} VND</p>
                                 <p>${product.oldPrice} VND</p>
                             </div>
-                            <div class="descriptiom_and_btn">
-                            <p>${product.description}</p>
-                            <div>
-                            
-                            <button>View</button>
-                            <button><i id="icon_cart" class="fas fa-shopping-cart"></i>Buy</button>
-                            
-                            </div>
-                            </div>
                             </a>
+                            <div class="descriptiom_and_btn">
+                                <p>${product.description}</p>
+                                <div>
+                                <a target="_self" href="/page/product_detail/product_detail.html?id=${product.id}">
+                                <button id="btn_view">View</button>
+                                </a>
+                                <a><button onclick="redirectToOrderPage(${product.id})"><i id="icon_cart" class="fas fa-shopping-cart"></i>Buy</button></a>
+
+                                </div>
+                                </div>
                             </div>
                        
                     `;
@@ -61,12 +62,10 @@ fetch("http://localhost:3000/product")
 
 
     });
-    const menuIcon = document.querySelector(".navbar_menu-icon")
-    const navList = document.querySelector(".navbar__ul");
-    menuIcon.addEventListener('click', () => {
-        menuIcon.classList.toggle("active");
-        navList.classList.toggle("active")
-    
-    })
-    
-    
+const menuIcon = document.querySelector(".navbar_menu-icon")
+const navList = document.querySelector(".navbar__ul");
+menuIcon.addEventListener('click', () => {
+    menuIcon.classList.toggle("active");
+    navList.classList.toggle("active")
+
+})
