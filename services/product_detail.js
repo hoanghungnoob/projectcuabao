@@ -31,7 +31,6 @@ fetch("/database/db.json")
             if (productId == element.id) {
                 product = true;
                 var productDetailHTML = '';
-
                 if (product) {
                     document.getElementById('product__name').innerHTML = element.name;
                     document.getElementById('main__img').src = element.image1;
