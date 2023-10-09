@@ -38,7 +38,7 @@ main {
     top: 0 !important;
     left: 0;
     width: 100%;
-    
+
 }
 
 
@@ -502,4 +502,9 @@ body a {
 .navbar ul li a {
     font-size: 100%;
     line-height: 2;
+}
+
+/*  */
+.secodary__img__item img {
+    cursor: pointer;
 }

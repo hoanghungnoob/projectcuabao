@@ -22,12 +22,11 @@ function decrement() {
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('id');
 
-fetch("/database/db.json")
+fetch("http://localhost:3000/product")
     .then((res) => res.json())
     .then((data) => {
         var product = false;
-        const productList = data.product;
-        data.product.forEach(element => {
+        data.forEach(element => {
             if (productId == element.id) {
                 product = true;
                 var productDetailHTML = '';
@@ -59,3 +58,8 @@ fetch("/database/db.json")
 
         });
     });
+
+
+    function choise_product(imgs) {
+        main__img.src = imgs.src;
+}

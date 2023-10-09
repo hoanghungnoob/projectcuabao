@@ -11,11 +11,10 @@ function closeNav() {
 
 }
 // JavaScript code
-fetch("/database/db.json")
+fetch("http://localhost:3000/product")
     .then((res) => res.json())
     .then((data) => {
-        const productList = data.product;
-
+        const productList = data;
         const productHTML = productList.map((product) => {
             return `
             <div class="product">
@@ -27,16 +26,16 @@ fetch("/database/db.json")
                                 <p>${product.newPrice} VND</p>
                                 <p>${product.oldPrice} VND</p>
                             </div>
-                            </a>
                             <div class="descriptiom_and_btn">
-                                <p>${product.description}</p>
-                                <div>
-                                
-                                 <button>View</button>
-                                <button><i id="icon_cart" class="fas fa-shopping-cart"></i>Buy</button>
-
-                                </div>
-                                </div>
+                            <p>${product.description}</p>
+                            <div>
+                            
+                            <button>View</button>
+                            <button><i id="icon_cart" class="fas fa-shopping-cart"></i>Buy</button>
+                            
+                            </div>
+                            </div>
+                            </a>
                             </div>
                        
                     `;
