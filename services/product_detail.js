@@ -63,3 +63,5 @@ fetch("http://localhost:3000/product")
     function choise_product(imgs) {
         main__img.src = imgs.src;
 }
+
+    
