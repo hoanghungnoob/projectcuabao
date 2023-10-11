@@ -134,3 +134,6 @@ button[type="submit"]:hover {
   font-weight: bolder;
   color: var(--orange-color);
 }
+#opacity{
+  background:#525252ea !important ;
+}

@@ -33,7 +33,7 @@
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #111 !important;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -133,15 +133,15 @@ body {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 18px;
-  color: #818181;
+  color: #afafaf !important;
   display: block;
   transition: 0.3s;
   padding: 20px;
 }
 
 .sidenav a:hover:not(a:first-child) {
-  font-size: 20px;
-  color: #f1f1f1;
+  font-size: 22px;
+  color: #ffffff !important;
   background-color: var(--orange-color);
 
 }
