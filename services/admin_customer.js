@@ -64,7 +64,6 @@ function fetchCustomers() {
     });
 }
 
-
 // Gọi hàm fetchCustomers để lấy danh sách khách hàng và gắn sự kiện click cho nút "Update" khi tải trang
 fetchCustomers();
 
