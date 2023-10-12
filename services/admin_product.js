@@ -38,7 +38,7 @@ function fetchProducts() {
 }
 fetchProducts();
 
-// Lấy giá trị từ các trường input
+// thêm sản phẩm vào datta
 function addProducts() {
   var add_productId = document.querySelector("#add_productID").value;
   var name_addproduct = document.querySelector('#nameInput_add').value;
@@ -50,19 +50,6 @@ function addProducts() {
   var image_add3 = document.querySelector('#imageFileInput3_add').value;
   var description = document.querySelector('#descriptionInput_add').value;
   const content_des = document.querySelector("#myModal_add #content-des").value;
-
-  console.log("add_productId:", add_productId);
-  console.log("name:", name_addproduct);
-  console.log("quantity:", quantity);
-  console.log("newPrice:", newPrice);
-  console.log("oldPrice:", oldPrice);
-  console.log("image_add1:", image_add1);
-  console.log("image_add2:", image_add2);
-  console.log("image_add3:", image_add3);
-  console.log("description:", description);
-  console.log("content_des:", content_des);
-
-
   var data = {
     name: name_addproduct,
     quantity: quantity,
@@ -84,6 +71,7 @@ function addProducts() {
       },
       body: JSON.stringify(data),
     }).then(() => {
+      alert("Add new product susscess")
       fetchUsers();
     });
   } else {
@@ -94,31 +82,8 @@ function addProducts() {
       },
       body: JSON.stringify(data),
     }).then(() => {
+      alert("Add new product susscess")
       fetchUsers();
     });
   }
-}
-
-function edit_product(id, name, quantity, newPrice, oldPrice, image1, image2, image3, description) {
-  // Đặt giá trị vào các trường nhập trong modal chỉnh sửa sản phẩm
-  document.querySelector("#add_productID").value = id;
-  document.querySelector('#nameInput_add').value = name;
-  document.querySelector('#qtyInput_add').value = quantity;
-  document.querySelector('#newPriceInput_add').value = newPrice;
-  document.querySelector('#oldPriceInput_add').value = oldPrice;
-  document.querySelector('#imageFileInput1_add').value = image1;
-  document.querySelector('#imageFileInput2_add').value = image2;
-  document.querySelector('#imageFileInput3_add').value = image3;
-  document.querySelector('#descriptionInput_add').value = description;
-  document.querySelector("#myModal_add #content-des").value;
-}
-
-function deleteProduct(id) {
-  fetch(`http://localhost:3000/product/${id}`, {
-    method: "DELETE",
-  })
-    .then(() => fetchProducts())
-    .catch(() => {
-      alert("Delete fail");
-    });
 }

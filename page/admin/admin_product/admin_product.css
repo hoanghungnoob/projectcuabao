@@ -278,3 +278,7 @@ body {
 #descriptionInput{
   height: 80px;
 }
+tr img{
+  height: 80px;
+  width: 80px;
+}

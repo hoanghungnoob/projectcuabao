@@ -24,15 +24,15 @@ fetchCustomers();
 
 
 // delete customer
-function delete_customer(id) {
-  fetch(`http://localhost:3000/customer/${id}`, {
-    method: "DELETE",
-  })
-    .then(() => {
-      alert("Delete success");
-      fetchCustomers(); // Gọi lại hàm fetchCustomers() để cập nhật danh sách khách hàng sau khi xóa
-    })
-    .catch(() => {
-      alert("Delete fail");
-    });
-}
+// function delete_customer(id) {
+//   fetch(`http://localhost:3000/customer/${id}`, {
+//     method: "DELETE",
+//   })
+//     .then(() => {
+//       alert("Delete success");
+//       fetchCustomers(); // Gọi lại hàm fetchCustomers() để cập nhật danh sách khách hàng sau khi xóa
+//     })
+//     .catch(() => {
+//       alert("Delete fail");
+//     });
+// }
