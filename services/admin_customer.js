@@ -15,6 +15,8 @@ function fetchCustomers() {
           <td>
             <button id="update_btn_product">Update</button>
             <button id="delete_btn_product" onclick="delete_customer(${customer.id})">Delete</button>
+            <button class="update_btn_product">Update</button>
+            <button class="delete_btn_product" onclick="delete_customer(${customer.id})">Delete</button>
           </td>
         `;
       });

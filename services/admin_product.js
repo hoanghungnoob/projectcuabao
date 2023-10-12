@@ -71,7 +71,6 @@ function addProducts() {
       },
       body: JSON.stringify(data),
     }).then(() => {
-      alert("Add new product susscess")
       fetchUsers();
     });
   } else {
@@ -82,8 +81,9 @@ function addProducts() {
       },
       body: JSON.stringify(data),
     }).then(() => {
-      alert("Add new product susscess")
       fetchUsers();
     });
   }
 }
+
+
