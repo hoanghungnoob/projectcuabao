@@ -508,3 +508,10 @@ body a {
 .secodary__img__item img {
     cursor: pointer;
 }
+.star {
+    color: gray;
+}
+.star.selected {
+    /* CSS cho ngôi sao khi được chọn */
+    color: yellow; /* Ví dụ: thay đổi màu sáng của ngôi sao thành màu vàng */
+}

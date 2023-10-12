@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,6 +21,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Latest compiled JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <title>Admin Product </title>
      
 </head>
@@ -36,8 +37,8 @@
     </div>
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a href="/page/admin/admin_customer/admin_customer.html">Customer</a>
-      <a href="/page/admin/admin_product/admin_prduct.html">Product</a>
+      <a href="/page/admin/admin_customer/admin_customer.htm">Customer</a>
+      <a href="/page/admin/admin_product/admin_product.htm">Product</a>
       <img src="/images/img_icon/logo_coffe.svg" alt="">    
     </div>
  <div class="list_product_admin">
@@ -52,56 +53,7 @@
       </tr>
     </table>
   </div>
-
-  <div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title title">Edit Product</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <form id="add-product-form">
-           <div class="input-field">
-            <label for="nameInput">Name: </label>
-            <input type="text" id="nameInput" name="nameInput">
-           </div>
-           <div class="input-field">
-            <label for="qtyInput">Quantity: </label>
-            <input type="text" id="qtyInput" name="qtyInput">
-           </div>
-           <div class="input-field">
-            <label for="newPriceInput">New Price: </label>
-            <input type="text" id="newPriceInput" name="newPriceInput">
-           </div>
-           <div class="input-field">
-            <label for="oldPriceInput">Old Price </label>
-            <input type="text" id="oldPriceInput" name="oldPriceInput">
-           </div> 
-           <div class="input-field">
-            <label for="imageFileInput1">Image 1: </label>
-            <input type="file" id="imageFileInput1" name="imageFileInput1">
-           </div>
-           <div class="input-field">
-            <label for="imageFileInput2">Image 2: </label>
-            <input type="file" id="imageFileInput2" name="imageFileInput2">
-           </div>
-            <div class="input-field">
-              <label for="imageFileInput3">Image 3: </label>
-              <input type="file" id="imageFileInput3" name="imageFileInput3">
-            </div>
-            <div class="input-field">
-              <label for="descriptionInput" id="content-des">Description </label>
-            <input type="text" id="descriptionInput" name="descriptionInput">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="editProduct()">Edit product</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  
   <div class="modal" id="myModal_add">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -111,41 +63,44 @@
         </div>
         <div class="modal-body">
           <form id="add_product_form">
-           <div class="input-field">
-            <label for="nameInput">Name: </label>
-            <input type="text" id="nameInput" name="nameInput">
-           </div>
-           <div class="input-field">
-            <label for="qtyInput">Quantity: </label>
-            <input type="text" id="qtyInput" name="qtyInput">
-           </div>
-           <div class="input-field">
-            <label for="newPriceInput">New Price: </label>
-            <input type="text" id="newPriceInput" name="newPriceInput">
-           </div>
-           <div class="input-field">
-            <label for="oldPriceInput">Old Price </label>
-            <input type="text" id="oldPriceInput" name="oldPriceInput">
-           </div> 
-           <div class="input-field">
-            <label for="imageFileInput1">Image 1: </label>
-            <input type="file" id="imageFileInput1" name="imageFileInput1">
-           </div>
-           <div class="input-field">
-            <label for="imageFileInput2">Image 2: </label>
-            <input type="file" id="imageFileInput2" name="imageFileInput2">
-           </div>
+            <input type="hidden" id="add_productID">
+
+            <div class="input-field">
+              <label for="nameInput">Name: </label>
+              <input type="text" id="nameInput_add" name="nameInput">
+            </div>
+            <div class="input-field">
+              <label for="qtyInput">Quantity: </label>
+              <input type="text" id="qtyInput_add" name="qtyInput">
+            </div>
+            <div class="input-field">
+              <label for="newPriceInput">New Price: </label>
+              <input type="text" id="newPriceInput_add" name="newPriceInput">
+            </div>
+            <div class="input-field">
+              <label for="oldPriceInput">Old Price: </label>
+              <input type="text" id="oldPriceInput_add" name="oldPriceInput">
+            </div>
+            <div class="input-field">
+              <label for="imageFileInput1">Image 1: </label>
+              <input type="url" id="imageFileInput1_add" name="imageFileInput1">
+            </div>
+            <div class="input-field">
+              <label for="imageFileInput2">Image 2: </label>
+              <input type="url" id="imageFileInput2_add" name="imageFileInput2">
+            </div>
             <div class="input-field">
               <label for="imageFileInput3">Image 3: </label>
-              <input type="file" id="imageFileInput3" name="imageFileInput3">
+              <input type="url" id="imageFileInput3_add" name="imageFileInput3">
             </div>
             <div class="input-field">
-              <label for="descriptionInput" id="content-des">Description </label>
-            <input type="text" id="descriptionInput" name="descriptionInput">
+              <label for="descriptionInput" id="content-des">Description: </label>
+              <input type="text" id="descriptionInput_add" name="descriptionInput">
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" onclick="addProducts()" value="Create">Create</button>
-        </div>
+              <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" onclick="addProducts()"
+                value="Create">Create</button>
+            </div>
           </form>
         </div>
 
@@ -153,6 +108,5 @@
     </div>
   </div>
 <script src="/services/admin_product.js"></script>
-
 </body>
 </html>
