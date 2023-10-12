@@ -87,3 +87,18 @@ function addProducts() {
 }
 
 
+//  chỉnh sửa sản phẩm 
+function edit_product(id, name, quantity, newPrice, oldPrice, image1, image2, image3, description) {
+  // Đặt giá trị vào các trường nhập trong modal chỉnh sửa sản phẩm
+  document.querySelector("#add_productID").value = id;
+  document.querySelector('#nameInput_add').value = name;
+  document.querySelector('#qtyInput_add').value = quantity;
+  document.querySelector('#newPriceInput_add').value = newPrice;
+  document.querySelector('#oldPriceInput_add').value = oldPrice;
+  document.querySelector('#imageFileInput1_add').value = image1;
+  document.querySelector('#imageFileInput2_add').value = image2;
+  document.querySelector('#imageFileInput3_add').value = image3;
+  document.querySelector('#descriptionInput_add').value = description;
+  document.querySelector("#myModal_add #content-des").value;
+}
+
