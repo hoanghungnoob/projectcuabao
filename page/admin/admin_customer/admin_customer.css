@@ -1,3 +1,14 @@
+.box_top{
+    display: flex;
+    gap: 300px;
+}
+#main_title{
+    text-align: center;
+}
+
+.button_create{
+    height: 30px;
+}
 .create_custpmer {
     width: 40%;
     text-align: center;
@@ -86,4 +97,27 @@
 
 td{
     font-size: 14px;
+}
+
+
+
+/* .input-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+  } */
+
+.input-field label {
+ display: flex;
+  width: 115px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+} 
+
+.input-field input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }

@@ -21,3 +21,42 @@ function fetchCustomers() {
     });
 }
 fetchCustomers();
+
+const customerForm = document.getElementById("cusForm");
+customerForm.addEventListener("submit", createCustomer);
+function createCustomer (){
+  console.log("Quy cute fo mai que");
+  const name = document.getElementById("name").value;
+  const password = document.getElementById("password").value;
+  const phone = document.getElementById("phone").value;
+  const email = document.getElementById("email").value;
+  const roleId = document.getElementById("role_id").value;
+  const address = document.getElementById("address").value;
+  const customer = {
+    name: name,
+    password: password,
+    phoneNumber: phone,
+    email: email,
+    roleId: roleId,
+    address: address
+  };
+  localStorage.setItem("customer", JSON.stringify(customer));
+
+  fetch("http://localhost:3000/customer", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(customer)
+  })
+  .then(response => {
+    if (response.ok) {
+      console.log("Customer added successfully!");
+    } else {
+      console.log("Failed to add customer.");
+    }
+  })
+  .catch(error => {
+    console.error("Error:", error);
+  });
+};

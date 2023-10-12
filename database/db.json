@@ -129,6 +129,33 @@
       "roleId": 2,
       "email": "linh.ho25@student.com",
       "password": "linh.com123"
+    },
+    {
+      "name": "tgsdhv",
+      "password": "dsgdg",
+      "phoneNumber": "sdg",
+      "email": "sdg",
+      "roleId": "sgs",
+      "address": "sg",
+      "id": 13
+    },
+    {
+      "name": "toi muon ngu",
+      "password": "",
+      "phoneNumber": "",
+      "email": "",
+      "roleId": "",
+      "address": "",
+      "id": 14
+    },
+    {
+      "name": "tueyhdvcdf",
+      "password": "jdfgdhgsd",
+      "phoneNumber": "04868546",
+      "email": "tuyen.nguyen25@student.passerellesnumeriques.org",
+      "roleId": "1",
+      "address": "21",
+      "id": 15
     }
   ],
   "product": [
@@ -2929,6 +2956,44 @@
       "email": "linh.nguyenthingoc23@student.passerellesnumeriques.org",
       "message": "âsassasa",
       "id": 2
+    }
+  ],
+  "customers": [
+    {
+      "name": "fhgf",
+      "password": "ghf",
+      "phone": "hg",
+      "email": "",
+      "roleId": "",
+      "address": "",
+      "id": 1
+    },
+    {
+      "name": "dfsf",
+      "password": "sdf",
+      "phone": "dsf",
+      "email": "df",
+      "roleId": "df",
+      "address": "df",
+      "id": 2
+    },
+    {
+      "name": "sfdsf",
+      "password": "dgs",
+      "phone": "sdf",
+      "email": "sf",
+      "roleId": "sf",
+      "address": "",
+      "id": 3
+    },
+    {
+      "name": "tuyen",
+      "password": "sad",
+      "phone": "ád",
+      "email": "sad",
+      "roleId": "sad",
+      "address": "",
+      "id": 4
     }
   ]
 }
