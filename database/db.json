@@ -23,31 +23,13 @@
   ],
   "customer": [
     {
-      "id": 3,
-      "name": "Nguyen Thi Kim Tuyen",
-      "phoneNumber": "0123456231",
-      "address": "Lang Cat village Mo O commune Dakrong district Quang Tri province",
-      "roleId": 2,
-      "email": "tuyen.nguyen25@student.com",
-      "password": "tuyen.com123"
-    },
-    {
-      "id": 4,
-      "name": "Pham Gia Bao",
-      "phoneNumber": "0125437681",
-      "address": "101B Le Huu Trac, Son Tra district, Da Nang city",
-      "roleId": 2,
-      "email": "bao.ho25@student.com",
-      "password": "bao.com123"
-    },
-    {
-      "id": 5,
-      "name": "Ho Thi Nguyen Thi",
+      "name": "Ho Thi Nguyen thi",
+      "password": "thi.com123",
       "phoneNumber": "0123432431",
-      "address": "Chan Ro village Dakrong commune Dakrong district Quang Tri province",
-      "roleId": 2,
       "email": "thi.ho25@student.com",
-      "password": "thi.com123"
+      "role_id": "undefined",
+      "address": "Chan Ro village Dakrong commune Dakrong district Quang Tri province",
+      "id": 5
     },
     {
       "id": 6,
@@ -93,15 +75,6 @@
       "roleId": 2,
       "email": "duyen.ho25@student.com",
       "password": "duyen.com123"
-    },
-    {
-      "id": 11,
-      "name": "Le Van Thao",
-      "phoneNumber": "0124782999",
-      "address": "101B Le Huu Trac Son Tra district Da Nang city",
-      "roleId": 2,
-      "email": "thao.ho25@student.com",
-      "password": "thao.com123"
     }
   ],
   "product": [
@@ -221,19 +194,6 @@
       "image3": "/images/img_product/Red Eye3.png",
       "type": "",
       "productReviews": 4
-    },
-    {
-      "id": 11,
-      "name": "Lungo",
-      "oldPrice": 37,
-      "newPrice": 35.8,
-      "quantity": 63,
-      "description": "A coffee beverage made using an espresso machine to make an Italian-style coffee - short black (a single shot of espresso) with more water. A lungo is a coffee beverage made using an espresso machine to brew a short black Italian-style coffee with more water, creating a larger coffee, the lungo. ",
-      "image1": "/images/img_product/Lungo1.jpg",
-      "image2": "/images/img_product/Lungo2.jpg",
-      "image3": "/images/img_product/Lungo3.jpg",
-      "type": "",
-      "productReviews": 5
     },
     {
       "id": 14,
