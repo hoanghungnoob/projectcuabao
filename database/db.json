@@ -23,49 +23,13 @@
   ],
   "customer": [
     {
-      "id": 1,
-      "name": "Ho Thi Mai",
-      "phoneNumber": "0397208980",
-      "address": "Mai Son village Ba Long commune Dakrong district Quang Tri province",
-      "roleId": 2,
-      "email": "mai.ho25@student.com",
-      "password": "mai.com123"
-    },
-    {
-      "id": 2,
-      "name": "Ho Thi Hue",
-      "phoneNumber": "0397456231",
-      "address": "101B Le Huu Trac, Son Tra district, Da Nang city",
-      "roleId": 2,
-      "email": "hue.ho25@student.com",
-      "password": "hue.com123"
-    },
-    {
-      "id": 3,
-      "name": "Nguyen Thi Kim Tuyen",
-      "phoneNumber": "0123456231",
-      "address": "Lang Cat village Mo O commune Dakrong district Quang Tri province",
-      "roleId": 2,
-      "email": "tuyen.nguyen25@student.com",
-      "password": "tuyen.com123"
-    },
-    {
-      "id": 4,
-      "name": "Pham Gia Bao",
-      "phoneNumber": "0125437681",
-      "address": "101B Le Huu Trac, Son Tra district, Da Nang city",
-      "roleId": 2,
-      "email": "bao.ho25@student.com",
-      "password": "bao.com123"
-    },
-    {
-      "id": 5,
-      "name": "Ho Thi Nguyen Thi",
+      "name": "Ho Thi Nguyen thi",
+      "password": "thi.com123",
       "phoneNumber": "0123432431",
-      "address": "Chan Ro village Dakrong commune Dakrong district Quang Tri province",
-      "roleId": 2,
       "email": "thi.ho25@student.com",
-      "password": "thi.com123"
+      "role_id": "undefined",
+      "address": "Chan Ro village Dakrong commune Dakrong district Quang Tri province",
+      "id": 5
     },
     {
       "id": 6,
@@ -111,20 +75,11 @@
       "roleId": 2,
       "email": "duyen.ho25@student.com",
       "password": "duyen.com123"
-    },
-    {
-      "id": 11,
-      "name": "Le Van Thao",
-      "phoneNumber": "0124782999",
-      "address": "101B Le Huu Trac Son Tra district Da Nang city",
-      "roleId": 2,
-      "email": "thao.ho25@student.com",
-      "password": "thao.com123"
     }
   ],
   "product": [
     {
-      "name": "Americanosasasa",
+      "name": "America",
       "quantity": "50",
       "newPrice": "13500",
       "oldPrice": "15000",
@@ -241,45 +196,6 @@
       "productReviews": 4
     },
     {
-      "id": 11,
-      "name": "Lungo",
-      "oldPrice": 37,
-      "newPrice": 35.8,
-      "quantity": 63,
-      "description": "A coffee beverage made using an espresso machine to make an Italian-style coffee - short black (a single shot of espresso) with more water. A lungo is a coffee beverage made using an espresso machine to brew a short black Italian-style coffee with more water, creating a larger coffee, the lungo. ",
-      "image1": "/images/img_product/Lungo1.jpg",
-      "image2": "/images/img_product/Lungo2.jpg",
-      "image3": "/images/img_product/Lungo3.jpg",
-      "type": "",
-      "productReviews": 5
-    },
-    {
-      "id": 12,
-      "name": "Arabica",
-      "oldPrice": 40,
-      "newPrice": 38,
-      "quantity": 40,
-      "description": "There are 2 types of Arabica. Moka has a charming aroma and light taste; Catimor has a strong aroma and a slightly sour taste. When mentioning Arabica coffee, people immediately think of coffee with natural fruit aroma, floral aroma, honey flavor, balanced body and sweet aftertaste.",
-      "image1": "/images/img_product/Arabica1.jpg",
-      "image2": "/images/img_product/Arabica2.jpg",
-      "image3": "/images/img_product/Arabica3.jpg",
-      "type": "",
-      "productReviews": 3.5
-    },
-    {
-      "id": 13,
-      "name": "Culi",
-      "oldPrice": 40,
-      "newPrice": 39,
-      "quantity": 60,
-      "description": "Culi coffee has a bitter taste, an intoxicating aroma, and dark water.Culi coffee is also known by another name, Peaberry. In Spanish, people call this coffee Caracol. This type of coffee is characterized by a round shape like. This type of coffee has a richer flavor, more bitterness, more fat, more caffeine than regular robusta coffee, and a deep aroma. ",
-      "image1": "/images/img_product/Culi1.jpg",
-      "image2": "/images/img_product/Culi2.jpg",
-      "image3": "/images/img_product/Culi3.jpg",
-      "type": "",
-      "productReviews": 4
-    },
-    {
       "id": 14,
       "name": "Cherry",
       "oldPrice": 54,
@@ -340,108 +256,12 @@
       "totalPrice": 189
     },
     {
-      "id": 5,
-      "customerId": 5,
-      "productId": 5,
-      "date": "2023-07-22",
-      "quantity": 10,
-      "totalPrice": 220
-    },
-    {
-      "id": 6,
-      "customerId": 6,
-      "productId": 8,
-      "date": "2023-04-30",
-      "quantity": 4,
-      "totalPrice": 232
-    },
-    {
-      "id": 7,
-      "customerId": 7,
-      "productId": 6,
-      "date": "2023-04-26",
-      "quantity": 11,
-      "totalPrice": 363
-    },
-    {
-      "id": 8,
-      "customerId": 8,
-      "productId": 1,
-      "date": "2023-06-12",
-      "quantity": 6,
-      "totalPrice": 171
-    },
-    {
-      "id": 9,
-      "customerId": 9,
-      "productId": 10,
-      "date": "2023-07-12",
-      "quantity": 5,
-      "totalPrice": 394
-    },
-    {
-      "id": 10,
-      "customerId": 10,
-      "productId": 3,
-      "date": "2023-05-30",
-      "quantity": 8,
-      "totalPrice": 228
-    },
-    {
-      "id": 11,
-      "customerId": 11,
-      "productId": 6,
-      "date": "2023-08-03",
-      "quantity": 6,
-      "totalPrice": 198
-    },
-    {
-      "id": 12,
-      "customerId": 12,
-      "productId": 8,
-      "date": "2023-03-24",
-      "quantity": 7,
-      "totalPrice": 406
-    },
-    {
-      "id": 13,
-      "customerId": 7,
-      "productId": 11,
-      "date": "2023-06-12",
-      "quantity": 6,
-      "totalPrice": 210
-    },
-    {
-      "id": 14,
-      "customerId": 8,
-      "productId": 9,
-      "date": "2023-03-29",
-      "quantity": 9,
-      "totalPrice": 121.5
-    },
-    {
       "id": 15,
       "customerId": 4,
       "productId": 10,
       "date": "2023-02-22",
       "quantity": 7,
       "totalPrice": 551.6
-    },
-    {
-      "id": 16,
-      "customerId": 9,
-      "productId": 3,
-      "date": "2023-07-30",
-      "quantity": 6,
-      "totalPrice": 171
-    },
-    {
-      "id": 17,
-      "customerId": 5,
-      "productId": 6,
-      "date": "2023-05-27",
-      "quantity": 6,
-      "totalPrice": 198
     }
   ],
   "contact": [
