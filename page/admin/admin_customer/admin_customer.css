@@ -7,7 +7,23 @@
 }
 
 .button_create{
-    height: 30px;
+    height: 40px;
+    background: #FF902A; 
+    border-radius: 15px;
+    color: white;
+    font-size: 18px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 15px;
+    padding-top: 8px;
+    border: none;
+}
+.icon_create{
+  color: black;
+  margin-left: 10px;
 }
 .create_custpmer {
     width: 40%;
@@ -101,17 +117,12 @@ td{
 
 
 
-/* .input-field {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
 
-  } */
 
 .input-field label {
  display: flex;
   width: 115px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   margin-top: 10px;
 } 
 
@@ -122,7 +133,10 @@ td{
   border-radius: 4px;
 }
 /* sidebar  */
-
+.btn-danger{
+  margin-top: 20px;
+  text-align: center;
+  direction: center;}
 .sidenav {
     height: 100%;
     width: 0;
@@ -135,6 +149,7 @@ td{
     transition: 0.5s;
     padding-top: 60px;
   }
+
 
   
   .sidenav a {
@@ -276,3 +291,9 @@ td{
     background-color: rgb(1, 119, 178);
 
   }
+.input{
+  height: 45px;
+  width: 100%;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+}

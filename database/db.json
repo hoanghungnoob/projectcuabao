@@ -120,12 +120,30 @@
       "roleId": 2,
       "email": "thao.ho25@student.com",
       "password": "thao.com123"
+    },
+    {
+      "name": "",
+      "password": "jdfgdhgsd",
+      "phoneNumber": "",
+      "email": "tuyen.nguyen25@student.passerellesnumeriques.org",
+      "roleId": "",
+      "address": "",
+      "id": 12
+    },
+    {
+      "name": "",
+      "password": "jdfgdhgsd",
+      "phoneNumber": "",
+      "email": "tuyen.nguyen25@student.passerellesnumeriques.org",
+      "roleId": "",
+      "address": "",
+      "id": 13
     }
   ],
   "product": [
     {
-      "name": "Americanosasasa",
-      "quantity": "50",
+      "name": "fhdg",
+      "quantity": "50dffd",
       "newPrice": "13500",
       "oldPrice": "15000",
       "image1": "/images/img_product/Americano1.jpg",
