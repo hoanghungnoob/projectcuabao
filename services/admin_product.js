@@ -86,7 +86,15 @@ function addProducts() {
   }
 }
 
-
+function deleteProduct(id) {
+  fetch(`http://localhost:3000/product/${id}`, {
+    method: "DELETE",
+  })
+    .then(() => fetchProducts())
+    .catch(() => {
+      alert("Delete fail");
+    });
+}
 //  chỉnh sửa sản phẩm 
 function edit_product(id, name, quantity, newPrice, oldPrice, image1, image2, image3, description) {
   // Đặt giá trị vào các trường nhập trong modal chỉnh sửa sản phẩm
