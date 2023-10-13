@@ -280,3 +280,22 @@ tr img{
   height: 80px;
   width: 80px;
 }
+.button_create{
+    height: 40px;
+    background: #FF902A; 
+    border-radius: 15px;
+    color: white;
+    font-size: 18px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 15px;
+    padding-top: 8px;
+    border: none;
+}
+.icon_create{
+  color: black;
+  margin-left: 10px;
+}
