@@ -215,19 +215,6 @@
       "productReviews": 3
     },
     {
-      "id": 10,
-      "name": "Red Eye",
-      "oldPrice": 80,
-      "newPrice": 78.8,
-      "quantity": 30,
-      "description": "An enhanced coffee drink in which espresso is combined with normal drip coffee.A red eye, black eye, and dead eye coffee basically mean how much caffeine you want in your cup of brewed coffee. The red eye has one shot of espresso added, the black eye has two shots, and the dead eye has three whole shots of espresso! These will definitely keep you up as long as you want.",
-      "image1": "/images/img_product/Red Eye1.jpg",
-      "image2": "/images/img_product/Red Eye2.png",
-      "image3": "/images/img_product/Red Eye3.png",
-      "type": "",
-      "productReviews": 4
-    },
-    {
       "id": 11,
       "name": "Lungo",
       "oldPrice": 37,
