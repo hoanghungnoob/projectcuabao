@@ -84,6 +84,15 @@
       "roleId": 2,
       "email": "thao.ho25@student.com",
       "password": "thao.com123"
+    },
+    {
+      "name": "tuyen",
+      "password": "jdfgdhgsd",
+      "phoneNumber": "95860546",
+      "email": "tuyen.nguyen25@student.passerellesnumeriques.org",
+      "roleId": "54665",
+      "address": "5656",
+      "id": 12
     }
   ],
   "product": [
