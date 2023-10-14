@@ -131,3 +131,65 @@ function edit_product(id, name, quantity, newPrice, oldPrice, image1, image2, im
   document.querySelector("#myModal_add #content-des").value;
 }
 
+
+function increment() {
+    var inputQty = document.getElementById('input__qty');
+    var currentQty = parseInt(inputQty.value) || 0;
+    var newQty = currentQty + 1;
+    if (newQty < 1) {
+        newQty = 1;
+    }
+    inputQty.value = newQty;
+}
+
+function decrement() {
+    var inputQty = document.getElementById('input__qty');
+    var currentQty = parseInt(inputQty.value) || 0;
+    var newQty = currentQty - 1;
+    if (newQty < 1) {
+        newQty = 1;
+    }
+    inputQty.value = newQty;
+}
+
+// JavaScript code
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get('id');
+
+fetch("http://localhost:3000/product")
+    .then((res) => res.json())
+    .then((data) => {
+        var product = false;
+        data.forEach(element => {
+            if (productId == element.id) {
+                product = true;
+                if (product) {
+                    document.getElementById('product__name').innerHTML = element.name;
+                    document.getElementById('main__img').src = element.image1;
+                    document.getElementById('item__img1').src = element.image2;
+                    document.getElementById('item__img2').src = element.image3;
+                    document.getElementById('item__img3').src = element.image1;
+                    document.getElementById('new__price').innerHTML = element.newPrice + " VND";
+                    document.getElementById('old__price').innerHTML = element.oldPrice + " VND";
+                    document.getElementById('describe').innerHTML = element.description;
+
+                    var rating = element.productReviews; 
+
+                    var stars = document.getElementsByClassName("star");
+
+                    for (var i = 0; i < rating; i++) {
+                        stars[i].classList.add("selected");
+                        console.log(stars[i])
+                    }
+                } else {
+                    document.getElementById("product-detail").innerHTML = "Product not found.";
+                }
+            }
+
+        });
+    });
+function choise_product(imgs) {
+    main__img.src = imgs.src;
+}
+
+
