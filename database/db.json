@@ -75,11 +75,29 @@
       "roleId": 2,
       "email": "duyen.ho25@student.com",
       "password": "duyen.com123"
+    },
+    {
+      "id": 11,
+      "name": "Le Van Thao",
+      "phoneNumber": "0124782999",
+      "address": "101B Le Huu Trac Son Tra district Da Nang city",
+      "roleId": 2,
+      "email": "thao.ho25@student.com",
+      "password": "thao.com123"
+    },
+    {
+      "name": "tuyen",
+      "password": "jdfgdhgsd",
+      "phoneNumber": "95860546",
+      "email": "tuyen.nguyen25@student.passerellesnumeriques.org",
+      "roleId": "54665",
+      "address": "5656",
+      "id": 12
     }
   ],
   "product": [
     {
-      "name": "America",
+      "name": "Americanosasasa",
       "quantity": "50",
       "newPrice": "13500",
       "oldPrice": "15000",
