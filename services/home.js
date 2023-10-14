@@ -18,7 +18,7 @@ fetch("http://localhost:3000/product")
         const productHTML = productList.map((product) => {
             return `
             <div class="product">
-                    <a target="_self" id="card" href="/page/product_detail/product_detail.html?id=${product.id}">
+                    <a target="_self" id="card" href="" onclick="loadContent(/page/product_detail/product_detail.html?id=${product.id})">
                             <p id="evaluate1">${product.productReviews}<i class="material-symbols-outlined">star</i></p>
                             <img id="main_img" src="${product.image1}" alt="${product.name}">
                             <h2>${product.name}</h2>
@@ -69,3 +69,16 @@ menuIcon.addEventListener('click', () => {
     navList.classList.toggle("active")
 
 })
+
+
+function loadContent(page) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var content = document.getElementById("content");
+        content.innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", page, true);
+    xhttp.send();
+  }

@@ -1,139 +1,135 @@
-.contact{
-  height: 90vh;
-  padding: 20px;
-  margin-top: 40px;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;  
-}
-.container_contact {
-  max-width: 900px;
-  height: 98%;
-  margin: 0 auto;
-  border-radius: 5px;
-  padding: 20px;
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  background-color: rgb(249, 220, 165);
-}
-h1 {
-  text-align: center;
-  color: #333;
-}
 
-label {
-  font-weight: bold;
-  color: #555;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="number"],
-textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-bottom: 10px;
-}
-
-textarea {
-  height: 100px;
-}
-
-.container_contact button[type="submit"] {
-  background-color: orangered;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  margin-top: 20px;
-  cursor: pointer;
-}
-
-button[type="submit"]:hover {
-  background-color: #45a049;
-}
-
-#messageSent {
-  display: none;
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #dff0d8;
-  border: 1px solid #3c763d;
-  color: #3c763d;
-  border-radius: 4px;
-}
-
-/*  */#successMessage, #errorMessage {
-  display: none;
-  background-color: #28a745;
-  color: #fff;
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 30px;
-}
-
-#errorMessage {
-  background-color: red;
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
+  .contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 50%;
+    background-color: #bdbdbd;
+    font-family: Arial, sans-serif;
   }
-  100% {
-    opacity: 1;
-  }
-}
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
+  .container_contact {
+    width:  90%;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
-#successMessage.show, #errorMessage.show {
-  display: block;
-  animation: fade-in 0.5s ease-in-out forwards, spin 3s linear 0.5s forwards;
-  animation-delay: 0.5s;
-}
+  .container_contact h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333333;
+    font-size: 24px;
+  }
 
-#successMessage.hide, #errorMessage.hide {
-  animation: fade-out 0.5s ease-in-out forwards, spin-back 0.5s linear;
-}
+  .container_contact label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333333;
+    font-size: 16px;
+    font-weight: bold;
+  }
 
-@keyframes fade-out {
-  0% {
-    opacity: 1;
+  .container_contact input,
+  .container_contact textarea {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    color: #333333;
+    font-size: 14px;
+    margin-bottom: 20px;
   }
-  100% {
-    opacity: 0;
-  }
-}
 
-@keyframes spin-back {
-  0% {
-    transform: rotate(360deg);
+  .container_contact textarea {
+    resize: vertical;
+    height: 100px;
   }
-  100% {
-    transform: rotate(0deg);
+  #content{
+     height: auto;
   }
-}
-.team{
-   margin-top: 40px;
-}
-.myTeam{
-  margin-top: 150px;
-  text-align: center;
-  font-weight: bolder;
-  color: var(--orange-color);
-}
-#opacity{
-  background:#525252ea !important ;
-}
+
+  .container_contact button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #652e2e;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition-property: background-color, transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+  }
+  
+  .container_contact button:hover {
+    background-color: #4d1414;
+    transform: scale(1.03);
+    transition-delay: 0.0001s;
+  }.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+  }
+  .main_conatct h2{
+     text-align: center;
+  }
+  
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    padding: 20px;
+    background-color: #ffffff;
+  }
+  
+  .card-body h5 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card-body p {
+    font-size: 14px;
+    color: #666666;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+  }
+  .card{
+    display: flex;
+  }
+
+  .main_conatct {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+  
+  .team {
+    width: 50%;
+  }
+  
+  .card {
+    width: calc(50% - 1rem); /* 1rem là khoảng cách giữa các card */
+    margin-bottom: 1rem;
+  }
+  .myTeam{
+    margin-top: 200px;
+    text-align: center;
+  }
