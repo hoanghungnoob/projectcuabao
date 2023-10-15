@@ -26,6 +26,8 @@ body {
     border-radius: 10px;
     z-index: 1;
     text-align: center;
+    margin-top: 50px;
+ 
 
 }
 .login-box img{
@@ -113,7 +115,7 @@ body {
     position: relative;
     animation: rotate 10s linear infinite ease-in-out;
     position: relative;
-    top: 10px;
+    top: 30px;
     left: 900px;
     background-color: rgba(245, 222, 179, 0);
 }
@@ -150,4 +152,18 @@ body {
     to {
         transform: rotate(360deg) translate(100px) rotate(-360deg);
     }
+}
+.social-login{
+    
+}
+.social-login button{
+     background-color: rgb(255, 255, 255);
+     border: 0;
+}
+.social-login button i:-child{
+     color: blue;
+}
+#content{
+    height: 100vh;
+   
 }

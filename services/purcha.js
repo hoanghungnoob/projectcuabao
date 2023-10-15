@@ -72,7 +72,7 @@ async function fetchData() {
 
 fetchData();
 function rederectDetailPage(id){
-  window.location.href=`../product_detail/product_detail.html?id=${id}`
+  window.location.href=`/page/product/ProductDetail/ProductDetail.html?id=${id}`
 }
 
 async function detailProduct(){
@@ -91,6 +91,7 @@ async function detailProduct(){
       if (productResponse) {
           const details=await productResponse.json()
           document.querySelector(".container__productDetail").innerHTML = `
+          <div id="content">
           <div class="con_item_productDetail con_item_productDetail1">
               <div class="main__img__box">
                   <img id="main__img" src="${details.image1}" alt="Photo">
@@ -148,6 +149,7 @@ async function detailProduct(){
                   </button>
                   <button id="product__btn__buy" class="btn_add_qtt" type="button" onclick="buy()">Buy</button>
               </div>
+          </div>
           </div>
           `
       }else{

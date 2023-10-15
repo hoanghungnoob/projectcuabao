@@ -254,3 +254,44 @@ function placeOrder() {
 }
 
 // fetch data
+
+function placeOrder1() {
+  // Lấy thông tin khách hàng từ các trường input
+  var name = document.getElementById('name__order').value;
+  var email = document.getElementById('email__order').value;
+  var phone = document.getElementById('phone__order').value;
+  var address = document.getElementById('address__order').value;
+  var province = document.getElementById('province__order').value;
+  var district = document.getElementById('district__order').value;
+
+  // Tạo một hàng mới trong bảng
+  var table = document.getElementById('customerTable');
+  var newRow = table.insertRow(-1); // Thêm vào cuối bảng
+
+  // Thêm các ô dữ liệu vào hàng mới
+  var cell1 = newRow.insertCell(0);
+  cell1.innerHTML = name;
+
+  var cell2 = newRow.insertCell(1);
+  cell2.innerHTML = email;
+
+  var cell3 = newRow.insertCell(2);
+  cell3.innerHTML = phone;
+
+  var cell4 = newRow.insertCell(3);
+  cell4.innerHTML = address;
+
+  var cell5 = newRow.insertCell(4);
+  cell5.innerHTML = province;
+
+  var cell6 = newRow.insertCell(5);
+  cell6.innerHTML = district;
+
+  // Xóa nội dung các trường input sau khi đặt hàng thành công
+  document.getElementById('name__order').value = '';
+  document.getElementById('email__order').value = '';
+  document.getElementById('phone__order').value = '';
+  document.getElementById('address__order').value = '';
+  document.getElementById('province__order').value = '';
+  document.getElementById('district__order').value = '';
+}

@@ -18,7 +18,7 @@ fetch("http://localhost:3000/product")
         const productHTML = productList.map((product) => {
             return `
             <div class="product">
-                    <a target="_self" id="card" href="" onclick="loadContent(/page/product_detail/product_detail.html?id=${product.id})">
+                    <a target="_self" id="card" href="/page/product/ProductDetail/ProductDetail.html?id=${product.id}" onclick="loadContent(/page/product/ProductDetail/ProductDetail.html)">
                             <p id="evaluate1">${product.productReviews}<i class="material-symbols-outlined">star</i></p>
                             <img id="main_img" src="${product.image1}" alt="${product.name}">
                             <h2>${product.name}</h2>
@@ -70,15 +70,43 @@ menuIcon.addEventListener('click', () => {
 
 })
 
+// function loadContent(page) {
+//     var xhttp = new XMLHttpRequest();
+//     xhttp.onload = function() {
+//       if (this.status == 200) {
+//         document.getElementById("content").innerHTML = this.responseText;
+//       } else {
+//         console.error("Error loading page:", this.status, this.statusText);
+//       }
+//     };
+//     xhttp.open("GET", page, true);
+//     xhttp.send();
+//   }
 
-function loadContent(page) {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        var content = document.getElementById("content");
-        content.innerHTML = this.responseText;
-      }
-    };
-    xhttp.open("GET", page, true);
-    xhttp.send();
-  }
+
+
+// // Lấy thông tin về vai trò của người dùng từ URL hoặc localStorage/sessionStorage
+// const urlParams = new URLSearchParams(window.location.search);
+// const userRole = urlParams.get("roleId"); // hoặc localStorage.getItem("userRole");
+
+// console.table("hello", typeof userRole)
+// // for(var a = 0; a < )
+// // Kiểm tra vai trò và thực hiện việc ẩn các phần tử tương ứng
+// if (userRole == 1) {
+//   // Quyền truy cập Home
+//   alert("Đăng nhập thành công admin");
+//   // Hiển thị toàn bộ phần tử trên trang home
+// } else if (userRole ==  2) {
+//   // Quyền truy cập Order
+//   alert("Đăng nhập thành công customer");
+//   // Ẩn các phần tử không cần thiết trên trang home
+//   const managementElement = document.getElementById("management");
+//   const loginElement = document.getElementById("login");
+//   const signupElement = document.getElementById("signup");
+//   managementElement.style.display = "none";
+//   loginElement.style.display = "none";
+//   signupElement.style.display = "none";
+// } else {
+//   // Sai thông tin đăng nhập hoặc không có thông tin vai trò
+//   alert("Sai thông tin đăng nhập hoặc không có thông tin vai trò");
+// }

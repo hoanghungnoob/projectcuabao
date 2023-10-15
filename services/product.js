@@ -15,7 +15,7 @@ function fetchProducts() {
           <td>
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal_add" onclick="edit_product(${product.id},'${product.name}','${product.quantity}','${product.newPrice}','${product.oldPrice}','${product.image1}','${product.image2}','${product.image3}','${product.description}')">Edit</button>
 
-            <button class="delete_btn_product btn btn-danger" data-product-id="${product.id}">Delete</button>
+            <button class="delete_btn_product btn btn-danger" data-product-id="${product.id}" onclick="deleteProduct(${product.id})">Delete</button>
           </td>
         `;
         var img = document.createElement('img');

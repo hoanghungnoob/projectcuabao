@@ -173,6 +173,50 @@ p {
     border-radius: 8px;
     background: #F6EBDA;
 }
+.dropdown {
+    position: relative;
+  }
+  
+  .dropdown .dropdown-link {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+ 
+  .dropdown .dropdown-menu {
+    width: 150px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    list-style: none;
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-menu li {
+    width: 100%;
+  }
+  
+  .dropdown-menu li a {
+    
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    width: 150px;
+    transition: background-color 0.3s ease;
+  }
+  
+
 
 .icon-card {
     color: rgb(15, 10, 10);
@@ -882,3 +926,9 @@ p {
     font-weight: 400;
     word-wrap: break-word;
 }
+
+
+
+
+
+/*  */

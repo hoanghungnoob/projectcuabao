@@ -55,6 +55,9 @@ fetch("http://localhost:3000/product")
                         document.getElementById("product__btn__buy").addEventListener("click", function() {
                             var quantity = document.getElementById("input__qty").value;
                             var orderUrl = "/page/order/order.html?id=" + element.id + "&quantity=" + quantity;
+                            var orderUrl1 = "/page/product/ProductDetail/ProductDetail.html?id=" + element.id;
+
+
                             window.location.href = orderUrl;
                         });
                     } else {
@@ -70,3 +73,47 @@ detail();
 function choise_product(imgs) {
         main__img.src = imgs.src;
 }
+
+
+// Get all like and dislike buttons
+const likeButtons = document.querySelectorAll('.like-button');
+const dislikeButtons = document.querySelectorAll('.dislike-button');
+
+// Attach click event listener to each like button
+likeButtons.forEach(likeButton => {
+  likeButton.addEventListener('click', () => {
+    likeButton.classList.add('clicked');
+    dislikeButtons.forEach(dislikeButton => {
+      dislikeButton.classList.remove('clicked');
+    });
+  });
+});
+
+// Attach click event listener to each dislike button
+dislikeButtons.forEach(dislikeButton => {
+  dislikeButton.addEventListener('click', () => {
+    dislikeButton.classList.add('clicked');
+    likeButtons.forEach(likeButton => {
+      likeButton.classList.remove('clicked');
+    });
+  });
+});
+
+
+
+
+function loadContent(page) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4) {
+      if (this.status == 200) {
+        document.getElementById("content").innerHTML = this.responseText;
+      } else {
+        console.error("Error loading page:", this.status, this.statusText);
+      }
+    }
+  };
+  xhttp.open("GET", page, true);
+  xhttp.send();
+}
+
