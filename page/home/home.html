@@ -9,11 +9,14 @@
     <link rel="stylesheet" href="./home.css">
     <link rel="stylesheet" href="./reponsive_nav.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- <link rel="stylesheet" href="/page/login/login.css"> -->
+    <!-- <link rel="stylesheet" href="/page/sign in/sign_in.css"> -->
     <!-- font text -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
     <!-- font icon -->
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     <link rel="stylesheet"
@@ -23,142 +26,72 @@
     <script src="/services/home.js"></script>
 </head>
 
-<body>
-    <div class="header">
-        <!-- navber -->
-        <nav class="navbar">
-            <!-- logo -->
-            <div class="navbar_logo">
-                <div id="logo"></div>
-            </div>
-            <!-- search  -->
-            <div class="search-container">
-                <input class="search-container__input" type="text" placeholder="Tìm kiếm..." required>
-                <button type="submit"><i style="font-size: 20px;" class="fa fa-search"></i></button>
-            </div>
-            <!-- elements of navbar -->
-            <span style="font-size:30px;cursor:pointer" id="open_sideBar" onclick="openNav()">&#9776;</span>
-            <div id="opacity" onclick="closeNav()"></div>
-            <!-- side bar -->
-            <div id="mySidenav" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="/page/home/home.html">Home</a>
-                <a href="/page/contact_us/contact_us.html">Contact Us</a>
-                <a href="#">Order</a>
-                <a href="/page/purcha_list/purcha_list.html">History</a>
-                <a href="/page/customer/CustomerList/CustomerList.htm">Management</a>
-                <a href="#">Login</a>
-                <a href="#">Sign Up</a>
-            </div>
-            <ul class="navbar__ul">
-                <!-- all element choose -->
-                <li> <a href="/page/home/home.html"><i class="material-symbols-outlined">home</i>Home</a></li>
-                <li> <a href="/page/contact_us/contact_us.html"><i class="material-symbols-outlined">call</i>Contact
-                        Us</a></li>
-                <li> <a href="#"><i class="material-symbols-outlined">shopping_cart</i>Order</a></li>
-                <li> <a href="/page/purcha_list/purcha_list.html"><i class="material-symbols-outlined">history</i>History</a></li>
-                <li><a href="/page/customer/CustomerList/CustomerList.htm">Management</a></li>
-                <li class="navbar__li--mobile"> <a href="#"><i class="material-symbols-outlined">login</i>Login</a></li>
-                <li class="navbar__li--mobile">
-                    <div class="border2">
-                        <a class="navbar__li__a" href="#"><i class="material-symbols-outlined">person_add</i>Sign up</a>
+<body >
+    <div id="content">
+        <div class="container">
+            <div class="first">
+                <div class="content">
+                    <div class="content-detail">
+                        <h1>Enjoy your <span>coffee</span> before your activity</h1>
+                        <p>Boost your productivity and build your mood with a glass of coffee in the morning</p>
+                        <button class="button">Order Now <i class="fa-solid fa-cart-shopping icon"></i></button>
                     </div>
-                </li>
-            </ul>
-        </nav>
-    </div>
-    <div class="container">
-        <div class="first">
-            <div class="content">
-                <div class="content-detail">
-                    <h1>Enjoy your <span>coffee</span> before your activity</h1>
-                    <p>Boost your productivity and build your mood with a glass of coffee in the morning</p>
-                    <button class="button">Order Now <i class="fa-solid fa-cart-shopping icon"></i></button>
+                </div>
+                <div class="image bg1">
                 </div>
             </div>
-            <div class="image bg1">
+            <div class="two">
+                <div class="image bg2">
+                    <img src="/images/img_product/background2.png" alt="">
+                </div>
             </div>
         </div>
-        <div class="two">
-            <div class="image bg2">
-                <img src="/images/img_product/background2.png" alt="">
+        <div class="retangle">
+            <div class="card" id="card_top">
+                <!-- product here -->
             </div>
         </div>
-    </div>
-    <div class="retangle">
-        <div class="card" id="card_top">
-            <!-- product here -->
-        </div>
-    </div>
-    <div class="delivery">
-        <h2 class="title title1 ">How to use delivery service</h2>
-        <div class="list-delivery">
-            <div class="card-delivery">
-                <img src="/images/img_icon/Deverer1.svg" alt="">
-            </div>
-            <div class="card-delivery">
-                <img src="/images/img_icon/deliverer2.svg" alt="">
-            </div>
-            <div class="card-delivery">
-                <img src="/images/img_icon/deliverer3.svg" alt="">
+        <div class="delivery">
+            <h2 class="title title1 ">How to use delivery service</h2>
+            <div class="list-delivery">
+                <div class="card-delivery">
+                    <img src="/images/img_icon/Deverer1.svg" alt="">
+                </div>
+                <div class="card-delivery">
+                    <img src="/images/img_icon/deliverer2.svg" alt="">
+                </div>
+                <div class="card-delivery">
+                    <img src="/images/img_icon/deliverer3.svg" alt="">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="title title2"> Special</div>
-    <div id="product">
-        <!-- Product container -->
-    </div>
-    <div class="about-us-background">
-        <div class="about-us">
-            <div class="about-us-image">
-                <img src="/images/img_product/mocha.svg" alt="" class="about-image">
-            </div>
-            <div class="dicription-about-us">
-                <div class="about-heading">About us</div>
-                <div class="about-title">We provide quality coffee, and ready to deliver.</div>
-                <div class="about-text">We are a company that makes and distributes delicious drinks. our main product
-                    is made with a secret recipe and available in stores worldwide.</div>
-                <div> <button class="button">Get your coffee</button></div>
+        <div class="title title2"> Special</div>
+        <div id="product">
+            <!-- Product container -->
+        </div>
+        <div class="about-us-background">
+            <div class="about-us">
+                <div class="about-us-image">
+                    <img src="/images/img_product/mocha.svg" alt="" class="about-image">
+                </div>
+                <div class="dicription-about-us">
+                    <div class="about-heading">About us</div>
+                    <div class="about-title">We provide quality coffee, and ready to deliver.</div>
+                    <div class="about-text">We are a company that makes and distributes delicious drinks. our main product
+                        is made with a secret recipe and available in stores worldwide.</div>
+                    <div> <button class="button">Get your coffee</button></div>
+                </div>
             </div>
         </div>
-    </div>
-    <div id="product1">
-        <!-- Product container -->
+        <div id="product1" >
+            <!-- Product container -->
+            
+        </div>
     </div>
 
-    <div class="footer">
-        <div class="row-first">
-            <div class="row-first-content"><img src="/images/img_icon/logo_coffe.svg" alt=""></div>
-        </div>
-        <div class="row-final">
-            <div class="menu-footer">
-                <div class="menu-footer-item">
-                    <div class="footer-item-heading">Type of coffee</div>
-                    <div class="footer-item-paragrap">Mocha</div>
-                    <div class="footer-item-paragrap">CapAmericano</div>
-                    <div class="footer-item-paragrap">Latte</div>
-                    <div class="footer-item-paragrap">Other</div>
-                </div>
-                <div class="menu-footer-item">
-                    <div class="footer-item-heading">About Us</div>
-                    <div class="footer-item-paragrap">Contact Us: 0333775890 - 03488859302 - 01234947232</div>
-                    <div class="footer-item-paragrap">Branch: 101B Le Huu Trac, Phuoc My, Son Tra, Da Nang</div>
-                    <div class="footer-item-paragrap">Address: 445-421 ĐT607, Hoa Hai, Ngu Hanh Son, Da Nang</div>
-                    <div class="footer-item-paragrap">My team: Pham Gia Bao - Ho Thi Mai - Ho Thi Hue - Nguyen Thi Kim
-                        Tuyen</div>
-                    <div class="footer-item-paragrap">Mentor: Nguyen The Quy</div>
-                </div>
-                <div class="menu-footer-item">
-                    <div class="footer-item-heading">Follow Us</div>
-                    <div class="footer-item-paragrap"><i class="fa-brands fa-instagram icon-footer"></i>Instagram</div>
-                    <div class="footer-item-paragrap"><i class="fa-brands fa-facebook icon-footer"></i>Facebook</div>
-                    <div class="footer-item-paragrap"><i class="fa-brands fa-twitter icon-footer"></i>Twitter</div>
-                </div>
-            </div>
-            <div class="footer-content1">We aim to provide a great time for everyone</div>
-            <div class="footer-content2">Coffee suitable for you</div>
-        </div>
-    </div>
+    <script src="/services/order.js"></script>
+    <script src="/services/customer.js"></script>
+    <script src="/services/layout.js"></script>
 </body>
 
 </html>

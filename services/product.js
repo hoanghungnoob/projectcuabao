@@ -12,10 +12,13 @@ function fetchProducts() {
           <td id="imageCell"></td>
           <td>${product.newPrice}</td>
           <td>${product.quantity}</td>
-          <td>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal_add" onclick="edit_product(${product.id},'${product.name}','${product.quantity}','${product.newPrice}','${product.oldPrice}','${product.image1}','${product.image2}','${product.image3}','${product.description}')">Edit</button>
+          <td>${product.description}</td>
 
-            <button class="delete_btn_product btn btn-danger" data-product-id="${product.id}">Delete</button>
+
+          <td>
+          <button id="btn_update_cus" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal_add" onclick="edit_product(${product.id})">Update</button>
+
+            <button class="delete_btn_product btn btn-danger" data-product-id="${product.id}" onclick="deleteProduct(${product.id})">Delete</button>
           </td>
         `;
         var img = document.createElement('img');
@@ -30,23 +33,11 @@ function fetchProducts() {
         deleteButtons[i].addEventListener('click', deleteProduct);
       }
 
-      localStorage.setItem('products', JSON.stringify(data));
+      // localStorage.setItem('products', JSON.stringify(data));
     });
 }
 
-function deleteProduct(event) {
-  var productId = event.target.getAttribute('data-product-id');
 
-  fetch(`http://localhost:3000/product/${productId}`, {
-    method: 'DELETE'
-  })
-    .then(() => {
-      location.reload();
-    })
-    .catch(error => {
-      console.error('Error deleting product:', error);
-    });
-}
 
 fetchProducts();
 function openNav() {
@@ -56,7 +47,10 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
-
+function refreshModal() {
+  // Thực hiện các thao tác cần thiết để refresh modal tại đây
+  location.reload(); // Refresh lại trang web hoặc phần modal
+}
 
 
 // thêm sản phẩm vào datta
@@ -92,7 +86,9 @@ function addProducts() {
       },
       body: JSON.stringify(data),
     }).then(() => {
-      fetchUsers();
+      Swal.fire("Cập nhật thành công", "", "success");
+      fetchProducts();
+
     });
   } else {
     fetch("http://localhost:3000/product", {
@@ -102,54 +98,79 @@ function addProducts() {
       },
       body: JSON.stringify(data),
     }).then(() => {
-      fetchUsers();
+      Swal.fire("Cập nhật thành công", "", "success");
+      fetchProducts();
     });
   }
 }
-
 function deleteProduct(id) {
+
   fetch(`http://localhost:3000/product/${id}`, {
     method: "DELETE",
   })
-    .then(() => fetchProducts())
+    .then(() => {
+      fetchProducts();
+      Swal.fire({
+        icon: 'success',
+        title: 'Product deleted successfully!',
+        showConfirmButton: false,
+        timer: 1500
+      });
+    })
     .catch(() => {
       alert("Delete fail");
     });
 }
-//  chỉnh sửa sản phẩm 
-function edit_product(id, name, quantity, newPrice, oldPrice, image1, image2, image3, description) {
-  // Đặt giá trị vào các trường nhập trong modal chỉnh sửa sản phẩm
-  document.querySelector("#add_productID").value = id;
-  document.querySelector('#nameInput_add').value = name;
-  document.querySelector('#qtyInput_add').value = quantity;
-  document.querySelector('#newPriceInput_add').value = newPrice;
-  document.querySelector('#oldPriceInput_add').value = oldPrice;
-  document.querySelector('#imageFileInput1_add').value = image1;
-  document.querySelector('#imageFileInput2_add').value = image2;
-  document.querySelector('#imageFileInput3_add').value = image3;
-  document.querySelector('#descriptionInput_add').value = description;
-  document.querySelector("#myModal_add #content-des").value;
+
+
+function edit_product(id) {
+  fetch(`http://localhost:3000/product/${id}`)
+    .then(response => response.json())
+    .then(product => {
+      // Set values in the input fields of the edit modal
+      document.querySelector("#add_productID").value = product.id;
+      document.querySelector('#nameInput_add').value = product.name;
+      document.querySelector('#qtyInput_add').value = product.quantity;
+      document.querySelector('#newPriceInput_add').value = product.newPrice;
+      document.querySelector('#oldPriceInput_add').value = product.oldPrice;
+      document.querySelector('#imageFileInput1_add').value = product.image1;
+      document.querySelector('#imageFileInput2_add').value = product.image2;
+      document.querySelector('#imageFileInput3_add').value = product.image3;
+      document.querySelector('#descriptionInput_add').value = product.description;
+      document.querySelector("#myModal_add #content-des").value;
+
+      document.getElementById('title').innerHTML = "Update Product";
+
+      document.getElementById('sub_pro').innerHTML = "Update";
+      document.getElementById('sub_pro').style.backgroundColor = "rgb(50, 50, 216)";
+      document.getElementById('modal-header').style.backgroundColor = "rgb(50, 50, 216)";
+      fetchProducts();
+
+      // Show a success message using SweetAlert2 when the product is updated successfully
+
+    })
+
 }
 
 
 function increment() {
-    var inputQty = document.getElementById('input__qty');
-    var currentQty = parseInt(inputQty.value) || 0;
-    var newQty = currentQty + 1;
-    if (newQty < 1) {
-        newQty = 1;
-    }
-    inputQty.value = newQty;
+  var inputQty = document.getElementById('input__qty');
+  var currentQty = parseInt(inputQty.value) || 0;
+  var newQty = currentQty + 1;
+  if (newQty < 1) {
+    newQty = 1;
+  }
+  inputQty.value = newQty;
 }
 
 function decrement() {
-    var inputQty = document.getElementById('input__qty');
-    var currentQty = parseInt(inputQty.value) || 0;
-    var newQty = currentQty - 1;
-    if (newQty < 1) {
-        newQty = 1;
-    }
-    inputQty.value = newQty;
+  var inputQty = document.getElementById('input__qty');
+  var currentQty = parseInt(inputQty.value) || 0;
+  var newQty = currentQty - 1;
+  if (newQty < 1) {
+    newQty = 1;
+  }
+  inputQty.value = newQty;
 }
 
 // JavaScript code
@@ -157,39 +178,39 @@ const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('id');
 
 fetch("http://localhost:3000/product")
-    .then((res) => res.json())
-    .then((data) => {
-        var product = false;
-        data.forEach(element => {
-            if (productId == element.id) {
-                product = true;
-                if (product) {
-                    document.getElementById('product__name').innerHTML = element.name;
-                    document.getElementById('main__img').src = element.image1;
-                    document.getElementById('item__img1').src = element.image2;
-                    document.getElementById('item__img2').src = element.image3;
-                    document.getElementById('item__img3').src = element.image1;
-                    document.getElementById('new__price').innerHTML = element.newPrice + " VND";
-                    document.getElementById('old__price').innerHTML = element.oldPrice + " VND";
-                    document.getElementById('describe').innerHTML = element.description;
+  .then((res) => res.json())
+  .then((data) => {
+    var product = false;
+    data.forEach(element => {
+      if (productId == element.id) {
+        product = true;
+        if (product) {
+          document.getElementById('product__name').innerHTML = element.name;
+          document.getElementById('main__img').src = element.image1;
+          document.getElementById('item__img1').src = element.image2;
+          document.getElementById('item__img2').src = element.image3;
+          document.getElementById('item__img3').src = element.image1;
+          document.getElementById('new__price').innerHTML = element.newPrice + " VND";
+          document.getElementById('old__price').innerHTML = element.oldPrice + " VND";
+          document.getElementById('describe').innerHTML = element.description;
 
-                    var rating = element.productReviews; 
+          var rating = element.productReviews;
 
-                    var stars = document.getElementsByClassName("star");
+          var stars = document.getElementsByClassName("star");
 
-                    for (var i = 0; i < rating; i++) {
-                        stars[i].classList.add("selected");
-                        console.log(stars[i])
-                    }
-                } else {
-                    document.getElementById("product-detail").innerHTML = "Product not found.";
-                }
-            }
+          for (var i = 0; i < rating; i++) {
+            stars[i].classList.add("selected");
+            console.log(stars[i])
+          }
+        } else {
+          document.getElementById("product-detail").innerHTML = "Product not found.";
+        }
+      }
 
-        });
     });
+  });
 function choise_product(imgs) {
-    main__img.src = imgs.src;
+  main__img.src = imgs.src;
 }
 
 

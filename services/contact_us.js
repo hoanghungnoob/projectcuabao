@@ -23,15 +23,10 @@ function saveUser(event) {
     },
     body: JSON.stringify(data),
   })
+  
     .then((response) => {
       if (response.ok) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Successfully Sent!',
-          text: 'Thank you for contacting us.',
-          showConfirmButton: true,
-          timer: 3000
-        });
+        alert("Successfully Sent!")
       } else {
         Swal.fire({
           icon: 'error',
