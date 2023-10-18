@@ -23,33 +23,6 @@
   ],
   "customer": [
     {
-      "name": "Ho Mai Huyen",
-      "password": "huyen.com123",
-      "phoneNumber": "0123432111",
-      "email": "huyen.ho25@student.com",
-      "role_id": "undefined",
-      "address": "56 Phuoc My ward Son Tra district Da Nang city",
-      "id": 6
-    },
-    {
-      "id": 7,
-      "name": "Ho Thi Liu",
-      "phoneNumber": "0123432222",
-      "address": "56 Phuoc My ward Son Tra district Da Nang city",
-      "roleId": 2,
-      "email": "liu.ho25@student.com",
-      "password": "liu.com123"
-    },
-    {
-      "id": 8,
-      "name": "To Ngol Nien",
-      "phoneNumber": "0123432444",
-      "address": "101B Le Huu Trac Son Tra district Da Nang city",
-      "roleId": 2,
-      "email": "nien.to25@student.com",
-      "password": "nien.com123"
-    },
-    {
       "id": 9,
       "name": "Kasor Rina",
       "phoneNumber": "0123432666",
@@ -86,50 +59,46 @@
       "id": 12
     },
     {
-      "name": "Ho Mai Huyen",
-      "password": "huyen.com123",
-      "phoneNumber": "0123432111",
-      "email": "huyen.ho25@student.com",
-      "roleId": "undefined",
-      "address": "56 Phuoc My ward Son Tra district Da Nang city",
+      "name": "Baopham",
+      "password": "12345",
+      "phoneNumber": "0845042466",
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "roleId": "2",
+      "address": "phuc trạch",
       "id": 13
     },
     {
-      "name": "Ho Mai Huyen",
-      "password": "huyen.com123",
-      "phoneNumber": "0123432111",
-      "email": "huyen.ho25@student.com",
-      "roleId": "undefined",
-      "address": "56 Phuoc My ward Son Tra district Da Nang city",
+      "name": "To Ngol Nien123",
+      "password": "nien.com123",
+      "phoneNumber": "0123432444",
+      "email": "nien.to25@student.com",
+      "roleId": "2",
+      "address": "101B Le Huu Trac Son Tra district Da Nang city",
       "id": 14
+    },
+    {
+      "name": "To Ngol Nien",
+      "password": "nien.com123",
+      "phoneNumber": "0123432444",
+      "email": "nien.to25@student.com",
+      "roleId": "undefined",
+      "address": "101B Le Huu Trac Son Tra district Da Nang city",
+      "id": 15
     }
   ],
   "product": [
     {
-      "name": "Espresso",
-      "quantity": "400",
-      "newPrice": "28.5",
-      "oldPrice": "30",
-      "image1": "/images/img_product/Espresso1.jpg",
-      "image2": "/images/img_product/Espresso2.jpg",
-      "image3": "/images/img_product/Espresso3.jpg",
-      "description": "Coffee is brewed with a small amount of boiling water that is almost pressed under pressure (squeezing) the ground coffee beans.Espresso, is a method of roasting and preparing coffee originating from Italy, in which a small amount of boiling water is forced under pressure through ground coffee beans. Espresso is also the basis for many drinks from Other coffees such as latte, cappuccino, macchiato, mocha, flat white, Americano.",
-      "type": "",
-      "productReviews": 4,
-      "id": 3
-    },
-    {
-      "id": 4,
-      "name": "Latte",
-      "oldPrice": 55,
-      "newPrice": 50,
-      "quantity": 70,
-      "description": "Coffee is made using the Espresso method but with steamed milk added.Coffee latte is a drink originating from Italy consisting of the main ingredients of coffee and whipped milk. This drink is consumed regularly both at home and in cafes and bars.",
+      "name": "Latte1",
+      "quantity": "70",
+      "newPrice": "50",
+      "oldPrice": "55",
       "image1": "/images/img_product/Latte1.jpg",
       "image2": "/images/img_product/Latte2.jpg",
       "image3": "/images/img_product/Latte3.jpg",
+      "description": "Coffee is made using the Espresso method but with steamed milk added.Coffee latte is a drink originating from Italy consisting of the main ingredients of coffee and whipped milk. This drink is consumed regularly both at home and in cafes and bars.",
       "type": "",
-      "productReviews": 4.5
+      "productReviews": 4,
+      "id": 4
     },
     {
       "id": 5,

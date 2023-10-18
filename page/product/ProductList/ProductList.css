@@ -185,19 +185,19 @@ tr img{
 #des{
    width: 700px;
 }
-.modal-header{
-   color: white !important;
-}
+
 
 .button_create {
   background-color: #4CAF50;
   color: white;
   border: none;
+  width: 200px;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  height: 55px;
   border-radius: 5px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
   
@@ -288,12 +288,19 @@ button{
 
     font-size: 12px;
 }
-h1, h2 , h3{ 
+h1, h2 , h3, h4{ 
    font-family: var(--font-family) !important;
+   color: white !important;
 }
 #add_product_form{
   padding: 20px;
 }
 .btn-close{
    font-size: 23px;
+}
+#modal-header{
+  color: white !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 200px !important;
 }

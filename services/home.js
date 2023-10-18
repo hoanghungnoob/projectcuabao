@@ -71,3 +71,37 @@ menuIcon.addEventListener('click', () => {
     navList.classList.toggle("active")
 
 })
+
+
+// login
+
+// Get the logged-in user data from local storage
+const loggedInUser = localStorage.getItem('loggedInUser');
+
+// Check if the user is logged in
+if (loggedInUser) {
+  // Parse the logged-in user data
+  const user = JSON.parse(loggedInUser);
+  console.log(user)
+
+  // Access the user properties as needed
+  const userName = user.name;
+  const userRoleId = user.roleId;
+
+  // Display personalized content based on the user data
+  const welcomeMessage = document.getElementById("welcomeMessage");
+  const roleSpecificContent = document.getElementById("roleSpecificContent");
+
+  welcomeMessage.textContent = `Welcome, ${userName}!`;
+
+  if (userRoleId === 1) {
+    roleSpecificContent.textContent = "You are logged in as role 1.";
+    // Add role-specific logic or content for role 1
+  } else if (userRoleId === 2) {
+    roleSpecificContent.textContent = "You are logged in as role 2.";
+    // Add role-specific logic or content for role 2
+  }
+} else {
+  // Redirect the user to the login page if not logged in
+  window.location.href = "/page/login/login.html";
+}

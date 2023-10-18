@@ -123,6 +123,7 @@ function product_order_detail() {
   }
   
   useCustomerData(11);
+  
   function getDataFormOrder() {
     product_order_detail();
     var fullName = document.getElementById('name__order').value;
