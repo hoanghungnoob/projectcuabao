@@ -1,48 +1,52 @@
-window.onload = function() {
+window.onload = function () {
     const header = document.createElement("div");
     header.innerHTML = `
     <div class="header" id="header">
     <!-- navber -->
     <nav class="navbar">
-        <!-- logo -->
-        <div class="navbar_logo">
-            <div id="logo"></div>
-        </div>
-        <!-- search  -->
-        <div class="search-container">
-            <input class="search-container__input" type="text" placeholder="Tìm kiếm..." required>
-            <button type="submit"><i style="font-size: 20px;" class="fa fa-search"></i></button>
-        </div>
-        <!-- elements of navbar -->
-        <span style="font-size:30px;cursor:pointer" id="open_sideBar" onclick="openNav()">&#9776;</span>
-        <div id="opacity" onclick="closeNav()"></div>
-        
-        <ul class="navbar__ul">
-            <!-- all element choose -->
-            <li> <a href="/page/home/home.html" ><i class="material-symbols-outlined">home</i>Home</a></li>
-            <li> <a href="/page/contact_us/contact_us.html"><i class="material-symbols-outlined">call</i>Contact
-                Us</a></li>
-                <li> <a href="/page/order/order.html"><i class="material-symbols-outlined">shopping_cart</i>Order</a></li>
-                <li> <a href="/page/purcha_list/purcha_list.html"><i class="material-symbols-outlined">history</i>History</a></li>
-                <li class="dropdown">
-                <a href="#" class="dropdown-link">
-                  <i class="fas fa-cog"></i> Management
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="/page/customer/CustomerList/CustomerList.html">Customer</a></li>
-                  <li><a href="/page/product/ProductList/ProductList.htm">Product</a></li>
-                </ul>
-              </li>
-              </li>             
-                 <li class="navbar__li--mobile"> <a href="/page/login/login.html" ><i class="material-symbols-outlined">login</i>Login</a></li>
-            <li class="navbar__li--mobile">
-                <div class="border2">
-                    <a class="navbar__li__a" href="#"><i class="material-symbols-outlined">person_add</i>Sign up</a>
-                </div>
-            </li>
-        </ul>
+      <!-- logo -->
+      <div class="navbar_logo">
+        <div id="logo"></div>
+      </div>
+      <!-- search  -->
+      <div class="search-container">
+        <input class="search-container__input" type="text" placeholder="Tìm kiếm..." required>
+        <button type="submit"><i style="font-size: 20px;" class="fa fa-search"></i></button>
+      </div>
+      <!-- elements of navbar -->
+      <span style="font-size:30px;cursor:pointer" id="open_sideBar" onclick="openNav()">&#9776;</span>
+      <div id="opacity" onclick="closeNav()"></div>
+
+      <ul class="navbar__ul">
+        <!-- all element choose -->
+        <li> <a href="/page/home/home.html"><i class="fas fa-home"></i>Home</a></li>
+        <li> <a href="/page/contact_us/contact_us.html"><i class="fas fa-envelope"></i>Contact
+            Us</a></li>
+        <li> <a href="/page/order/order.html"><i class="fas fa-shopping-cart"></i>Order</a></li>
+        <li> <a href="/page/purcha_list/purcha_list.html"><i class="fas fa-history"></i>History</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-link">
+            <i class="fas fa-cog"></i> Management
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/page/customer/CustomerList/CustomerList.html">Customer</a></li>
+            <li><a href="/page/product/ProductList/ProductList.htm">Product</a></li>
+          </ul>
+        </li>
+        </li>
+        <li class="navbar__li--mobile"> <a href="/page/login/login.html">
+            <button>Login</button>
+          </a></li>
+        <li class="navbar__li--mobile">
+          <div class="border2">
+            <a class="navbar__li__a" href="#">
+              <button>Sign up</button>
+            </a>
+          </div>
+        </li>
+      </ul>
     </nav>
-</div>
+  </div>
     `;
     document.body.insertBefore(header, document.body.firstChild);
 
@@ -81,8 +85,7 @@ window.onload = function() {
         <div class="footer-content2">Coffee suitable for you</div>
     </div>
 </div>
-<script src="/services/order.js"></script>
-<script src="/services/customer.js"></script>
+
     `;
     document.body.appendChild(footer);
 };

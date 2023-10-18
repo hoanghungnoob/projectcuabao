@@ -9,7 +9,7 @@ body {
     /* background: url(https://caphenguyenchat.vn/wp-content/uploads/2019/11/hat-ca-phe-va-nhung-dieu-thu-vi-4.jpg) no-repeat; */
     background-position: center;
     background-size: cover;
-    background-color:white;
+    background-color: white;
 }
 
 .login-box {
@@ -26,11 +26,12 @@ body {
     border-radius: 10px;
     z-index: 1;
     text-align: center;
-    margin-top: 50px;
- 
+    margin-top: 5px;
+
 
 }
-.login-box img{
+
+.login-box img {
     margin-bottom: 30px;
 }
 
@@ -92,7 +93,8 @@ body {
     background-color: rgba(56, 27, 27, 0.789);
     width: 100%;
     margin-top: 20px;
-    border:  0;
+    border: 0;
+    border-radius: 10px;
 }
 
 .login-box #submit:hover {
@@ -153,17 +155,22 @@ body {
         transform: rotate(360deg) translate(100px) rotate(-360deg);
     }
 }
-.social-login{
-    
+
+.social-login button {
+    background-color: rgb(255, 255, 255);
+    width: 10%;
+    border: 0;
+    height: 30px;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-size: 22px;
+    cursor: pointer;
 }
-.social-login button{
-     background-color: rgb(255, 255, 255);
-     border: 0;
-}
-.social-login button i:-child{
-     color: blue;
-}
-#content{
-    height: 100vh;
+.social-login button:first-child {
    
+    color: blue;
 }
+.social-login button:last-child {
+    color: red;
+}
+

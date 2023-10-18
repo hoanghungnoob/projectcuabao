@@ -12,8 +12,11 @@ function fetchProducts() {
           <td id="imageCell"></td>
           <td>${product.newPrice}</td>
           <td>${product.quantity}</td>
+          <td>${product.description}</td>
+
+
           <td>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal_add" onclick="edit_product(${product.id},'${product.name}','${product.quantity}','${product.newPrice}','${product.oldPrice}','${product.image1}','${product.image2}','${product.image3}','${product.description}')">Edit</button>
+          <button id="btn_update_cus" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal_add" onclick="edit_product(${product.id},'${product.name}','${product.quantity}','${product.newPrice}','${product.oldPrice}','${product.image1}','${product.image2}','${product.image3}','${product.description}')">Update</button>
 
             <button class="delete_btn_product btn btn-danger" data-product-id="${product.id}" onclick="deleteProduct(${product.id})">Delete</button>
           </td>
@@ -92,7 +95,7 @@ function addProducts() {
       },
       body: JSON.stringify(data),
     }).then(() => {
-      fetchUsers();
+      fetchProducts();
     });
   } else {
     fetch("http://localhost:3000/product", {
@@ -102,7 +105,7 @@ function addProducts() {
       },
       body: JSON.stringify(data),
     }).then(() => {
-      fetchUsers();
+      fetchProducts();
     });
   }
 }
@@ -129,6 +132,13 @@ function edit_product(id, name, quantity, newPrice, oldPrice, image1, image2, im
   document.querySelector('#imageFileInput3_add').value = image3;
   document.querySelector('#descriptionInput_add').value = description;
   document.querySelector("#myModal_add #content-des").value;
+
+  document.getElementById('title').innerHTML = "Update Product";
+  document.getElementById('sub_pro').innerHTML = "Update";
+  document.getElementById('sub_pro').style.backgroundColor = "rgb(50, 50, 216)";
+  document.getElementById('modal-header').style.backgroundColor = "rgb(50, 50, 216)";
+  fetchProducts();
+
 }
 
 
@@ -193,3 +203,9 @@ function choise_product(imgs) {
 }
 
 
+function change_modal(){
+    if (btn_update_cus.checked){
+       console.log('hello')
+    }
+}
+change_modal()

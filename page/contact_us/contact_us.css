@@ -1,7 +1,8 @@
-body{
+body {
   background-color: rgb(242, 242, 242);
- 
+
 }
+
 .contact {
   display: flex;
   justify-content: center;
@@ -72,7 +73,8 @@ body{
 .card {
   border: none;
   border-radius: 10px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;  overflow: hidden;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  overflow: hidden;
   margin-bottom: 20px;
   display: flex;
   height: 250px;
@@ -91,10 +93,9 @@ body{
 .card-body {
   padding: 20px;
   background-color: #ffffff;
-  background-color: #FAACA8;
-  background-image: linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%);
-cursor: pointer;  
-  
+
+  cursor: pointer;
+
 }
 
 .card-body h5 {
@@ -143,7 +144,8 @@ cursor: pointer;
 #main_contact_form {
   margin-top: 0;
 }
-#content{
+
+#content {
   width: 90vw;
   height: 100vh;
   /* text-align: center; */

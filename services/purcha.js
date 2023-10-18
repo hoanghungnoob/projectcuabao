@@ -77,8 +77,9 @@ function rederectDetailPage(id){
 
 async function detailProduct(){
   try {
-      const urlParams = new URLSearchParams(window.location.search)
-      const id=urlParams.get('id')
+    const urlParams = new URLSearchParams(window.location.search)
+    const id=urlParams.get('id')
+    console.log(id)
 
       if (id) {
       const productResponse = await fetch(`http://localhost:3000/product/${id}`, {
@@ -89,9 +90,8 @@ async function detailProduct(){
       });
 
       if (productResponse) {
-          const details=await productResponse.json()
+          const details=await productResponse.json();
           document.querySelector(".container__productDetail").innerHTML = `
-          <div id="content">
           <div class="con_item_productDetail con_item_productDetail1">
               <div class="main__img__box">
                   <img id="main__img" src="${details.image1}" alt="Photo">
@@ -149,7 +149,6 @@ async function detailProduct(){
                   </button>
                   <button id="product__btn__buy" class="btn_add_qtt" type="button" onclick="buy()">Buy</button>
               </div>
-          </div>
           </div>
           `
       }else{
