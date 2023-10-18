@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Giỏ hàng</title>
+  <link rel="stylesheet" type="text/css" href="ShoppingCart.css">
+</head>
+<body>
+  <h1>Giỏ hàng</h1>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Sản phẩm</th>
+        <th>Số lượng</th>
+        <th>Giá</th>
+        <th>Tổng cộng</th>
+        <th></th> <!-- Thêm cột mới -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="product-info">
+            <img src="/images/img_product/black-coffee1.jpg" alt="Áo thun">
+            <div class="product-details">
+              <h3>Áo thun</h3>
+              <p>Drink</p>
+              <button class="buy-button">Buy</button> <!-- Thêm nút Buy -->
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="quantity-container">
+            <button class="quantity-button decrease">-</button>
+            <span class="quantity">2</span>
+            <button class="quantity-button increase">+</button>
+          </div>
+        </td>
+        <td>$40</td>
+        <td>$80</td>
+        <td></td> <!-- Thêm cột mới -->
+      </tr>
+      <tr>
+        <!-- Các hàng khác tương tự -->
+      </tr>
+    </tbody>
+    <tfoot>
+      <!-- Phần tfoot không có thay đổi -->
+    </tfoot>
+  </table>
+  
+  <a href="checkout.html" class="checkout-button">Thanh toán</a>
+  
+  <script src="script.js"></script>
+</body>
+</html>
