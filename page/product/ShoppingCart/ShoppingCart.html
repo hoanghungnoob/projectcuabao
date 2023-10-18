@@ -3,9 +3,16 @@
 <head>
   <title>Giỏ hàng</title>
   <link rel="stylesheet" type="text/css" href="ShoppingCart.css">
+  <!-- font icon -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  <link rel="stylesheet"
+   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 </head>
 <body>
-  <h1>Giỏ hàng</h1>
+  <h1>Your shopping cart</h1>
   
   <table>
     <thead>
@@ -14,7 +21,8 @@
         <th>Số lượng</th>
         <th>Giá</th>
         <th>Tổng cộng</th>
-        <th></th> <!-- Thêm cột mới -->
+        <th></th> <!-- New column for delete icon -->
+        <th></th> <!-- New column for checkbox -->
       </tr>
     </thead>
     <tbody>
@@ -23,9 +31,9 @@
           <div class="product-info">
             <img src="/images/img_product/black-coffee1.jpg" alt="Áo thun">
             <div class="product-details">
-              <h3>Áo thun</h3>
+              <h3>Black coffee</h3>
               <p>Drink</p>
-              <button class="buy-button">Buy</button> <!-- Thêm nút Buy -->
+              <button class="buy-button">Buy</button>
             </div>
           </div>
         </td>
@@ -38,18 +46,69 @@
         </td>
         <td>$40</td>
         <td>$80</td>
-        <td></td> <!-- Thêm cột mới -->
+        <td><i class="fa fa-trash-o" aria-hidden="true"></i></td> <!-- New column for delete icon -->
+        <td><input type="checkbox" class="custom-checkbox"></td> <!-- New column for checkbox -->
       </tr>
+      
+      
       <tr>
-        <!-- Các hàng khác tương tự -->
+        <td>
+          <div class="product-info">
+            <img src="/images/img_product/black-coffee1.jpg" alt="Áo thun">
+            <div class="product-details">
+              <h3>Black coffee</h3>
+              <p>Drink</p>
+              <button class="buy-button">Buy</button>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="quantity-container">
+            <button class="quantity-button decrease">-</button>
+            <span class="quantity">2</span>
+            <button class="quantity-button increase">+</button>
+          </div>
+        </td>
+        <td>$40</td>
+        <td>$80</td>
+        <td><i class="fa fa-trash-o" aria-hidden="true"></i></td> <!-- New column for delete icon -->
+        <td><input type="checkbox"></td> <!-- New column for checkbox -->
       </tr>
+
+      
+      <tr>
+        <td>
+          <div class="product-info">
+            <img src="/images/img_product/black-coffee1.jpg" alt="Áo thun">
+            <div class="product-details">
+              <h3>Black coffee</h3>
+              <p>Drink</p>
+              <button class="buy-button">Buy</button>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="quantity-container">
+            <button class="quantity-button decrease">-</button>
+            <span class="quantity">2</span>
+            <button class="quantity-button increase">+</button>
+          </div>
+        </td>
+        <td>$40</td>
+        <td>$80</td>
+        <td><i class="fa fa-trash-o" aria-hidden="true"></i></td> <!-- New column for delete icon -->
+        <td><input type="checkbox"></td> <!-- New column for checkbox -->
+      </tr>
+
+      
+
     </tbody>
     <tfoot>
       <!-- Phần tfoot không có thay đổi -->
     </tfoot>
   </table>
-  
-  <a href="checkout.html" class="checkout-button">Thanh toán</a>
+  <div id="total-price">Total Price: $0</div>
+  <button id="buy-button" class="buy-button">Buy</button>
   
   <script src="script.js"></script>
 </body>
