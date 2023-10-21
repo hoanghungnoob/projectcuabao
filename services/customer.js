@@ -37,7 +37,7 @@ function createCustomer() {
     password: password,
     phoneNumber: phone,
     email: email,
-    roleId: roleId,
+    roleId: parseInt(roleId),
     address: address
   };
 
@@ -116,7 +116,7 @@ function update_customer(id) {
           password: document.getElementById('password').value,
           phoneNumber: document.getElementById('phone').value,
           email: document.getElementById('email').value,
-          role_id: document.getElementById('role_id').value,
+          role_id: parseInt(document.getElementById('role_id').value),
           address: document.getElementById('address').value
 
         };
@@ -132,7 +132,7 @@ function update_customer(id) {
         .then(response => {
           if (response.ok) {
             Swal.fire("Cập nhật thành công", "", "success");
-            fetchCustomers(); // Refresh the customer table
+            fetch('http://localhost:3000/customer') // Refresh the customer table
           } else {
             Swal.fire("Cập nhật thất bại", "", "error");
           }
