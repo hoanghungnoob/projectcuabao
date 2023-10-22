@@ -11,14 +11,7 @@
       "code": "CF13"
     }
   ],
-  "register":[
-    {
-      "email": "example@example.com",
-      "password": "password123",
-      "confirmPassword": "password123",
-      "rememberPassword": true
-    }
-  ],
+  "users": [],
   "admin": [
     {
       "id": 1,
@@ -74,12 +67,81 @@
       "roleId": "undefined",
       "address": "Chan Ro village Dakrong commune Dakrong district Quang Tri province",
       "id": 13
+    },
+    {
+      "name": "kimtuyen",
+      "password": "1111111",
+      "phoneNumber": "03486262820",
+      "email": "tuyenkimnguyen107@gmail.com.vn",
+      "role_id": "2",
+      "address": "Cat Hanh",
+      "id": 14
+    },
+    {
+      "name": "fnbg",
+      "email": "thanh.nguyen@gmail.com",
+      "password": "123123123",
+      "id": 15
+    },
+    {
+      "name": "TRan minh",
+      "email": "thanh.nguyen@gmail.com",
+      "password": "123123123",
+      "id": 16
+    },
+    {
+      "name": "kim",
+      "email": "",
+      "password": "12312",
+      "id": 17
+    },
+    {
+      "name": "kim tuyen",
+      "email": "thi.ho25@student.com",
+      "password": "123123123",
+      "id": 18
+    },
+    {
+      "name": "fnbg",
+      "email": "",
+      "password": "123123123",
+      "id": 19
+    },
+    {
+      "name": "quang.tran@gmail.com",
+      "email": "quang.tran@gmail.com",
+      "password": "dgdgshdghsf",
+      "id": 20
+    },
+    {
+      "name": "kktuyen",
+      "email": "thi.ho25@student.com",
+      "password": "123123123",
+      "id": 21
+    },
+    {
+      "name": "kim tuyen",
+      "email": "tuyenkimnguyen107@gmail.com",
+      "password": "00000000",
+      "id": 22
+    },
+    {
+      "name": "kim tuyen nguyen",
+      "email": "thanh.nguyen@gmail.com",
+      "password": "111111111",
+      "id": 23
+    },
+    {
+      "name": "kim tuyen nguyen",
+      "email": "",
+      "password": "111111111",
+      "id": 24
     }
   ],
   "product": [
     {
       "name": "Americanosasasa",
-      "quantity": "50",
+      "quantity": "790",
       "newPrice": "13500",
       "oldPrice": "15000",
       "image1": "/images/img_product/Americano1.jpg",
@@ -91,17 +153,17 @@
       "id": 2
     },
     {
-      "id": 3,
       "name": "Espresso",
-      "oldPrice": 30,
-      "newPrice": 28.5,
-      "quantity": 40,
-      "description": "Coffee is brewed with a small amount of boiling water that is almost pressed under pressure (squeezing) the ground coffee beans.Espresso, is a method of roasting and preparing coffee originating from Italy, in which a small amount of boiling water is forced under pressure through ground coffee beans. Espresso is also the basis for many drinks from Other coffees such as latte, cappuccino, macchiato, mocha, flat white, Americano.",
+      "quantity": "40",
+      "newPrice": "28.5",
+      "oldPrice": "70",
       "image1": "/images/img_product/Espresso1.jpg",
       "image2": "/images/img_product/Espresso2.jpg",
       "image3": "/images/img_product/Espresso3.jpg",
+      "description": "Coffee is brewed with a small amount of boiling water that is almost pressed under pressure (squeezing) the ground coffee beans.Espresso, is a method of roasting and preparing coffee originating from Italy, in which a small amount of boiling water is forced under pressure through ground coffee beans. Espresso is also the basis for many drinks from Other coffees such as latte, cappuccino, macchiato, mocha, flat white, Americano.",
       "type": "",
-      "productReviews": 4.8
+      "productReviews": 4,
+      "id": 3
     },
     {
       "id": 4,
@@ -208,17 +270,17 @@
       "productReviews": 5
     },
     {
-      "id": 15,
       "name": "Robusta",
-      "oldPrice": 68,
-      "newPrice": 67,
-      "quantity": 47,
-      "description": "This coffee has a rather bitter taste, a rich drink, very suitable for men. Pure Robusta coffee is popular with many people because of its rich taste and unique aroma. In general, pure Robusta often has a much more astringent and bitter taste than.",
+      "quantity": "47",
+      "newPrice": "67",
+      "oldPrice": "68",
       "image1": "/images/img_product/Robusta1.jpg",
       "image2": "/images/img_product/Robusta2.jpg",
       "image3": "/images/img_product/Robusta3.jpg",
+      "description": "This coffee has a rather bitter taste, a rich drink, very suitable for men. Pure Robusta coffee is popular with many people because of its rich taste and unique aroma. In general, pure Robusta often has a much more astringent and bitter taste than.",
       "type": "",
-      "productReviews": 4
+      "productReviews": 4,
+      "id": 15
     },
     {
       "name": "tea coffe",

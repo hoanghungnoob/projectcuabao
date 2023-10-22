@@ -1,3 +1,5 @@
+
+
 function validation(){
     if(document.Formfill.userName.value==""){
         document.getElementById("result").innerHTML="Enter Username";
@@ -24,45 +26,68 @@ function validation(){
         popup.classList.add("open-slize");
         return false;
     }
+    
 }
-
 var popup =document.getElementById("popup");
 function closeSlize(){
     popup.classList.remove('open-slize');
 }
 
 
+document.getElementById("customerForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Ngăn chặn gửi yêu cầu POST mặc định
 
+      var form = document.getElementById("customerForm");
+      var name = document.getElementById("user_name").value;
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
 
+      var customer = {
+        name:name,
+        email: email,
+        password: password
+      };
+       localStorage.setItem("customer", JSON.stringify(customer));
+      fetch("http://localhost:3000/customer", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(customer)
+      })
+      .then(function(response) {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Đã xảy ra lỗi khi đăng ký khách hàng.");
+        }
+      })
+      .then(function(customer) {
+        alert("Đã đăng ký thành công! Mã khách hàng mới: " + customer.id);
+        form.reset();
+      })
+      .catch(function(error) {
+        alert(error.message);
+      });
+      function sendEmail(customerId) {
+    var emailData = {
+      to: email,
+      from: "tuyen.nguyen25@student.passerellesnumeriques.org",
+      subject: "Đăng ký thành công",
+      text: "Chúc mừng bạn đã đăng ký thành công! Mã khách hàng mới của bạn là: " + customerId
+    };
 
-// function register() {    
-//     var email = document.getElementById("email").value;
-//     var password = document.getElementById("password").value;
-//     var confirmPassword= document.getElementById("con_password").value;
-//     var rememberPassword = true;
-//     if (email === "" || password === "" || confirmPassword === "") {
-//         alert("Vui lòng điền đầy đủ thông tin.");
-//         return;
-//     }
-
-//     if (password !== confirmPassword) {
-//         alert("Mật khẩu xác nhận không khớp.");
-//         return;
-//     }
-//     fetch("  http://localhost:3000/register", {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify(registerData)
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         console.log(data);
-//         alert("Đăng ký thành công!");
-//     })
-//     .catch(error => {
-//         console.error(error);
-//         alert("Đăng ký thất bại.");
-//     });
-// }
+    axios.post("https://api.sendgrid.com/v3/mail/send", emailData, {
+      headers: {
+        "Authorization": "Bearer YOUR_SENDGRID_API_KEY",
+        "Content-Type": "application/json"
+      }
+    })
+    .then(function(response) {
+      console.log("Email đã được gửi thành công!");
+    })
+    .catch(function(error) {
+      console.error("Đã xảy ra lỗi khi gửi email:", error);
+    });
+  }
+    });

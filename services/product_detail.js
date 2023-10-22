@@ -41,12 +41,8 @@ fetch("http://localhost:3000/product")
                     // Đánh giá sản phẩm (từ 1 đến 5)
 
                     var rating = element.productReviews; 
-                    console.log(rating)
-                    // Đây chỉ là ví dụ, bạn có thể thay đổi giá trị này.
-
-                    // Lấy tất cả các ngôi sao
+                    console.log(rating);
                     var stars = document.getElementsByClassName("star");
-
                     // Lặp qua từng ngôi sao và làm cho các ngôi sao tương ứng sáng lên
                     for (var i = 0; i < rating; i++) {
                         stars[i].classList.add("selected");
