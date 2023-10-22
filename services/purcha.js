@@ -72,13 +72,14 @@ async function fetchData() {
 
 fetchData();
 function rederectDetailPage(id){
-  window.location.href=`../product_detail/product_detail.html?id=${id}`
+  window.location.href=`/page/product/ProductDetail/ProductDetail.html?id=${id}`
 }
 
 async function detailProduct(){
   try {
-      const urlParams = new URLSearchParams(window.location.search)
-      const id=urlParams.get('id')
+    const urlParams = new URLSearchParams(window.location.search)
+    const id=urlParams.get('id')
+    console.log(id)
 
       if (id) {
       const productResponse = await fetch(`http://localhost:3000/product/${id}`, {
@@ -89,7 +90,7 @@ async function detailProduct(){
       });
 
       if (productResponse) {
-          const details=await productResponse.json()
+          const details=await productResponse.json();
           document.querySelector(".container__productDetail").innerHTML = `
           <div class="con_item_productDetail con_item_productDetail1">
               <div class="main__img__box">
