@@ -36,7 +36,7 @@ window.onload = function () {
       <li class="navbar__li--mobile" id="login"><a href="/page/login/login.html"><button>Login</button></a></li>
       <li class="navbar__li--mobile">
         <div class="border2">
-          <a class="navbar__li__a" href="#" id="sign_up"><button>Sign up</button></a>
+          <a class="navbar__li__a" href="/page/register/register.html" id="sign_up"><button>Sign up</button></a>
         </div>
       </li>
       <!-- profile -->

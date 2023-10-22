@@ -80,25 +80,19 @@ fetch("http://localhost:3000/product")
                     console.log(rating)
                     // Đây chỉ là ví dụ, bạn có thể thay đổi giá trị này.
 
-                        var rating = element.productReviews;
-                        var stars = document.getElementsByClassName("star");
-                        for (var i = 0; i < rating; i++) {
-                            stars[i].classList.add("selected");
-                        }
+                    // Lấy tất cả các ngôi sao
+                    var stars = document.getElementsByClassName("star");
 
-                        document.getElementById("product__btn__buy").addEventListener("click", function() {
-                            var quantity = document.getElementById("input__qty").value;
-                            var orderUrl = "/page/order/order.html?id=" + element.id + "&quantity=" + quantity;
-                            window.location.href = orderUrl;
-                            // var orderUrl1 = "/page/purcha_list/purcha_list.html?id=" + element.id;
-                            // window.location.href = orderUrl1;
-
-                        });
-                    } else {
-                        document.getElementById("product-detail").innerHTML = "Product not found.";
+                    // Lặp qua từng ngôi sao và làm cho các ngôi sao tương ứng sáng lên
+                    for (var i = 0; i < rating; i++) {
+                        stars[i].classList.add("selected");
+                        console.log(stars[i])
                     }
+                } else {
+                    document.getElementById("product-detail").innerHTML = "Product not found.";
                 }
-            });
+            }
+
         });
 }
 
