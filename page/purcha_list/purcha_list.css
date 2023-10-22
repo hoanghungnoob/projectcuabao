@@ -16,6 +16,7 @@
   box-sizing: border-box;}
   .card_product{
     display:flex;
+    margin-top: 80px;
   }
   body {
     font-family: var(--font-family);
@@ -37,7 +38,7 @@ text-decoration:line-through;
   margin-top: 130px;
 }
 .content_product {
-margin-top: 80px;
+margin-top: 60px;
 margin-left: 90px;
 }
 .card_product img {
@@ -47,10 +48,15 @@ margin-left: 90px;
   margin-left: 90px;
 
 }
+.buttons{
+   display: flex;
+   gap: 20px;
+}
 
 .buttons button {
   height: 60px;
   width: 200px;
+  cursor: pointer;
 }
 #product__btn__buy {
 color:black;
@@ -161,4 +167,11 @@ margin-right: 350px;
       width: 200px;
       
   }
+}
+#content{
+   height: auto;
+   margin: 20px 0;
+   margin: 0 auto;
+   width: 90%;
+   margin-bottom: 20px;
 }

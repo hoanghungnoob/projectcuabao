@@ -13,7 +13,7 @@ function fetchCustomers() {
           <td>${customer.phoneNumber}</td>
           <td>${customer.address}</td>
           <td>
-          <button id="update_btn_product" onclick="update_customer(${customer.id})">Update</button>
+          <button id="update_btn_product" class="btn btn-primary" onclick="update_customer(${customer.id})">Update</button>
             <button id="delete_btn_product" onclick="delete_customer(${customer.id})">Delete</button>
          
           </td>
@@ -25,8 +25,7 @@ fetchCustomers();
 
 const customerForm = document.getElementById("cusForm");
 customerForm.addEventListener("submit", createCustomer);
-function createCustomer (){
-  console.log("Quy cute fo mai que");
+function createCustomer() {
   const name = document.getElementById("name").value;
   const password = document.getElementById("password").value;
   const phone = document.getElementById("phone").value;
@@ -41,7 +40,6 @@ function createCustomer (){
     roleId: roleId,
     address: address
   };
-  localStorage.setItem("customer", JSON.stringify(customer));
 
   fetch("http://localhost:3000/customer", {
     method: "POST",
@@ -50,49 +48,68 @@ function createCustomer (){
     },
     body: JSON.stringify(customer)
   })
-  .then(response => {
-    if (response.ok) {
-      console.log("Customer added successfully!");
-    } else {
-      console.log("Failed to add customer.");
-    }
-  })
-  .catch(error => {
-    console.error("Error:", error);
-  });
-};
-delete customer
-function delete_customer(id) {
-  fetch(`http://localhost:3000/customer/${id}`, {
-    method: "DELETE",
-  })
-    .then(() => {
-      fetchCustomers(); // Gọi lại hàm fetchCustomers() để cập nhật danh sách khách hàng sau khi xóa
-      alert("Delete success");
+    .then(response => {
+      if (response.ok) {
+        Swal.fire("Thêm khách hàng thành công!", "", "success");
+      } else {
+        Swal.fire("Thêm khách hàng thất bại!", "", "error");
+      }
     })
-    .catch(() => {
-      alert("Delete fail");
+    .catch(error => {
+      console.error("Lỗi:", error);
+      Swal.fire("Lỗi", "Đã xảy ra lỗi khi thêm khách hàng", "error");
     });
 }
+// delete customer
+function delete_customer(id) {
+  Swal.fire({
+    title: "Xác nhận xóa",
+    text: "Bạn có chắc chắn muốn xóa khách hàng này?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Xóa",
+    cancelButtonText: "Hủy",
+    confirmButtonColor: "rgb(50, 50, 216)",
+    cancelButtonColor: "rgb(220, 53, 69)",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      fetch(`http://localhost:3000/customer/${id}`, {
+        method: "DELETE",
+      })
+        .then(() => {
+          fetchCustomers();
+          Swal.fire("Xóa thành công", "", "success");
+        })
+        .catch(() => {
+          Swal.fire("Xóa thất bại", "", "error");
+        });
+    }
+  });
+}
+
 function update_customer(id) {
-  
+
   fetch(`http://localhost:3000/customer/${id}`)
     .then(response => response.json())
     .then(customer => {
-      
+
       document.getElementById('name').value = customer.name;
       document.getElementById('password').value = customer.password;
       document.getElementById('phone').value = customer.phoneNumber;
       document.getElementById('email').value = customer.email;
-      document.getElementById('role_id').value = customer.role_id;
+      document.getElementById('role_id').value = customer.roleId;
       document.getElementById('address').value = customer.address;
 
-      
+      document.getElementById('main_title').innerHTML = "Update Customer";
+      document.getElementById('sub').innerHTML = "Update";
+      document.getElementById('sub').style.backgroundColor = "rgb(50, 50, 216)";
+
+
+      document.getElementById('modal-header').style.backgroundColor = "rgb(50, 50, 216)"
       var modal = new bootstrap.Modal(document.getElementById('myModal'));
       modal.show();
 
-      
-      document.getElementById('cusForm').onsubmit = function(event) {
+      document.getElementById('cusForm').onsubmit = function (event) {
         event.preventDefault();
         var updatedCustomer = {
           name: document.getElementById('name').value,
@@ -101,9 +118,10 @@ function update_customer(id) {
           email: document.getElementById('email').value,
           role_id: document.getElementById('role_id').value,
           address: document.getElementById('address').value
+
         };
 
-        
+
         fetch(`http://localhost:3000/customer/${id}`, {
           method: "PUT",
           headers: {
@@ -111,16 +129,29 @@ function update_customer(id) {
           },
           body: JSON.stringify(updatedCustomer)
         })
-          .then(() => {
+        .then(response => {
+          if (response.ok) {
+            Swal.fire("Cập nhật thành công", "", "success");
             fetchCustomers(); // Refresh the customer table
-            modal.hide(); // Hide the modal
-          })
-          .catch(() => {
-            alert("Update fail");
-          });
+          } else {
+            Swal.fire("Cập nhật thất bại", "", "error");
+          }
+        })
+        .catch(() => {
+          Swal.fire("Lỗi", "Đã xảy ra lỗi khi cập nhật thông tin khách hàng", "error");
+        });
       };
     })
     .catch(() => {
       alert("Error retrieving customer data");
     });
 }
+
+// kiểm tra xem là loại form nào 
+
+function refreshModal() {
+  // Thực hiện các thao tác cần thiết để refresh modal tại đây
+  location.reload(); // Refresh lại trang web hoặc phần modal
+}
+
+// 
