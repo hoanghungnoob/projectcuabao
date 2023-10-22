@@ -107,6 +107,8 @@ if (roleId === "2") {
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('roleId');
 
+
 localStorage.removeItem('userId');
+localStorage.clear();
 
 

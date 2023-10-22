@@ -60,6 +60,8 @@ fetch("http://localhost:3000/product")
                     ${productHTML.join("")}
                 </div>
             `;
+
+            console.table(data,"helllooo")
         var product = false;
         data.forEach(element => {
           
@@ -88,10 +90,11 @@ fetch("http://localhost:3000/product")
 
                         document.getElementById("product__btn__buy").addEventListener("click", function() {
                             var quantity = document.getElementById("input__qty").value;
+                            console.log(quantity,'helllloooo')
                             var orderUrl = "/page/order/order.html?id=" + element.id + "&quantity=" + quantity;
                             window.location.href = orderUrl;
-                            // var orderUrl1 = "/page/purcha_list/purcha_list.html?id=" + element.id;
-                            // window.location.href = orderUrl1;
+                            var orderUrl1 = "/page/purcha_list/purcha_list.html?id=" + element.id;
+                            window.location.href = orderUrl1;
 
                         });
                     } else {

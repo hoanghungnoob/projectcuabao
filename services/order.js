@@ -3,22 +3,21 @@ const provinceSelect = document.getElementById('province__order');
 const districtSelect = document.getElementById('district__order');
 const provinceUrl = 'http://localhost:3000/province';
 const districtUrl = 'http://localhost:3000/district';
+
 const user_id = localStorage.getItem('userId');
-console.log(user_id)
+const role_Id = localStorage.getItem('roleId')
 
 // Function fetch dữ liệu từ API
 function fetchData(url) {
   return fetch(url)
     .then(response => response.json())
     .catch(error => {
-      console.error('Đã xảy ra lỗi:', error);
     });
 }
 
 // Fetch dữ liệu tỉnh từ localhost
 fetchData(provinceUrl)
   .then(data => {
-    console.log('Dữ liệu tỉnh:', data);
     const provinces = data;
     // Đẩy dữ liệu tỉnh vào select tỉnh
     provinces.forEach(function (province) {
@@ -35,7 +34,6 @@ fetchData(provinceUrl)
       // Fetch dữ liệu huyện từ localhost dựa trên mã tỉnh đã chọn
       fetchData(`${districtUrl}?parent_code=${selectedProvinceCode}`)
         .then(data => {
-          console.log('Dữ liệu huyện:', data);
           const districts = data;
           // Xóa tất cả các option cũ trong select huyện
           districtSelect.innerHTML = '';
@@ -95,6 +93,7 @@ function product_order_detail() {
 }
 var urlParams1 = new URLSearchParams(window.location.search);
 var quantity_detail = urlParams1.get('quantity');
+console.log(quantity_detail)
 
 if (quantity_detail == null || quantity_detail == NaN) {
   var quantity_order_after = document.getElementById("quantity_order").innerHTML = 1;
@@ -104,12 +103,11 @@ else {
 }
 
 function useCustomerData(customerId) {
-  fetch(`http://localhost:3000/customer?id=${customerId}`)
+   if(role_Id == 2){
+    fetch(`http://localhost:3000/customer?id=${customerId}`)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data, "hello")
       data.forEach((element) => {
-        console.log(element)
         document.getElementById('name__order').value = element.name;
         document.getElementById('customerID__order').value = element.id;
         document.getElementById('email__order').value = element.email;
@@ -121,8 +119,26 @@ function useCustomerData(customerId) {
       })
     })
     .catch((error) => {
-      console.error("Error:", error);
     });
+   }
+   else{
+    fetch(`http://localhost:3000/admin?id=${customerId}`)
+    .then((res) => res.json())
+    .then((data) => {
+      data.forEach((element) => {
+        document.getElementById('name__order').value = element.name;
+        document.getElementById('customerID__order').value = element.id;
+        document.getElementById('email__order').value = element.email;
+        document.getElementById('phone__order').value = element.phoneNumber;
+        document.getElementById('address__order').value = element.address;
+        // Gán giá trị mặc định cho các ô select province và district
+        document.getElementById('date__order').value = getCurrentTime();
+
+      })
+    })
+    .catch((error) => {
+    });
+   }
 }
 
 useCustomerData(user_id);
@@ -142,7 +158,6 @@ function getDataFormOrder() {
   var quantity = document.getElementById('quantity_order').textContent;
   var totalPrice = document.getElementById('price__order').textContent;
   var date = document.getElementById('date__order').value;
-  console.log(province);
 
 
   var data = {
@@ -197,7 +212,6 @@ function placeOrder() {
       })
       .catch((error) => {
         // Xử lý lỗi nếu có
-        console.error("Error:", error);
       });
 
     // date time
@@ -228,4 +242,3 @@ function placeOrder() {
     alert('Bạn phải đăng nhập!');
   }
 }
-  getCurrentTime();

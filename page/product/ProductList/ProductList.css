@@ -35,21 +35,11 @@
   padding-right: 40px;
 }
 
-/* #box_top_btn {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-} */
 
 
 
 /* List of products */
 .list_product_admin {
-  margin-top: 20px;
-  padding: 20px;
   width: 100vw;
 }
 
@@ -57,6 +47,7 @@
   width: 100%;
   border-collapse: collapse;
   gap: 20px;
+
 }
 
 #list_product th,
@@ -153,7 +144,6 @@ tr img{
 #list_product {
   width: 100%;
   padding: 20px;
-  margin: 20px;
   background-color: #fff;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
 

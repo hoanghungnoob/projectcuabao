@@ -17,21 +17,13 @@
       "name": "admin",
       "phoneNumber": "0397208231",
       "avata": "/images/img_icon/avata_admin.jpg",
-      "emailAddress": "hue.ho25@student.passerellesnumeriques.org",
+      "email": "hue.ho25@student.passerellesnumeriques.org",
+      "address": "Lang Cat village Mo O commune Dakrong district Quang Tri province",
       "password": "12345",
       "roleId": 1
     }
   ],
   "customer": [
-    {
-      "name": "Kasor Rina",
-      "password": "rina.com123",
-      "phoneNumber": "0123432666",
-      "email": "rina.ho25@student.com",
-      "role_id": "",
-      "address": "Lang Cat village Mo O commune Dakrong district Quang Tri province",
-      "id": 9
-    },
     {
       "id": 10,
       "name": "Dinh Thi Duyen",
@@ -81,6 +73,16 @@
       "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
       "avata": "http://127.0.0.1:5500/images/img_icon/avata_admin.jpg",
       "id": 16
+    },
+    {
+      "name": "Em boss",
+      "password": "11111",
+      "phoneNumber": "0845042466",
+      "email": "phamthithieu@gmail.com",
+      "roleId": 2,
+      "address": "phuc trạch",
+      "avata": "http://127.0.0.1:5500/images/img_icon/avata_admin.jpg",
+      "id": 17
     }
   ],
   "product": [
@@ -204,35 +206,84 @@
   ],
   "order": [
     {
-      "name": "Le Van Thao",
-      "customerId": "13",
-      "productId": "4",
-      "email": "thao.ho25@student.com",
-      "phoneNumber": "0124782999",
-      "avata": "/images/img_icon/user-removebg-preview.png",
-      "address": "101B Le Huu Trac Son Tra district Da Nang city",
-      "province": "06",
-      "district": "058",
-      "productName": "Latte",
-      "productPrice": "50 VND",
-      "quantity": "4",
-      "totalPrice": "200 VND",
-      "id": 1
-    },
-    {
-      "name": "Baopham",
+      "name": "phamgiabao",
+      "date": "2023-10-22",
       "customerId": "16",
-      "productId": "5",
+      "productId": null,
       "email": "bao.pham25@student.passerellesnumeriques.org",
       "phoneNumber": "0845042466",
-      "address": "phuc trạch",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "06",
+      "district": "058",
+      "productName": "Arabica",
+      "productPrice": "100.000 VND",
+      "quantity": "1",
+      "totalPrice": "100.000 VND",
+      "id": 5
+    },
+    {
+      "name": "phamgiabao",
+      "date": "2023-10-22",
+      "customerId": "16",
+      "productId": null,
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "06",
+      "district": "058",
+      "productName": "Arabica",
+      "productPrice": "100.000 VND",
+      "quantity": "1",
+      "totalPrice": "100.000 VND",
+      "id": 5
+    },
+    {
+      "name": "phamgiabao",
+      "date": "2023-10-22",
+      "customerId": "16",
+      "productId": null,
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "06",
+      "district": "058",
+      "productName": "Arabica",
+      "productPrice": "100.000 VND",
+      "quantity": "1",
+      "totalPrice": "100.000 VND",
+      "id": 5
+    },
+    {
+      "name": "phamgiabao",
+      "date": "2023-10-22",
+      "customerId": "16",
+      "productId": null,
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "06",
+      "district": "058",
+      "productName": "Arabica",
+      "productPrice": "100.000 VND",
+      "quantity": "1",
+      "totalPrice": "100.000 VND",
+      "id": 5
+    },
+    {
+      "name": "phamgiabao",
+      "date": "2023-10-12",
+      "customerId": "16",
+      "productId": "4",
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
       "province": "04",
       "district": "040",
-      "productName": "Cappuccino",
-      "productPrice": "22 VND",
+      "productName": "Arabica",
+      "productPrice": "100.000 VND",
       "quantity": "1",
-      "totalPrice": "22 VND",
-      "id": 2
+      "totalPrice": "100.000 VND",
+      "id": 6
     }
   ],
   "contact": [

@@ -29,8 +29,10 @@ window.onload = function () {
           <i class="fas fa-cog"></i> Management
         </a>
         <ul class="dropdown-menu">
-          <li><a href="/page/customer/CustomerList/CustomerList.html">Customer</a></li>
-          <li><a href="/page/product/ProductList/ProductList.htm">Product</a></li>
+          <li><a href="/page/customer/CustomerList/CustomerList.html">Customer Management</a></li>
+          <li><a href="/page/product/ProductList/ProductList.htm">Product Management</a></li>
+          <li><a href="/page/order/order_list/order_list.html">Order Management</a></li>
+
         </ul>
       </li>
       <li class="navbar__li--mobile" id="login"><a href="/page/login/login.html"><button>Login</button></a></li>
@@ -42,12 +44,8 @@ window.onload = function () {
       <!-- profile -->
       <li class="profile" id="profile">
       <a href="/page/customer/profile/profile.html">
-      
       <img src="/images/img_icon/user-removebg-preview.png" alt="Profile Picture" id="avata_layout" class="profile__picture">
-      
       </a>
-
-        
     </li>
       <!-- logout -->
       <li class="navbar__li--mobile">
@@ -57,20 +55,31 @@ window.onload = function () {
   </nav>
 </div>
     `;
+  const roleId = localStorage.getItem("roleId");
+
   document.body.insertBefore(header, document.body.firstChild);
   document.getElementById('log_out').style.display = "none";
   document.getElementById('profile').style.display = "none";
   document.getElementById('management').style.display = "none";
   const userId = localStorage.getItem('userId');
-console.log(userId)
+
 
 function fetch_cus() {
-  fetch(`http://localhost:3000/customer/${userId}`)
+  if(roleId == 1){
+  fetch(`http://localhost:3000/admin/${userId}`)
     .then(response => response.json())
     .then(customer => {
         document.getElementById('avata_layout').src = customer.avata;
-    });
+    });}
+    else{
+      fetch(`http://localhost:3000/customer/${userId}`)
+      .then(response => response.json())
+      .then(customer => {
+          document.getElementById('avata_layout').src = customer.avata;
+      });
+    }
 }
+
 fetch_cus();
 
   const footer = document.createElement("div");
@@ -107,12 +116,13 @@ fetch_cus();
         <div class="footer-content1">We aim to provide a great time for everyone</div>
         <div class="footer-content2">Coffee suitable for you</div>
     </div>
+    <script src="/services/log_out.js"></script>
+
 </div>
 
     `;
   document.body.appendChild(footer);
   // Lấy giá trị roleId từ local storage
-  const roleId = localStorage.getItem("roleId");
   if(roleId === '1'){
 
     document.getElementById('profile').style.display = "block";
@@ -148,4 +158,34 @@ fetch_cus();
     }
   }
 };
+function logout() {
+localStorage.clear();
 
+  Swal.fire({
+    icon: "info",
+    title: "Confirm Logout",
+    text: "Are you sure you want to log out?",
+    showCancelButton: true,
+    confirmButtonText: "Logout",
+    cancelButtonText: "Cancel",
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Xóa giá trị roleId trong localStorage
+      localStorage.removeItem("roleId");
+      localStorage.removeItem("userId");
+      
+      // Chuyển hướng người dùng đến trang logout.html (hoặc trang chủ, tùy thuộc vào yêu cầu của bạn)
+      window.location.href = "/page/home/home.html";
+      
+      document.getElementById('log_out').style.display = "none";
+      
+      Swal.fire({
+        icon: "success",
+        title: "Logout Successful!",
+        showConfirmButton: false,
+        timer: 3000
+      });
+    }
+  });
+}
