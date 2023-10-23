@@ -93,7 +93,6 @@ function product_order_detail() {
 }
 var urlParams1 = new URLSearchParams(window.location.search);
 var quantity_detail = urlParams1.get('quantity');
-console.log(quantity_detail)
 
 if (quantity_detail == null || quantity_detail == NaN) {
   var quantity_order_after = document.getElementById("quantity_order").innerHTML = 1;

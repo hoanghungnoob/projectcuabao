@@ -77,7 +77,6 @@ fetch("http://localhost:3000/product")
                     // Đánh giá sản phẩm (từ 1 đến 5)
 
                     var rating = element.productReviews; 
-                    console.log(rating)
                     // Đây chỉ là ví dụ, bạn có thể thay đổi giá trị này.
 
                         var rating = element.productReviews;

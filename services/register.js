@@ -84,10 +84,8 @@ document.getElementById("customerForm").addEventListener("submit", function(even
       }
     })
     .then(function(response) {
-      console.log("Email đã được gửi thành công!");
     })
     .catch(function(error) {
-      console.error("Đã xảy ra lỗi khi gửi email:", error);
     });
   }
     });

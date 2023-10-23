@@ -3,7 +3,6 @@ function goBack() {
 }
 
 const userId = localStorage.getItem('userId');
-console.log(userId)
 
 document.getElementById('updateBtn').style.display = "none";
 function enableEdit() {

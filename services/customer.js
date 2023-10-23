@@ -57,7 +57,6 @@ function createCustomer() {
       }
     })
     .catch(error => {
-      console.error("Lỗi:", error);
       Swal.fire("Lỗi", "Đã xảy ra lỗi khi thêm khách hàng", "error");
     });
 }

@@ -29,18 +29,10 @@ fetch("http://localhost:3000/product")
     <div class="descriptiom_and_btn">
         <p>${product.description}</p>
         <div class="icon-container">
-        <div class="ccontain_btn">
+       
         <button class="icon-btn" id="btn_favorite">
           <i class="fas fa-heart"></i>
       </button>
-      <button class="icon-btn" id="btn_view">
-      <i class="fas fa-star"></i> <!-- Thay thế icon View/Star -->
-      </button>
-      <button class="icon-btn" id="btn_share">
-      <i class="fas fa-share"></i> <!-- Giữ nguyên icon Share -->
-      </button>
-      </button>
-      </div>
             <button id="btn_buy" onclick="redirectToOrderPage(${product.id})">
                 <i id="icon_cart" class="fas fa-shopping-cart"></i>Buy
             </button>

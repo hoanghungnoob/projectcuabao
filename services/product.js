@@ -205,7 +205,6 @@ fetch("http://localhost:3000/product")
 
           for (var i = 0; i < rating; i++) {
             stars[i].classList.add("selected");
-            console.log(stars[i])
           }
         } else {
           document.getElementById("product-detail").innerHTML = "Product not found.";
