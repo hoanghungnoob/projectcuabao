@@ -159,7 +159,6 @@ fetch_cus();
   }
 };
 function logout() {
-localStorage.clear();
 
   Swal.fire({
     icon: "info",
@@ -179,7 +178,7 @@ localStorage.clear();
       window.location.href = "/page/home/home.html";
       
       document.getElementById('log_out').style.display = "none";
-      
+
       Swal.fire({
         icon: "success",
         title: "Logout Successful!",
