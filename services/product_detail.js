@@ -29,7 +29,7 @@ function detail() {
       const productHTML = data.map((product) => {
         return `
         <div class="product">
-                <a target="_self" id="card" href="/page/product/ProductDetail/ProductDetail.html?id=${product.id}">
+                <a target="_self" id="card" href="/page/product/ProductDetail/ProductDetail.html?id=${product.id}" onclick="loadContent(/page/product/ProductDetail/ProductDetail.html)">
                         <p id="evaluate1">${product.productReviews}<i class="material-symbols-outlined">star</i></p>
                         <img id="main_img" src="${product.image1}" alt="${product.name}">
                         <h2 class="product__name">${product.name}</h2>
@@ -76,9 +76,9 @@ function detail() {
             document.getElementById('describe').innerHTML = element.description;
             // Đánh giá sản phẩm (từ 1 đến 5)
 
-            var rating = element.productReviews;
-            console.log(rating)
-            // Đây chỉ là ví dụ, bạn có thể thay đổi giá trị này.
+                    var rating = element.productReviews; 
+                    console.log(rating)
+                    // Đây chỉ là ví dụ, bạn có thể thay đổi giá trị này.
 
             var rating = element.productReviews;
             var stars = document.getElementsByClassName("star");
@@ -133,42 +133,5 @@ dislikeButtons.forEach(dislikeButton => {
   });
 });
 
-function addToCart() {
-  var name = document.querySelector('.product__name').innerHTML;
-  var images = document.querySelector('#main__img').src;
-  var price = document.querySelector('#new__price').innerHTML;
-  var quantity = document.querySelector('#input__qty').value;
 
-  // Lấy danh sách giỏ hàng hiện tại
-  fetch('http://localhost:3000/carts')
-    .then(response => response.json())
-    .then(data => {
-      // Thêm sản phẩm mới vào danh sách giỏ hàng
-      var cartItem = {
-        name: name,
-        images: images,
-        price: price,
-        quantity: quantity
-      };
 
-      data.push(cartItem); // Thêm sản phẩm mới vào danh sách giỏ hàng
-
-      // Cập nhật giỏ hàng với danh sách đã được cập nhật
-      fetch('http://localhost:3000/carts', {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      })
-        .then((res) => res.json())
-        .then((updatedData) => {
-          console.log(updatedData);
-          alert("Thêm vào giỏ hàng thành công");
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    })
-    .catch(error => {
-      console.log('Đã xảy ra lỗi:', error);
-    });
-}

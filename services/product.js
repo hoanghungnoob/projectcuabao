@@ -48,8 +48,13 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
 function refreshModal() {
+  document.getElementById("title").innerHTML = "Create Product";
+  document.getElementById("sub_pro").innerHTML = "Create";
+  document.getElementById("sub_pro").style.backgroundColor = "#4caf50";
+  document.getElementById("modal-header").style.backgroundColor = "#4caf50";
   // Thực hiện các thao tác cần thiết để refresh modal tại đây
-  location.reload(); // Refresh lại trang web hoặc phần modal
+  var form = document.getElementById("add_product_form"); // Thay "myForm" bằng ID của form thực tế
+  form.reset(); // Reload form bằng cách reset lại các giá trị của các trường input
 }
 
 
@@ -200,7 +205,6 @@ fetch("http://localhost:3000/product")
 
           for (var i = 0; i < rating; i++) {
             stars[i].classList.add("selected");
-            console.log(stars[i])
           }
         } else {
           document.getElementById("product-detail").innerHTML = "Product not found.";

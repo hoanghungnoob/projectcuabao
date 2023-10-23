@@ -66,7 +66,6 @@ async function fetchData() {
 
     document.querySelector(".container_purcha").innerHTML = data;
   } catch (error) {
-    console.log(error);
   }
 }
 
@@ -78,9 +77,9 @@ function rederectDetailPage(id) {
 
 async function detailProduct() {
   try {
-    const urlParams = new URLSearchParams(window.location.search);
-    const id = urlParams.get("id");
-    console.log(id);
+    const urlParams = new URLSearchParams(window.location.search)
+    const id=urlParams.get('id')
+    console.log(id)
 
     if (id) {
       const productResponse = await fetch(`http://localhost:3000/product/${id}`, {
@@ -146,15 +145,15 @@ async function detailProduct() {
                   <button id="product__btn__buy" class="btn_add_qtt" type="button" onclick="buy(${id})">Buy</button>
               </div>
           </div>
-          `;
-      } else {
+          `
+      }else{
           console.log("Item not found");
       }
-    } else {
-        console.log("Id not found");
-    }
+      }else{
+          console.log("Id not found");
+      }
+
   } catch (error) {
-      console.log(error);
   }
 }
 
