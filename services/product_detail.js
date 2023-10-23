@@ -30,7 +30,7 @@ fetch("http://localhost:3000/product")
       const productHTML = data.map((product) => {
         return `
         <div class="product">
-                <a target="_self" id="card" href="/page/product/ProductDetail/ProductDetail.html?id=${product.id}">
+                <a target="_self" id="card" href="/page/product/ProductDetail/ProductDetail.html?id=${product.id}" onclick="loadContent(/page/product/ProductDetail/ProductDetail.html)">
                         <p id="evaluate1">${product.productReviews}<i class="material-symbols-outlined">star</i></p>
                         <img id="main_img" src="${product.image1}" alt="${product.name}">
                         <h2>${product.name}</h2>
@@ -77,7 +77,6 @@ fetch("http://localhost:3000/product")
                     // Đánh giá sản phẩm (từ 1 đến 5)
 
                     var rating = element.productReviews; 
-                    console.log(rating)
                     // Đây chỉ là ví dụ, bạn có thể thay đổi giá trị này.
 
                         var rating = element.productReviews;
@@ -132,6 +131,3 @@ dislikeButtons.forEach(dislikeButton => {
     });
   });
 });
-
-
-

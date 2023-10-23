@@ -66,7 +66,6 @@ async function fetchData() {
 
     document.querySelector(".container_purcha").innerHTML = data;
   } catch (error) {
-    console.log(error);
   }
 }
 
@@ -79,7 +78,6 @@ async function detailProduct(){
   try {
     const urlParams = new URLSearchParams(window.location.search)
     const id=urlParams.get('id')
-    console.log(id)
 
       if (id) {
       const productResponse = await fetch(`http://localhost:3000/product/${id}`, {
@@ -152,14 +150,11 @@ async function detailProduct(){
           </div>
           `
       }else{
-          console.log("Item not found");
       }
       }else{
-          console.log("Id not found");
       }
 
   } catch (error) {
-      console.log(error);
   }
 }
 

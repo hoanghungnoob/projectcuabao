@@ -35,7 +35,6 @@ async function login(username, password) {
     const customer = customerData.find((customer) => customer.name === username);
 
     if (admin && admin.password === password && roleIds.includes(admin.roleId)) {
-      console.log("Admin login successful");
       const id = admin.roleId;
       const admin_id = admin.id;
       const link = `/page/home/home.html?roleId=${admin_id}`;
@@ -49,7 +48,6 @@ async function login(username, password) {
         timer: 1500
       });
     } else if (customer && customer.password === password && roleIds.includes(customer.roleId)) {
-      console.log("Customer login successful");
       const cus_id = customer.id;
       const id = customer.roleId;
       const link = `/page/home/home.html?roleId=${cus_id}`;
@@ -63,10 +61,8 @@ async function login(username, password) {
         timer: 1500
       });
     } else {
-      console.log("Invalid username, password, or role");
       alert("Name and password wrong!");
     }
   } catch (error) {
-    console.log(error);
   }
 }
