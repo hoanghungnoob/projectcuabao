@@ -14,27 +14,29 @@
   "admin": [
     {
       "id": 1,
-      "name": "Victor Smith",
+      "name": "admin",
       "phoneNumber": "0397208231",
+      "avata": "/images/img_icon/avata_admin.jpg",
       "emailAddress": "hue.ho25@student.passerellesnumeriques.org",
-      "password": "Hue.com123",
+      "password": "12345",
       "roleId": 1
     }
   ],
   "customer": [
     {
-      "id": 9,
       "name": "Kasor Rina",
+      "password": "rina.com123",
       "phoneNumber": "0123432666",
-      "address": "Lang Cat village Mo O commune Dakrong district Quang Tri province",
-      "roleId": 2,
       "email": "rina.ho25@student.com",
-      "password": "rina.com123"
+      "role_id": "",
+      "address": "Lang Cat village Mo O commune Dakrong district Quang Tri province",
+      "id": 9
     },
     {
       "id": 10,
       "name": "Dinh Thi Duyen",
       "phoneNumber": "0123432888",
+      "avata": "/images/img_icon/user-removebg-preview.png",
       "address": "56 Phuoc My ward Son Tra district Da Nang city",
       "roleId": 2,
       "email": "duyen.ho25@student.com",
@@ -44,6 +46,7 @@
       "id": 11,
       "name": "Le Van Thao",
       "phoneNumber": "0124782999",
+      "avata": "/images/img_icon/user-removebg-preview.png",
       "address": "101B Le Huu Trac Son Tra district Da Nang city",
       "roleId": 2,
       "email": "thao.ho25@student.com",
@@ -53,37 +56,31 @@
       "name": "Ho Mai Huyen",
       "password": "huyen.com123",
       "phoneNumber": "0123432111",
+      "avata": "/images/img_icon/user-removebg-preview.png",
       "email": "huyen.ho25@student.com",
-      "roleId": "2",
+      "roleId": 2,
       "address": "56 Phuoc My ward Son Tra district Da Nang city",
       "id": 12
-    },
-    {
-      "name": "Baopham",
-      "password": "12345",
-      "phoneNumber": "0845042466",
-      "email": "bao.pham25@student.passerellesnumeriques.org",
-      "roleId": "2",
-      "address": "phuc trạch",
-      "id": 13
     },
     {
       "name": "To Ngol Nien123",
       "password": "nien.com123",
       "phoneNumber": "0123432444",
+      "avata": "/images/img_icon/user-removebg-preview.png",
       "email": "nien.to25@student.com",
-      "roleId": "2",
+      "roleId": 2,
       "address": "101B Le Huu Trac Son Tra district Da Nang city",
       "id": 14
     },
     {
-      "name": "To Ngol Nien",
-      "password": "nien.com123",
-      "phoneNumber": "0123432444",
-      "email": "nien.to25@student.com",
-      "roleId": "undefined",
-      "address": "101B Le Huu Trac Son Tra district Da Nang city",
-      "id": 15
+      "name": "phamgiabao",
+      "roleId": 2,
+      "password": "12345",
+      "phoneNumber": "0845042466",
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "avata": "http://127.0.0.1:5500/images/img_icon/avata_admin.jpg",
+      "id": 16
     }
   ],
   "product": [
@@ -208,10 +205,11 @@
   "order": [
     {
       "name": "Le Van Thao",
-      "customerId": "11",
+      "customerId": "13",
       "productId": "4",
       "email": "thao.ho25@student.com",
       "phoneNumber": "0124782999",
+      "avata": "/images/img_icon/user-removebg-preview.png",
       "address": "101B Le Huu Trac Son Tra district Da Nang city",
       "province": "06",
       "district": "058",
@@ -220,12 +218,28 @@
       "quantity": "4",
       "totalPrice": "200 VND",
       "id": 1
+    },
+    {
+      "name": "Baopham",
+      "customerId": "16",
+      "productId": "5",
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "phuc trạch",
+      "province": "04",
+      "district": "040",
+      "productName": "Cappuccino",
+      "productPrice": "22 VND",
+      "quantity": "1",
+      "totalPrice": "22 VND",
+      "id": 2
     }
   ],
   "contact": [
     {
       "name": "Baopham",
       "phoneNumber": "0845042466",
+      "avata": "/images/img_icon/user-removebg-preview.png",
       "email": "phamthithieu@gmail.com",
       "message": "asas",
       "id": 1
@@ -233,6 +247,7 @@
     {
       "name": "sasasa",
       "phoneNumber": "1212312",
+      "avata": "/images/img_icon/user-removebg-preview.png",
       "email": "bao.pham25@student.passerellesnumeriques.org",
       "message": "saqwqwqwwqqw",
       "id": 2
@@ -240,6 +255,7 @@
     {
       "name": "Em boss",
       "phoneNumber": "1212312",
+      "avata": "/images/img_icon/user-removebg-preview.png",
       "email": "bao.pham25@student.passerellesnumeriques.org",
       "message": "sá",
       "id": 3

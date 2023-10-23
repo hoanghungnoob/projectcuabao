@@ -17,12 +17,6 @@ function decrement() {
   }
   inputQty.value = newQty;
 }
-
-
-
-
-
-
 // JavaScript code
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('id');
@@ -35,7 +29,7 @@ function detail() {
       const productHTML = data.map((product) => {
         return `
         <div class="product">
-                <a target="_self" id="card" href="/page/product/ProductDetail/ProductDetail.html?id=${product.id}" onclick="loadContent(/page/product/ProductDetail/ProductDetail.html)">
+                <a target="_self" id="card" href="/page/product/ProductDetail/ProductDetail.html?id=${product.id}">
                         <p id="evaluate1">${product.productReviews}<i class="material-symbols-outlined">star</i></p>
                         <img id="main_img" src="${product.image1}" alt="${product.name}">
                         <h2 class="product__name">${product.name}</h2>
