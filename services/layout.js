@@ -1,57 +1,236 @@
 window.onload = function () {
-    const header = document.createElement("div");
-    header.innerHTML = `
-    <div class="header" id="header">
-    <!-- navber -->
-    <nav class="navbar">
-      <!-- logo -->
-      <div class="navbar_logo">
-        <div id="logo"></div>
-      </div>
-      <!-- search  -->
-      <div class="search-container">
-        <input class="search-container__input" type="text" placeholder="Tìm kiếm..." required>
-        <button type="submit"><i style="font-size: 20px;" class="fa fa-search"></i></button>
-      </div>
-      <!-- elements of navbar -->
-      <span style="font-size:30px;cursor:pointer" id="open_sideBar" onclick="openNav()">&#9776;</span>
-      <div id="opacity" onclick="closeNav()"></div>
 
-      <ul class="navbar__ul">
-        <!-- all element choose -->
-        <li> <a href="/page/home/home.html"><i class="fas fa-home"></i>Home</a></li>
-        <li> <a href="/page/contact_us/contact_us.html"><i class="fas fa-envelope"></i>Contact
-            Us</a></li>
-        <li> <a href="/page/order/order.html"><i class="fas fa-shopping-cart"></i>Order</a></li>
-        <li> <a href="/page/purcha_list/purcha_list.html"><i class="fas fa-history"></i>History</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-link">
-            <i class="fas fa-cog"></i> Management
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="/page/customer/CustomerList/CustomerList.html">Customer</a></li>
-            <li><a href="/page/product/ProductList/ProductList.htm">Product</a></li>
-          </ul>
-        </li>
-        </li>
-        <li class="navbar__li--mobile"> <a href="/page/login/login.html">
-            <button>Login</button>
-          </a></li>
-        <li class="navbar__li--mobile">
-          <div class="border2">
-            <a class="navbar__li__a" href="#">
-              <button>Sign up</button>
-            </a>
-          </div>
-        </li>
-      </ul>
-    </nav>
+  const header = document.createElement("div");
+  header.innerHTML = `
+  <div class="header" id="header">
+  <!-- navbar -->
+  <nav class="navbar">
+    <!-- logo -->
+    <div class="navbar_logo">
+      <div id="logo"></div>
+    </div>
+    <!-- search -->
+    <div class="search-container">
+    <input
+      id="searchInput"
+      class="search-container__input"
+      type="text"
+      placeholder="Tìm kiếm..."
+   
+    />
+    <button id="searchButton" type="submit">
+      <i style="font-size: 20px" class="fa fa-search"></i>
+    </button>
   </div>
-    `;
-    document.body.insertBefore(header, document.body.firstChild);
+  <ul id="suggestionList"></ul>
+    <!-- elements of navbar -->
+    <span style="font-size:30px;cursor:pointer" id="open_sideBar" onclick="openNav()">&#9776;</span>
+    <div id="opacity" onclick="closeNav()"></div>
 
-    const footer = document.createElement("div");
-    footer.innerHTML = `
+    <ul class="navbar__ul">
+      <!-- all element choose -->
+      <li><a href="/page/home/home.html"><i class="fas fa-home"></i>Home</a></li>
+      <li><a href="/page/contact_us/contact_us.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
+      <li><a href="/page/order/order.html"><i class="fas fa-shopping-cart"></i>Order</a></li>
+      <li><a href="/page/purcha_list/purcha_list.html"><i class="fas fa-history"></i>History</a></li>
+      <li class="dropdown" id="management">
+        <a href="#" class="dropdown-link" >
+          <i class="fas fa-cog"></i> Management
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="/page/customer/CustomerList/CustomerList.html">Customer Management</a></li>
+          <li><a href="/page/product/ProductList/ProductList.htm">Product Management</a></li>
+          <li><a href="/page/order/order_list/order_list.html">Order Management</a></li>
+
+        </ul>
+      </li>
+      <li class="navbar__li--mobile" id="login"><a href="/page/login/login.html"><button>Login</button></a></li>
+      <li class="navbar__li--mobile">
+        <div class="border2">
+          <a class="navbar__li__a" href="/page/register/register.html" id="sign_up"><button>Sign up</button></a>
+        </div>
+      </li>
+      <!-- profile -->
+      <li class="profile" id="profile">
+      <a href="/page/customer/profile/profile.html">
+      <img src="/images/img_icon/user-removebg-preview.png" alt="Profile Picture" id="avata_layout" class="profile__picture">
+      </a>
+    </li>
+      <!-- logout -->
+      <li class="navbar__li--mobile">
+        <a><button onclick="logout()" id="log_out">Logout</button></a>
+      </li>
+    </ul>
+  </nav>
+</div>
+    `;
+  const roleId = localStorage.getItem("roleId");
+
+  document.body.insertBefore(header, document.body.firstChild);
+  document.getElementById('log_out').style.display = "none";
+  document.getElementById('profile').style.display = "none";
+  document.getElementById('management').style.display = "none";
+  const userId = localStorage.getItem('userId');
+
+
+function fetch_cus() {
+  if(roleId == 1){
+  fetch(`http://localhost:3000/admin/${userId}`)
+    .then(response => response.json())
+    .then(customer => {
+        document.getElementById('avata_layout').src = customer.avata;
+    });}
+    else{
+      fetch(`http://localhost:3000/customer/${userId}`)
+      .then(response => response.json())
+      .then(customer => {
+          document.getElementById('avata_layout').src = customer.avata;
+      });
+    }
+}
+
+fetch_cus();
+document.getElementById('box_search').style.display = "none";
+
+// Get the input and ul elements
+const searchInput = document.getElementById("searchInput");
+const suggestionList = document.getElementById("suggestionList");
+
+searchInput.addEventListener("input", function () {
+  const searchValue = searchInput.value.toLowerCase();
+  searchProductByName(searchValue);
+  suggestionList.style.display = "block";
+});
+
+searchInput.addEventListener("focus", function () {
+  const searchValue = searchInput.value.toLowerCase();
+  searchProductByName(searchValue);
+  suggestionList.style.display = "block";
+});
+
+document.addEventListener("click", function (event) {
+  const target = event.target;
+  if (!searchInput.contains(target) && !suggestionList.contains(target)) {
+    suggestionList.style.display = "none";
+  }
+});
+    
+
+const searchButton = document.getElementById("searchButton");
+const productContainer = document.getElementById("product4");
+
+searchInput.addEventListener("input", function () {
+  const searchValue = searchInput.value.toLowerCase();
+  searchProductByName(searchValue);
+  document.getElementById("suggestionList").style.display = "block";
+});
+
+searchButton.addEventListener("click", function (event) {
+  event.preventDefault(); // Ngăn chặn sự kiện submit mặc định của button
+  const searchValue = searchInput.value.toLowerCase();
+  searchProductByName(searchValue);
+  document.getElementById("suggestionList").style.display = "none";
+  displayProducts(searchValue);
+});
+
+function searchProductByName(searchTerm) {
+  fetch("http://localhost:3000/product")
+    .then((response) => response.json())
+    .then((data) => {
+      const matchingSuggestions = data.filter(function (product) {
+        return product.name.toLowerCase().includes(searchTerm);
+      });
+      displaySuggestions(matchingSuggestions);
+    })
+    .catch((error) => {
+    });
+}
+function displaySuggestions(suggestions) {
+  suggestionList.innerHTML = "";
+  suggestions.forEach(function (suggestion) {
+    const listItem = document.createElement("li");
+    const suggestionText = document.createElement("span");
+    const searchIcon = document.createElement("i");
+
+    suggestionText.textContent = suggestion.name;
+    searchIcon.className = "fas fa-search"; // Thay đổi lớp (class) của icon tùy theo yêu cầu
+
+    listItem.addEventListener("click", function () {
+      searchInput.value = suggestion.name;
+      suggestionList.innerHTML = "";
+      document.getElementById("suggestionList").style.display = "none";
+    });
+
+    listItem.appendChild(searchIcon);
+    listItem.appendChild(suggestionText);
+    suggestionList.appendChild(listItem);
+  });
+}
+function displayProducts(searchTerm) {
+  fetch("http://localhost:3000/product")
+    .then((response) => response.json())
+    .then((data) => {
+        const matchingProducts = data.filter(function (product) {
+            return product.name.toLowerCase().includes(searchTerm);
+          });
+          if (matchingProducts.length === 0) {
+              const notFoundMessage = document.createElement("div");
+              notFoundMessage.textContent = "Not found";
+              productContainer.innerHTML = "";
+              productContainer.appendChild(notFoundMessage);
+          } else {
+              document.getElementById('content').style.display = "none";
+document.getElementById('box_search').style.display = "block";
+
+              productContainer.innerHTML = "";
+              matchingProducts.forEach(function (product) {
+          const productItem = document.createElement("div");
+          productItem.innerHTML = `
+          <div class="product">
+          <a target="_self" id="card" href="/page/product/ProductDetail/ProductDetail.html?id=${product.id}">
+              <p id="evaluate1">${product.productReviews}<i class="material-symbols-outlined">star</i></p>
+              <img id="main_img" src="${product.image1}" alt="${product.name}">
+              <h2>${product.name}</h2>
+              <div class="price">
+                  <p>${product.newPrice} VND</p>
+                  <p>${product.oldPrice} VND</p>
+              </div>
+          </a>
+          <div class="descriptiom_and_btn">
+              <p>${product.description}</p>
+              <div class="icon-container">
+             
+              <button class="icon-btn" id="btn_favorite">
+                <i class="fas fa-heart"></i>
+            </button>
+                  <button id="btn_buy" onclick="redirectToOrderPage(${product.id})">
+                      <i id="icon_cart" class="fas fa-shopping-cart"></i>Buy
+                  </button>
+              </div>
+          </div>
+      </div>
+ `;
+          productContainer.appendChild(productItem);
+        });
+      }
+    })
+    .catch((error) => {
+    });
+}
+
+// Xóa dữ liệu khi input rỗng
+searchInput.addEventListener("input", function () {
+  if (searchInput.value === "") {
+    suggestionList.innerHTML = "";
+    document.getElementById("suggestionList").style.display = "none";
+
+  }
+});
+
+
+
+  const footer = document.createElement("div");
+  footer.innerHTML = `
     <div class="footer" id="footer">
     <div class="row-first">
         <div class="row-first-content"><img src="/images/img_icon/logo_coffe.svg" alt=""></div>
@@ -84,8 +263,80 @@ window.onload = function () {
         <div class="footer-content1">We aim to provide a great time for everyone</div>
         <div class="footer-content2">Coffee suitable for you</div>
     </div>
+    <script src="/services/log_out.js"></script>
+<script src="/services/search.js"></script>
+
+
 </div>
 
     `;
-    document.body.appendChild(footer);
+
+  document.body.appendChild(footer);
+  
+  // Lấy giá trị roleId từ local storage
+  if(roleId === '1'){
+
+    document.getElementById('profile').style.display = "block";
+    document.getElementById('log_out').style.display = "block";   
+    document.getElementById('sign_up').style.display = "none";
+    document.getElementById('login').style.display = "none";
+  document.getElementById('management').style.display = "block";
+
+
+  }
+
+  // Kiểm tra giá trị roleId và ẩn các phần tử tương ứng khi roleId là 2
+  if (roleId === "2") {
+    const managementElement = document.querySelector(".dropdown");
+    const loginElement = document.querySelector(".navbar__li--mobile a[href='/page/login/login.html']");
+    const signUpElement = document.querySelector(".navbar__li--mobile .border2");
+    document.getElementById('profile').style.display = "block";
+    document.getElementById('log_out').style.display = "block";
+
+    // Ẩn phần tử "Management"
+    if (managementElement) {
+      managementElement.style.display = "none";
+    }
+
+    // Ẩn phần tử "Login"
+    if (loginElement) {
+      loginElement.style.display = "none";
+    }
+
+    // Ẩn phần tử "Sign up"
+    if (signUpElement) {
+      signUpElement.style.display = "none";
+    }
+  }
 };
+function logout() {
+
+  Swal.fire({
+    icon: "info",
+    title: "Confirm Logout",
+    text: "Are you sure you want to log out?",
+    showCancelButton: true,
+    confirmButtonText: "Logout",
+    cancelButtonText: "Cancel",
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Xóa giá trị roleId trong localStorage
+      localStorage.removeItem("roleId");
+      localStorage.removeItem("userId");
+      
+      // Chuyển hướng người dùng đến trang logout.html (hoặc trang chủ, tùy thuộc vào yêu cầu của bạn)
+      window.location.href = "/page/home/home.html";
+      
+      document.getElementById('log_out').style.display = "none";
+
+      Swal.fire({
+        icon: "success",
+        title: "Logout Successful!",
+        showConfirmButton: false,
+        timer: 3000
+      });
+    }
+  });
+}
+

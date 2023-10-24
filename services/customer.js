@@ -32,12 +32,13 @@ function createCustomer() {
   const email = document.getElementById("email").value;
   const roleId = document.getElementById("role_id").value;
   const address = document.getElementById("address").value;
+  
   const customer = {
     name: name,
     password: password,
     phoneNumber: phone,
     email: email,
-    roleId: roleId,
+    roleId: parseInt(roleId),
     address: address
   };
 
@@ -56,7 +57,6 @@ function createCustomer() {
       }
     })
     .catch(error => {
-      console.error("Lỗi:", error);
       Swal.fire("Lỗi", "Đã xảy ra lỗi khi thêm khách hàng", "error");
     });
 }
@@ -116,7 +116,7 @@ function update_customer(id) {
           password: document.getElementById('password').value,
           phoneNumber: document.getElementById('phone').value,
           email: document.getElementById('email').value,
-          role_id: document.getElementById('role_id').value,
+          role_id: parseInt(document.getElementById('role_id').value),
           address: document.getElementById('address').value
 
         };
@@ -132,7 +132,7 @@ function update_customer(id) {
         .then(response => {
           if (response.ok) {
             Swal.fire("Cập nhật thành công", "", "success");
-            fetchCustomers(); // Refresh the customer table
+            fetch('http://localhost:3000/customer') // Refresh the customer table
           } else {
             Swal.fire("Cập nhật thất bại", "", "error");
           }
@@ -150,8 +150,15 @@ function update_customer(id) {
 // kiểm tra xem là loại form nào 
 
 function refreshModal() {
-  // Thực hiện các thao tác cần thiết để refresh modal tại đây
-  location.reload(); // Refresh lại trang web hoặc phần modal
-}
+  document.getElementById("main_title").innerHTML = "Create Customer";
+  document.getElementById("sub").innerHTML = "Create";
+  document.getElementById("sub").style.backgroundColor = "#4caf50";
+  document.getElementById("modal-header").style.backgroundColor = "#4caf50";
 
+    "rgb(50, 50, 216)";
+  // Thực hiện các thao tác cần thiết để refresh modal tại đây
+  var form = document.getElementById("cusForm"); // Thay "myForm" bằng ID của form thực tế
+  form.reset(); // Reload form bằng cách reset lại các giá trị của các trường input
+  
+}
 // 

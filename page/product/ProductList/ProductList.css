@@ -11,7 +11,7 @@
   --font-size-heading3: 24px;
   --font-size-button: 14px;
   --font-size-paragraph: 18px;
-  --font-family: 'Poppins', sans-serif;
+  --font-family: "Poppins", sans-serif;
   border: 0;
   margin: 0;
   box-sizing: border-box;
@@ -24,8 +24,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-
-
 /* Top bar */
 .box_top {
   display: flex;
@@ -35,21 +33,8 @@
   padding-right: 40px;
 }
 
-/* #box_top_btn {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-} */
-
-
-
 /* List of products */
 .list_product_admin {
-  margin-top: 20px;
-  padding: 20px;
   width: 100vw;
 }
 
@@ -69,7 +54,6 @@
   text-align: left;
 }
 
-
 @media screen and (max-width: 600px) {
   .box_top {
     flex-direction: column;
@@ -85,14 +69,13 @@
     font-family: var(--font-size-heading3) !important ;
   }
 
-
   .list_product_admin {
     padding: 10px;
   }
 }
 
 #update_btn_product {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   padding: 5px 10px;
@@ -101,22 +84,21 @@
   margin-right: 5px;
 }
 
-#delete_btn_product{
-  background-color: #FF0000;
+#delete_btn_product {
+  background-color: #ff0000;
   color: white;
   border: none;
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
-} 
+}
 .input-field {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
-  }
-
-  .input-field label {
+.input-field label {
   display: block;
   width: 115px;
 }
@@ -128,21 +110,21 @@
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-#descriptionInput{
+#descriptionInput {
   height: 80px;
 }
-tr img{
+tr img {
   height: 80px;
   width: 80px;
 }
 
-.icon_create{
+.icon_create {
   color: black;
   margin-left: 10px;
 }
 
 #content {
-   margin-top: 100px;
+  margin-top: 100px;
 }
 .list_product_admin {
   display: flex;
@@ -153,14 +135,12 @@ tr img{
 #list_product {
   width: 100%;
   padding: 20px;
-  margin: 20px;
   background-color: #fff;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
-
 }
-#list_product th{
-   position: sticky;
-   top: 70px;
+#list_product th {
+  position: sticky;
+  top: 70px;
 }
 
 #list_product th,
@@ -182,13 +162,12 @@ tr img{
 #list_product tr:hover {
   background-color: #ddd;
 }
-#des{
-   width: 700px;
+#des {
+  width: 700px;
 }
 
-
 .button_create {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   width: 200px;
@@ -200,14 +179,13 @@ tr img{
   height: 55px;
   border-radius: 5px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
-  
 }
 
 .button_create:hover {
   background-color: #3e8e41;
 }
-.button_create i{
-   color: white ;
+.button_create i {
+  color: white;
 }
 
 .icon_create {
@@ -217,8 +195,6 @@ tr img{
 .box_top {
   text-align: center;
 }
-
-
 
 .input-field {
   margin-bottom: 20px;
@@ -238,7 +214,7 @@ tr img{
 
 .input-field input:focus {
   outline: none;
-  border-color: #4CAF50;
+  border-color: #4caf50;
 }
 
 .modal-footer {
@@ -248,7 +224,7 @@ tr img{
 }
 
 .modal-footer button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -271,34 +247,40 @@ tr img{
     max-width: 400px;
   }
 }
-ol ul{
-   margin: 0;
+ol ul {
+  margin: 0;
 }
 
-h1, h2, h3, h4,p {
-   font-family: var(--font-family) !important;
+h1,
+h2,
+h3,
+h4,
+p {
+  font-family: var(--font-family) !important;
 }
-.navbar__ul{
-   margin-bottom: 0 !important;
+.navbar__ul {
+  margin-bottom: 0 !important;
 }
-ul{
-   padding-left: 0 !important;
+ul {
+  padding-left: 0 !important;
 }
-button{ 
-
-    font-size: 12px;
+button {
+  font-size: 12px;
 }
-h1, h2 , h3, h4{ 
-   font-family: var(--font-family) !important;
-   color: white !important;
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-family) !important;
+  color: white !important;
 }
-#add_product_form{
+#add_product_form {
   padding: 20px;
 }
-.btn-close{
-   font-size: 23px;
+.btn-close {
+  font-size: 23px;
 }
-#modal-header{
+#modal-header {
   color: white !important;
   display: flex !important;
   justify-content: flex-end !important;

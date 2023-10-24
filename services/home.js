@@ -14,33 +14,31 @@ fetch("http://localhost:3000/product")
     .then((res) => res.json())
     .then((data) => {
         const productList = data;
-
         const productHTML = productList.map((product) => {
             return `
             <div class="product">
-                    <a target="_self" id="card" href="/page/product/ProductDetail/ProductDetail.html?id=${product.id}" >
-                            <p id="evaluate1">${product.productReviews}<i class="material-symbols-outlined">star</i></p>
-                            <img id="main_img" src="${product.image1}" alt="${product.name}">
-                            <h2>${product.name}</h2>
-                            <div class="price">
-                                <p>${product.newPrice} VND</p>
-                                <p>${product.oldPrice} VND</p>
-                            </div>
-                            </a>
-                            <div class="descriptiom_and_btn">
-                                <p>${product.description}</p>
-                                <div>
-
-                                <a target="_self" href="/page/product/ProductDetail/ProductDetail.html?id=${product.id}">
-                                <button id="btn_view">View</button>
-                                </a>
-                                
-                                <a><button id="btn_buy" onclick="redirectToOrderPage(${product.id})"><i id="icon_cart" class="fas fa-shopping-cart"></i>Buy</button></a>
-
-                                </div>
-                                </div>
-                            </div>
-                       
+    <a target="_self" id="card" href="/page/product/ProductDetail/ProductDetail.html?id=${product.id}">
+        <p id="evaluate1">${product.productReviews}<i class="material-symbols-outlined">star</i></p>
+        <img id="main_img" src="${product.image1}" alt="${product.name}">
+        <h2>${product.name}</h2>
+        <div class="price">
+            <p>${product.newPrice} VND</p>
+            <p>${product.oldPrice} VND</p>
+        </div>
+    </a>
+    <div class="descriptiom_and_btn">
+        <p>${product.description}</p>
+        <div class="icon-container">
+       
+        <button class="icon-btn" id="btn_favorite">
+          <i class="fas fa-heart"></i>
+      </button>
+            <button id="btn_buy" onclick="redirectToOrderPage(${product.id})">
+                <i id="icon_cart" class="fas fa-shopping-cart"></i>Buy
+            </button>
+        </div>
+    </div>
+</div>
                     `;
         });
 
@@ -73,35 +71,37 @@ menuIcon.addEventListener('click', () => {
 })
 
 
-// login
+const roleId = localStorage.getItem("roleId");
 
-// Get the logged-in user data from local storage
-const loggedInUser = localStorage.getItem('loggedInUser');
+// Kiểm tra giá trị roleId và ẩn các phần tử tương ứng khi roleId là 2
+if (roleId === "2") {
+  const managementElement = document.querySelector(".dropdown");
+  const loginElement = document.querySelector(".navbar__li--mobile a[href='/page/login/login.html']");
+  const signUpElement = document.querySelector(".navbar__li--mobile .border2");
 
-// Check if the user is logged in
-if (loggedInUser) {
-  // Parse the logged-in user data
-  const user = JSON.parse(loggedInUser);
-  console.log(user)
-
-  // Access the user properties as needed
-  const userName = user.name;
-  const userRoleId = user.roleId;
-
-  // Display personalized content based on the user data
-  const welcomeMessage = document.getElementById("welcomeMessage");
-  const roleSpecificContent = document.getElementById("roleSpecificContent");
-
-  welcomeMessage.textContent = `Welcome, ${userName}!`;
-
-  if (userRoleId === 1) {
-    roleSpecificContent.textContent = "You are logged in as role 1.";
-    // Add role-specific logic or content for role 1
-  } else if (userRoleId === 2) {
-    roleSpecificContent.textContent = "You are logged in as role 2.";
-    // Add role-specific logic or content for role 2
+  // Ẩn phần tử "Management"
+  if (managementElement) {
+    managementElement.style.display = "none";
   }
-} else {
-  // Redirect the user to the login page if not logged in
-  window.location.href = "/page/login/login.html";
+
+  // Ẩn phần tử "Login"
+  if (loginElement) {
+    loginElement.style.display = "none";
+  }
+
+  // Ẩn phần tử "Sign up"
+  if (signUpElement) {
+    signUpElement.style.display = "none";
+  }
 }
+
+
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get('roleId');
+
+
+localStorage.removeItem('userId');
+localStorage.clear();
+
+
+
