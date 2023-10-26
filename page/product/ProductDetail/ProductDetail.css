@@ -390,7 +390,6 @@ body {
 #product2{
   width: auto;
   height: 550px;
-   background-color: red;
    padding: 20px;
    display: flex !important;
    justify-content: center !important;
@@ -406,4 +405,15 @@ body {
 }
 .star.selected{
    color: yellow;
+}
+
+.box_img_comment{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+
+}
+.box_img_comment img{
+  width: 60px;
 }

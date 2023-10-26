@@ -75,7 +75,7 @@ window.onload = function () {
 
 function fetch_cus() {
   if(roleId == 1){
-  fetch(`http://localhost:3000/admin/${userId}`)
+  fetch(`http://localhost:3000/customer/${userId}`)
     .then(response => response.json())
     .then(customer => {
         document.getElementById('avata_layout').src = customer.avata;

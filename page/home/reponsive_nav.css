@@ -555,14 +555,12 @@ a.active {
    margin-top: 150px;
    display: flex;
    overflow-x: scroll;
-   background-color: green;
    flex-wrap: wrap;
    justify-content: center;
    align-items: center;
 
 }
 #product4 .product{
-   background-color: red;
    max-width: 300px;
    min-width: 300px;
 }

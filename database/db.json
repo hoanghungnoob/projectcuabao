@@ -11,29 +11,25 @@
       "code": "CF13"
     }
   ],
-  "users": [],
-  "admin": [
+  "customer": [
     {
       "id": 1,
       "name": "admin",
       "phoneNumber": "0397208231",
       "avata": "/images/img_icon/avata_admin.jpg",
-      "email": "hue.ho25@student.passerellesnumeriques.org",
+      "email": "bao.pham25@student.passerellesnumeriques.org",
       "address": "Lang Cat village Mo O commune Dakrong district Quang Tri province",
       "password": "12345",
       "roleId": 1
-    }
-  ],
-  "customer": [
+    },
     {
-      "id": 10,
-      "name": "Dinh Thi Duyen",
+      "name": "Dinh Thi Duyen12",
+      "password": "duyen.com123",
       "phoneNumber": "0123432888",
-      "avata": "/images/img_icon/user-removebg-preview.png",
-      "address": "56 Phuoc My ward Son Tra district Da Nang city",
-      "roleId": 2,
       "email": "duyen.ho25@student.com",
-      "password": "duyen.com123"
+      "roleId": 2,
+      "address": "56 Phuoc My ward Son Tra district Da Nang city",
+      "id": 10
     },
     {
       "id": 11,
@@ -68,7 +64,7 @@
     {
       "name": "phamgiabao",
       "roleId": 2,
-      "password": "12345",
+      "password": "123456",
       "phoneNumber": "0845042466",
       "email": "bao.pham25@student.passerellesnumeriques.org",
       "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
@@ -84,40 +80,35 @@
       "address": "phuc trạch",
       "avata": "http://127.0.0.1:5500/images/img_icon/avata_admin.jpg",
       "id": 17
+    },
+    {
+      "name": "Baopham122132",
+      "password": "1222323",
+      "phoneNumber": "0845042466",
+      "email": "phamthithieu@gmail.com",
+      "roleId": 2,
+      "address": "phuc trạch",
+      "id": 18
     }
   ],
   "product": [
     {
-      "name": "Americanosasasa",
-      "quantity": "50",
-      "newPrice": "13500",
-      "oldPrice": "15000",
-      "image1": "/images/img_product/Americano1.jpg",
-      "image2": "/images/img_product/Americano2.jpg",
-      "image3": "/images/img_product/Americano3.jpg",
-      "description": "Coffee made using the Espresso method but with hot water added.Caffè Americano, or Americano, is a style of coffee prepared by adding hot water to espresso, giving the coffee a similar strength but a different flavor, similar to filter coffee.",
-      "type": "",
-      "productReviews": 4,
-      "id": 2
-    },
-    {
       "id": 3,
-      "name": "Espresso",
-      "oldPrice": 30,
-      "newPrice": 28.5,
-      "quantity": 40,
+      "name": "Espressoaaa",
+      "quantity": "400",
+      "newPrice": "28000",
+      "oldPrice": "30000",
       "description": "Coffee is brewed with a small amount of boiling water that is almost pressed under pressure (squeezing) the ground coffee beans.Espresso, is a method of roasting and preparing coffee originating from Italy, in which a small amount of boiling water is forced under pressure through ground coffee beans. Espresso is also the basis for many drinks from Other coffees such as latte, cappuccino, macchiato, mocha, flat white, Americano.",
-      "image1": "/images/img_product/Espresso1.jpg",
-      "image2": "/images/img_product/Espresso2.jpg",
-      "image3": "/images/img_product/Espresso3.jpg",
-      "type": "",
-      "productReviews": 4.8
+      "productReviews": 5,
+      "image1": "/images/img_product/black-coffee1.jpg",
+      "image2": "/images/img_product/coconut_coffee.jpg",
+      "image3": "/images/img_product/Arabica1.jpg"
     },
     {
       "name": "Latte1",
-      "quantity": "70",
-      "newPrice": "50",
-      "oldPrice": "55",
+      "quantity": 70,
+      "newPrice": 50000,
+      "oldPrice": 55000,
       "image1": "/images/img_product/Latte1.jpg",
       "image2": "/images/img_product/Latte2.jpg",
       "image3": "/images/img_product/Latte3.jpg",
@@ -129,8 +120,8 @@
     {
       "id": 5,
       "name": "Cappuccino",
-      "oldPrice": 23,
-      "newPrice": 22,
+      "oldPrice": 23000,
+      "newPrice": 22000,
       "quantity": 55,
       "description": "Coffee is made using the Espresso method but with steamed milk and foam added. Cappuccino is a type of coffee consisting of coffee and milk foam (whipped on top), along with a little cocoa powder or cinnamon powder sprinkled on the surface of the drink before serving.",
       "image1": "/images/img_product/Cappuccino1.jpg",
@@ -142,8 +133,8 @@
     {
       "id": 6,
       "name": "Doppio",
-      "oldPrice": 35,
-      "newPrice": 33,
+      "oldPrice": 35000,
+      "newPrice": 33000,
       "quantity": 40,
       "description": "Double coffee, extracted by double filter of coffee in total filter, the same ingredients as Espresso. Always careful in the ingredients to make a standard cup of Cappuccino coffee, always taking care of Latte art cups from Barista artisans. If you don't like drinking traditional cappuccino, why not try cool Smoothies that have the sweet taste of milk cream mixed with the slight sourness of fruit.",
       "image1": "/images/img_product/Doppio1.jpg",
@@ -153,23 +144,10 @@
       "productReviews": 4.3
     },
     {
-      "id": 7,
-      "name": "Cortado",
-      "oldPrice": 30.5,
-      "newPrice": 29.5,
-      "quantity": 49,
-      "description": "A type of coffee with milk that cuts the intensity of the espresso, reducing its acidity while preserving the coffee's flavor. A cortado is a drink consisting of espresso mixed with roughly an equal amount of warm milk to reduce acidity, although the exact proportions vary significantly from region to region. The milk in the cortado is steamed, but does not foam.",
-      "image1": "/images/img_product/Cortado1.jpg",
-      "image2": "/images/img_product/Cortado2.jpg",
-      "image3": "/images/img_product/Cortado3.jpg",
-      "type": "",
-      "productReviews": 4.7
-    },
-    {
       "id": 8,
       "name": "Macchiato",
-      "oldPrice": 60,
-      "newPrice": 58,
+      "oldPrice": 60000,
+      "newPrice": 58000,
       "quantity": 48,
       "description": "A coffee based on the perfect combination of coffee, milk tea, goat tea with a layer of rich cream. Macchiato has the characteristic fatty taste of milk mixed with a slightly sweet or slightly salty taste depending on the recipe of the drink maker.",
       "image1": "/images/img_product/Macchiato1.jpg",
@@ -181,8 +159,8 @@
     {
       "id": 9,
       "name": "Mocha",
-      "oldPrice": 32.6,
-      "newPrice": 30.8,
+      "oldPrice": 32000,
+      "newPrice": 30000,
       "quantity": 65,
       "description": "Coffee is brewed using the Espresso method and then adding coffee and hot milk.Mocha is a drink mixed between coffee, milk and chocolate. The name Mocha originates from the city of Mocha in Yemen where the coffee was discovered and began to be popular around the world.",
       "image1": "/images/img_product/Mocha1.jpg",
@@ -194,8 +172,8 @@
     {
       "id": 10,
       "name": "Red Eye",
-      "oldPrice": 80,
-      "newPrice": 78.8,
+      "oldPrice": 80000,
+      "newPrice": 78000,
       "quantity": 30,
       "description": "An enhanced coffee drink in which espresso is combined with normal drip coffee.A red eye, black eye, and dead eye coffee basically mean how much caffeine you want in your cup of brewed coffee. The red eye has one shot of espresso added, the black eye has two shots, and the dead eye has three whole shots of espresso! These will definitely keep you up as long as you want.",
       "image1": "/images/img_product/Red Eye1.jpg",
@@ -208,8 +186,8 @@
       "id": 14,
       "name": "Cherry",
       "oldPrice": 54,
-      "newPrice": 50,
-      "quantity": 56,
+      "newPrice": 50000,
+      "quantity": 56000,
       "description": "Cherry coffee gives off a faint scent when brewed and the sour taste of Cherry creates a refreshing inspiration. Although the flavor is not as rich as Robusta, nor as passionate as Arabica, Cherry coffee has its own characteristics: mildly sour, slightly astringent, low caffeine content.",
       "image1": "/images/img_product/Cherry1.jpg",
       "image2": "/images/img_product/Cherry2.jpg",
@@ -219,9 +197,9 @@
     },
     {
       "name": "Robusta",
-      "quantity": "47",
-      "newPrice": "67",
-      "oldPrice": "68",
+      "quantity": 46,
+      "newPrice": 67000,
+      "oldPrice": 68000,
       "image1": "/images/img_product/Robusta1.jpg",
       "image2": "/images/img_product/Robusta2.jpg",
       "image3": "/images/img_product/Robusta3.jpg",
@@ -231,14 +209,14 @@
       "id": 15
     },
     {
-      "name": "tea coffe",
-      "quantity": "12",
-      "newPrice": "45",
-      "oldPrice": "34",
-      "image1": "data:image/jpeg;base64,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",
-      "image2": "",
-      "image3": "",
-      "description": "coffee",
+      "name": "phamgiabao",
+      "quantity": "4000000000000000000",
+      "newPrice": 11212,
+      "oldPrice": 2122,
+      "image1": "/images/img_product/Arabica3.jpg",
+      "image2": "/images/img_product/Americano1.jpg",
+      "image3": "/images/img_product/Black-Coffee2.avif",
+      "description": "sâsasa",
       "type": "",
       "productReviews": 4,
       "id": 16
@@ -249,7 +227,7 @@
       "name": "phamgiabao",
       "date": "2023-10-22",
       "customerId": "16",
-      "productId": null,
+      "productId": "5",
       "email": "bao.pham25@student.passerellesnumeriques.org",
       "phoneNumber": "0845042466",
       "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
@@ -265,7 +243,7 @@
       "name": "phamgiabao",
       "date": "2023-10-22",
       "customerId": "16",
-      "productId": null,
+      "productId": "3",
       "email": "bao.pham25@student.passerellesnumeriques.org",
       "phoneNumber": "0845042466",
       "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
@@ -281,7 +259,7 @@
       "name": "phamgiabao",
       "date": "2023-10-22",
       "customerId": "16",
-      "productId": null,
+      "productId": "4",
       "email": "bao.pham25@student.passerellesnumeriques.org",
       "phoneNumber": "0845042466",
       "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
@@ -297,7 +275,7 @@
       "name": "phamgiabao",
       "date": "2023-10-22",
       "customerId": "16",
-      "productId": null,
+      "productId": "2",
       "email": "bao.pham25@student.passerellesnumeriques.org",
       "phoneNumber": "0845042466",
       "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
@@ -324,6 +302,36 @@
       "quantity": "1",
       "totalPrice": "100.000 VND",
       "id": 6
+    },
+    {
+      "name": "phamgiabao",
+      "customerId": "16",
+      "productId": "7",
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "20",
+      "district": "178",
+      "productName": "Cortado",
+      "productPrice": "29000 VND",
+      "quantity": "5",
+      "totalPrice": "145000 VND",
+      "id": 7
+    },
+    {
+      "name": "Em boss",
+      "customerId": "17",
+      "productId": "4",
+      "email": "phamthithieu@gmail.com",
+      "phoneNumber": "0845042466",
+      "address": "phuc trạch",
+      "province": "06",
+      "district": "062",
+      "productName": "Latte1",
+      "productPrice": "50000 VND",
+      "quantity": "1",
+      "totalPrice": "50000 VND",
+      "id": 8
     }
   ],
   "contact": [
@@ -350,6 +358,13 @@
       "email": "bao.pham25@student.passerellesnumeriques.org",
       "message": "sá",
       "id": 3
+    },
+    {
+      "name": "Baopham",
+      "phoneNumber": "1212312",
+      "email": "phamthithieu@gmail.com",
+      "message": "qwqww",
+      "id": 4
     }
   ],
   "province": [
