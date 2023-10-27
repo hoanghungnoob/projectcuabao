@@ -101,6 +101,7 @@ const productId = urlParams.get('roleId');
 
 
 localStorage.removeItem('userId');
+localStorage.clear();
 
 
 

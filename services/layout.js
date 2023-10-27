@@ -11,9 +11,18 @@ window.onload = function () {
     </div>
     <!-- search -->
     <div class="search-container">
-      <input class="search-container__input" type="text" placeholder="Tìm kiếm..." required>
-      <button type="submit"><i style="font-size: 20px;" class="fa fa-search"></i></button>
-    </div>
+    <input
+      id="searchInput"
+      class="search-container__input"
+      type="text"
+      placeholder="Tìm kiếm..."
+   
+    />
+    <button id="searchButton" type="submit">
+      <i style="font-size: 20px" class="fa fa-search"></i>
+    </button>
+  </div>
+  <ul id="suggestionList"></ul>
     <!-- elements of navbar -->
     <span style="font-size:30px;cursor:pointer" id="open_sideBar" onclick="openNav()">&#9776;</span>
     <div id="opacity" onclick="closeNav()"></div>
@@ -66,7 +75,7 @@ window.onload = function () {
 
 function fetch_cus() {
   if(roleId == 1){
-  fetch(`http://localhost:3000/admin/${userId}`)
+  fetch(`http://localhost:3000/customer/${userId}`)
     .then(response => response.json())
     .then(customer => {
         document.getElementById('avata_layout').src = customer.avata;
@@ -81,6 +90,144 @@ function fetch_cus() {
 }
 
 fetch_cus();
+document.getElementById('box_search').style.display = "none";
+
+// Get the input and ul elements
+const searchInput = document.getElementById("searchInput");
+const suggestionList = document.getElementById("suggestionList");
+
+searchInput.addEventListener("input", function () {
+  const searchValue = searchInput.value.toLowerCase();
+  searchProductByName(searchValue);
+  suggestionList.style.display = "block";
+});
+
+searchInput.addEventListener("focus", function () {
+  const searchValue = searchInput.value.toLowerCase();
+  searchProductByName(searchValue);
+  suggestionList.style.display = "block";
+});
+
+document.addEventListener("click", function (event) {
+  const target = event.target;
+  if (!searchInput.contains(target) && !suggestionList.contains(target)) {
+    suggestionList.style.display = "none";
+  }
+});
+    
+
+const searchButton = document.getElementById("searchButton");
+const productContainer = document.getElementById("product4");
+
+searchInput.addEventListener("input", function () {
+  const searchValue = searchInput.value.toLowerCase();
+  searchProductByName(searchValue);
+  document.getElementById("suggestionList").style.display = "block";
+});
+
+searchButton.addEventListener("click", function (event) {
+  event.preventDefault(); // Ngăn chặn sự kiện submit mặc định của button
+  const searchValue = searchInput.value.toLowerCase();
+  searchProductByName(searchValue);
+  document.getElementById("suggestionList").style.display = "none";
+  displayProducts(searchValue);
+});
+
+function searchProductByName(searchTerm) {
+  fetch("http://localhost:3000/product")
+    .then((response) => response.json())
+    .then((data) => {
+      const matchingSuggestions = data.filter(function (product) {
+        return product.name.toLowerCase().includes(searchTerm);
+      });
+      displaySuggestions(matchingSuggestions);
+    })
+    .catch((error) => {
+    });
+}
+function displaySuggestions(suggestions) {
+  suggestionList.innerHTML = "";
+  suggestions.forEach(function (suggestion) {
+    const listItem = document.createElement("li");
+    const suggestionText = document.createElement("span");
+    const searchIcon = document.createElement("i");
+
+    suggestionText.textContent = suggestion.name;
+    searchIcon.className = "fas fa-search"; // Thay đổi lớp (class) của icon tùy theo yêu cầu
+
+    listItem.addEventListener("click", function () {
+      searchInput.value = suggestion.name;
+      suggestionList.innerHTML = "";
+      document.getElementById("suggestionList").style.display = "none";
+    });
+
+    listItem.appendChild(searchIcon);
+    listItem.appendChild(suggestionText);
+    suggestionList.appendChild(listItem);
+  });
+}
+function displayProducts(searchTerm) {
+  fetch("http://localhost:3000/product")
+    .then((response) => response.json())
+    .then((data) => {
+        const matchingProducts = data.filter(function (product) {
+            return product.name.toLowerCase().includes(searchTerm);
+          });
+          if (matchingProducts.length === 0) {
+              const notFoundMessage = document.createElement("div");
+              notFoundMessage.textContent = "Not found";
+              productContainer.innerHTML = "";
+              productContainer.appendChild(notFoundMessage);
+          } else {
+              document.getElementById('content').style.display = "none";
+document.getElementById('box_search').style.display = "block";
+
+              productContainer.innerHTML = "";
+              matchingProducts.forEach(function (product) {
+          const productItem = document.createElement("div");
+          productItem.innerHTML = `
+          <div class="product">
+          <a target="_self" id="card" href="/page/product/ProductDetail/ProductDetail.html?id=${product.id}">
+              <p id="evaluate1">${product.productReviews}<i class="material-symbols-outlined">star</i></p>
+              <img id="main_img" src="${product.image1}" alt="${product.name}">
+              <h2>${product.name}</h2>
+              <div class="price">
+                  <p>${product.newPrice} VND</p>
+                  <p>${product.oldPrice} VND</p>
+              </div>
+          </a>
+          <div class="descriptiom_and_btn">
+              <p>${product.description}</p>
+              <div class="icon-container">
+             
+              <button class="icon-btn" id="btn_favorite">
+                <i class="fas fa-heart"></i>
+            </button>
+                  <button id="btn_buy" onclick="redirectToOrderPage(${product.id})">
+                      <i id="icon_cart" class="fas fa-shopping-cart"></i>Buy
+                  </button>
+              </div>
+          </div>
+      </div>
+ `;
+          productContainer.appendChild(productItem);
+        });
+      }
+    })
+    .catch((error) => {
+    });
+}
+
+// Xóa dữ liệu khi input rỗng
+searchInput.addEventListener("input", function () {
+  if (searchInput.value === "") {
+    suggestionList.innerHTML = "";
+    document.getElementById("suggestionList").style.display = "none";
+
+  }
+});
+
+
 
   const footer = document.createElement("div");
   footer.innerHTML = `
@@ -117,11 +264,15 @@ fetch_cus();
         <div class="footer-content2">Coffee suitable for you</div>
     </div>
     <script src="/services/log_out.js"></script>
+<script src="/services/search.js"></script>
+
 
 </div>
 
     `;
+
   document.body.appendChild(footer);
+  
   // Lấy giá trị roleId từ local storage
   if(roleId === '1'){
 
@@ -188,3 +339,4 @@ function logout() {
     }
   });
 }
+

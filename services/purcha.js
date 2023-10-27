@@ -1,7 +1,10 @@
+// const user_id = localStorage.getItem('userId');
+// console.log(user_id);
+
 async function fetchData() {
   try {
     // Fetch customer data
-    const customerResponse = await fetch("http://localhost:3000/customer/8", {
+    const customerResponse = await fetch(`http://localhost:3000/customer/${user_id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -28,15 +31,13 @@ async function fetchData() {
     const productData = await productResponse.json();
 
     // Filter orders for the customer
-    const orderedProducts = orderData.filter(
-      (order) => order.customerId === 8
-    );
+    const orderedProducts = orderData.filter((order) => order.customerId === user_id);
+
+    console.log(orderedProducts,'asagd  ')
 
     let data = "";
     orderedProducts.forEach((order) => {
-      const product = productData.find(
-        (product) => product.id === order.productId
-      );
+      const product = productData.find((product) => product.id === order.productId);
       if (product) {
         data += `
           <div class="card_product">
@@ -55,7 +56,7 @@ async function fetchData() {
                 <p id="total_product">Total: ${order.quantity * product.newPrice} VND</p>
                 <div class="buttons">
                   <button id="product__btn__buy" class="btn btn_buy_qtt btn-small" type="button" onclick="buy()">Buy again</button>
-                  <button id="product__btn__detail" class="btn btn_detail_qtt btn-small" type="button" onclick="rederectDetailPage(${product.id})">Product detail</button>
+                  <button id="product__btn__detail" class="btn btn_detail_qtt btn-small" type="button" onclick="redirectDetailPage(${product.id})">Product detail</button>
                 </div>
               </div>
             </div>
@@ -66,36 +67,39 @@ async function fetchData() {
 
     document.querySelector(".container_purcha").innerHTML = data;
   } catch (error) {
+    console.error(error);
   }
 }
 
 fetchData();
-function rederectDetailPage(id){
-  window.location.href=`/page/product/ProductDetail/ProductDetail.html?id=${id}`
+
+function redirectDetailPage(id) {
+  window.location.href = `/page/product/ProductDetail/ProductDetail.html?id=${id}`;
 }
 
-async function detailProduct(){
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get('id');
+async function detailProduct() {
   try {
-    const urlParams = new URLSearchParams(window.location.search)
-    const id=urlParams.get('id')
 
-      if (id) {
+    console.log(id);
+
+    if (id) {
       const productResponse = await fetch(`http://localhost:3000/product/${id}`, {
-      method: "GET",
-      headers: {
+        method: "GET",
+        headers: {
           "Content-Type": "application/json",
         },
       });
 
       if (productResponse) {
-          const details=await productResponse.json();
-          document.querySelector(".container__productDetail").innerHTML = `
+        const details = await productResponse.json();
+        document.querySelector(".container__productDetail").innerHTML = `
           <div class="con_item_productDetail con_item_productDetail1">
               <div class="main__img__box">
                   <img id="main__img" src="${details.image1}" alt="Photo">
               </div>
               <div class="secondary__img">
-
                   <div class="secodary__img__item">
                       <img id="item__img1" class="item__img" src="${details.image1}" alt="Photo">
                   </div>
@@ -116,44 +120,38 @@ async function detailProduct(){
                       <span class="star">&#9734;</span>
                       <span class="star">&#9734;</span>
                       <span class="star">&#9734;</span>
-                      <span class="star">&#9734;</span>
+                      <<span class="star">&#9734;</span>
                   </div>
-
+                  <p>100 reviews</p>
               </div>
               <div class="discribe">
-                  <p>100 riviews</p>
                   <div class="price">
                       <p id="new__price">${details.newPrice} VND</p>
                       <p id="old__price">${details.oldPrice} VND</p>
                   </div>
-                  <p id="describe">${details.description}
-                  </p>
+                  <p id="describe">${details.description}</p>
               </div>
               <div class="qnty__box">
-                  <p>
-                      Quantity purchased :
-                  </p>
+                  <p>Quantity purchased:</p>
                   <div class="btn__box">
                       <button onclick="decrement()">-</button>
                       <input id="input__qty" type="number" min="0">
                       <button onclick="increment()">+</button>
                   </div>
               </div>
-
               <div class="btn__buy">
                   <button id="product__btn__add" class="btn_add_qtt" type="button" onclick="addToCart()">
                       <img src="/images/img_icon/icon shoping cart.svg" alt="">
-                      Add cart
+                      Add to Cart
                   </button>
                   <button id="product__btn__buy" class="btn_add_qtt" type="button" onclick="buy()">Buy</button>
               </div>
           </div>
-          `
-      }else{
+        `;
+      } else {
       }
-      }else{
-      }
-
+    } else {
+    }
   } catch (error) {
   }
 }

@@ -511,3 +511,61 @@ a.active {
   background-color: #04aa6d;
   color: white;
 }
+#suggestionList {
+  position: absolute;
+  background-color: red;
+  width:  30%;
+  top: 60px;
+  left: 220px;
+  height: auto;
+  display: none;
+  z-index: 99;
+  border-radius: 10px;
+}
+
+#suggestionList li {
+  background-color: rgb(133, 74, 74);
+  color: rgb(255, 255, 255) !important;
+  padding: 10px;
+  display: flex;
+  gap: 20px;
+
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+#suggestionList li:last-child {
+  border-bottom: none;
+  border-bottom-right-radius: 10px ;
+  border-bottom-left-radius: 10px ;
+
+}
+#suggestionList li:first-child {
+  border-bottom: none;
+  border-top-right-radius: 10px ;
+  border-top-left-radius: 10px ;
+
+}
+
+#suggestionList li:hover {
+  background-color: lightgray;
+  color: black !important;
+}
+#product4{
+   margin-top: 150px;
+   display: flex;
+   overflow-x: scroll;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+
+}
+#product4 .product{
+   max-width: 300px;
+   min-width: 300px;
+}
+#box_search{
+    display: flex;
+    width: 100vw ;
+}
+
