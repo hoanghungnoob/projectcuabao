@@ -2625,28 +2625,19 @@
   ],
   "carts": [
     {
-      "name": "Robusta",
-      "images": "http://127.0.0.1:5500/images/img_product/Robusta1.jpg",
-      "price": "67 VND",
-      "quantity": "1"
-    },
-    {
+      "id": 5,
+      "userId": "16",
       "name": "Cappuccino",
-      "images": "http://127.0.0.1:5500/images/img_product/Cappuccino1.jpg",
-      "price": "22 VND",
-      "quantity": "1"
-    },
-    {
-      "name": "Macchiato",
-      "images": "http://127.0.0.1:5500/images/img_product/Macchiato1.jpg",
-      "price": "58 VND",
-      "quantity": "1"
-    },
-    {
-      "name": "Cherry",
-      "images": "http://127.0.0.1:5500/images/img_product/Cherry1.jpg",
-      "price": "50 VND",
-      "quantity": "1"
+      "oldPrice": 23,
+      "newPrice": 22,
+      "quantity": 9,
+      "description": "Coffee is made using the Espresso method but with steamed milk and foam added. Cappuccino is a type of coffee consisting of coffee and milk foam (whipped on top), along with a little cocoa powder or cinnamon powder sprinkled on the surface of the drink before serving.",
+      "image1": "/images/img_product/Cappuccino1.jpg",
+      "image2": "/images/img_product/Cappuccino2.jpg",
+      "image3": "/images/img_product/Cappuccino3.jpg",
+      "type": "",
+      "productReviews": 5,
+      "totalPrice": 88
     }
   ]
 }
