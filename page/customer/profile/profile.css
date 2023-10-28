@@ -49,6 +49,7 @@
   transition: background-color 0.3s, color 0.3s;
   position: fixed;
   gap: 10px;
+  z-index: 100;
 }
 
 .button-22:hover {

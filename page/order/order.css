@@ -9,7 +9,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #f9f5f2;
+  background-color: #ffffff !important;
 }
 
 #content .container__order {
@@ -26,7 +26,6 @@ body {
   margin-bottom: 50px;
   padding: 20px;
   background-color: #fff;
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
 }
 
 #content .information__order h1 {
@@ -90,7 +89,7 @@ body {
   flex-basis: 40%;
   background-color: rgba(255, 255, 255, 0.9);
   padding: 20px;
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1); */
 }
 
 .product__order1 {

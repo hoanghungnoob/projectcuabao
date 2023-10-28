@@ -49,9 +49,10 @@ updateBtn.style.display = 'none';
 }
 
 var roleId = localStorage.getItem('roleId')
+console.log(typeof roleId)
 function fetch_cus() {
- if(roleId == 1){
-  fetch(`http://localhost:3000/admin/${userId}`)
+ if(roleId === 1){
+  fetch(`http://localhost:3000/customer/${userId}`)
   .then(response => response.json())
   .then(customer => {
     document.getElementById('name_user1').innerHTML = customer.name;

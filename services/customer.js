@@ -23,8 +23,7 @@ function fetchCustomers() {
 }
 fetchCustomers();
 
-const customerForm = document.getElementById("cusForm");
-customerForm.addEventListener("submit", createCustomer);
+
 function createCustomer() {
   const name = document.getElementById("name").value;
   const password = document.getElementById("password").value;
@@ -89,6 +88,7 @@ function delete_customer(id) {
 
 function update_customer(id) {
 
+  
   fetch(`http://localhost:3000/customer/${id}`)
     .then(response => response.json())
     .then(customer => {
@@ -99,12 +99,9 @@ function update_customer(id) {
       document.getElementById('email').value = customer.email;
       document.getElementById('role_id').value = customer.roleId;
       document.getElementById('address').value = customer.address;
-
       document.getElementById('main_title').innerHTML = "Update Customer";
       document.getElementById('sub').innerHTML = "Update";
       document.getElementById('sub').style.backgroundColor = "rgb(50, 50, 216)";
-
-
       document.getElementById('modal-header').style.backgroundColor = "rgb(50, 50, 216)"
       var modal = new bootstrap.Modal(document.getElementById('myModal'));
       modal.show();
@@ -146,7 +143,19 @@ function update_customer(id) {
       alert("Error retrieving customer data");
     });
 }
-
+const customerForm = document.getElementById("cusForm");
+customerForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+  
+  const submitButton = document.getElementById("sub");
+  
+  if (submitButton.innerHTML === "Create") {
+    createCustomer();
+  } else if (submitButton.innerHTML === "Update") {
+    const customerId = submitButton.getAttribute("data-id");
+    updateCustomer(customerId);
+  }
+});
 // kiểm tra xem là loại form nào 
 
 function refreshModal() {
@@ -154,8 +163,7 @@ function refreshModal() {
   document.getElementById("sub").innerHTML = "Create";
   document.getElementById("sub").style.backgroundColor = "#4caf50";
   document.getElementById("modal-header").style.backgroundColor = "#4caf50";
-
-    "rgb(50, 50, 216)";
+  
   // Thực hiện các thao tác cần thiết để refresh modal tại đây
   var form = document.getElementById("cusForm"); // Thay "myForm" bằng ID của form thực tế
   form.reset(); // Reload form bằng cách reset lại các giá trị của các trường input

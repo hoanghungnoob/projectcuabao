@@ -1,7 +1,11 @@
+// const user_id = localStorage.getItem('userId');
+// console.log(user_id);
+
 async function fetchData() {
   try {
     // Fetch customer data
-    const customerResponse = await fetch("http://localhost:3000/customer/11", {
+ 
+    const customerResponse = await fetch(`http://localhost:3000/customer/${user_id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -34,9 +38,7 @@ async function fetchData() {
 
     let data = "";
     orderedProducts.forEach((order) => {
-      const product = productData.find(
-        (product) => product.id === order.productId
-      );
+      const product = productData.find((product) => product.id === order.productId);
       if (product) {
         data += `
           <div class="card_product">
@@ -66,6 +68,7 @@ async function fetchData() {
 
     document.querySelector(".container_purcha").innerHTML = data;
   } catch (error) {
+    console.error(error);
   }
 }
 
