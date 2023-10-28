@@ -24,9 +24,10 @@
     },
     {
       "name": "Dinh Thi Duyen12",
-      "password": "duyen.com123",
+      "password": "56789",
       "phoneNumber": "0123432888",
       "email": "duyen.ho25@student.com",
+      "avata": "/images/img_icon/user-removebg-preview.png",
       "roleId": 2,
       "address": "56 Phuoc My ward Son Tra district Da Nang city",
       "id": 10
@@ -2630,6 +2631,53 @@
       "name_with_type": "Thành phố Sầm Sơn",
       "code": "382",
       "parent_code": "38"
+    }
+  ],
+  "carts": [
+    {
+      "id": 5,
+      "userId": "16",
+      "name": "Cappuccino",
+      "oldPrice": 23,
+      "newPrice": 22,
+      "quantity": 9,
+      "description": "Coffee is made using the Espresso method but with steamed milk and foam added. Cappuccino is a type of coffee consisting of coffee and milk foam (whipped on top), along with a little cocoa powder or cinnamon powder sprinkled on the surface of the drink before serving.",
+      "image1": "/images/img_product/Cappuccino1.jpg",
+      "image2": "/images/img_product/Cappuccino2.jpg",
+      "image3": "/images/img_product/Cappuccino3.jpg",
+      "type": "",
+      "productReviews": 5,
+      "totalPrice": 88
+    },
+    {
+      "id": 6,
+      "userId": "10",
+      "name": "Doppio",
+      "oldPrice": 35000,
+      "newPrice": 33000,
+      "quantity": 3,
+      "description": "Double coffee, extracted by double filter of coffee in total filter, the same ingredients as Espresso. Always careful in the ingredients to make a standard cup of Cappuccino coffee, always taking care of Latte art cups from Barista artisans. If you don't like drinking traditional cappuccino, why not try cool Smoothies that have the sweet taste of milk cream mixed with the slight sourness of fruit.",
+      "image1": "/images/img_product/Doppio1.jpg",
+      "image2": "/images/img_product/Doppio2.jpg",
+      "image3": "/images/img_product/Doppio3.jpg",
+      "type": "",
+      "productReviews": 4.3,
+      "totalPrice": 99000
+    },
+    {
+      "id": 4,
+      "userId": "10",
+      "name": "Latte1",
+      "quantity": 4,
+      "newPrice": 50000,
+      "oldPrice": 55000,
+      "image1": "/images/img_product/Latte1.jpg",
+      "image2": "/images/img_product/Latte2.jpg",
+      "image3": "/images/img_product/Latte3.jpg",
+      "description": "Coffee is made using the Espresso method but with steamed milk added.Coffee latte is a drink originating from Italy consisting of the main ingredients of coffee and whipped milk. This drink is consumed regularly both at home and in cafes and bars.",
+      "type": "",
+      "productReviews": 4,
+      "totalPrice": 150000
     }
   ]
 }

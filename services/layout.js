@@ -31,7 +31,7 @@ window.onload = function () {
       <!-- all element choose -->
       <li><a href="/page/home/home.html"><i class="fas fa-home"></i>Home</a></li>
       <li><a href="/page/contact_us/contact_us.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
-      <li><a href="/page/order/order.html"><i class="fas fa-shopping-cart"></i>Order</a></li>
+      <li><a href="/page/product/ShoppingCart/ShoppingCart.html"><i class="fas fa-shopping-cart"></i></a></li>
       <li><a href="/page/purcha_list/purcha_list.html"><i class="fas fa-history"></i>History</a></li>
       <li class="dropdown" id="management">
         <a href="#" class="dropdown-link" >

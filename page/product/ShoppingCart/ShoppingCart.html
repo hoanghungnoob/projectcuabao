@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" type="text/css" href="ShoppingCart.css">
+  <!-- font icon -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+   <link rel="stylesheet" href="/page/home/home.css">
+   <link rel="stylesheet" href="/page/home/reponsive_nav.css">
+  </head>
+<body>
+  <h1>Your shopping cart</h1>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody class="table-cart">
+      
+      
+
+    </tbody>
+    <tfoot>
+      <!-- Phần tfoot không có thay đổi -->
+    </tfoot>
+  </table>
+  <div id="allTotalPrice">Total Price: 0 VND </div>
+  <a href="/page/order/order.html">
+    <button id="buy-button" class="buybutton">Buy</button>
+  </a>
+  <script src="/services/ShoppingCart.js"></script>
+  <script src="/services/layout.js"></script>
+</body>
+</html>
