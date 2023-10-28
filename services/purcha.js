@@ -1,7 +1,6 @@
 async function fetchData() {
   try {
-    // Fetch customer data
-    const customerResponse = await fetch("http://localhost:3000/customer/8", {
+    const customerResponse = await fetch("http://localhost:3000/users/8", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -9,8 +8,7 @@ async function fetchData() {
     });
     const customerData = await customerResponse.json();
 
-    // Fetch order data
-    const orderResponse = await fetch("http://localhost:3000/order", {
+    const orderResponse = await fetch("http://localhost:3000/orders", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -18,8 +16,7 @@ async function fetchData() {
     });
     const orderData = await orderResponse.json();
 
-    // Fetch product data
-    const productResponse = await fetch("http://localhost:3000/product", {
+    const productResponse = await fetch("http://localhost:3000/products", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -27,10 +24,7 @@ async function fetchData() {
     });
     const productData = await productResponse.json();
 
-    // Filter orders for the customer
-    const orderedProducts = orderData.filter(
-      (order) => order.customerId === 8
-    );
+    const orderedProducts = orderData.filter((order) => order.customerId === 8);
 
     let data = "";
     orderedProducts.forEach((order) => {
@@ -52,10 +46,14 @@ async function fetchData() {
                 <p id="new__price">${product.newPrice} VND</p>
               </div>
               <div class="d-flex justify-content-between align-items-center">
-                <p id="total_product">Total: ${order.quantity * product.newPrice} VND</p>
+                <p id="total_product">Total: ${
+                  order.quantity * product.newPrice
+                } VND</p>
                 <div class="buttons">
                   <button id="product__btn__buy" class="btn btn_buy_qtt btn-small" type="button" onclick="buy()">Buy again</button>
-                  <button id="product__btn__detail" class="btn btn_detail_qtt btn-small" type="button" onclick="rederectDetailPage(${product.id})">Product detail</button>
+                  <button id="product__btn__detail" class="btn btn_detail_qtt btn-small" type="button" onclick="redirectDetailPage(${
+                    product.id
+                  })">Product detail</button>
                 </div>
               </div>
             </div>
@@ -65,31 +63,33 @@ async function fetchData() {
     });
 
     document.querySelector(".container_purcha").innerHTML = data;
-  } catch (error) {
-  }
+  } catch (error) {}
 }
 
 fetchData();
-function rederectDetailPage(id){
-  window.location.href=`/page/product/ProductDetail/ProductDetail.html?id=${id}`
+function redirectDetailPage(id) {
+  window.location.href = `/page/product/ProductDetail/ProductDetail.html?id=${id}`;
 }
 
-async function detailProduct(){
+async function detailProduct() {
   try {
-    const urlParams = new URLSearchParams(window.location.search)
-    const id=urlParams.get('id')
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("id");
 
-      if (id) {
-      const productResponse = await fetch(`http://localhost:3000/product/${id}`, {
-      method: "GET",
-      headers: {
-          "Content-Type": "application/json",
-        },
-      });
+    if (id) {
+      const productResponse = await fetch(
+        `http://localhost:3000/products/${id}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (productResponse) {
-          const details=await productResponse.json();
-          document.querySelector(".container__productDetail").innerHTML = `
+        const details = await productResponse.json();
+        document.querySelector(".container__productDetail").innerHTML = `
           <div class="con_item_productDetail con_item_productDetail1">
               <div class="main__img__box">
                   <img id="main__img" src="${details.image1}" alt="Photo">
@@ -148,14 +148,12 @@ async function detailProduct(){
                   <button id="product__btn__buy" class="btn_add_qtt" type="button" onclick="buy()">Buy</button>
               </div>
           </div>
-          `
-      }else{
+          `;
+      } else {
       }
-      }else{
-      }
-
-  } catch (error) {
-  }
+    } else {
+    }
+  } catch (error) {}
 }
 
-document.addEventListener('DOMContentLoaded', detailProduct);
+document.addEventListener("DOMContentLoaded", detailProduct);

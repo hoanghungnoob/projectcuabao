@@ -1,20 +1,20 @@
 function fetchCustomers() {
-  fetch('http://localhost:3000/customer')
-    .then(response => response.json())
-    .then(data => {
-      var listCustomerTable = document.getElementById('list_customer');
+  fetch("http://localhost:3000/users")
+    .then((response) => response.json())
+    .then((data) => {
+      var listCustomerTable = document.getElementById("list_customer");
       var tableBody = listCustomerTable.createTBody();
-      data.forEach(customer => {
+      data.forEach((users) => {
         var row = tableBody.insertRow();
         row.innerHTML = `
-          <td>${customer.id}</td>
-          <td>${customer.name}</td>
-          <td>${customer.email}</td>
-          <td>${customer.phoneNumber}</td>
-          <td>${customer.address}</td>
+          <td>${users.id}</td>
+          <td>${users.name}</td>
+          <td>${users.email}</td>
+          <td>${users.phoneNumber}</td>
+          <td>${users.address}</td>
           <td>
-          <button id="update_btn_product" class="btn btn-primary" onclick="update_customer(${customer.id})">Update</button>
-            <button id="delete_btn_product" onclick="delete_customer(${customer.id})">Delete</button>
+          <button id="update_btn_product" class="btn btn-primary" onclick="update_customer(${users.id})">Update</button>
+            <button id="delete_btn_product" onclick="delete_customer(${users.id})">Delete</button>
          
           </td>
         `;
@@ -32,35 +32,35 @@ function createCustomer() {
   const email = document.getElementById("email").value;
   const roleId = document.getElementById("role_id").value;
   const address = document.getElementById("address").value;
-  
-  const customer = {
+
+  const users = {
     name: name,
     password: password,
     phoneNumber: phone,
     email: email,
     roleId: parseInt(roleId),
-    address: address
+    address: address,
   };
 
-  fetch("http://localhost:3000/customer", {
+  fetch("http://localhost:3000/users", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(customer)
+    body: JSON.stringify(users),
   })
-    .then(response => {
+    .then((response) => {
       if (response.ok) {
         Swal.fire("Thêm khách hàng thành công!", "", "success");
       } else {
         Swal.fire("Thêm khách hàng thất bại!", "", "error");
       }
     })
-    .catch(error => {
+    .catch((error) => {
       Swal.fire("Lỗi", "Đã xảy ra lỗi khi thêm khách hàng", "error");
     });
 }
-// delete customer
+
 function delete_customer(id) {
   Swal.fire({
     title: "Xác nhận xóa",
@@ -73,7 +73,7 @@ function delete_customer(id) {
     cancelButtonColor: "rgb(220, 53, 69)",
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(`http://localhost:3000/customer/${id}`, {
+      fetch(`http://localhost:3000/users/${id}`, {
         method: "DELETE",
       })
         .then(() => {
@@ -88,66 +88,64 @@ function delete_customer(id) {
 }
 
 function update_customer(id) {
+  fetch(`http://localhost:3000/users/${id}`)
+    .then((response) => response.json())
+    .then((users) => {
+      document.getElementById("name").value = users.name;
+      document.getElementById("password").value = users.password;
+      document.getElementById("phone").value = users.phoneNumber;
+      document.getElementById("email").value = users.email;
+      document.getElementById("role_id").value = users.roleId;
+      document.getElementById("address").value = users.address;
 
-  fetch(`http://localhost:3000/customer/${id}`)
-    .then(response => response.json())
-    .then(customer => {
+      document.getElementById("main_title").innerHTML = "Update Customer";
+      document.getElementById("sub").innerHTML = "Update";
+      document.getElementById("sub").style.backgroundColor = "rgb(50, 50, 216)";
 
-      document.getElementById('name').value = customer.name;
-      document.getElementById('password').value = customer.password;
-      document.getElementById('phone').value = customer.phoneNumber;
-      document.getElementById('email').value = customer.email;
-      document.getElementById('role_id').value = customer.roleId;
-      document.getElementById('address').value = customer.address;
-
-      document.getElementById('main_title').innerHTML = "Update Customer";
-      document.getElementById('sub').innerHTML = "Update";
-      document.getElementById('sub').style.backgroundColor = "rgb(50, 50, 216)";
-
-
-      document.getElementById('modal-header').style.backgroundColor = "rgb(50, 50, 216)"
-      var modal = new bootstrap.Modal(document.getElementById('myModal'));
+      document.getElementById("modal-header").style.backgroundColor =
+        "rgb(50, 50, 216)";
+      var modal = new bootstrap.Modal(document.getElementById("myModal"));
       modal.show();
 
-      document.getElementById('cusForm').onsubmit = function (event) {
+      document.getElementById("cusForm").onsubmit = function (event) {
         event.preventDefault();
         var updatedCustomer = {
-          name: document.getElementById('name').value,
-          password: document.getElementById('password').value,
-          phoneNumber: document.getElementById('phone').value,
-          email: document.getElementById('email').value,
-          role_id: parseInt(document.getElementById('role_id').value),
-          address: document.getElementById('address').value
-
+          name: document.getElementById("name").value,
+          password: document.getElementById("password").value,
+          phoneNumber: document.getElementById("phone").value,
+          email: document.getElementById("email").value,
+          role_id: parseInt(document.getElementById("role_id").value),
+          address: document.getElementById("address").value,
         };
 
-
-        fetch(`http://localhost:3000/customer/${id}`, {
+        fetch(`http://localhost:3000/users/${id}`, {
           method: "PUT",
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify(updatedCustomer)
+          body: JSON.stringify(updatedCustomer),
         })
-        .then(response => {
-          if (response.ok) {
-            Swal.fire("Cập nhật thành công", "", "success");
-            fetch('http://localhost:3000/customer') // Refresh the customer table
-          } else {
-            Swal.fire("Cập nhật thất bại", "", "error");
-          }
-        })
-        .catch(() => {
-          Swal.fire("Lỗi", "Đã xảy ra lỗi khi cập nhật thông tin khách hàng", "error");
-        });
+          .then((response) => {
+            if (response.ok) {
+              Swal.fire("Cập nhật thành công", "", "success");
+              fetch("http://localhost:3000/users"); // Refresh the users table
+            } else {
+              Swal.fire("Cập nhật thất bại", "", "error");
+            }
+          })
+          .catch(() => {
+            Swal.fire(
+              "Lỗi",
+              "Đã xảy ra lỗi khi cập nhật thông tin khách hàng",
+              "error"
+            );
+          });
       };
     })
     .catch(() => {
-      alert("Error retrieving customer data");
+      alert("Error retrieving users data");
     });
 }
-
-// kiểm tra xem là loại form nào 
 
 function refreshModal() {
   document.getElementById("main_title").innerHTML = "Create Customer";
@@ -155,10 +153,7 @@ function refreshModal() {
   document.getElementById("sub").style.backgroundColor = "#4caf50";
   document.getElementById("modal-header").style.backgroundColor = "#4caf50";
 
-    "rgb(50, 50, 216)";
-  // Thực hiện các thao tác cần thiết để refresh modal tại đây
-  var form = document.getElementById("cusForm"); // Thay "myForm" bằng ID của form thực tế
-  form.reset(); // Reload form bằng cách reset lại các giá trị của các trường input
-  
+  ("rgb(50, 50, 216)");
+  var form = document.getElementById("cusForm");
+  form.reset();
 }
-// 

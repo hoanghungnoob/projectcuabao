@@ -1,5 +1,4 @@
 window.onload = function () {
-
   const header = document.createElement("div");
   header.innerHTML = `
   <div class="header" id="header">
@@ -44,7 +43,7 @@ window.onload = function () {
       <!-- profile -->
       <li class="profile" id="profile">
       <a href="/page/customer/profile/profile.html">
-      <img src="/images/img_icon/user-removebg-preview.png" alt="Profile Picture" id="avata_layout" class="profile__picture">
+      <img src="/images/img_icon/user-removebg-preview.png" alt="Profile Picture" id="avatar_layout" class="profile__picture">
       </a>
     </li>
       <!-- logout -->
@@ -55,32 +54,44 @@ window.onload = function () {
   </nav>
 </div>
     `;
-  const roleId = localStorage.getItem("roleId");
 
   document.body.insertBefore(header, document.body.firstChild);
-  document.getElementById('log_out').style.display = "none";
-  document.getElementById('profile').style.display = "none";
-  document.getElementById('management').style.display = "none";
-  const userId = localStorage.getItem('userId');
+  document.getElementById("log_out").style.display = "none";
+  document.getElementById("profile").style.display = "none";
+  document.getElementById("management").style.display = "none";
+  const userId = localStorage.getItem("userId");
 
+  function fetch_cus() {
+    let userData;
+    const hashKey = "Abcd123@";
+    const token = localStorage.getItem("token");
 
-function fetch_cus() {
-  if(roleId == 1){
-  fetch(`http://localhost:3000/admin/${userId}`)
-    .then(response => response.json())
-    .then(customer => {
-        document.getElementById('avata_layout').src = customer.avata;
-    });}
-    else{
-      fetch(`http://localhost:3000/customer/${userId}`)
-      .then(response => response.json())
-      .then(customer => {
-          document.getElementById('avata_layout').src = customer.avata;
-      });
+    const decryptedUserInfo = CryptoJS.AES.decrypt(token, hashKey).toString(
+      CryptoJS.enc.Utf8
+    );
+
+    if (decryptedUserInfo) {
+      userData = JSON.parse(decryptedUserInfo);
     }
-}
+    console.log("sdhsaoidhasohdioasiodsaio", userData);
+    document.getElementById("avatar_layout").src = userData.avatar;
 
-fetch_cus();
+    // if (userData.roleId == 1) {
+    //   fetch(`http://localhost:3000/users/${userData.id}`)
+    //     .then((response) => response.json())
+    //     .then((users) => {
+    //       document.getElementById("avatar_layout").src = users.avatar;
+    //     });
+    // } else {
+    //   fetch(`http://localhost:3000/users/${userData.id}`)
+    //     .then((response) => response.json())
+    //     .then((users) => {
+    //       document.getElementById("avatar_layout").src = users.avatar;
+    //     });
+    // }
+  }
+
+  fetch_cus();
 
   const footer = document.createElement("div");
   footer.innerHTML = `
@@ -121,45 +132,43 @@ fetch_cus();
 </div>
 
     `;
+
   document.body.appendChild(footer);
-  // Lấy giá trị roleId từ local storage
-  if(roleId === '1'){
 
-    document.getElementById('profile').style.display = "block";
-    document.getElementById('log_out').style.display = "block";   
-    document.getElementById('sign_up').style.display = "none";
-    document.getElementById('login').style.display = "none";
-  document.getElementById('management').style.display = "block";
-
-
+  if (roleId === "1") {
+    document.getElementById("profile").style.display = "block";
+    document.getElementById("log_out").style.display = "block";
+    document.getElementById("sign_up").style.display = "none";
+    document.getElementById("login").style.display = "none";
+    document.getElementById("management").style.display = "block";
   }
 
-  // Kiểm tra giá trị roleId và ẩn các phần tử tương ứng khi roleId là 2
   if (roleId === "2") {
     const managementElement = document.querySelector(".dropdown");
-    const loginElement = document.querySelector(".navbar__li--mobile a[href='/page/login/login.html']");
-    const signUpElement = document.querySelector(".navbar__li--mobile .border2");
-    document.getElementById('profile').style.display = "block";
-    document.getElementById('log_out').style.display = "block";
+    const loginElement = document.querySelector(
+      ".navbar__li--mobile a[href='/page/login/login.html']"
+    );
+    const signUpElement = document.querySelector(
+      ".navbar__li--mobile .border2"
+    );
+    document.getElementById("profile").style.display = "block";
+    document.getElementById("log_out").style.display = "block";
 
-    // Ẩn phần tử "Management"
     if (managementElement) {
       managementElement.style.display = "none";
     }
 
-    // Ẩn phần tử "Login"
     if (loginElement) {
       loginElement.style.display = "none";
     }
 
-    // Ẩn phần tử "Sign up"
     if (signUpElement) {
       signUpElement.style.display = "none";
     }
   }
 };
-function logout() {
 
+function logout() {
   Swal.fire({
     icon: "info",
     title: "Confirm Logout",
@@ -167,23 +176,23 @@ function logout() {
     showCancelButton: true,
     confirmButtonText: "Logout",
     cancelButtonText: "Cancel",
-    reverseButtons: true
+    reverseButtons: true,
   }).then((result) => {
     if (result.isConfirmed) {
       // Xóa giá trị roleId trong localStorage
       localStorage.removeItem("roleId");
       localStorage.removeItem("userId");
-      
+
       // Chuyển hướng người dùng đến trang logout.html (hoặc trang chủ, tùy thuộc vào yêu cầu của bạn)
       window.location.href = "/page/home/home.html";
-      
-      document.getElementById('log_out').style.display = "none";
+
+      document.getElementById("log_out").style.display = "none";
 
       Swal.fire({
         icon: "success",
         title: "Logout Successful!",
         showConfirmButton: false,
-        timer: 3000
+        timer: 3000,
       });
     }
   });

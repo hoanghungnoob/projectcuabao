@@ -65,15 +65,21 @@
       }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script>
       $(document).ready(function () {
-        $.ajax({
-          url: "/page/home/home.html",
-          dataType: "html",
-          success: function (data) {
-            $("#content").html(data);
-          },
-        });
+        var isLoggedIn = localStorage.getItem("user");
+        if (!isLoggedIn) {
+          window.location.href = "/page/login/login.html";
+        } else {
+          $.ajax({
+            url: "/page/home/home.html",
+            dataType: "html",
+            success: function (data) {
+              $("#content").html(data);
+            },
+          });
+        }
       });
     </script>
   </head>
