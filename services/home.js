@@ -1,15 +1,4 @@
-function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("opacity").style.display = "block";
-    document.getElementById('open_sideBar').style.opacity = 0;
-}
 
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("opacity").style.display = "none";
-    document.getElementById('open_sideBar').style.opacity = 1;
-
-}
 fetch("http://localhost:3000/product")
     .then((res) => res.json())
     .then((data) => {

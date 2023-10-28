@@ -13,14 +13,14 @@
   ],
   "customer": [
     {
-      "id": 1,
       "name": "admin",
+      "roleId": 2,
+      "password": "12345",
       "phoneNumber": "0397208231",
-      "avata": "/images/img_icon/avata_admin.jpg",
       "email": "bao.pham25@student.passerellesnumeriques.org",
       "address": "Lang Cat village Mo O commune Dakrong district Quang Tri province",
-      "password": "12345",
-      "roleId": 1
+      "avata": "http://127.0.0.1:5500/images/img_icon/avata_admin.jpg",
+      "id": 1
     },
     {
       "name": "Dinh Thi Duyen12",
@@ -94,15 +94,15 @@
   "product": [
     {
       "id": 3,
-      "name": "Espressoaaa",
+      "name": "Espresso",
       "quantity": "400",
       "newPrice": "28000",
       "oldPrice": "30000",
       "description": "Coffee is brewed with a small amount of boiling water that is almost pressed under pressure (squeezing) the ground coffee beans.Espresso, is a method of roasting and preparing coffee originating from Italy, in which a small amount of boiling water is forced under pressure through ground coffee beans. Espresso is also the basis for many drinks from Other coffees such as latte, cappuccino, macchiato, mocha, flat white, Americano.",
       "productReviews": 5,
-      "image1": "/images/img_product/black-coffee1.jpg",
-      "image2": "/images/img_product/coconut_coffee.jpg",
-      "image3": "/images/img_product/Arabica1.jpg"
+      "image1": "/images/img_product/Cherry3.jpg",
+      "image2": "/images/img_product/Americano3.jpg",
+      "image3": "/images/img_product/coconut_coffee.jpg"
     },
     {
       "name": "Latte1",
@@ -207,19 +207,6 @@
       "type": "",
       "productReviews": 4,
       "id": 15
-    },
-    {
-      "name": "phamgiabao",
-      "quantity": "4000000000000000000",
-      "newPrice": 11212,
-      "oldPrice": 2122,
-      "image1": "/images/img_product/Arabica3.jpg",
-      "image2": "/images/img_product/Americano1.jpg",
-      "image3": "/images/img_product/Black-Coffee2.avif",
-      "description": "sâsasa",
-      "type": "",
-      "productReviews": 4,
-      "id": 16
     }
   ],
   "order": [

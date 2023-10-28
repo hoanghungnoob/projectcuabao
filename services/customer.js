@@ -163,10 +163,8 @@ function refreshModal() {
   document.getElementById("sub").innerHTML = "Create";
   document.getElementById("sub").style.backgroundColor = "#4caf50";
   document.getElementById("modal-header").style.backgroundColor = "#4caf50";
-  
   // Thực hiện các thao tác cần thiết để refresh modal tại đây
   var form = document.getElementById("cusForm"); // Thay "myForm" bằng ID của form thực tế
   form.reset(); // Reload form bằng cách reset lại các giá trị của các trường input
   
 }
-// 
