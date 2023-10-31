@@ -29,15 +29,20 @@ function validation() {
     return false;
   }
 }
+
 var popup = document.getElementById("popup");
 function closeSlize() {
   popup.classList.remove("open-slize");
 }
 
+function hashPassword(password) {
+  return CryptoJS.SHA256(password).toString();
+}
+
 document
   .getElementById("customerForm")
   .addEventListener("submit", function (event) {
-    event.preventDefault(); // Ngăn chặn gửi yêu cầu POST mặc định
+    event.preventDefault();
 
     var form = document.getElementById("customerForm");
     var name = document.getElementById("user_name").value;
@@ -47,8 +52,10 @@ document
     var user = {
       name: name,
       email: email,
-      password: password,
+      password: hashPassword(password),
     };
+    console.log("Quy", user);
+
     localStorage.setItem("user", JSON.stringify(user));
     fetch("http://localhost:3000/users", {
       method: "POST",
@@ -65,8 +72,8 @@ document
         }
       })
       .then(function (user) {
-        alert("Đã đăng ký thành công! Mã khách hàng mới: " + user.id);
-        form.reset();
+        alert("Đã đăng ký thành công! Mã khách hàng mới: " + user.name);
+        // form.reset();
       })
       .catch(function (error) {
         alert(error.message);

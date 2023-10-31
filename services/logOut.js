@@ -6,24 +6,21 @@ function logout() {
     showCancelButton: true,
     confirmButtonText: "Logout",
     cancelButtonText: "Cancel",
-    reverseButtons: true
-  }).then((result) => {
-    if (result.isConfirmed) {
-      // Xóa giá trị roleId trong localStorage
-      localStorage.removeItem("roleId");
-      localStorage.removeItem("userId");
-      
-      // Chuyển hướng người dùng đến trang logout.html (hoặc trang chủ, tùy thuộc vào yêu cầu của bạn)
-      window.location.href = "/page/home/home.html";
-      
-      document.getElementById('log_out').style.display = "none";
-      
+    reverseButtons: true,
+  })
+    .then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem("token");
+      }
+    })
+    .then(() => {
+      document.getElementById("log_out").style.display = "none";
+      window.location.href = "/page/login/login.html";
       Swal.fire({
         icon: "success",
         title: "Logout Successful!",
         showConfirmButton: false,
-        timer: 3000
+        timer: 3000,
       });
-    }
-  });
+    });
 }

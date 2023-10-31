@@ -1,8 +1,23 @@
 function goBack() {
   window.history.back();
 }
+function fetch_cus() {
+  let userData;
+  const hashKey = "Abcd123@";
+  const token = localStorage.getItem("token");
 
-const userId = localStorage.getItem("userId");
+  const decryptedUserInfo = CryptoJS.AES.decrypt(token, hashKey).toString(
+    CryptoJS.enc.Utf8
+  );
+
+  if (decryptedUserInfo) {
+    userData = JSON.parse(decryptedUserInfo);
+  }
+
+  return userData;
+}
+
+const userId = fetch_cus().userId;
 
 document.getElementById("updateBtn").style.display = "none";
 function enableEdit() {

@@ -46,7 +46,6 @@ window.onload = function () {
       <img src="/images/img_icon/user-removebg-preview.png" alt="Profile Picture" id="avatar_layout" class="profile__picture">
       </a>
     </li>
-      <!-- logout -->
       <li class="navbar__li--mobile">
         <a><button onclick="logout()" id="log_out">Logout</button></a>
       </li>
@@ -73,22 +72,11 @@ window.onload = function () {
     if (decryptedUserInfo) {
       userData = JSON.parse(decryptedUserInfo);
     }
-    console.log("sdhsaoidhasohdioasiodsaio", userData);
-    document.getElementById("avatar_layout").src = userData.avatar;
 
-    // if (userData.roleId == 1) {
-    //   fetch(`http://localhost:3000/users/${userData.id}`)
-    //     .then((response) => response.json())
-    //     .then((users) => {
-    //       document.getElementById("avatar_layout").src = users.avatar;
-    //     });
-    // } else {
-    //   fetch(`http://localhost:3000/users/${userData.id}`)
-    //     .then((response) => response.json())
-    //     .then((users) => {
-    //       document.getElementById("avatar_layout").src = users.avatar;
-    //     });
-    // }
+    document.getElementById("avatar_layout").src = userData.avatar
+      ? userData.avatar
+      : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4CRKPij6o2waFROp-89BCE8lEf96jLsndRQ&usqp=CAU";. h
+    return userData;
   }
 
   fetch_cus();
@@ -135,7 +123,7 @@ window.onload = function () {
 
   document.body.appendChild(footer);
 
-  if (roleId === "1") {
+  if (fetch_cus().roleId === 1) {
     document.getElementById("profile").style.display = "block";
     document.getElementById("log_out").style.display = "block";
     document.getElementById("sign_up").style.display = "none";
@@ -143,7 +131,7 @@ window.onload = function () {
     document.getElementById("management").style.display = "block";
   }
 
-  if (roleId === "2") {
+  if (fetch_cus().roleId === 2) {
     const managementElement = document.querySelector(".dropdown");
     const loginElement = document.querySelector(
       ".navbar__li--mobile a[href='/page/login/login.html']"
@@ -167,33 +155,3 @@ window.onload = function () {
     }
   }
 };
-
-function logout() {
-  Swal.fire({
-    icon: "info",
-    title: "Confirm Logout",
-    text: "Are you sure you want to log out?",
-    showCancelButton: true,
-    confirmButtonText: "Logout",
-    cancelButtonText: "Cancel",
-    reverseButtons: true,
-  }).then((result) => {
-    if (result.isConfirmed) {
-      // Xóa giá trị roleId trong localStorage
-      localStorage.removeItem("roleId");
-      localStorage.removeItem("userId");
-
-      // Chuyển hướng người dùng đến trang logout.html (hoặc trang chủ, tùy thuộc vào yêu cầu của bạn)
-      window.location.href = "/page/home/home.html";
-
-      document.getElementById("log_out").style.display = "none";
-
-      Swal.fire({
-        icon: "success",
-        title: "Logout Successful!",
-        showConfirmButton: false,
-        timer: 3000,
-      });
-    }
-  });
-}
