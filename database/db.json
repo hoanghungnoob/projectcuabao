@@ -1,5 +1,5 @@
 {
-  "role": [
+  "roles": [
     {
       "id": 1,
       "name": "admin",
@@ -11,16 +11,16 @@
       "code": "CF13"
     }
   ],
-  "customer": [
+  "users": [
     {
-      "id": 1,
       "name": "admin",
+      "roleId": 2,
+      "password": "12345",
       "phoneNumber": "0397208231",
-      "avata": "/images/img_icon/avata_admin.jpg",
       "email": "bao.pham25@student.passerellesnumeriques.org",
       "address": "Lang Cat village Mo O commune Dakrong district Quang Tri province",
-      "password": "12345",
-      "roleId": 1
+      "avata": "http://127.0.0.1:5500/images/img_icon/avata_admin.jpg",
+      "id": 1
     },
     {
       "name": "Dinh Thi Duyen12",
@@ -92,18 +92,18 @@
       "id": 18
     }
   ],
-  "product": [
+  "products": [
     {
       "id": 3,
-      "name": "Espressoaaa",
+      "name": "Espresso",
       "quantity": "400",
       "newPrice": "28000",
       "oldPrice": "30000",
       "description": "Coffee is brewed with a small amount of boiling water that is almost pressed under pressure (squeezing) the ground coffee beans.Espresso, is a method of roasting and preparing coffee originating from Italy, in which a small amount of boiling water is forced under pressure through ground coffee beans. Espresso is also the basis for many drinks from Other coffees such as latte, cappuccino, macchiato, mocha, flat white, Americano.",
       "productReviews": 5,
-      "image1": "/images/img_product/black-coffee1.jpg",
-      "image2": "/images/img_product/coconut_coffee.jpg",
-      "image3": "/images/img_product/Arabica1.jpg"
+      "image1": "/images/img_product/Cherry3.jpg",
+      "image2": "/images/img_product/Americano3.jpg",
+      "image3": "/images/img_product/coconut_coffee.jpg"
     },
     {
       "name": "Latte1",
@@ -195,35 +195,9 @@
       "image3": "/images/img_product/Cherry3.jpg",
       "type": "",
       "productReviews": 5
-    },
-    {
-      "name": "Robusta",
-      "quantity": 46,
-      "newPrice": 67000,
-      "oldPrice": 68000,
-      "image1": "/images/img_product/Robusta1.jpg",
-      "image2": "/images/img_product/Robusta2.jpg",
-      "image3": "/images/img_product/Robusta3.jpg",
-      "description": "This coffee has a rather bitter taste, a rich drink, very suitable for men. Pure Robusta coffee is popular with many people because of its rich taste and unique aroma. In general, pure Robusta often has a much more astringent and bitter taste than.",
-      "type": "",
-      "productReviews": 4,
-      "id": 15
-    },
-    {
-      "name": "phamgiabao",
-      "quantity": "4000000000000000000",
-      "newPrice": 11212,
-      "oldPrice": 2122,
-      "image1": "/images/img_product/Arabica3.jpg",
-      "image2": "/images/img_product/Americano1.jpg",
-      "image3": "/images/img_product/Black-Coffee2.avif",
-      "description": "sâsasa",
-      "type": "",
-      "productReviews": 4,
-      "id": 16
     }
   ],
-  "order": [
+  "orders": [
     {
       "name": "phamgiabao",
       "date": "2023-10-22",
@@ -305,37 +279,100 @@
       "id": 6
     },
     {
-      "name": "phamgiabao",
-      "customerId": "16",
-      "productId": "7",
-      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "name": "Em boss",
+      "customerId": "17",
+      "productId": [
+        "3",
+        "8"
+      ],
+      "email": "phamthithieu@gmail.com",
       "phoneNumber": "0845042466",
-      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
-      "province": "20",
-      "district": "178",
-      "productName": "Cortado",
-      "productPrice": "29000 VND",
-      "quantity": "5",
-      "totalPrice": "145000 VND",
-      "id": 7
+      "address": "phuc trạch",
+      "province": "25",
+      "district": "227",
+      "productName": "Espresso",
+      "productPrice": "28000",
+      "quantity": "1",
+      "totalPrice": "202000 VND",
+      "id": 13
     },
     {
       "name": "Em boss",
       "customerId": "17",
-      "productId": "4",
+      "productId": [
+        "5"
+      ],
       "email": "phamthithieu@gmail.com",
       "phoneNumber": "0845042466",
       "address": "phuc trạch",
-      "province": "06",
-      "district": "062",
-      "productName": "Latte1",
-      "productPrice": "50000 VND",
+      "province": "14",
+      "district": "116",
+      "productName": "Cappuccino",
+      "productPrice": "22000 VND",
       "quantity": "1",
-      "totalPrice": "50000 VND",
-      "id": 8
+      "totalPrice": "22000 VND",
+      "id": 15
+    },
+    {
+      "name": "Em boss",
+      "customerId": "17",
+      "productId": [
+        "3",
+        "8",
+        "14",
+        "10"
+      ],
+      "email": "phamthithieu@gmail.com",
+      "phoneNumber": "0845042466",
+      "address": "phuc trạch",
+      "province": "04",
+      "district": "040",
+      "productName": "Espresso",
+      "productPrice": "28000",
+      "quantity": "1",
+      "totalPrice": "380000 VND",
+      "id": 16
+    },
+    {
+      "name": "Em boss",
+      "customerId": "17",
+      "productId": [
+        "3",
+        "8",
+        "14",
+        "10"
+      ],
+      "email": "phamthithieu@gmail.com",
+      "phoneNumber": "0845042466",
+      "address": "phuc trạch",
+      "province": "22",
+      "district": "193",
+      "productName": "Espresso",
+      "productPrice": "28000",
+      "quantity": "1",
+      "totalPrice": "380000 VND",
+      "id": 17
+    },
+    {
+      "name": "Dinh Thi Duyen12",
+      "customerId": "10",
+      "productId": [
+        "6",
+        "4"
+      ],
+      "email": "duyen.ho25@student.com",
+      "phoneNumber": "0123432888",
+      "address": "56 Phuoc My ward Son Tra district Da Nang city",
+      "province": "25",
+      "district": "227",
+      "productName": "Latte1",
+      "productPrice": "50000",
+      "quantity": "4",
+      "totalPrice": "299000 VND",
+      "id": 18
     }
   ],
-  "contact": [
+  "contacts": [
     {
       "name": "Baopham",
       "phoneNumber": "0845042466",
@@ -366,9 +403,16 @@
       "email": "phamthithieu@gmail.com",
       "message": "qwqww",
       "id": 4
+    },
+    {
+      "name": "Baopham",
+      "phoneNumber": "0990887689",
+      "email": "phamthithieu@gmail.com",
+      "message": "lkhiohgt",
+      "id": 5
     }
   ],
-  "province": [
+  "provinces": [
     {
       "name": "Hà Nội",
       "type": "thanh-pho",
@@ -748,7 +792,7 @@
       "code": "96"
     }
   ],
-  "district": [
+  "districts": [
     {
       "name": "Ba Đình",
       "type": "quan",
@@ -2678,6 +2722,65 @@
       "type": "",
       "productReviews": 4,
       "totalPrice": 150000
+    },
+    {
+      "id": 3,
+      "userId": "17",
+      "name": "Espresso",
+      "quantity": 1,
+      "newPrice": "28000",
+      "oldPrice": "30000",
+      "description": "Coffee is brewed with a small amount of boiling water that is almost pressed under pressure (squeezing) the ground coffee beans.Espresso, is a method of roasting and preparing coffee originating from Italy, in which a small amount of boiling water is forced under pressure through ground coffee beans. Espresso is also the basis for many drinks from Other coffees such as latte, cappuccino, macchiato, mocha, flat white, Americano.",
+      "productReviews": 5,
+      "image1": "/images/img_product/Cherry3.jpg",
+      "image2": "/images/img_product/Americano3.jpg",
+      "image3": "/images/img_product/coconut_coffee.jpg",
+      "totalPrice": 28000
+    },
+    {
+      "id": 8,
+      "userId": "17",
+      "name": "Macchiato",
+      "oldPrice": 60000,
+      "newPrice": 58000,
+      "quantity": 3,
+      "description": "A coffee based on the perfect combination of coffee, milk tea, goat tea with a layer of rich cream. Macchiato has the characteristic fatty taste of milk mixed with a slightly sweet or slightly salty taste depending on the recipe of the drink maker.",
+      "image1": "/images/img_product/Macchiato1.jpg",
+      "image2": "/images/img_product/Macchiato2.jpg",
+      "image3": "/images/img_product/Macchiato3.jpg",
+      "type": "",
+      "productReviews": 5,
+      "totalPrice": 174000
+    },
+    {
+      "id": 14,
+      "userId": "17",
+      "name": "Cherry",
+      "oldPrice": 54,
+      "newPrice": 50000,
+      "quantity": 2,
+      "description": "Cherry coffee gives off a faint scent when brewed and the sour taste of Cherry creates a refreshing inspiration. Although the flavor is not as rich as Robusta, nor as passionate as Arabica, Cherry coffee has its own characteristics: mildly sour, slightly astringent, low caffeine content.",
+      "image1": "/images/img_product/Cherry1.jpg",
+      "image2": "/images/img_product/Cherry2.jpg",
+      "image3": "/images/img_product/Cherry3.jpg",
+      "type": "",
+      "productReviews": 5,
+      "totalPrice": 100000
+    },
+    {
+      "id": 10,
+      "userId": "17",
+      "name": "Red Eye",
+      "oldPrice": 80000,
+      "newPrice": 78000,
+      "quantity": 1,
+      "description": "An enhanced coffee drink in which espresso is combined with normal drip coffee.A red eye, black eye, and dead eye coffee basically mean how much caffeine you want in your cup of brewed coffee. The red eye has one shot of espresso added, the black eye has two shots, and the dead eye has three whole shots of espresso! These will definitely keep you up as long as you want.",
+      "image1": "/images/img_product/Red Eye1.jpg",
+      "image2": "/images/img_product/Red Eye2.png",
+      "image3": "/images/img_product/Red Eye3.png",
+      "type": "",
+      "productReviews": 4,
+      "totalPrice": 78000
     }
   ]
 }

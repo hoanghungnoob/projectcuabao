@@ -7,13 +7,13 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
 async function login(email, password) {
   try {
     const [roleResponse, customerResponse] = await Promise.all([
-      fetch("http://localhost:3000/role", {
+      fetch("http://localhost:3000/roles", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
       }),
-      fetch("http://localhost:3000/customer", {
+      fetch("http://localhost:3000/users", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

@@ -7,7 +7,7 @@ window.onload = function () {
   <nav class="navbar">
     <!-- logo -->
     <div class="navbar_logo">
-      <div id="logo"></div>
+    <a href="/page/home/home.html"> <img src="/images/img_icon/logo_cofe.png" alt=""></a>
     </div>
     <!-- search -->
     <div class="search-container">
@@ -24,15 +24,16 @@ window.onload = function () {
   </div>
   <ul id="suggestionList"></ul>
     <!-- elements of navbar -->
-    <span style="font-size:30px;cursor:pointer" id="open_sideBar" onclick="openNav()">&#9776;</span>
+    <div style="font-size:30px;cursor:pointer" id="open_sideBar" onclick="openNav()">&#9776;</div>
     <div id="opacity" onclick="closeNav()"></div>
-
-    <ul class="navbar__ul">
+    <ul class="navbar__ul" id="navbar__ul">
       <!-- all element choose -->
-      <li><a href="/page/home/home.html"><i class="fas fa-home"></i>Home</a></li>
-      <li><a href="/page/contact_us/contact_us.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
-      <li><a href="/page/product/ShoppingCart/ShoppingCart.html"><i class="fas fa-shopping-cart"></i></a></li>
-      <li><a href="/page/purcha_list/purcha_list.html"><i class="fas fa-history"></i>History</a></li>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <li class="ul_li"><a href="/page/home/home.html"><i class="fas fa-home"></i>Home</a></li>
+      <li class="ul_li"><a href="/page/contact_us/contact_us.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
+      <li class="ul_li"><a href="/page/product/ShoppingCart/ShoppingCart.html"><i class="fas fa-shopping-cart"></i>Order</a></li>
+      <li class="ul_li"><a href="/page/purcha_list/purcha_list.html"><i class="fas fa-history"></i>History</a></li>
+     
       <li class="dropdown" id="management">
         <a href="#" class="dropdown-link" >
           <i class="fas fa-cog"></i> Management
@@ -41,7 +42,6 @@ window.onload = function () {
           <li><a href="/page/customer/CustomerList/CustomerList.html">Customer Management</a></li>
           <li><a href="/page/product/ProductList/ProductList.htm">Product Management</a></li>
           <li><a href="/page/order/order_list/order_list.html">Order Management</a></li>
-
         </ul>
       </li>
       <li class="navbar__li--mobile" id="login"><a href="/page/login/login.html"><button>Login</button></a></li>
@@ -55,7 +55,7 @@ window.onload = function () {
       <a href="/page/customer/profile/profile.html">
       <img src="/images/img_icon/user-removebg-preview.png" alt="Profile Picture" id="avata_layout" class="profile__picture">
       </a>
-    </li>
+      </li>
       <!-- logout -->
       <li class="navbar__li--mobile">
         <a><button onclick="logout()" id="log_out">Logout</button></a>
@@ -65,6 +65,7 @@ window.onload = function () {
 </div>
     `;
   const roleId = localStorage.getItem("roleId");
+  console.log(roleId,"6136235265")
 
   document.body.insertBefore(header, document.body.firstChild);
   document.getElementById('log_out').style.display = "none";
@@ -75,13 +76,13 @@ window.onload = function () {
 
 function fetch_cus() {
   if(roleId == 1){
-  fetch(`http://localhost:3000/customer/${userId}`)
+  fetch(`http://localhost:3000/users/${userId}`)
     .then(response => response.json())
     .then(customer => {
         document.getElementById('avata_layout').src = customer.avata;
     });}
     else{
-      fetch(`http://localhost:3000/customer/${userId}`)
+      fetch(`http://localhost:3000/users/${userId}`)
       .then(response => response.json())
       .then(customer => {
           document.getElementById('avata_layout').src = customer.avata;
@@ -134,7 +135,7 @@ searchButton.addEventListener("click", function (event) {
 });
 
 function searchProductByName(searchTerm) {
-  fetch("http://localhost:3000/product")
+  fetch("http://localhost:3000/products")
     .then((response) => response.json())
     .then((data) => {
       const matchingSuggestions = data.filter(function (product) {
@@ -167,7 +168,7 @@ function displaySuggestions(suggestions) {
   });
 }
 function displayProducts(searchTerm) {
-  fetch("http://localhost:3000/product")
+  fetch("http://localhost:3000/products")
     .then((response) => response.json())
     .then((data) => {
         const matchingProducts = data.filter(function (product) {
@@ -272,9 +273,9 @@ searchInput.addEventListener("input", function () {
     `;
 
   document.body.appendChild(footer);
-  
+  console.log(roleId,"jdajsdgajshg===============================")
   // Lấy giá trị roleId từ local storage
-  if(roleId === '1'){
+  if(roleId == 1){
 
     document.getElementById('profile').style.display = "block";
     document.getElementById('log_out').style.display = "block";   
@@ -286,7 +287,7 @@ searchInput.addEventListener("input", function () {
   }
 
   // Kiểm tra giá trị roleId và ẩn các phần tử tương ứng khi roleId là 2
-  if (roleId === "2") {
+  if (roleId == 2) {
     const managementElement = document.querySelector(".dropdown");
     const loginElement = document.querySelector(".navbar__li--mobile a[href='/page/login/login.html']");
     const signUpElement = document.querySelector(".navbar__li--mobile .border2");
@@ -340,3 +341,23 @@ function logout() {
   });
 }
 
+function openNav() {
+  document.getElementById("navbar__ul").style.width = "250px";
+  document.getElementById("opacity").style.display = "block";
+  // document.getElementById('open_sideBar').style.opacity = 0;
+  setTimeout(function () {
+    document.getElementById("navbar__ul").classList.add("active");
+  }, 10);
+}
+
+function closeNav() {
+  document.getElementById("navbar__ul").classList.remove("active");
+  setTimeout(function () {
+    document.getElementById("navbar__ul").style.width = "0";
+    document.getElementById("opacity").style.display = "none";
+    document.getElementById('open_sideBar').style.opacity = 1;
+
+  }, 10);
+
+  
+}

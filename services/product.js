@@ -1,5 +1,5 @@
 function fetchProducts() {
-  fetch("http://localhost:3000/product")
+  fetch("http://localhost:3000/products")
     .then((response) => response.json())
     .then((data) => {
       var list_product = document.getElementById("list_product");
@@ -90,7 +90,7 @@ function addProducts() {
     productReviews: 4,
   };
 
-  fetch("http://localhost:3000/product", {
+  fetch("http://localhost:3000/products", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -103,7 +103,7 @@ function addProducts() {
 }
 
 function deleteProduct(id) {
-  fetch(`http://localhost:3000/product/${id}`, {
+  fetch(`http://localhost:3000/products/${id}`, {
     method: "DELETE",
   })
     .then(() => {
@@ -121,7 +121,7 @@ function deleteProduct(id) {
 }
 function edit_product(id) {
   // Get the product by ID
-  fetch(`http://localhost:3000/product/${id}`)
+  fetch(`http://localhost:3000/products/${id}`)
     .then((response) => response.json())
     .then((product) => {
       console.log(product);
@@ -167,7 +167,7 @@ function edit_product(id) {
           image3: `/images/img_product/${imageFileName3}`
         };
 
-        fetch(`http://localhost:3000/product/${updatedProduct.id}`, {
+        fetch(`http://localhost:3000/products/${updatedProduct.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -215,7 +215,7 @@ function decrement() {
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id");
 
-fetch("http://localhost:3000/product")
+fetch("http://localhost:3000/products")
   .then((res) => res.json())
   .then((data) => {
     var product = false;

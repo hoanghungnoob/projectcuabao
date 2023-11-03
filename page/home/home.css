@@ -36,9 +36,12 @@ body {
 .container {
   background-color: rgb(144, 82, 0);
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   background: url(/images/img_product/mike-kenneally-zlwDJoKTuA8-unsplash.jpg);
   background-size: cover;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .first {
@@ -50,13 +53,15 @@ body {
 .bg1 {
   margin-top: 130px;
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .content-detail {
   width: 400px;
-  margin-left: 200px;
-  margin-top: 100px;
-  font-size: 100px;
+  font-size: 150px;
+  padding-left: 100px;
 }
 
 h1 {
@@ -94,7 +99,7 @@ p {
 
 .retangle {
   width: 80%;
-  height: 570px;
+  height: 550px;
   border-radius: 10px;
   overflow: hidden;
   margin: 0 auto;
@@ -112,6 +117,7 @@ p {
   gap: 40px;
   margin: 30px;
 }
+
 
 #card_top::-webkit-scrollbar-thumb {
   background-color: #000000;
@@ -320,80 +326,10 @@ p {
   word-wrap: break-word;
 }
 
-/* About us */
-.about-us-background {
-  width: 100%;
-  height: 484px;
-  margin-top: 14%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(/images/img_product/about_us.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
 
-.about-us {
-  position: relative;
-  bottom: 20%;
-  display: flex;
-  height: 900px;
-  justify-content: space-around;
-  margin: 0;
-  background-color: red;
-  background-image: url(/images/img_product/annie-spratt-QckxruozjRg-unsplash.jpg);
-  background-size: cover;
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-}
 
-/* .about-us-image{
-    width: 40%;
-} */
-.about-image {
-  width: 80%;
-  height: 600px;
-  margin-left: 200px;
-  position: relative;
-  top: -70px;
-  border-radius: 30px;
-}
 
-.dicription-about-us {
-  width: 36%;
-  margin-top: 40px;
-  margin-right: 110px;
-  color: var(--white-color);
-}
 
-.dicription-about-us div {
-  color: var(--white-color);
-  font-weight: bolder;
-}
-
-.about-heading {
-  font-size: 42px;
-  font-weight: bolder;
-  letter-spacing: 1.28px;
-  margin-bottom: 20px;
-  margin-right: 50px;
-}
-
-.about-title {
-  color: black;
-  font-size: 24px;
-  font-family: Poppins;
-  font-weight: 600;
-  letter-spacing: 0.96px;
-  word-wrap: break-word;
-  margin-bottom: 20px;
-}
-
-.about-text {
-  color: #7e7d7a;
-  font-size: 18px;
-  font-weight: 400;
-  letter-spacing: 0.72px;
-}
 
 .next-list-product {
   display: grid;
@@ -560,12 +496,13 @@ p {
 }
 
 .title1 {
-  left: -5px;
+  left: 60px;
   margin-top: 0;
 }
 
 .title2 {
   margin-bottom: 30px;
+  left:  13%;
 }
 
 #product,
@@ -574,23 +511,7 @@ p {
   margin: 0 auto;
 }
 
-#product1 {
-  margin-top: 50px;
-}
 
-#product1 .product {
-  height: 500px;
-}
-
-#product1 .product img {
-  height: 50%;
-}
-
-#product1 .product-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 30px;
-}
 
 /* CSS styles */
 #product .product-container {
@@ -610,6 +531,7 @@ p {
   text-decoration: none;
   color: var(--brown-dark);
   overflow: hidden;
+  
 }
 
 .product {
@@ -656,20 +578,7 @@ p {
   margin-bottom: 10px;
 }
 
-#product1 .product {
-  width: 95%;
-  height: 250px;
-  margin: 30px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  padding: 10px;
-  position: relative;
-  transition: transform 0.3s, box-shadow 0.3s;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-}
+
 
 #product1 .descriptiom_and_btn {
   display: flex;
@@ -820,8 +729,9 @@ p {
 
 #open_sideBar {
   display: none;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.3s ease-in-out;
+  color: var(--orange-color);
 }
 
 #opacity {
@@ -1031,4 +941,157 @@ p {
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
+}
+#product1 {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 0px !important;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  width: 70vw;
+  margin-bottom: 100px !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 0 auto;
+
+}
+
+
+#product1::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+
+#product1::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  background-color: transparent;
+
+  width: 10px;
+}
+
+#product1::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+
+}
+
+#product1::-webkit-scrollbar-thumb:horizontal {
+
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#product1 .product-container {
+  display: flex;
+}
+
+#product1 .product {
+  width: 130px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin: 0 !important;
+  padding:  10px ;
+  background-color:  transparent !important;
+  border: 0 solid;
+  box-shadow: none;
+}
+.arrow-btn{ 
+   color: #ff0000;
+}
+
+#product1 .product #card {
+
+  width: 100%;
+  height: 100px;
+}
+
+#product1 .product #card > *:not(#main_img) {
+  display: none;
+}
+
+#product1 .product #main_img {
+  width: 100%;
+  height: 100%;
+}
+
+
+/*  */
+.container3 {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.container3 header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.container3 h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.container3 .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.container3 p {
+  margin-top: 15px;
+  line-height: 1.5;
+}
+
+.container3 .col-sm-12 {
+  margin-bottom: 40px;
+}
+
+.container3 .col-md-6 {
+  margin-bottom: 40px;
+}
+
+.container3 .margin-big {
+  margin: 0 20px;
+}
+
+.container3 .img-max {
+  max-width: 100%;
+  height: auto;
+}
+
+.container3 h3.text-green {
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(255, 147, 47);
+}
+.favo_box1,.favo_box1 .favo_box1_card{
+   display: flex !important;
+   justify-content: center !important;
+   align-items: center !important;
+   margin: 0 auto;
+}
+
+.favo_box1_img{
+   
+   width: 70%;
+   padding: 0 !important;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.favo_box1_img img{
+   width: 250px !important;
+   height: 250px !important;
+   object-fit: cover;
+   border-radius: 50%;
+}
+.container3 h2{
+    color: rgb(255, 147, 47); 
 }

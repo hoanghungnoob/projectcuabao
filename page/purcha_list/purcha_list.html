@@ -47,6 +47,9 @@
       <div id="product4"></div>
   </div>
   <main id="content">
+    <div class="container">
+   
+    </div>
     <div id="container_purcha">
       <div class="card_product">
         <div class="card_product_img">
@@ -59,7 +62,7 @@
             coffee is made from 100% pure coffee. Now you can enjoy the taste of
             traditional black coffee every day in just a few minutes.
           </p>
-          <p>x1</p>
+          <p id="quntity2">x1</p>
           <div class="prices">
             <p class="price" id="old__price">12.990 VND</p>
             <p id="new__price">10.990 VND</p>
@@ -99,10 +102,10 @@
             pressed under pressure (squeezing) the ground coffee beans.Espresso,
             is a method of roasting and preparing.
           </p>
-          <p>x1</p>
+          <p class="quantity1">x1</p>
           <div class="prices">
-            <p class="price" id="old__price">30.000 VND</p>
             <p id="new__price">28.500 VND</p>
+            <p class="price" id="old__price">30.000 VND</p>
           </div>
           <div class="d-flex justify-content-between align-items-center">
             <p id="total_product">Total: 30.600 VND</p>
@@ -111,7 +114,7 @@
                 id="product__btn__buy"
                 class="btn btn_buy_qtt btn-small"
                 type="button"
-                onclick="buy()"
+                onclick="redirectToOrderPage1(productId)"
               >
                 Buy again
               </button>
@@ -128,45 +131,7 @@
         </div>
       </div>
 
-      <div class="card_product">
-        <div class="card_product_img">
-          <img id="main__img" src="/images/img_product/Mocha1.jpg" />
-        </div>
-        <div class="content_product">
-          <h1 id="product__name">Mocha</h1>
-          <p id="describe">
-            Coffee is brewed using the Espresso method and then adding coffee
-            and hot milk.Mocha is a drink mixed between coffee, milk and
-            chocolate. The name Mocha originates from.
-          </p>
-          <p>x1</p>
-          <div class="prices">
-            <p class="price" id="old__price">32.600 VND</p>
-            <p id="new__price">30.800 VND</p>
-          </div>
-          <div class="d-flex justify-content-between align-items-center">
-            <p id="total_product">Total: 35.500 VND</p>
-            <div class="buttons">
-              <button
-                id="product__btn__buy"
-                class="btn btn_buy_qtt btn-small"
-                type="button"
-                onclick="buy()"
-              >
-                Buy again
-              </button>
-              <button
-                id="product__btn__detail"
-                class="btn btn_detail_qtt btn-small"
-                type="button"
-                onclick="rederectDetailPage()"
-              >
-                Product detail
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      
   </div>
  
 

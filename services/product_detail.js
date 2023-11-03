@@ -25,42 +25,10 @@ const productId = urlParams.get("id");
 function detail() {
 
 
-  fetch("http://localhost:3000/product")
+  fetch("http://localhost:3000/products")
     .then((res) => res.json())
     .then((data) => {
-      const productHTML = data.map((product) => {
-        return `
-        <div class="product">
-                <a target="_self" id="card" href="/page/product/ProductDetail/ProductDetail.html?id=${product.id}" onclick="loadContent(/page/product/ProductDetail/ProductDetail.html)">
-                        <p id="evaluate1">${product.productReviews}<i class="material-symbols-outlined">star</i></p>
-                        <img id="main_img" src="${product.image1}" alt="${product.name}">
-                        <h2 class="product__name">${product.name}</h2>
-                        <div class="price">
-                            <p id="new__price">${product.newPrice} VND</p>
-                            <p>${product.oldPrice} VND</p>
-                        </div>
-                        </a>
-                        <div class="descriptiom_and_btn">
-                            <p>${product.description}</p>
-                            <div>
-                            <a target="_self" href="/page/product_detail/product_detail.html?id=${product.id}">
-                            <button id="btn_view">View</button>
-                            </a>
-                            <a>
-                            <button onclick="addToCart()"><i id="icon_cart" class="fas fa-shopping-cart"></i>Buy</button></a>
-
-                            </div>
-                            </div>
-                        </div>
-                `;
-      });
-
-      // Gắn nối chuỗi HTML vào phần tử có id "product"
-      document.getElementById("product2").innerHTML = `
-                <div class="product-container">
-                    ${productHTML.join("")}
-                </div>
-            `;
+  
       var product = false;
       data.forEach(element => {
 
@@ -152,7 +120,7 @@ function addToCart(id) {
   }
 
  // Lấy thông tin sản phẩm từ API
-fetch(`http://localhost:3000/product/${id}`)
+fetch(`http://localhost:3000/products/${id}`)
 .then(response => response.json())
 .then(productData => {
   var quantity = document.getElementById("input__qty").value;
@@ -263,3 +231,4 @@ function addComment() {
   // Xóa nội dung trong textarea sau khi comment được thêm
   document.getElementById("comment-input").value = "";
 }
+

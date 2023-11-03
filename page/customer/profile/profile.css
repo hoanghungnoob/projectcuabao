@@ -34,6 +34,9 @@
   width: 100%;
   background-color: paleturquoise !important;
 }
+.profile_box{
+   padding-bottom: 40px;
+}
 .button-22 {
   display: flex;
   align-items: center;
@@ -50,6 +53,9 @@
   position: fixed;
   gap: 10px;
   z-index: 100;
+}
+#social{
+   padding-bottom: 20px;
 }
 
 .button-22:hover {

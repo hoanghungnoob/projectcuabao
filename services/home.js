@@ -1,20 +1,11 @@
-function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("opacity").style.display = "block";
-    document.getElementById('open_sideBar').style.opacity = 0;
-}
 
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("opacity").style.display = "none";
-    document.getElementById('open_sideBar').style.opacity = 1;
-
-}
-fetch("http://localhost:3000/product")
+fetch("http://localhost:3000/products")
     .then((res) => res.json())
     .then((data) => {
         const productList = data;
+        console.log(productList)
         const productHTML = productList.map((product) => {
+            console.log(product.id)
             return `
             <div class="product">
     <a target="_self" id="card" href="/page/product/ProductDetail/ProductDetail.html?id=${product.id}">
@@ -70,7 +61,6 @@ menuIcon.addEventListener('click', () => {
 
 })
 
-
 const roleId = localStorage.getItem("roleId");
 
 // Kiểm tra giá trị roleId và ẩn các phần tử tương ứng khi roleId là 2
@@ -105,3 +95,14 @@ localStorage.clear();
 
 
 
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const productContainer = document.getElementById('product-container');
+
+prevBtn.addEventListener('click', () => {
+  productContainer.scrollLeft -= 200; // Điều chỉnh giá trị scrollLeft tùy thuộc vào kích thước sản phẩm
+});
+
+nextBtn.addEventListener('click', () => {
+  productContainer.scrollLeft += 200; // Điều chỉnh giá trị scrollLeft tùy thuộc vào kích thước sản phẩm
+});
