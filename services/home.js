@@ -1,3 +1,8 @@
+var isLoggedIn = localStorage.getItem("token");
+if (!isLoggedIn) {
+  window.location.href = "/page/login/login.html";
+}
+
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
   document.getElementById("opacity").style.display = "block";
@@ -9,6 +14,7 @@ function closeNav() {
   document.getElementById("opacity").style.display = "none";
   document.getElementById("open_sideBar").style.opacity = 1;
 }
+
 fetch("http://localhost:3000/products")
   .then((res) => res.json())
   .then((data) => {

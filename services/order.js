@@ -4,36 +4,55 @@ const districtSelect = document.getElementById("district__order");
 const provinceUrl = "http://localhost:3000/provinces";
 const districtUrl = "http://localhost:3000/districts";
 
-const user_id = localStorage.getItem("userId");
-const role_Id = localStorage.getItem("roleId");
+function getUserData() {
+  let userData;
+  const hashKey = "Abcd123@";
+  const token = localStorage.getItem("token");
 
-fetchData(provinceUrl).then((data) => {
-  const provinces = data;
-  provinces.forEach(function (province) {
-    var option = document.createElement("option");
-    option.value = province.code;
-    option.text = province.name;
-    provinceSelect.appendChild(option);
-  });
+  const decryptedUserInfo = CryptoJS.AES.decrypt(token, hashKey).toString(
+    CryptoJS.enc.Utf8
+  );
 
-  provinceSelect.addEventListener("change", function () {
-    var selectedProvinceCode = provinceSelect.value;
+  if (decryptedUserInfo) {
+    userData = JSON.parse(decryptedUserInfo);
+  }
 
-    fetchData(`${districtUrl}?parent_code=${selectedProvinceCode}`).then(
-      (data) => {
-        const districts = data;
-        districtSelect.innerHTML = "";
+  return userData;
+}
 
-        districts.forEach(function (district) {
-          var option = document.createElement("option");
-          option.value = district.code;
-          option.text = district.name;
-          districtSelect.appendChild(option);
+const userData = getUserData();
+
+const { id: user_id, roleId: role_Id } = userData;
+
+fetch(provinceUrl)
+  .then((data) => data.json())
+  .then((data) => {
+    const provinces = data;
+    provinces.forEach(function (province) {
+      var option = document.createElement("option");
+      option.value = province.code;
+      option.text = province.name;
+      provinceSelect.appendChild(option);
+    });
+
+    provinceSelect.addEventListener("change", function () {
+      var selectedProvinceCode = provinceSelect.value;
+
+      fetch(`${districtUrl}?parent_code=${selectedProvinceCode}`)
+        .then((data) => data.json())
+        .then((data) => {
+          const districts = data;
+          districtSelect.innerHTML = "";
+
+          districts.forEach(function (district) {
+            var option = document.createElement("option");
+            option.value = district.code;
+            option.text = district.name;
+            districtSelect.appendChild(option);
+          });
         });
-      }
-    );
+    });
   });
-});
 function redirectToOrderPage(productId) {
   window.location.href = `/page/order/order.html?id=${productId}`;
 }

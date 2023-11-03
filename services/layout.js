@@ -60,7 +60,7 @@ window.onload = function () {
   document.getElementById("management").style.display = "none";
   const userId = localStorage.getItem("userId");
 
-  function fetch_cus() {
+  function getUserData() {
     let userData;
     const hashKey = "Abcd123@";
     const token = localStorage.getItem("token");
@@ -75,11 +75,11 @@ window.onload = function () {
 
     document.getElementById("avatar_layout").src = userData.avatar
       ? userData.avatar
-      : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4CRKPij6o2waFROp-89BCE8lEf96jLsndRQ&usqp=CAU";. h
+      : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4CRKPij6o2waFROp-89BCE8lEf96jLsndRQ&usqp=CAU";
     return userData;
   }
 
-  fetch_cus();
+  const userData = getUserData();
 
   const footer = document.createElement("div");
   footer.innerHTML = `
@@ -123,7 +123,7 @@ window.onload = function () {
 
   document.body.appendChild(footer);
 
-  if (fetch_cus().roleId === 1) {
+  if (userData.roleId === 1) {
     document.getElementById("profile").style.display = "block";
     document.getElementById("log_out").style.display = "block";
     document.getElementById("sign_up").style.display = "none";
@@ -131,7 +131,7 @@ window.onload = function () {
     document.getElementById("management").style.display = "block";
   }
 
-  if (fetch_cus().roleId === 2) {
+  if (userData.roleId === 2) {
     const managementElement = document.querySelector(".dropdown");
     const loginElement = document.querySelector(
       ".navbar__li--mobile a[href='/page/login/login.html']"
@@ -155,3 +155,30 @@ window.onload = function () {
     }
   }
 };
+
+function logout() {
+  Swal.fire({
+    icon: "info",
+    title: "Confirm Logout",
+    text: "Are you sure you want to log out?",
+    showCancelButton: true,
+    confirmButtonText: "Logout",
+    cancelButtonText: "Cancel",
+    reverseButtons: true,
+  })
+    .then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem("token");
+      }
+    })
+    .then(() => {
+      document.getElementById("log_out").style.display = "none";
+      window.location.href = "/page/login/login.html";
+      Swal.fire({
+        icon: "success",
+        title: "Logout Successful!",
+        showConfirmButton: false,
+        timer: 3000,
+      });
+    });
+}

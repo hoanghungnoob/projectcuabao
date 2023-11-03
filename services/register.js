@@ -1,11 +1,5 @@
 function validation() {
-  if (document.Formfill.userName.value == "") {
-    document.getElementById("result").innerHTML = "Enter Username";
-    return false;
-  } else if (document.Formfill.userName.value.length <= 6) {
-    document.getElementById("result").innerHTML = "Atleast 6 letter";
-    return false;
-  } else if (document.Formfill.Email.value == "") {
+  if (document.Formfill.Email.value == "") {
     document.getElementById("result").innerHTML = "Enter your Email";
     return false;
   } else if (document.Formfill.Password.value == "") {
@@ -44,8 +38,6 @@ document
   .addEventListener("submit", function (event) {
     event.preventDefault();
 
-    var form = document.getElementById("customerForm");
-    var name = document.getElementById("user_name").value;
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
 
@@ -56,7 +48,6 @@ document
     };
     console.log("Quy", user);
 
-    localStorage.setItem("user", JSON.stringify(user));
     fetch("http://localhost:3000/users", {
       method: "POST",
       headers: {
@@ -73,11 +64,12 @@ document
       })
       .then(function (user) {
         alert("Đã đăng ký thành công! Mã khách hàng mới: " + user.name);
-        // form.reset();
+        window.location.href = "/page/login/login.html";
       })
       .catch(function (error) {
         alert(error.message);
       });
+
     function sendEmail(customerId) {
       var emailData = {
         to: email,

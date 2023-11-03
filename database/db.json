@@ -13,14 +13,14 @@
   ],
   "users": [
     {
-      "id": 1,
       "name": "admin",
+      "roleId": 2,
+      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
       "phoneNumber": "0397208231",
-      "avatar": "/images/img_icon/avatar_admin.jpg",
       "email": "hue.ho25@student.passerellesnumeriques.org",
       "address": "Lang Cat village Mo O commune Dakrong district Quang Tri province",
-      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
-      "roleId": 1
+      "avatar": "http://127.0.0.1:5500/images/img_icon/avatar_admin.jpg",
+      "id": 1
     },
     {
       "id": 10,

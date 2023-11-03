@@ -1,7 +1,8 @@
 function goBack() {
   window.history.back();
 }
-function fetch_cus() {
+
+function getUserData() {
   let userData;
   const hashKey = "Abcd123@";
   const token = localStorage.getItem("token");
@@ -17,9 +18,10 @@ function fetch_cus() {
   return userData;
 }
 
-const userId = fetch_cus().userId;
+const userData = getUserData();
 
 document.getElementById("updateBtn").style.display = "none";
+
 function enableEdit() {
   const inputFields = document.querySelectorAll(".input_show");
   const editBtn = document.getElementById("editBtn");
@@ -34,6 +36,7 @@ function enableEdit() {
   editBtn.style.display = "none";
   updateBtn.style.display = "inline-block";
 }
+
 function updateData() {
   const inputFields = document.querySelectorAll(".input_show");
   const editBtn = document.getElementById("editBtn");
@@ -49,7 +52,7 @@ function updateData() {
     avatar: document.getElementById("upload-img").src,
   };
 
-  update_cus(userId, data);
+  update_cus(data);
 
   inputFields.forEach((input) => {
     input.readOnly = true;
@@ -60,10 +63,9 @@ function updateData() {
   updateBtn.style.display = "none";
 }
 
-var roleId = localStorage.getItem("roleId");
 function fetch_cus() {
-  if (roleId == 1) {
-    fetch(`http://localhost:3000/users/${userId}`)
+  if (userData?.roleId == 1) {
+    fetch(`http://localhost:3000/users/${userData?.id}`)
       .then((response) => response.json())
       .then((user) => {
         document.getElementById("name_user1").innerHTML = user.name;
@@ -76,7 +78,7 @@ function fetch_cus() {
         document.getElementById("update").style.display = "none";
       });
   } else {
-    fetch(`http://localhost:3000/users/${userId}`)
+    fetch(`http://localhost:3000/users/${userData?.id}`)
       .then((response) => response.json())
       .then((user) => {
         document.getElementById("name_user1").innerHTML = user.name;
@@ -90,10 +92,11 @@ function fetch_cus() {
       });
   }
 }
+
 fetch_cus();
 
-function update_cus(id, data) {
-  fetch(`http://localhost:3000/users/${id}`, {
+function update_cus(data) {
+  fetch(`http://localhost:3000/users/${userData.id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
