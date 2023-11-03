@@ -1,8 +1,8 @@
 //location
 const provinceSelect = document.getElementById('province__order');
 const districtSelect = document.getElementById('district__order');
-const provinceUrl = 'https://coffee-web-api.onrender.com/provinces';
-const districtUrl = 'https://coffee-web-api.onrender.com/districts';
+const provinceUrl = 'http://localhost:3000/provinces';
+const districtUrl = 'http://localhost:3000/districts';
 
 const user_id = localStorage.getItem('userId');
 const role_Id = localStorage.getItem('roleId')
@@ -68,7 +68,7 @@ function product_order_detail() {
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get('id');
 
-  fetch("https://coffee-web-api.onrender.com/products")
+  fetch("http://localhost:3000/products")
     .then((res) => res.json())
     .then((data) => {
       var product = false;
@@ -106,7 +106,7 @@ else {
 
 function useCustomerData(customerId) {
    if(role_Id == 2){
-    fetch(`https://coffee-web-api.onrender.com/users?id=${customerId}`)
+    fetch(`http://localhost:3000/users?id=${customerId}`)
     .then((res) => res.json())
     .then((data) => {
       data.forEach((element) => {
@@ -124,7 +124,7 @@ function useCustomerData(customerId) {
     });
    }
    else{
-    fetch(`https://coffee-web-api.onrender.com/users?id=${customerId}`)
+    fetch(`http://localhost:3000/users?id=${customerId}`)
     .then((res) => res.json())
     .then((data) => {
       data.forEach((element) => {
@@ -205,7 +205,7 @@ function placeOrder() {
     }
 
     // Gửi dữ liệu đi
-    fetch("https://coffee-web-api.onrender.com/orders", {
+    fetch("http://localhost:3000/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -289,7 +289,7 @@ function updateOrderPage() {
   let productsHTML = '';
   let totalPrice = 0;
 
-  fetch("https://coffee-web-api.onrender.com/products")
+  fetch("http://localhost:3000/products")
     .then((res) => res.json())
     .then((data) => {
       data.forEach((element) => {

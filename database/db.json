@@ -352,6 +352,24 @@
       "quantity": "1",
       "totalPrice": "380000 VND",
       "id": 17
+    },
+    {
+      "name": "Dinh Thi Duyen12",
+      "customerId": "10",
+      "productId": [
+        "6",
+        "4"
+      ],
+      "email": "duyen.ho25@student.com",
+      "phoneNumber": "0123432888",
+      "address": "56 Phuoc My ward Son Tra district Da Nang city",
+      "province": "25",
+      "district": "227",
+      "productName": "Latte1",
+      "productPrice": "50000",
+      "quantity": "4",
+      "totalPrice": "299000 VND",
+      "id": 18
     }
   ],
   "contacts": [

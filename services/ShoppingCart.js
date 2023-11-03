@@ -1,5 +1,5 @@
 
-fetch('https://coffee-web-api.onrender.com/carts')
+fetch('http://localhost:3000/carts')
   .then(response => response.json())
   .then(data => {
     const dataArray = Array.isArray(data) ? data : [data];
@@ -96,7 +96,7 @@ function updateCartItem(itemId, quantity) {
 
 function deleteItem(itemId) {
   // Gửi yêu cầu DELETE đến máy chủ
-  fetch(`https://coffee-web-api.onrender.com/carts/${itemId}`, {
+  fetch(`http://localhost:3000/carts/${itemId}`, {
     method: 'DELETE'
   })
   .then(response => {

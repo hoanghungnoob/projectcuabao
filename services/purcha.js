@@ -4,16 +4,16 @@ const user_id = localStorage.getItem('userId');
 async function fetchData() {
   try {
     // Fetch customer data
-    const customerResponse = await fetch(`https://coffee-web-api.onrender.com/users/${user_id}`);
+    const customerResponse = await fetch(`http://localhost:3000/users/${user_id}`);
     const customerData = await customerResponse.json();
 
     // Fetch order data
-    const orderResponse = await fetch("https://coffee-web-api.onrender.com/order");
+    const orderResponse = await fetch("http://localhost:3000/orders");
     const orderData = await orderResponse.json();
     console.log(orderData,"odsdfs")
 
     // Fetch product data
-    const productResponse = await fetch("https://coffee-web-api.onrender.com/products");
+    const productResponse = await fetch("http://localhost:3000/products");
     const productData = await productResponse.json();
 
     // Filter orders for the customer
@@ -86,7 +86,7 @@ async function detailProduct() {
 
 
     if (id) {
-      const productResponse = await fetch(`https://coffee-web-api.onrender.com/products/${id}`, {
+      const productResponse = await fetch(`http://localhost:3000/products/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

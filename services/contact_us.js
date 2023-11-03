@@ -7,7 +7,7 @@ function saveUser(event) {
   const phoneCustomer = document.getElementById("phone").value;
   const messageCustomer = document.getElementById("message").value;
 
-  const url = userId ? `https://coffee-web-api.onrender.com/contacts/${userId}` : "https://coffee-web-api.onrender.com/contact";
+  const url = userId ? `http://localhost:3000/contacts/${userId}` : "http://localhost:3000/contacts";
   const method = userId ? "PUT" : "POST";
   const data = {
     name: nameCustomer,

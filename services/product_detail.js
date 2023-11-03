@@ -25,7 +25,7 @@ const productId = urlParams.get("id");
 function detail() {
 
 
-  fetch("https://coffee-web-api.onrender.com/products")
+  fetch("http://localhost:3000/products")
     .then((res) => res.json())
     .then((data) => {
   
@@ -120,7 +120,7 @@ function addToCart(id) {
   }
 
  // Lấy thông tin sản phẩm từ API
-fetch(`https://coffee-web-api.onrender.com/products/${id}`)
+fetch(`http://localhost:3000/products/${id}`)
 .then(response => response.json())
 .then(productData => {
   var quantity = document.getElementById("input__qty").value;
@@ -135,7 +135,7 @@ fetch(`https://coffee-web-api.onrender.com/products/${id}`)
   };
 
   // Gửi yêu cầu POST để thêm sản phẩm vào giỏ hàng
-  fetch("https://coffee-web-api.onrender.com/carts", {
+  fetch("http://localhost:3000/carts", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(cartItem)

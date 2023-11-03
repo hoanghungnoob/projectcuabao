@@ -1,5 +1,5 @@
 
-fetch("https://coffee-web-api.onrender.com/products")
+fetch("http://localhost:3000/products")
     .then((res) => res.json())
     .then((data) => {
         const productList = data;

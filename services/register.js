@@ -52,7 +52,7 @@ document.getElementById("customerForm").addEventListener("submit", function(even
         password: password
       };
        localStorage.setItem("customer", JSON.stringify(customer));
-      fetch("https://coffee-web-api.onrender.com/users", {
+      fetch("http://localhost:3000/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

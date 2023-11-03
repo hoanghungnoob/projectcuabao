@@ -1,5 +1,5 @@
 function fetchCustomers() {
-  fetch('https://coffee-web-api.onrender.com/users')
+  fetch('http://localhost:3000/users')
     .then(response => response.json())
     .then(data => {
       var listCustomerTable = document.getElementById('list_customer');
@@ -41,7 +41,7 @@ function createCustomer() {
     address: address
   };
 
-  fetch("https://coffee-web-api.onrender.com/users", {
+  fetch("http://localhost:3000/users", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -72,7 +72,7 @@ function delete_customer(id) {
     cancelButtonColor: "rgb(220, 53, 69)",
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(`https://coffee-web-api.onrender.com/users/${id}`, {
+      fetch(`http://localhost:3000/users/${id}`, {
         method: "DELETE",
       })
         .then(() => {
@@ -89,7 +89,7 @@ function delete_customer(id) {
 function update_customer(id) {
 
   
-  fetch(`https://coffee-web-api.onrender.com/users/${id}`)
+  fetch(`http://localhost:3000/users/${id}`)
     .then(response => response.json())
     .then(customer => {
 
@@ -119,7 +119,7 @@ function update_customer(id) {
         };
 
 
-        fetch(`https://coffee-web-api.onrender.com/users/${id}`, {
+        fetch(`http://localhost:3000/users/${id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json"
@@ -129,7 +129,7 @@ function update_customer(id) {
         .then(response => {
           if (response.ok) {
             Swal.fire("Cập nhật thành công", "", "success");
-            fetch('https://coffee-web-api.onrender.com/users') // Refresh the customer table
+            fetch('http://localhost:3000/users') // Refresh the customer table
           } else {
             Swal.fire("Cập nhật thất bại", "", "error");
           }

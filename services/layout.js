@@ -65,6 +65,7 @@ window.onload = function () {
 </div>
     `;
   const roleId = localStorage.getItem("roleId");
+  console.log(roleId,"6136235265")
 
   document.body.insertBefore(header, document.body.firstChild);
   document.getElementById('log_out').style.display = "none";
@@ -75,13 +76,13 @@ window.onload = function () {
 
 function fetch_cus() {
   if(roleId == 1){
-  fetch(`https://coffee-web-api.onrender.com/users/${userId}`)
+  fetch(`http://localhost:3000/users/${userId}`)
     .then(response => response.json())
     .then(customer => {
         document.getElementById('avata_layout').src = customer.avata;
     });}
     else{
-      fetch(`https://coffee-web-api.onrender.com/users/${userId}`)
+      fetch(`http://localhost:3000/users/${userId}`)
       .then(response => response.json())
       .then(customer => {
           document.getElementById('avata_layout').src = customer.avata;
@@ -132,9 +133,9 @@ searchButton.addEventListener("click", function (event) {
   document.getElementById("suggestionList").style.display = "none";
   displayProducts(searchValue);
 });
-users
+
 function searchProductByName(searchTerm) {
-  fetch("https://coffee-web-api.onrender.com/products")
+  fetch("http://localhost:3000/products")
     .then((response) => response.json())
     .then((data) => {
       const matchingSuggestions = data.filter(function (product) {
@@ -167,7 +168,7 @@ function displaySuggestions(suggestions) {
   });
 }
 function displayProducts(searchTerm) {
-  fetch("https://coffee-web-api.onrender.com/products")
+  fetch("http://localhost:3000/products")
     .then((response) => response.json())
     .then((data) => {
         const matchingProducts = data.filter(function (product) {
@@ -272,9 +273,9 @@ searchInput.addEventListener("input", function () {
     `;
 
   document.body.appendChild(footer);
-  
+  console.log(roleId,"jdajsdgajshg===============================")
   // Lấy giá trị roleId từ local storage
-  if(roleId === '1'){
+  if(roleId == 1){
 
     document.getElementById('profile').style.display = "block";
     document.getElementById('log_out').style.display = "block";   
@@ -286,7 +287,7 @@ searchInput.addEventListener("input", function () {
   }
 
   // Kiểm tra giá trị roleId và ẩn các phần tử tương ứng khi roleId là 2
-  if (roleId === "2") {
+  if (roleId == 2) {
     const managementElement = document.querySelector(".dropdown");
     const loginElement = document.querySelector(".navbar__li--mobile a[href='/page/login/login.html']");
     const signUpElement = document.querySelector(".navbar__li--mobile .border2");
