@@ -1,5 +1,6 @@
 function increment() {
-  var inputQty = document.getElementById("input__qty");
+  var inputQty = document.getElementById('input__qty');
+
   var currentQty = parseInt(inputQty.value) || 1;
   var newQty = currentQty + 1;
   if (newQty < 1) {
@@ -9,7 +10,8 @@ function increment() {
 }
 
 function decrement() {
-  var inputQty = document.getElementById("input__qty");
+  var inputQty = document.getElementById('input__qty');
+  
   var currentQty = parseInt(inputQty.value) || 1;
   var newQty = currentQty - 1;
   if (newQty < 1) {
@@ -17,59 +19,34 @@ function decrement() {
   }
   inputQty.value = newQty;
 }
-
 // JavaScript code
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id");
 function detail() {
-  fetch("http://localhost:3000/product")
+
+
+  fetch("https://coffee-web-api.onrender.com/products")
     .then((res) => res.json())
     .then((data) => {
-      const productHTML = data.map((product) => {
-        return `
-        <div class="product">
-                <a target="_self" id="card" href="/page/product/ProductDetail/ProductDetail.html?id=${product.id}" onclick="loadContent(/page/product/ProductDetail/ProductDetail.html)">
-                        <p id="evaluate1">${product.productReviews}<i class="material-symbols-outlined">star</i></p>
-                        <img id="main_img" src="${product.image1}" alt="${product.name}">
-                        <h2>${product.name}</h2>
-                        <div class="price">
-                            <p>${product.newPrice} VND</p>
-                            <p>${product.oldPrice} VND</p>
-                        </div>
-                        </a>
-                        <div class="descriptiom_and_btn">
-                            <p>${product.description}</p>
-                            <div>
-                            </div>
-                            </div>
-                        </div>
-                `;
-      });
-
-      // Gắn nối chuỗi HTML vào phần tử có id "product"
-      document.getElementById("product2").innerHTML = `
-                <div class="product-container">
-                    ${productHTML.join("")}
-                </div>
-            `;
+  
       var product = false;
-      data.forEach((element) => {
+      data.forEach(element => {
+
         if (productId == element.id) {
           product = true;
           if (product) {
-            document.getElementById("product__name").innerHTML = element.name;
-            document.getElementById("main__img").src = element.image1;
-            document.getElementById("item__img1").src = element.image2;
-            document.getElementById("item__img2").src = element.image3;
-            document.getElementById("item__img3").src = element.image1;
-            document.getElementById("new__price").innerHTML =
-              element.newPrice + " VND";
-            document.getElementById("old__price").innerHTML =
-              element.oldPrice + " VND";
-            document.getElementById("describe").innerHTML = element.description;
+            document.getElementById('product__name').innerHTML = element.name;
+            document.getElementById('main__img').src = element.image1;
+            document.getElementById('item__img1').src = element.image2;
+            document.getElementById('item__img2').src = element.image3;
+            document.getElementById('item__img3').src = element.image1;
+            document.getElementById('new__price').innerHTML = element.newPrice + " VND";
+            document.getElementById('old__price').innerHTML = element.oldPrice + " VND";
+            document.getElementById('describe').innerHTML = element.description;
             // Đánh giá sản phẩm (từ 1 đến 5)
 
             var rating = element.productReviews;
+            // console.log(rating)
             // Đây chỉ là ví dụ, bạn có thể thay đổi giá trị này.
 
             var rating = element.productReviews;
@@ -78,22 +55,15 @@ function detail() {
               stars[i].classList.add("selected");
             }
 
-            document
-              .getElementById("product__btn__buy")
-              .addEventListener("click", function () {
-                var quantity = document.getElementById("input__qty").value;
-                var orderUrl =
-                  "/page/order/order.html?id=" +
-                  element.id +
-                  "&quantity=" +
-                  quantity;
-                window.location.href = orderUrl;
-                // var orderUrl1 = "/page/purcha_list/purcha_list.html?id=" + element.id;
-                // window.location.href = orderUrl1;
-              });
+            document.getElementById("product__btn__buy").addEventListener("click", function () {
+              var quantity = document.getElementById("input__qty").value;
+              var orderUrl = "/page/order/order.html?id=" + element.id + "&quantity=" + quantity;
+              window.location.href = orderUrl;
+
+
+            });
           } else {
-            document.getElementById("product-detail").innerHTML =
-              "Product not found.";
+            document.getElementById("product-detail").innerHTML = "Product not found.";
           }
         }
       });
@@ -130,6 +100,62 @@ dislikeButtons.forEach((dislikeButton) => {
   });
 });
 
+// Khai báo và khởi tạo biến cartItems ở phạm vi toàn cục
+var cartItems = [];
+
+function addToCart(id) {
+  var userId = localStorage.getItem('userId');
+
+  // Kiểm tra xem userId đã tồn tại trong local storage hay không
+  if (!userId) {
+    console.log("Khách hàng chưa đăng nhập");
+    return;
+  }
+
+  // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
+  var existingItem = cartItems.find(item => item.id === id && item.userId === userId);
+  if (existingItem) {
+    console.log("Sản phẩm đã tồn tại trong giỏ hàng");
+    return;
+  }
+
+ // Lấy thông tin sản phẩm từ API
+fetch(`https://coffee-web-api.onrender.com/products/${id}`)
+.then(response => response.json())
+.then(productData => {
+  var quantity = document.getElementById("input__qty").value;
+  // Thêm sản phẩm vào giỏ hàng
+  var cartItem = {
+    id: id,
+    userId: userId,
+    ...productData, // Lưu trữ toàn bộ dữ liệu sản phẩm
+    totalPrice:productData.newPrice*parseInt(quantity),
+    quantity: parseInt(quantity)
+
+  };
+
+  // Gửi yêu cầu POST để thêm sản phẩm vào giỏ hàng
+  fetch("https://coffee-web-api.onrender.com/carts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(cartItem)
+  })
+    .then(response => {
+      if (response.ok) {
+        cartItems.push(cartItem); // Thêm sản phẩm vào biến lưu trữ giỏ hàng sau khi thành công
+        console.log("Sản phẩm đã được thêm vào giỏ hàng");
+      } else {
+        console.log("Đã xảy ra lỗi khi thêm sản phẩm vào giỏ hàng");
+      }
+    })
+    .catch(error => {
+      console.log("Đã xảy ra lỗi:", error);
+    });
+})
+.catch(error => {
+  console.log("Đã xảy ra lỗi khi lấy thông tin sản phẩm:", error);
+});
+}
 // comment
 // Hàm để thêm comment mới
 function addComment() {
@@ -205,3 +231,4 @@ function addComment() {
   // Xóa nội dung trong textarea sau khi comment được thêm
   document.getElementById("comment-input").value = "";
 }
+

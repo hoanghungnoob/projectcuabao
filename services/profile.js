@@ -52,7 +52,7 @@ var roleId = localStorage.getItem('roleId')
 console.log(typeof roleId)
 function fetch_cus() {
  if(roleId === 1){
-  fetch(`http://localhost:3000/customer/${userId}`)
+  fetch(`https://coffee-web-api.onrender.com/users/${userId}`)
   .then(response => response.json())
   .then(customer => {
     document.getElementById('name_user1').innerHTML = customer.name;
@@ -65,7 +65,7 @@ function fetch_cus() {
     document.getElementById('update').style.display = "none";
   });
  } else{
-  fetch(`http://localhost:3000/customer/${userId}`)
+  fetch(`https://coffee-web-api.onrender.com/users/${userId}`)
   .then(response => response.json())
   .then(customer => {
     document.getElementById('name_user1').innerHTML = customer.name;
@@ -82,7 +82,7 @@ function fetch_cus() {
 fetch_cus();
 
 function update_cus(id, data) {
-fetch(`http://localhost:3000/customer/${id}`, {
+fetch(`https://coffee-web-api.onrender.com/users/${id}`, {
   method: "PUT",
   headers: {
     "Content-Type": "application/json"
@@ -92,7 +92,7 @@ fetch(`http://localhost:3000/customer/${id}`, {
 .then(response => {
   if (response.ok) {
     Swal.fire("Cập nhật thành công", "", "success");
-    fetch('http://localhost:3000/customer'); // Refresh the customer table
+    fetch('https://coffee-web-api.onrender.com/users'); // Refresh the customer table
   } else {
     Swal.fire("Cập nhật thất bại", "", "error");
   }

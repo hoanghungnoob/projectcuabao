@@ -1,5 +1,5 @@
 function fetchOrder() {
-  fetch("http://localhost:3000/order")
+  fetch("https://coffee-web-api.onrender.com/orders")
     .then((response) => response.json())
     .then((data) => {
       var listOrderTable = document.getElementById("list_order");

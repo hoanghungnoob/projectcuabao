@@ -271,10 +271,11 @@ p {
   transition: 0.5s;
   letter-spacing: 4px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 2px;
-  background-color: rgba(56, 27, 27, 0.789);
+
   width: 90%;
+  background-color: #650202;  
   margin-top: 20px;
-  border-radius: 5px;
+  border-radius: 8px;
   border: 0;
 }
 
@@ -282,6 +283,7 @@ p {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: #650202;
   cursor: pointer;
+  transform: scale(1.1);
 }
 
 select:focus {

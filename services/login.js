@@ -7,13 +7,13 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
 async function login(email, password) {
   try {
     const [roleResponse, customerResponse] = await Promise.all([
-      fetch("http://localhost:3000/role", {
+      fetch("https://coffee-web-api.onrender.com/roles", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
       }),
-      fetch("http://localhost:3000/customer", {
+      fetch("https://coffee-web-api.onrender.com/users", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

@@ -1,8 +1,8 @@
 //location
 const provinceSelect = document.getElementById('province__order');
 const districtSelect = document.getElementById('district__order');
-const provinceUrl = 'http://localhost:3000/province';
-const districtUrl = 'http://localhost:3000/district';
+const provinceUrl = 'https://coffee-web-api.onrender.com/provinces';
+const districtUrl = 'https://coffee-web-api.onrender.com/districts';
 
 const user_id = localStorage.getItem('userId');
 const role_Id = localStorage.getItem('roleId')
@@ -58,6 +58,9 @@ function redirectToOrderPage(productId) {
 
 const urlParams3 = new URLSearchParams(window.location.search);
 const productId1 = urlParams3.get('id');
+const list_id = [];
+list_id.push(productId1)
+console.log(list_id,"hello")
 
 function product_order_detail() {
 
@@ -65,7 +68,7 @@ function product_order_detail() {
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get('id');
 
-  fetch("http://localhost:3000/product")
+  fetch("https://coffee-web-api.onrender.com/products")
     .then((res) => res.json())
     .then((data) => {
       var product = false;
@@ -103,7 +106,7 @@ else {
 
 function useCustomerData(customerId) {
    if(role_Id == 2){
-    fetch(`http://localhost:3000/customer?id=${customerId}`)
+    fetch(`https://coffee-web-api.onrender.com/users?id=${customerId}`)
     .then((res) => res.json())
     .then((data) => {
       data.forEach((element) => {
@@ -121,7 +124,7 @@ function useCustomerData(customerId) {
     });
    }
    else{
-    fetch(`http://localhost:3000/admin?id=${customerId}`)
+    fetch(`https://coffee-web-api.onrender.com/users?id=${customerId}`)
     .then((res) => res.json())
     .then((data) => {
       data.forEach((element) => {
@@ -146,7 +149,16 @@ function getDataFormOrder() {
   product_order_detail();
   var fullName = document.getElementById('name__order').value;
   var customerID = document.getElementById('customerID__order').value;
-  const productId2 = productId1;
+
+  var productId2 ;
+  var productId_list_id = [];
+  var cartItems = JSON.parse(localStorage.getItem('selectedIds'));
+  if (cartItems && Array.isArray(cartItems)) {
+    productId_list_id = cartItems;
+    productId2 = productId_list_id;
+  } else {
+     productId2 = list_id;
+  }
   var email = document.getElementById('email__order').value;
   var phoneNumber = document.getElementById('phone__order').value;
   var address = document.getElementById('address__order').value;
@@ -193,7 +205,7 @@ function placeOrder() {
     }
 
     // Gửi dữ liệu đi
-    fetch("http://localhost:3000/order", {
+    fetch("https://coffee-web-api.onrender.com/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -241,3 +253,82 @@ function placeOrder() {
     alert('Bạn phải đăng nhập!');
   }
 }
+
+// Xử lý sự kiện thay đổi Local Storage
+// Lấy dữ liệu từ Local Storage
+var selectedQuantities = JSON.parse(localStorage.getItem('selectedQuantities'));
+var cartItems = JSON.parse(localStorage.getItem('selectedIds'));
+function handleLocalStorageChange() {
+  const updatedQuantities = JSON.parse(localStorage.getItem('selectedQuantities'));
+  const updatedCartItems = JSON.parse(localStorage.getItem('selectedIds'));
+
+  // Kiểm tra xem có sự thay đổi trong Local Storage không
+  if (JSON.stringify(selectedQuantities) !== JSON.stringify(updatedQuantities) || JSON.stringify(cartItems) !== JSON.stringify(updatedCartItems)) {
+    selectedQuantities = updatedQuantities;
+    cartItems = updatedCartItems;
+
+    // Cập nhật lại giao diện
+    updateOrderPage();
+  }
+}
+
+// Xử lý sự kiện storage khi có thay đổi trong Local Storage
+window.addEventListener('storage', handleLocalStorageChange);
+
+// Xử lý sự kiện beforeunload khi rời khỏi trang
+window.addEventListener('beforeunload', () => {
+  // Xóa dữ liệu trong Local Storage
+  localStorage.removeItem('selectedQuantities');
+  localStorage.removeItem('selectedIds');
+});
+
+// Cập nhật lại giao diện đơn hàng
+function updateOrderPage() {
+  const productOrderElement = document.getElementById('product__order1');
+  const totalPriceElement = document.getElementById('price__order');
+  let productsHTML = '';
+  let totalPrice = 0;
+
+  fetch("https://coffee-web-api.onrender.com/products")
+    .then((res) => res.json())
+    .then((data) => {
+      data.forEach((element) => {
+        cartItems.forEach((item, index) => {
+          if (item == element.id) {
+            const quantity = selectedQuantities[index];
+            const price = element.newPrice * quantity;
+            totalPrice += price;
+
+            productsHTML += `
+              <div class="product__infor__order">
+                <div class="image__order">
+                  <img id="product__img__order" src="${element.image1}" alt="Product">
+                </div>
+                <p id="procuct__name__order">${element.name}</p>
+                <p id="product__price__order">${element.newPrice}</p>
+                <p id="quantity_order">${quantity}</p>
+                <p id="date__order">${getDate()}</p>
+              </div>
+            `;
+          }
+        });
+      });
+
+      // Thêm các sản phẩm vào phần tử HTML có id là "product__order"
+      productOrderElement.innerHTML = productsHTML;
+
+      // Hiển thị tổng số tiền
+      totalPriceElement.textContent = `${totalPrice} VND`;
+    });
+}
+
+// Hàm lấy ngày giờ hiện tại
+function getDate() {
+  const currentDate = new Date();
+  const date = currentDate.toLocaleDateString();
+  const time = currentDate.toLocaleTimeString();
+  return `${date} ${time}`;
+}
+
+// Gọi hàm cập nhật giao diện ban đầu
+updateOrderPage();

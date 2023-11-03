@@ -7,7 +7,7 @@ window.onload = function () {
   <nav class="navbar">
     <!-- logo -->
     <div class="navbar_logo">
-      <div id="logo"></div>
+    <a href="/page/home/home.html"> <img src="/images/img_icon/logo_cofe.png" alt=""></a>
     </div>
     <!-- search -->
     <div class="search-container">
@@ -31,8 +31,9 @@ window.onload = function () {
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <li class="ul_li"><a href="/page/home/home.html"><i class="fas fa-home"></i>Home</a></li>
       <li class="ul_li"><a href="/page/contact_us/contact_us.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
-      <li class="ul_li"><a href="/page/order/order.html"><i class="fas fa-shopping-cart"></i>Order</a></li>
+      <li class="ul_li"><a href="/page/product/ShoppingCart/ShoppingCart.html"><i class="fas fa-shopping-cart"></i>Order</a></li>
       <li class="ul_li"><a href="/page/purcha_list/purcha_list.html"><i class="fas fa-history"></i>History</a></li>
+     
       <li class="dropdown" id="management">
         <a href="#" class="dropdown-link" >
           <i class="fas fa-cog"></i> Management
@@ -74,13 +75,13 @@ window.onload = function () {
 
 function fetch_cus() {
   if(roleId == 1){
-  fetch(`http://localhost:3000/customer/${userId}`)
+  fetch(`https://coffee-web-api.onrender.com/users/${userId}`)
     .then(response => response.json())
     .then(customer => {
         document.getElementById('avata_layout').src = customer.avata;
     });}
     else{
-      fetch(`http://localhost:3000/customer/${userId}`)
+      fetch(`https://coffee-web-api.onrender.com/users/${userId}`)
       .then(response => response.json())
       .then(customer => {
           document.getElementById('avata_layout').src = customer.avata;
@@ -131,9 +132,9 @@ searchButton.addEventListener("click", function (event) {
   document.getElementById("suggestionList").style.display = "none";
   displayProducts(searchValue);
 });
-
+users
 function searchProductByName(searchTerm) {
-  fetch("http://localhost:3000/product")
+  fetch("https://coffee-web-api.onrender.com/products")
     .then((response) => response.json())
     .then((data) => {
       const matchingSuggestions = data.filter(function (product) {
@@ -166,7 +167,7 @@ function displaySuggestions(suggestions) {
   });
 }
 function displayProducts(searchTerm) {
-  fetch("http://localhost:3000/product")
+  fetch("https://coffee-web-api.onrender.com/products")
     .then((response) => response.json())
     .then((data) => {
         const matchingProducts = data.filter(function (product) {
@@ -354,5 +355,8 @@ function closeNav() {
     document.getElementById("navbar__ul").style.width = "0";
     document.getElementById("opacity").style.display = "none";
     document.getElementById('open_sideBar').style.opacity = 1;
+
   }, 10);
+
+  
 }
