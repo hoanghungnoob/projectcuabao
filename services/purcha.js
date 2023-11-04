@@ -1,4 +1,3 @@
- 
 function getUserData() {
   let userData;
   const hashKey = "Abcd123@";
@@ -15,44 +14,33 @@ function getUserData() {
   return userData;
 }
 
-const userData = getUserData();
-console.log("kjdgask", userData)
-
+const listContainer = document.querySelector("#containerPurcha");
 async function fetchData() {
   try {
-    // Fetch customer data
-    const customerResponse = await fetch(
-      `http://localhost:3000/users/${userData?.id}`
-    );
-    const customerData = await customerResponse.json();
-
-    // Fetch order data
     const orderResponse = await fetch("http://localhost:3000/orders");
     const orderData = await orderResponse.json();
+
+    const orderedProducts = orderData.filter(
+      (order) => Number(order.customerId) === Number(getUserData()?.id)
+    );
+
+    orderedProducts.filter((product) => Number(product.id) === Number());
 
     // Fetch product data
     const productResponse = await fetch("http://localhost:3000/products");
     const productData = await productResponse.json();
 
-    // Filter orders for the customer
-    const orderedProducts = orderData.filter(
-      (order) => order.customerId == userData?.id
+    const productList = productData.filter(
+      ({ id: id1 }) => !orderedProducts.some(({ id: id2 }) => id2 === id1)
     );
-    console.log(orderedProducts, "qunr");
+    console.log("-0=o-=04o-=302", productList);
 
     let data = "";
-    orderedProducts.forEach((order) => {
-      order.productId.forEach((id) => {
-        const product = productData.find((product) => product.id == id);
 
-        if (product) {
-          console.log(product.quantity, "hello");
-
-          data += `
-
-            <a target="_self" id="card" href="/page/product/ProductDetail/ProductDetail.html?id=${
-              product.id
-            }">
+    productList.forEach((product) => {
+      data += `<a target="_self" id="card" href="/page/product/ProductDetail/ProductDetail.html?id=${
+        product.id
+      }">
               <div class="card_product">
                 <div class="card_product_img">
                   <img id="img_product" src="${product.image1}">
@@ -60,14 +48,14 @@ async function fetchData() {
                 <div class="content_product">
                   <h1 id="product__name">${product.name}</h1>
                   <p id="describe">${product.description}</p>
-                  <p>x${order.quantity}</p>
+                  <p>x${product.quantity}</p>
                   <div class="prices">
                     <p class="price" id="old__price">${product.oldPrice} VND</p>
                     <p id="new__price">${product.newPrice} VND</p>
                   </div>
                   <div class="d-flex justify-content-between align-items-center">
                     <p id="total_product">Total: ${
-                      order.quantity * product.newPrice
+                      product.quantity * product.newPrice
                     } VND</p>
                     <div class="buttons">
                       <button id="product__btn__buy" class="btn btn_buy_qtt btn-small" type="button" onclick="redirectToOrderPage(${
@@ -82,12 +70,9 @@ async function fetchData() {
               </div>
               </a>
             `;
-        }
-      });
     });
 
-    const container = document.querySelector("#container_purcha");
-    container.innerHTML = data;
+    listContainer.innerHTML = data;
   } catch (error) {
     console.error(error);
   }

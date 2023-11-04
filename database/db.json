@@ -304,6 +304,24 @@
       "name": "Em boss",
       "customerId": "17",
       "productId": [
+        "3",
+        "8"
+      ],
+      "email": "phamthithieu@gmail.com",
+      "phoneNumber": "0845042466",
+      "address": "phuc trạch",
+      "province": "25",
+      "district": "227",
+      "productName": "Espresso",
+      "productPrice": "28000",
+      "quantity": "1",
+      "totalPrice": "202000 VND",
+      "id": 13
+    },
+    {
+      "name": "Em boss",
+      "customerId": "17",
+      "productId": [
         "5"
       ],
       "email": "phamthithieu@gmail.com",
@@ -316,6 +334,98 @@
       "quantity": "1",
       "totalPrice": "22000 VND",
       "id": 15
+    },
+    {
+      "name": "Em boss",
+      "customerId": "17",
+      "productId": [
+        "3",
+        "8",
+        "14",
+        "10"
+      ],
+      "email": "phamthithieu@gmail.com",
+      "phoneNumber": "0845042466",
+      "address": "phuc trạch",
+      "province": "04",
+      "district": "040",
+      "productName": "Espresso",
+      "productPrice": "28000",
+      "quantity": "1",
+      "totalPrice": "380000 VND",
+      "id": 16
+    },
+    {
+      "name": "Em boss",
+      "customerId": "17",
+      "productId": [
+        "3",
+        "8",
+        "14",
+        "10"
+      ],
+      "email": "phamthithieu@gmail.com",
+      "phoneNumber": "0845042466",
+      "address": "phuc trạch",
+      "province": "22",
+      "district": "193",
+      "productName": "Espresso",
+      "productPrice": "28000",
+      "quantity": "1",
+      "totalPrice": "380000 VND",
+      "id": 17
+    },
+    {
+      "name": "Dinh Thi Duyen12",
+      "customerId": "10",
+      "productId": [
+        "6",
+        "4"
+      ],
+      "email": "duyen.ho25@student.com",
+      "phoneNumber": "0123432888",
+      "address": "56 Phuoc My ward Son Tra district Da Nang city",
+      "province": "25",
+      "district": "227",
+      "productName": "Latte1",
+      "productPrice": "50000",
+      "quantity": "4",
+      "totalPrice": "299000 VND",
+      "id": 18
+    },
+    {
+      "name": "Dinh Thi Duyen12",
+      "customerId": "10",
+      "productId": [
+        "4"
+      ],
+      "email": "duyen.ho25@student.com",
+      "phoneNumber": "0123432888",
+      "address": "56 Phuoc My ward Son Tra district Da Nang city",
+      "province": "26",
+      "district": "252",
+      "productName": "Latte1",
+      "productPrice": "50000",
+      "quantity": "4",
+      "totalPrice": "200000 VND",
+      "id": 19
+    },
+    {
+      "name": "Dinh Thi Duyen12",
+      "customerId": "10",
+      "productId": [
+        "4"
+      ],
+      "email": "duyen.ho25@student.com",
+      "phoneNumber": "0123432888",
+      "address": "56 Phuoc My ward Son Tra district Da Nang city",
+      "province": "02",
+      "district": "026",
+      "productName": "Latte1",
+      "productPrice": "50000",
+      "quantity": "4",
+      "totalPrice": "200000 VND",
+      "id": 20
     }
   ],
   "contacts": [
@@ -2712,6 +2822,9 @@
       "type": "",
       "productReviews": 4,
       "totalPrice": 78000
+    },
+    {
+      "id": 15
     }
   ]
 }

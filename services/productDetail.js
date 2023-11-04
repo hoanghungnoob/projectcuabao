@@ -24,7 +24,6 @@ const productId = urlParams.get("id");
 
 function detail() {
   fetch("http://localhost:3000/products")
-
     .then((res) => res.json())
     .then((data) => {
       const productHTML = data.map((product) => {
@@ -54,7 +53,6 @@ function detail() {
                 `;
       });
 
-      // Gắn nối chuỗi HTML vào phần tử có id "product"
       document.getElementById("product2").innerHTML = `
                 <div class="product-container">
                     ${productHTML.join("")}
@@ -78,7 +76,6 @@ function detail() {
             // Đánh giá sản phẩm (từ 1 đến 5)
 
             var rating = element.productReviews;
-            // Đây chỉ là ví dụ, bạn có thể thay đổi giá trị này.
 
             var rating = element.productReviews;
             var stars = document.getElementsByClassName("star");
@@ -90,7 +87,11 @@ function detail() {
               .getElementById("product__btn__buy")
               .addEventListener("click", function () {
                 var quantity = document.getElementById("input__qty").value;
-                var orderUrl ="/page/order/order.html?id=" + element.id + "&quantity=" + quantity;
+                var orderUrl =
+                  "/page/order/order.html?id=" +
+                  element.id +
+                  "&quantity=" +
+                  quantity;
                 window.location.href = orderUrl;
                 // var orderUrl1 = "/page/purcha_list/purcha_list.html?id=" + element.id;
                 // window.location.href = orderUrl1;
@@ -133,3 +134,149 @@ dislikeButtons.forEach((dislikeButton) => {
     });
   });
 });
+
+function getUserData() {
+  let userData;
+  const hashKey = "Abcd123@";
+  const token = localStorage.getItem("token");
+
+  const decryptedUserInfo = CryptoJS.AES.decrypt(token, hashKey).toString(
+    CryptoJS.enc.Utf8
+  );
+
+  if (decryptedUserInfo) {
+    userData = JSON.parse(decryptedUserInfo);
+  }
+
+  return userData;
+}
+
+const userData = getUserData();
+var userId = userData.id;
+
+let cartItem = [];
+fetch(`http://localhost:3000/carts`)
+  .then((response) => response.json())
+  .then((productData) => {
+    cartItems = cartItem.concat(productData);
+    console.log(productData, "dha9dyh89s");
+  });
+
+function addToCart(id) {
+  if (!userId) {
+    alert("Khách hàng chưa đăng nhập");
+  }
+
+  var existingItem = cartItems.find(
+    (item) => item.id === id && item.userId === userId
+  );
+
+  if (existingItem) {
+    alert("Sản phẩm đã tồn tại trong giỏ hàng");
+    return;
+  }
+
+  fetch(`http://localhost:3000/products/${id}`)
+    .then((response) => response.json())
+    .then((productData) => {
+      var quantity = document.getElementById("input__qty").value;
+
+      var cartItem = {
+        id: id,
+        userId: userId,
+        ...productData,
+        totalPrice: productData.newPrice * parseInt(quantity),
+        quantity: parseInt(quantity),
+      };
+
+      fetch("http://localhost:3000/carts", {
+        method: "POST",
+        body: JSON.stringify(cartItem),
+      })
+        .then((response) => {
+          if (response.ok) {
+            alert("Sản phẩm đã được thêm vào giỏ hàng");
+          }
+        })
+        .catch((error) => {
+          console.log("Đã xảy ra lỗi:", error);
+        });
+    })
+    .catch((error) => {
+      console.log("Đã xảy ra lỗi khi lấy thông tin sản phẩm:", error);
+    });
+}
+
+function addComment() {
+  // Lấy nội dung comment từ textarea
+  var commentInput = document.getElementById("comment-input").value;
+
+  // Kiểm tra xem nội dung comment có được nhập hay không
+  if (commentInput.trim() === "") {
+    alert("Vui lòng nhập nội dung comment.");
+    return;
+  }
+
+  // Tạo các phần tử HTML để hiển thị comment mới
+  var commentContainer = document.createElement("div");
+  commentContainer.classList.add("comment");
+
+  var commentContent = document.createElement("div");
+  commentContent.classList.add("comment-content");
+
+  var commentHeader = document.createElement("div");
+  commentHeader.classList.add("comment-header");
+
+  var profilePicture = document.createElement("img");
+  profilePicture.classList.add("profile-picture");
+  profilePicture.src = "/images/img_icon/user-removebg-preview.png";
+  profilePicture.alt = "Profile Picture";
+
+  var commenterName = document.createElement("h4");
+  commenterName.textContent = "Người dùng  ";
+
+  commentHeader.appendChild(profilePicture);
+  commentHeader.appendChild(commenterName);
+
+  var commentText = document.createElement("p");
+  commentText.textContent = commentInput;
+
+  var commentRating = document.createElement("div");
+  commentRating.classList.add("comment-rating");
+
+  var ratingSpan = document.createElement("span");
+  ratingSpan.classList.add("rating");
+  ratingSpan.innerHTML = "&#9733;&#9733;&#9733;&#9733;&#9734;";
+
+  commentRating.appendChild(ratingSpan);
+
+  var commentActions = document.createElement("div");
+  commentActions.classList.add("comment-actions");
+
+  var likeButton = document.createElement("button");
+  likeButton.classList.add("like-button");
+  likeButton.innerHTML = '<i class="fas fa-thumbs-up"></i> Like';
+
+  var dislikeButton = document.createElement("button");
+  dislikeButton.classList.add("dislike-button");
+  dislikeButton.innerHTML = '<i class="fas fa-thumbs-down"></i> Dislike';
+
+  commentActions.appendChild(likeButton);
+  commentActions.appendChild(dislikeButton);
+
+  commentContent.appendChild(commentHeader);
+  commentContent.appendChild(commentText);
+  commentContent.appendChild(commentRating);
+  commentContent.appendChild(commentActions);
+
+  commentContainer.appendChild(commentContent);
+
+  // Lấy danh sách comment hiện tại
+  var commentList = document.getElementById("comment-list");
+
+  // Thêm comment mới vào danh sách
+  commentList.appendChild(commentContainer);
+
+  // Xóa nội dung trong textarea sau khi comment được thêm
+  document.getElementById("comment-input").value = "";
+}

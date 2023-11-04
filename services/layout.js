@@ -63,13 +63,11 @@ window.onload = function () {
   </nav>
 </div>
     `;
-  const roleId = localStorage.getItem("roleId");
 
   document.body.insertBefore(header, document.body.firstChild);
   document.getElementById("log_out").style.display = "none";
   document.getElementById("profile").style.display = "none";
   document.getElementById("management").style.display = "none";
-  const userId = localStorage.getItem("userId");
 
   function getUserData() {
     let userData;
@@ -82,8 +80,6 @@ window.onload = function () {
     if (decryptedUserInfo) {
       userData = JSON.parse(decryptedUserInfo);
     }
-
-    console.log(userData,"===========================")
 
     document.getElementById("avatar_layout").src = userData.avatar
       ? userData.avatar
@@ -99,14 +95,13 @@ window.onload = function () {
       fetch(`http://localhost:3000/users/${userData.id}`)
         .then((response) => response.json())
         .then((customer) => {
-          console.log(customer.avatar,"avavta")
           document.getElementById("avatar_layout").src = customer.avatar;
         });
     } else {
       fetch(`http://localhost:3000/users/${userData.id}`)
         .then((response) => response.json())
         .then((customer) => {
-          console.log(customer.avatar,"avata3333")
+          console.log(customer.avatar, "avata3333");
           document.getElementById("avatar_layout").src = customer.avatar;
         });
     }
@@ -291,83 +286,81 @@ window.onload = function () {
 
   document.body.appendChild(footer);
 
-    
-
-    if (userData.roleId == 1) {
-      document.getElementById("profile").style.display = "block";
-      document.getElementById("log_out").style.display = "block";
-      document.getElementById("sign_up").style.display = "none";
-      document.getElementById("login").style.display = "none";
-      document.getElementById("management").style.display = "block";
-    }
-
-    // Kiểm tra giá trị roleId và ẩn các phần tử tương ứng khi roleId là 2
-    if (userData.roleId == 2) {
-      const managementElement = document.querySelector(".dropdown");
-      const loginElement = document.querySelector(
-        ".navbar__li--mobile a[href='/page/login/login.html']"
-      );
-      const signUpElement = document.querySelector(
-        ".navbar__li--mobile .border2"
-      );
-      document.getElementById("profile").style.display = "block";
-      document.getElementById("log_out").style.display = "block";
-
-      if (managementElement) {
-        managementElement.style.display = "none";
-      }
-
-      if (loginElement) {
-        loginElement.style.display = "none";
-      }
-
-      if (signUpElement) {
-        signUpElement.style.display = "none";
-      }
-    }
+  if (userData.roleId == 1) {
+    document.getElementById("profile").style.display = "block";
+    document.getElementById("log_out").style.display = "block";
+    document.getElementById("sign_up").style.display = "none";
+    document.getElementById("login").style.display = "none";
+    document.getElementById("management").style.display = "block";
   }
 
-  function logout() {
-    Swal.fire({
-      icon: "info",
-      title: "Confirm Logout",
-      text: "Are you sure you want to log out?",
-      showCancelButton: true,
-      confirmButtonText: "Logout",
-      cancelButtonText: "Cancel",
-      reverseButtons: true,
+  // Kiểm tra giá trị roleId và ẩn các phần tử tương ứng khi roleId là 2
+  if (userData.roleId == 2) {
+    const managementElement = document.querySelector(".dropdown");
+    const loginElement = document.querySelector(
+      ".navbar__li--mobile a[href='/page/login/login.html']"
+    );
+    const signUpElement = document.querySelector(
+      ".navbar__li--mobile .border2"
+    );
+    document.getElementById("profile").style.display = "block";
+    document.getElementById("log_out").style.display = "block";
+
+    if (managementElement) {
+      managementElement.style.display = "none";
+    }
+
+    if (loginElement) {
+      loginElement.style.display = "none";
+    }
+
+    if (signUpElement) {
+      signUpElement.style.display = "none";
+    }
+  }
+};
+
+function logout() {
+  Swal.fire({
+    icon: "info",
+    title: "Confirm Logout",
+    text: "Are you sure you want to log out?",
+    showCancelButton: true,
+    confirmButtonText: "Logout",
+    cancelButtonText: "Cancel",
+    reverseButtons: true,
+  })
+    .then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem("token");
+      }
     })
-      .then((result) => {
-        if (result.isConfirmed) {
-          localStorage.removeItem("token");
-        }
-      })
-      .then(() => {
-        document.getElementById("log_out").style.display = "none";
-        window.location.href = "/page/login/login.html";
-        Swal.fire({
-          icon: "success",
-          title: "Logout Successful!",
-          showConfirmButton: false,
-          timer: 3000,
-        });
+    .then(() => {
+      document.getElementById("log_out").style.display = "none";
+      window.location.href = "/page/login/login.html";
+      Swal.fire({
+        icon: "success",
+        title: "Logout Successful!",
+        showConfirmButton: false,
+        timer: 3000,
       });
-  }
+    });
+}
 
-  function openNav() {
-    document.getElementById("navbar__ul").style.width = "250px";
-    document.getElementById("opacity").style.display = "block";
-    // document.getElementById('open_sideBar').style.opacity = 0;
-    setTimeout(function () {
-      document.getElementById("navbar__ul").classList.add("active");
-    }, 10);
-  }
+function openNav() {
+  document.getElementById("navbar__ul").style.width = "250px";
+  document.getElementById("opacity").style.display = "block";
+  // document.getElementById('open_sideBar').style.opacity = 0;
+  setTimeout(function () {
+    document.getElementById("navbar__ul").classList.add("active");
+  }, 10);
+}
 
-  function closeNav() {
-    document.getElementById("navbar__ul").classList.remove("active");
-    setTimeout(function () {
-      document.getElementById("navbar__ul").style.width = "0";
-      document.getElementById("opacity").style.display = "none";
-      document.getElementById("open_sideBar").style.opacity = 1;
-    }, 10);
-  };
+function closeNav() {
+  document.getElementById("navbar__ul").classList.remove("active");
+  setTimeout(function () {
+    document.getElementById("navbar__ul").style.width = "0";
+    document.getElementById("opacity").style.display = "none";
+    document.getElementById("open_sideBar").style.opacity = 1;
+  }, 10);
+}

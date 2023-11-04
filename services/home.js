@@ -59,10 +59,9 @@ menuIcon.addEventListener("click", () => {
   navList.classList.toggle("active");
 });
 
-const userData = getUserData()
-console.log(userData)
+const userData = getUserData();
 
-if (roleId === "2") {
+if (userData.roleId === "2") {
   const managementElement = document.querySelector(".dropdown");
   const loginElement = document.querySelector(
     ".navbar__li--mobile a[href='/page/login/login.html']"

@@ -1,19 +1,36 @@
+function getUserData() {
+  let userData;
+  const hashKey = "Abcd123@";
+  const token = localStorage.getItem("token");
 
-fetch('http://localhost:3000/carts')
-  .then(response => response.json())
-  .then(data => {
+  const decryptedUserInfo = CryptoJS.AES.decrypt(token, hashKey).toString(
+    CryptoJS.enc.Utf8
+  );
+
+  if (decryptedUserInfo) {
+    userData = JSON.parse(decryptedUserInfo);
+  }
+
+  return userData;
+}
+
+const tableId = document.querySelector("#tableCart");
+
+fetch("http://localhost:3000/carts")
+  .then((response) => response.json())
+  .then((data) => {
     const dataArray = Array.isArray(data) ? data : [data];
     let cart = "";
     let totalPrice = 0;
     let totalItems = 0;
 
-    // Lấy userID từ local storage
-    const localUserID = localStorage.getItem('userId');
+    const localUserID = getUserData().id;
+    const cartItems = dataArray.filter(
+      (item) => Number(item.userId) === Number(localUserID)
+    );
 
-    dataArray.forEach((item, index) => {
-      // Kiểm tra nếu userID trùng khớp
-      if (item.userId === localUserID) {
-        cart += `
+    cartItems.forEach((item) => {
+      tableId.innerHTML = `
         <tr id="row_${item.id}">
           <td>
             <div class="product-info">
@@ -37,19 +54,18 @@ fetch('http://localhost:3000/carts')
           <td><input type="checkbox" class="custom-checkbox" data-itemid="${item.id}" onchange="calculateTotalPrice()"></td>
         </tr>      
         `;
-        totalPrice += item.totalPrice;
-        totalItems++;
-      }
+      totalPrice += item.totalPrice;
+      totalItems++;
     });
 
-    document.querySelector(".table-cart").innerHTML = cart;
     document.getElementById("totalItems").textContent = totalItems;
-    document.getElementById("allTotalPrice").textContent = "Total Price: " + totalPrice + " VND";
+    document.getElementById("allTotalPrice").textContent =
+      "Total Price: " + totalPrice + " VND";
   });
 // Hàm để cập nhật giá tổng
 function updateTotalPrice(itemId, quantity) {
-  const newPriceElement = document.getElementById("new_price_" + itemId);
-  const totalPriceElement = document.getElementById("total_price_" + itemId);
+  const newPriceElement = document.getElementById(`new_price_${itemId}`);
+  const totalPriceElement = document.getElementById(`total_price_${itemId}`);
 
   const newPrice = parseFloat(newPriceElement.textContent);
   const totalPrice = newPrice * quantity;
@@ -57,7 +73,7 @@ function updateTotalPrice(itemId, quantity) {
 
   calculateTotalPrice();
 }
-// Hàm để tăng số lượng sản phẩm
+
 function increaseQuantity(itemId) {
   const quantityElement = document.getElementById("quantity_" + itemId);
   let quantity = parseInt(quantityElement.textContent);
@@ -97,29 +113,29 @@ function updateCartItem(itemId, quantity) {
 function deleteItem(itemId) {
   // Gửi yêu cầu DELETE đến máy chủ
   fetch(`http://localhost:3000/carts/${itemId}`, {
-    method: 'DELETE'
+    method: "DELETE",
   })
-  .then(response => {
-    if (response.ok) {
-      // Xóa thành công trên máy chủ, xóa giao diện người dùng
-      const rowElement = document.getElementById("row_" + itemId);
-      const checkboxElement = rowElement.querySelector(".custom-checkbox");
-      const isChecked = checkboxElement.checked;
+    .then((response) => {
+      if (response.ok) {
+        // Xóa thành công trên máy chủ, xóa giao diện người dùng
+        const rowElement = document.getElementById("row_" + itemId);
+        const checkboxElement = rowElement.querySelector(".custom-checkbox");
+        const isChecked = checkboxElement.checked;
 
-      rowElement.remove();
-      
-      if (isChecked) {
-        calculateTotalPrice();
+        rowElement.remove();
+
+        if (isChecked) {
+          calculateTotalPrice();
+        }
+      } else {
+        // Xử lý lỗi nếu có
+        console.error("Lỗi xóa sản phẩm");
       }
-    } else {
+    })
+    .catch((error) => {
       // Xử lý lỗi nếu có
-      console.error('Lỗi xóa sản phẩm');
-    }
-  })
-  .catch(error => {
-    // Xử lý lỗi nếu có
-    console.error('Lỗi xóa sản phẩm', error);
-  });
+      console.error("Lỗi xóa sản phẩm", error);
+    });
 }
 
 function calculateTotalPrice() {
@@ -135,12 +151,14 @@ function calculateTotalPrice() {
   for (let i = 0; i < checkboxes.length; i++) {
     const checkbox = checkboxes[i];
     const totalElement = totalPriceElements[i];
-// Trong vòng lặp for
-const quantityElement = document.getElementById("quantity_" + checkbox.dataset.itemid);
-const quantity = parseInt(quantityElement.textContent);
-selectedQuantities.push(quantity);
+    // Trong vòng lặp for
+    const quantityElement = document.getElementById(
+      "quantity_" + checkbox.dataset.itemid
+    );
+    const quantity = parseInt(quantityElement.textContent);
+    selectedQuantities.push(quantity);
     // Lắng nghe sự kiện thay đổi trạng thái của checkbox
-    checkbox.addEventListener("change", function() {
+    checkbox.addEventListener("change", function () {
       if (checkbox.checked) {
         const price = parseFloat(totalElement.textContent);
         totalPrice += price;
@@ -158,7 +176,7 @@ selectedQuantities.push(quantity);
 
       // Cập nhật tổng giá và số lượng sản phẩm được chọn vào phần tử HTML
       allTotalPriceElement.textContent = "Total Price: " + totalPrice + " VND";
-      localStorage.setItem('selectedIds', JSON.stringify(selectedIds)); // Lưu mảng selectedIds vào localStorage
+      localStorage.setItem("selectedIds", JSON.stringify(selectedIds)); // Lưu mảng selectedIds vào localStorage
     });
 
     // Kiểm tra ban đầu trạng thái của checkbox
@@ -171,8 +189,11 @@ selectedQuantities.push(quantity);
   }
 
   console.log(selectedItems);
-  localStorage.setItem('selectedIds', JSON.stringify(selectedIds)); // Lưu mảng selectedIds vào localStorage
-  localStorage.setItem('selectedQuantities', JSON.stringify(selectedQuantities));
+  localStorage.setItem("selectedIds", JSON.stringify(selectedIds)); // Lưu mảng selectedIds vào localStorage
+  localStorage.setItem(
+    "selectedQuantities",
+    JSON.stringify(selectedQuantities)
+  );
 
   // Cập nhật tổng giá và số lượng sản phẩm được chọn vào phần tử HTML
   allTotalPriceElement.textContent = "Total Price: " + totalPrice + " VND";
@@ -180,6 +201,6 @@ selectedQuantities.push(quantity);
   return {
     totalPrice: totalPrice,
     selectedItems: selectedItems,
-    selectedIds: selectedIds
+    selectedIds: selectedIds,
   };
 }
