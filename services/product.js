@@ -132,27 +132,35 @@ function edit_product(id) {
       document.querySelector("#qtyInput_add").value = product.quantity;
       document.querySelector("#newPriceInput_add").value = product.newPrice;
       document.querySelector("#oldPriceInput_add").value = product.oldPrice;
-      document.querySelector("#descriptionInput_add").value = product.description;
-      document.querySelector("#myModal_add #content-des").value = product.content_des;
+      document.querySelector("#descriptionInput_add").value =
+        product.description;
+      document.querySelector("#myModal_add #content-des").value =
+        product.content_des;
       document.getElementById("title").innerHTML = "Update Product";
       document.getElementById("sub_pro").innerHTML = "Update";
-      document.getElementById("sub_pro").style.backgroundColor = "rgb(50, 50, 216)";
-      document.getElementById("modal-header").style.backgroundColor = "rgb(50, 50, 216)";
+      document.getElementById("sub_pro").style.backgroundColor =
+        "rgb(50, 50, 216)";
+      document.getElementById("modal-header").style.backgroundColor =
+        "rgb(50, 50, 216)";
       document.querySelector("#img_1").src = product.image1;
       document.querySelector("#img_2").src = product.image2;
       document.querySelector("#img_3").src = product.image3;
-      
+
       // Update the product with the data from the input fields
       document.getElementById("sub_pro").addEventListener("click", function () {
-        const description = document.getElementById("descriptionInput_add").value;
-        const content_des = document.querySelector("#myModal_add #content-des").value;
+        const description = document.getElementById(
+          "descriptionInput_add"
+        ).value;
+        const content_des = document.querySelector(
+          "#myModal_add #content-des"
+        ).value;
         const image1Input = document.querySelector("#imageFileInput1_add");
         const image2Input = document.querySelector("#imageFileInput2_add");
         const image3Input = document.querySelector("#imageFileInput3_add");
         const imageFileName1 = image1Input.value.split("\\").pop();
         const imageFileName2 = image2Input.value.split("\\").pop();
         const imageFileName3 = image3Input.value.split("\\").pop();
-        
+
         const updatedProduct = {
           id: document.querySelector("#add_productID").value,
           name: document.querySelector("#nameInput_add").value,
@@ -164,7 +172,7 @@ function edit_product(id) {
           productReviews: 5,
           image1: `/images/img_product/${imageFileName1}`,
           image2: `/images/img_product/${imageFileName2}`,
-          image3: `/images/img_product/${imageFileName3}`
+          image3: `/images/img_product/${imageFileName3}`,
         };
 
         fetch(`http://localhost:3000/products/${updatedProduct.id}`, {
@@ -173,25 +181,23 @@ function edit_product(id) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(updatedProduct),
-        })
-          .then(() => {
-            // Show a success message using SweetAlert2 when the product is updated successfully
-            Swal.fire("Cập nhật thành công", "", "success");
-            // Refresh the list of products
-            fetchProducts();
-            // Reset the form
-            var form = document.getElementById("add_product_form");
-            form.reset();
-            // Close the modal
-            $("#myModal_add").modal("hide");
-          })
-        
+        }).then(() => {
+          // Show a success message using SweetAlert2 when the product is updated successfully
+          Swal.fire("Cập nhật thành công", "", "success");
+          // Refresh the list of products
+          fetchProducts();
+          // Reset the form
+          var form = document.getElementById("add_product_form");
+          form.reset();
+          // Close the modal
+          $("#myModal_add").modal("hide");
+        });
       });
     })
     .catch(() => {
       alert("Get product fail");
     });
-} 
+}
 function increment() {
   var inputQty = document.getElementById("input__qty");
   var currentQty = parseInt(inputQty.value) || 0;

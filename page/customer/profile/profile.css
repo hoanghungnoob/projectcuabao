@@ -12,7 +12,7 @@
   display: none;
   /* width: 1px; */
 }
-#label_change_avata {
+#label_change_avatar {
   margin-top: 20px;
   padding: 10px;
   font-size: 10px;
@@ -22,7 +22,7 @@
   background-color: transparent;
   transition: background-color 0.3s ease;
 }
-#label_change_avata:hover {
+#label_change_avatar:hover {
   background-color: rgb(234, 234, 234);
   cursor: pointer;
 }

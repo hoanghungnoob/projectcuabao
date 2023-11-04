@@ -7,7 +7,9 @@ function saveUser(event) {
   const phoneCustomer = document.getElementById("phone").value;
   const messageCustomer = document.getElementById("message").value;
 
-  const url = userId ? `http://localhost:3000/contacts/${userId}` : "http://localhost:3000/contacts";
+  const url = userId
+    ? `http://localhost:3000/contacts/${userId}`
+    : "http://localhost:3000/contacts";
   const method = userId ? "PUT" : "POST";
   const data = {
     name: nameCustomer,
@@ -16,6 +18,14 @@ function saveUser(event) {
     message: messageCustomer,
   };
 
+  switch (userId) {
+    case value:
+      break;
+
+    default:
+      break;
+  }
+
   fetch(url, {
     method: method,
     headers: {
@@ -23,32 +33,29 @@ function saveUser(event) {
     },
     body: JSON.stringify(data),
   })
-  
     .then((response) => {
       if (response.ok) {
-        alert("Successfully Sent!")
+        alert("Successfully Sent!");
       } else {
         Swal.fire({
-          icon: 'error',
-          title: 'Sending Failed!',
-          text: 'Thank you for contacting us.',
+          icon: "error",
+          title: "Sending Failed!",
+          text: "Thank you for contacting us.",
           showConfirmButton: false,
-          timer: 3000
+          timer: 3000,
         });
       }
     })
     .catch((error) => {
       Swal.fire({
-        icon: 'error',
-        title: 'Sending Failed!',
-        text: 'Thank you for contacting us.',
+        icon: "error",
+        title: "Sending Failed!",
+        text: "Thank you for contacting us.",
         showConfirmButton: false,
-        timer: 3000
+        timer: 3000,
       });
     });
 }
 
 const contactForm = document.getElementById("contactForm");
 contactForm.addEventListener("submit", saveUser);
-
-

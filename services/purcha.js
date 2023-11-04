@@ -1,39 +1,40 @@
-const user_id = localStorage.getItem('userId');
-
+const user_id = localStorage.getItem("userId");
 
 async function fetchData() {
   try {
     // Fetch customer data
-    const customerResponse = await fetch(`http://localhost:3000/users/${user_id}`);
+    const customerResponse = await fetch(
+      `http://localhost:3000/users/${user_id}`
+    );
     const customerData = await customerResponse.json();
 
     // Fetch order data
     const orderResponse = await fetch("http://localhost:3000/orders");
     const orderData = await orderResponse.json();
-    console.log(orderData,"odsdfs")
 
     // Fetch product data
     const productResponse = await fetch("http://localhost:3000/products");
     const productData = await productResponse.json();
 
     // Filter orders for the customer
-    const orderedProducts = orderData.filter((order) => order.customerId == user_id);
-    console.log(orderedProducts,"qunr")
+    const orderedProducts = orderData.filter(
+      (order) => order.customerId == user_id
+    );
+    console.log(orderedProducts, "qunr");
 
     let data = "";
     orderedProducts.forEach((order) => {
-
       order.productId.forEach((id) => {
+        const product = productData.find((product) => product.id == id);
 
-          const product = productData.find((product) => product.id == id);
-    
+        if (product) {
+          console.log(product.quantity, "hello");
 
-          if (product) {
-            console.log(product.quantity,"hello")
+          data += `
 
-            data += `
-
-            <a target="_self" id="card" href="/page/product/ProductDetail/ProductDetail.html?id=${product.id}">
+            <a target="_self" id="card" href="/page/product/ProductDetail/ProductDetail.html?id=${
+              product.id
+            }">
               <div class="card_product">
                 <div class="card_product_img">
                   <img id="img_product" src="${product.image1}">
@@ -47,23 +48,25 @@ async function fetchData() {
                     <p id="new__price">${product.newPrice} VND</p>
                   </div>
                   <div class="d-flex justify-content-between align-items-center">
-                    <p id="total_product">Total: ${order.quantity * product.newPrice} VND</p>
+                    <p id="total_product">Total: ${
+                      order.quantity * product.newPrice
+                    } VND</p>
                     <div class="buttons">
-                      <button id="product__btn__buy" class="btn btn_buy_qtt btn-small" type="button" onclick="redirectToOrderPage(${product.id})">Buy again</button>
-                      <button id="product__btn__detail" class="btn btn_detail_qtt btn-small" type="button" onclick="rederectDetailPage(${product.id})">Product detail</button>
+                      <button id="product__btn__buy" class="btn btn_buy_qtt btn-small" type="button" onclick="redirectToOrderPage(${
+                        product.id
+                      })">Buy again</button>
+                      <button id="product__btn__detail" class="btn btn_detail_qtt btn-small" type="button" onclick="rederectDetailPage(${
+                        product.id
+                      })">Product detail</button>
                     </div>
                   </div>
                 </div>
               </div>
               </a>
             `;
-          }
-      })
-      
-
-
+        }
+      });
     });
-
 
     const container = document.querySelector("#container_purcha");
     container.innerHTML = data;
@@ -81,17 +84,19 @@ function rederectDetailPage(id) {
 
 async function detailProduct() {
   try {
-    const urlParams = new URLSearchParams(window.location.search)
-    const id=urlParams.get('id')
-
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("id");
 
     if (id) {
-      const productResponse = await fetch(`http://localhost:3000/products/${id}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const productResponse = await fetch(
+        `http://localhost:3000/products/${id}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (productResponse) {
         const details = await productResponse.json();
@@ -149,26 +154,24 @@ async function detailProduct() {
                   <button id="product__btn__buy" class="btn_add_qtt" type="button" onclick="buy(${id})">Buy</button>
               </div>
           </div>
-          `
-      }else{
-          console.log("Item not found");
+          `;
+      } else {
+        console.log("Item not found");
       }
-      }else{
-          console.log("Id not found");
-      }
-
-  } catch (error) {
-  }
+    } else {
+      console.log("Id not found");
+    }
+  } catch (error) {}
 }
 
 document.addEventListener("DOMContentLoaded", detailProduct);
 
 function buy(productId) {
   var quantity = document.getElementById("input__qty").value;
-  var orderUrl = "/page/order/order.html?id=" + productId + "&quantity=" + quantity;
+  var orderUrl =
+    "/page/order/order.html?id=" + productId + "&quantity=" + quantity;
   window.location.href = orderUrl;
 }
 function redirectToOrderPage(productId) {
   window.location.href = `/page/order/order.html?id=${productId}`;
-
 }

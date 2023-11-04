@@ -14,39 +14,48 @@
   "users": [
     {
       "name": "admin",
+      "roleId": 1,
+      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+      "phoneNumber": "0397208231",
+      "email": "hue.ho25@student.passerellesnumeriques.org",
+      "address": "Lang Cat village Mo O commune Dakrong district Quang Tri province",
+      "avatar": "http://127.0.0.1:5500/images/img_icon/avatar_admin.jpg",
+      "id": 1
+    },
+    {
       "roleId": 2,
       "password": "12345",
       "phoneNumber": "0397208231",
       "email": "bao.pham25@student.passerellesnumeriques.org",
       "address": "Lang Cat village Mo O commune Dakrong district Quang Tri province",
-      "avata": "http://127.0.0.1:5500/images/img_icon/avata_admin.jpg",
+      "avatar": "http://127.0.0.1:5500/images/img_icon/avata_admin.jpg",
       "id": 1
     },
     {
       "name": "Dinh Thi Duyen12",
-      "password": "56789",
       "phoneNumber": "0123432888",
       "email": "duyen.ho25@student.com",
-      "avata": "/images/img_icon/user-removebg-preview.png",
+      "avatar": "/images/img_icon/user-removebg-preview.png",
       "roleId": 2,
       "address": "56 Phuoc My ward Son Tra district Da Nang city",
-      "id": 10
+      "id": 10,
+      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92"
     },
     {
       "id": 11,
       "name": "Le Van Thao",
       "phoneNumber": "0124782999",
-      "avata": "/images/img_icon/user-removebg-preview.png",
+      "avatar": "/images/img_icon/user-removebg-preview.png",
       "address": "101B Le Huu Trac Son Tra district Da Nang city",
       "roleId": 2,
       "email": "thao.ho25@student.com",
-      "password": "thao.com123"
+      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92"
     },
     {
       "name": "Ho Mai Huyen",
-      "password": "huyen.com123",
+      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
       "phoneNumber": "0123432111",
-      "avata": "/images/img_icon/user-removebg-preview.png",
+      "avatar": "/images/img_icon/user-removebg-preview.png",
       "email": "huyen.ho25@student.com",
       "roleId": 2,
       "address": "56 Phuoc My ward Son Tra district Da Nang city",
@@ -54,9 +63,9 @@
     },
     {
       "name": "To Ngol Nien123",
-      "password": "nien.com123",
+      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
       "phoneNumber": "0123432444",
-      "avata": "/images/img_icon/user-removebg-preview.png",
+      "avatar": "/images/img_icon/user-removebg-preview.png",
       "email": "nien.to25@student.com",
       "roleId": 2,
       "address": "101B Le Huu Trac Son Tra district Da Nang city",
@@ -65,11 +74,11 @@
     {
       "name": "phamgiabao",
       "roleId": 2,
-      "password": "123456",
+      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
       "phoneNumber": "0845042466",
       "email": "bao.pham25@student.passerellesnumeriques.org",
       "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
-      "avata": "http://127.0.0.1:5500/images/img_icon/avata_admin.jpg",
+      "avatar": "http://127.0.0.1:5500/images/img_icon/avatar_admin.jpg",
       "id": 16
     },
     {
@@ -93,6 +102,19 @@
     }
   ],
   "products": [
+    {
+      "name": "Americanosasasa",
+      "quantity": "50",
+      "newPrice": "13500",
+      "oldPrice": "15000",
+      "image1": "/images/img_product/Americano1.jpg",
+      "image2": "/images/img_product/Americano2.jpg",
+      "image3": "/images/img_product/Americano3.jpg",
+      "description": "Coffee made using the Espresso method but with hot water added.Caffè Americano, or Americano, is a style of coffee prepared by adding hot water to espresso, giving the coffee a similar strength but a different flavor, similar to filter coffee.",
+      "type": "",
+      "productReviews": 4,
+      "id": 2
+    },
     {
       "id": 3,
       "name": "Espresso",
@@ -281,10 +303,7 @@
     {
       "name": "Em boss",
       "customerId": "17",
-      "productId": [
-        "3",
-        "8"
-      ],
+      "productId": ["3", "8"],
       "email": "phamthithieu@gmail.com",
       "phoneNumber": "0845042466",
       "address": "phuc trạch",
@@ -299,9 +318,7 @@
     {
       "name": "Em boss",
       "customerId": "17",
-      "productId": [
-        "5"
-      ],
+      "productId": ["5"],
       "email": "phamthithieu@gmail.com",
       "phoneNumber": "0845042466",
       "address": "phuc trạch",
@@ -316,12 +333,7 @@
     {
       "name": "Em boss",
       "customerId": "17",
-      "productId": [
-        "3",
-        "8",
-        "14",
-        "10"
-      ],
+      "productId": ["3", "8", "14", "10"],
       "email": "phamthithieu@gmail.com",
       "phoneNumber": "0845042466",
       "address": "phuc trạch",
@@ -336,12 +348,7 @@
     {
       "name": "Em boss",
       "customerId": "17",
-      "productId": [
-        "3",
-        "8",
-        "14",
-        "10"
-      ],
+      "productId": ["3", "8", "14", "10"],
       "email": "phamthithieu@gmail.com",
       "phoneNumber": "0845042466",
       "address": "phuc trạch",
@@ -356,10 +363,7 @@
     {
       "name": "Dinh Thi Duyen12",
       "customerId": "10",
-      "productId": [
-        "6",
-        "4"
-      ],
+      "productId": ["6", "4"],
       "email": "duyen.ho25@student.com",
       "phoneNumber": "0123432888",
       "address": "56 Phuoc My ward Son Tra district Da Nang city",
@@ -376,7 +380,7 @@
     {
       "name": "Baopham",
       "phoneNumber": "0845042466",
-      "avata": "/images/img_icon/user-removebg-preview.png",
+      "avatar": "/images/img_icon/user-removebg-preview.png",
       "email": "phamthithieu@gmail.com",
       "message": "asas",
       "id": 1
@@ -384,7 +388,7 @@
     {
       "name": "sasasa",
       "phoneNumber": "1212312",
-      "avata": "/images/img_icon/user-removebg-preview.png",
+      "avatar": "/images/img_icon/user-removebg-preview.png",
       "email": "bao.pham25@student.passerellesnumeriques.org",
       "message": "saqwqwqwwqqw",
       "id": 2
@@ -392,7 +396,7 @@
     {
       "name": "Em boss",
       "phoneNumber": "1212312",
-      "avata": "/images/img_icon/user-removebg-preview.png",
+      "avatar": "/images/img_icon/user-removebg-preview.png",
       "email": "bao.pham25@student.passerellesnumeriques.org",
       "message": "sá",
       "id": 3
