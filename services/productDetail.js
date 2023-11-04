@@ -21,8 +21,10 @@ function decrement() {
 // JavaScript code
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id");
+
 function detail() {
-  fetch("http://localhost:3000/product")
+  fetch("http://localhost:3000/products")
+
     .then((res) => res.json())
     .then((data) => {
       const productHTML = data.map((product) => {
@@ -88,11 +90,7 @@ function detail() {
               .getElementById("product__btn__buy")
               .addEventListener("click", function () {
                 var quantity = document.getElementById("input__qty").value;
-                var orderUrl =
-                  "/page/order/order.html?id=" +
-                  element.id +
-                  "&quantity=" +
-                  quantity;
+                var orderUrl ="/page/order/order.html?id=" + element.id + "&quantity=" + quantity;
                 window.location.href = orderUrl;
                 // var orderUrl1 = "/page/purcha_list/purcha_list.html?id=" + element.id;
                 // window.location.href = orderUrl1;

@@ -82,6 +82,9 @@ window.onload = function () {
     if (decryptedUserInfo) {
       userData = JSON.parse(decryptedUserInfo);
     }
+
+    console.log(userData,"===========================")
+
     document.getElementById("avatar_layout").src = userData.avatar
       ? userData.avatar
       : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4CRKPij6o2waFROp-89BCE8lEf96jLsndRQ&usqp=CAU";
@@ -92,17 +95,19 @@ window.onload = function () {
   const userData = getUserData();
 
   function fetch_cus() {
-    if (roleId == 1) {
-      fetch(`http://localhost:3000/users/${userId}`)
+    if (userData.roleId == 1) {
+      fetch(`http://localhost:3000/users/${userData.id}`)
         .then((response) => response.json())
         .then((customer) => {
-          document.getElementById("avata_layout").src = customer.avata;
+          console.log(customer.avatar,"avavta")
+          document.getElementById("avatar_layout").src = customer.avatar;
         });
     } else {
-      fetch(`http://localhost:3000/users/${userId}`)
+      fetch(`http://localhost:3000/users/${userData.id}`)
         .then((response) => response.json())
         .then((customer) => {
-          document.getElementById("avata_layout").src = customer.avata;
+          console.log(customer.avatar,"avata3333")
+          document.getElementById("avatar_layout").src = customer.avatar;
         });
     }
   }
@@ -285,15 +290,10 @@ window.onload = function () {
     `;
 
   document.body.appendChild(footer);
-  // Lấy giá trị roleId từ local storage
-  if (roleId == 1) {
-    document.getElementById("profile").style.display = "block";
-    document.getElementById("log_out").style.display = "block";
-    document.getElementById("sign_up").style.display = "none";
-    document.getElementById("login").style.display = "none";
-    document.getElementById("management").style.display = "block";
 
-    if (userData.roleId === 1) {
+    
+
+    if (userData.roleId == 1) {
       document.getElementById("profile").style.display = "block";
       document.getElementById("log_out").style.display = "block";
       document.getElementById("sign_up").style.display = "none";
@@ -302,7 +302,7 @@ window.onload = function () {
     }
 
     // Kiểm tra giá trị roleId và ẩn các phần tử tương ứng khi roleId là 2
-    if (roleId == 2) {
+    if (userData.roleId == 2) {
       const managementElement = document.querySelector(".dropdown");
       const loginElement = document.querySelector(
         ".navbar__li--mobile a[href='/page/login/login.html']"
@@ -370,5 +370,4 @@ window.onload = function () {
       document.getElementById("opacity").style.display = "none";
       document.getElementById("open_sideBar").style.opacity = 1;
     }, 10);
-  }
-};
+  };

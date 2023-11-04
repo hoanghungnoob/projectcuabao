@@ -63,14 +63,13 @@ function updateData() {
   updateBtn.style.display = "none";
 }
 
-var roleId = localStorage.getItem("roleId");
 function fetch_cus() {
-  if (roleId === 1) {
+  if (userData.roleId == 1) {
     fetch(`http://localhost:3000/users/${userData?.id}`)
       .then((response) => response.json())
       .then((customer) => {
         document.getElementById("name_user1").innerHTML = customer.name;
-        document.getElementById("upload-img").src = customer.avata;
+        document.getElementById("upload-img").src = customer.avatar;
         document.getElementById("show_name").value = customer.name;
         document.getElementById("show_email").value = customer.email;
         document.getElementById("show_phone").value = customer.phoneNumber;
@@ -83,7 +82,7 @@ function fetch_cus() {
       .then((response) => response.json())
       .then((customer) => {
         document.getElementById("name_user1").innerHTML = customer.name;
-        document.getElementById("upload-img").src = customer.avata;
+        document.getElementById("upload-img").src = customer.avatar;
         document.getElementById("show_name").value = customer.name;
         document.getElementById("show_email").value = customer.email;
         document.getElementById("show_phone").value = customer.phoneNumber;

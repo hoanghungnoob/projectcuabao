@@ -59,7 +59,8 @@ menuIcon.addEventListener("click", () => {
   navList.classList.toggle("active");
 });
 
-const roleId = localStorage.getItem("roleId");
+const userData = getUserData()
+console.log(userData)
 
 if (roleId === "2") {
   const managementElement = document.querySelector(".dropdown");

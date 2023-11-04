@@ -1,10 +1,28 @@
-const user_id = localStorage.getItem("userId");
+ 
+function getUserData() {
+  let userData;
+  const hashKey = "Abcd123@";
+  const token = localStorage.getItem("token");
+
+  const decryptedUserInfo = CryptoJS.AES.decrypt(token, hashKey).toString(
+    CryptoJS.enc.Utf8
+  );
+
+  if (decryptedUserInfo) {
+    userData = JSON.parse(decryptedUserInfo);
+  }
+
+  return userData;
+}
+
+const userData = getUserData();
+console.log("kjdgask", userData)
 
 async function fetchData() {
   try {
     // Fetch customer data
     const customerResponse = await fetch(
-      `http://localhost:3000/users/${user_id}`
+      `http://localhost:3000/users/${userData?.id}`
     );
     const customerData = await customerResponse.json();
 
@@ -18,7 +36,7 @@ async function fetchData() {
 
     // Filter orders for the customer
     const orderedProducts = orderData.filter(
-      (order) => order.customerId == user_id
+      (order) => order.customerId == userData?.id
     );
     console.log(orderedProducts, "qunr");
 
