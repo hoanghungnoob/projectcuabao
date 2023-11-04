@@ -56,9 +56,6 @@ fetch(provinceUrl)
     });
   });
 //chuyển về trang order khi nhất button
-function redirectToOrderPage(productId) {
-  window.location.href = `/page/order/order.html?id=${productId}`;
-}
 
 const urlParams3 = new URLSearchParams(window.location.search);
 const productId1 = urlParams3.get("id");
@@ -261,19 +258,17 @@ function placeOrder() {
   }
 }
 
-var selectedQuantities = JSON.parse(localStorage.getItem("selectedQuantities"));
-var cartItems = JSON.parse(localStorage.getItem("selectedIds"));
+
+// Xử lý sự kiện thay đổi Local Storage
+// Lấy dữ liệu từ Local Storage
+var selectedQuantities = JSON.parse(localStorage.getItem('selectedQuantities'));
+var cartItems = JSON.parse(localStorage.getItem('selectedIds'));
 function handleLocalStorageChange() {
-  const updatedQuantities = JSON.parse(
-    localStorage.getItem("selectedQuantities")
-  );
-  const updatedCartItems = JSON.parse(localStorage.getItem("selectedIds"));
+  const updatedQuantities = JSON.parse(localStorage.getItem('selectedQuantities'));
+  const updatedCartItems = JSON.parse(localStorage.getItem('selectedIds'));
 
   // Kiểm tra xem có sự thay đổi trong Local Storage không
-  if (
-    JSON.stringify(selectedQuantities) !== JSON.stringify(updatedQuantities) ||
-    JSON.stringify(cartItems) !== JSON.stringify(updatedCartItems)
-  ) {
+  if (JSON.stringify(selectedQuantities) !== JSON.stringify(updatedQuantities) || JSON.stringify(cartItems) !== JSON.stringify(updatedCartItems)) {
     selectedQuantities = updatedQuantities;
     cartItems = updatedCartItems;
 
@@ -283,20 +278,20 @@ function handleLocalStorageChange() {
 }
 
 // Xử lý sự kiện storage khi có thay đổi trong Local Storage
-window.addEventListener("storage", handleLocalStorageChange);
+window.addEventListener('storage', handleLocalStorageChange);
 
 // Xử lý sự kiện beforeunload khi rời khỏi trang
-window.addEventListener("beforeunload", () => {
+window.addEventListener('beforeunload', () => {
   // Xóa dữ liệu trong Local Storage
-  localStorage.removeItem("selectedQuantities");
-  localStorage.removeItem("selectedIds");
+  localStorage.removeItem('selectedQuantities');
+  localStorage.removeItem('selectedIds');
 });
 
 // Cập nhật lại giao diện đơn hàng
 function updateOrderPage() {
-  const productOrderElement = document.getElementById("product__order1");
-  const totalPriceElement = document.getElementById("price__order");
-  let productsHTML = "";
+  const productOrderElement = document.getElementById('product__order1');
+  const totalPriceElement = document.getElementById('price__order');
+  let productsHTML = '';
   let totalPrice = 0;
 
   fetch("http://localhost:3000/products")
@@ -312,9 +307,7 @@ function updateOrderPage() {
             productsHTML += `
               <div class="product__infor__order">
                 <div class="image__order">
-                  <img id="product__img__order" src="${
-                    element.image1
-                  }" alt="Product">
+                  <img id="product__img__order" src="${element.image1}" alt="Product">
                 </div>
                 <p id="procuct__name__order">${element.name}</p>
                 <p id="product__price__order">${element.newPrice}</p>

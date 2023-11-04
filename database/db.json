@@ -304,24 +304,6 @@
       "name": "Em boss",
       "customerId": "17",
       "productId": [
-        "3",
-        "8"
-      ],
-      "email": "phamthithieu@gmail.com",
-      "phoneNumber": "0845042466",
-      "address": "phuc trạch",
-      "province": "25",
-      "district": "227",
-      "productName": "Espresso",
-      "productPrice": "28000",
-      "quantity": "1",
-      "totalPrice": "202000 VND",
-      "id": 13
-    },
-    {
-      "name": "Em boss",
-      "customerId": "17",
-      "productId": [
         "5"
       ],
       "email": "phamthithieu@gmail.com",
@@ -334,64 +316,6 @@
       "quantity": "1",
       "totalPrice": "22000 VND",
       "id": 15
-    },
-    {
-      "name": "Em boss",
-      "customerId": "17",
-      "productId": [
-        "3",
-        "8",
-        "14",
-        "10"
-      ],
-      "email": "phamthithieu@gmail.com",
-      "phoneNumber": "0845042466",
-      "address": "phuc trạch",
-      "province": "04",
-      "district": "040",
-      "productName": "Espresso",
-      "productPrice": "28000",
-      "quantity": "1",
-      "totalPrice": "380000 VND",
-      "id": 16
-    },
-    {
-      "name": "Em boss",
-      "customerId": "17",
-      "productId": [
-        "3",
-        "8",
-        "14",
-        "10"
-      ],
-      "email": "phamthithieu@gmail.com",
-      "phoneNumber": "0845042466",
-      "address": "phuc trạch",
-      "province": "22",
-      "district": "193",
-      "productName": "Espresso",
-      "productPrice": "28000",
-      "quantity": "1",
-      "totalPrice": "380000 VND",
-      "id": 17
-    },
-    {
-      "name": "Dinh Thi Duyen12",
-      "customerId": "10",
-      "productId": [
-        "6",
-        "4"
-      ],
-      "email": "duyen.ho25@student.com",
-      "phoneNumber": "0123432888",
-      "address": "56 Phuoc My ward Son Tra district Da Nang city",
-      "province": "25",
-      "district": "227",
-      "productName": "Latte1",
-      "productPrice": "50000",
-      "quantity": "4",
-      "totalPrice": "299000 VND",
-      "id": 18
     },
     {
       "name": "Dinh Thi Duyen12",
@@ -2735,21 +2659,6 @@
   ],
   "carts": [
     {
-      "id": 5,
-      "userId": "16",
-      "name": "Cappuccino",
-      "oldPrice": 23,
-      "newPrice": 22,
-      "quantity": 9,
-      "description": "Coffee is made using the Espresso method but with steamed milk and foam added. Cappuccino is a type of coffee consisting of coffee and milk foam (whipped on top), along with a little cocoa powder or cinnamon powder sprinkled on the surface of the drink before serving.",
-      "image1": "/images/img_product/Cappuccino1.jpg",
-      "image2": "/images/img_product/Cappuccino2.jpg",
-      "image3": "/images/img_product/Cappuccino3.jpg",
-      "type": "",
-      "productReviews": 5,
-      "totalPrice": 88
-    },
-    {
       "id": 4,
       "userId": "10",
       "name": "Latte1",
@@ -2824,6 +2733,16 @@
       "totalPrice": 78000
     },
     {
+      "userId": 16,
+      "name": "Espresso",
+      "oldPrice": "30000",
+      "newPrice": "28000",
+      "quantity": "2",
+      "description": "Coffee is brewed with a small amount of boiling water that is almost pressed under pressure (squeezing) the ground coffee beans.Espresso, is a method of roasting and preparing coffee originating from Italy, in which a small amount of boiling water is forced under pressure through ground coffee beans. Espresso is also the basis for many drinks from Other coffees such as latte, cappuccino, macchiato, mocha, flat white, Americano.",
+      "image1": "/images/img_product/Cherry3.jpg",
+      "image2": "/images/img_product/Americano3.jpg",
+      "image3": "/images/img_product/coconut_coffee.jpg",
+      "totalPrice": 56000,
       "id": 15
     }
   ]

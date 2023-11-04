@@ -14,7 +14,7 @@ function getUserData() {
   return userData;
 }
 
-const listContainer = document.querySelector("#containerPurcha");
+const listContainer = document.querySelector("#container_purcha");
 async function fetchData() {
   try {
     const orderResponse = await fetch("http://localhost:3000/orders");
@@ -33,7 +33,6 @@ async function fetchData() {
     const productList = productData.filter(
       ({ id: id1 }) => !orderedProducts.some(({ id: id2 }) => id2 === id1)
     );
-    console.log("-0=o-=04o-=302", productList);
 
     let data = "";
 
@@ -150,10 +149,10 @@ async function detailProduct() {
                   </div>
               </div>
               <div class="btn__buy">
-                  <button id="product__btn__add" class="btn_add_qtt" type="button" onclick="addToCart()">
-                      <img src="/images/img_icon/icon shoping cart.svg" alt="">
-                      Add to Cart
-                  </button>
+              <button id="product__btn__add" class="btn_add_qtt" type="button" onclick="addToCart(${id})">
+              <img src="/images/img_icon/icon shoping cart.svg" alt="">
+              Add to Cart
+          </button>
                   <button id="product__btn__buy" class="btn_add_qtt" type="button" onclick="buy(${id})">Buy</button>
               </div>
           </div>

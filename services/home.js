@@ -81,8 +81,7 @@ if (userData.roleId === "2") {
   }
 }
 
-const urlParams = new URLSearchParams(window.location.search);
-const productId = urlParams.get("roleId");
+
 
 localStorage.removeItem("userId");
 localStorage.clear();
@@ -98,3 +97,6 @@ prevBtn.addEventListener("click", () => {
 nextBtn.addEventListener("click", () => {
   productContainer.scrollLeft += 200; // Điều chỉnh giá trị scrollLeft tùy thuộc vào kích thước sản phẩm
 });
+function redirectToOrderPage(productId) {
+  window.location.href = `/page/order/order.html?id=${productId}`;
+}

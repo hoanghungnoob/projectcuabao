@@ -1,3 +1,5 @@
+
+
 function increment() {
   var inputQty = document.getElementById("input__qty");
   var currentQty = parseInt(inputQty.value) || 1;
@@ -18,9 +20,13 @@ function decrement() {
   inputQty.value = newQty;
 }
 
-// JavaScript code
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id");
+const idUser = document.getElementById("product__btn__add");
+idUser.addEventListener("click", function (event) {
+  event.preventDefault();
+  addToCart(Number(productId));
+});
 
 function detail() {
   fetch("http://localhost:3000/products")
@@ -63,6 +69,7 @@ function detail() {
         if (productId == element.id) {
           product = true;
           if (product) {
+        
             document.getElementById("product__name").innerHTML = element.name;
             document.getElementById("main__img").src = element.image1;
             document.getElementById("item__img1").src = element.image2;
@@ -74,8 +81,6 @@ function detail() {
               element.oldPrice + " VND";
             document.getElementById("describe").innerHTML = element.description;
             // Đánh giá sản phẩm (từ 1 đến 5)
-
-            var rating = element.productReviews;
 
             var rating = element.productReviews;
             var stars = document.getElementsByClassName("star");
@@ -175,22 +180,31 @@ function addToCart(id) {
     alert("Sản phẩm đã tồn tại trong giỏ hàng");
     return;
   }
+  console.log(productId,"id2222")
 
   fetch(`http://localhost:3000/products/${id}`)
     .then((response) => response.json())
     .then((productData) => {
       var quantity = document.getElementById("input__qty").value;
 
-      var cartItem = {
-        id: id,
+      const cartItem = {
         userId: userId,
-        ...productData,
-        totalPrice: productData.newPrice * parseInt(quantity),
-        quantity: parseInt(quantity),
+        name: productData.name,
+        oldPrice: productData.oldPrice,
+        newPrice: productData.newPrice,
+        quantity: quantity,
+        description: productData.description,
+        image1: productData.image1,
+        image2: productData.image2,
+        image3: productData.image3,
+        totalPrice: Number(productData.newPrice) * Number(quantity),
       };
 
       fetch("http://localhost:3000/carts", {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(cartItem),
       })
         .then((response) => {

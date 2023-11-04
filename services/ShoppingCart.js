@@ -188,7 +188,7 @@ function calculateTotalPrice() {
     }
   }
 
-  console.log(selectedItems);
+ 
   localStorage.setItem("selectedIds", JSON.stringify(selectedIds)); // Lưu mảng selectedIds vào localStorage
   localStorage.setItem(
     "selectedQuantities",
