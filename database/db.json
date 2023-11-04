@@ -303,22 +303,9 @@
     {
       "name": "Em boss",
       "customerId": "17",
-      "productId": ["3", "8"],
-      "email": "phamthithieu@gmail.com",
-      "phoneNumber": "0845042466",
-      "address": "phuc trạch",
-      "province": "25",
-      "district": "227",
-      "productName": "Espresso",
-      "productPrice": "28000",
-      "quantity": "1",
-      "totalPrice": "202000 VND",
-      "id": 13
-    },
-    {
-      "name": "Em boss",
-      "customerId": "17",
-      "productId": ["5"],
+      "productId": [
+        "5"
+      ],
       "email": "phamthithieu@gmail.com",
       "phoneNumber": "0845042466",
       "address": "phuc trạch",
@@ -329,51 +316,6 @@
       "quantity": "1",
       "totalPrice": "22000 VND",
       "id": 15
-    },
-    {
-      "name": "Em boss",
-      "customerId": "17",
-      "productId": ["3", "8", "14", "10"],
-      "email": "phamthithieu@gmail.com",
-      "phoneNumber": "0845042466",
-      "address": "phuc trạch",
-      "province": "04",
-      "district": "040",
-      "productName": "Espresso",
-      "productPrice": "28000",
-      "quantity": "1",
-      "totalPrice": "380000 VND",
-      "id": 16
-    },
-    {
-      "name": "Em boss",
-      "customerId": "17",
-      "productId": ["3", "8", "14", "10"],
-      "email": "phamthithieu@gmail.com",
-      "phoneNumber": "0845042466",
-      "address": "phuc trạch",
-      "province": "22",
-      "district": "193",
-      "productName": "Espresso",
-      "productPrice": "28000",
-      "quantity": "1",
-      "totalPrice": "380000 VND",
-      "id": 17
-    },
-    {
-      "name": "Dinh Thi Duyen12",
-      "customerId": "10",
-      "productId": ["6", "4"],
-      "email": "duyen.ho25@student.com",
-      "phoneNumber": "0123432888",
-      "address": "56 Phuoc My ward Son Tra district Da Nang city",
-      "province": "25",
-      "district": "227",
-      "productName": "Latte1",
-      "productPrice": "50000",
-      "quantity": "4",
-      "totalPrice": "299000 VND",
-      "id": 18
     }
   ],
   "contacts": [
@@ -2696,21 +2638,6 @@
       "type": "",
       "productReviews": 5,
       "totalPrice": 88
-    },
-    {
-      "id": 6,
-      "userId": "10",
-      "name": "Doppio",
-      "oldPrice": 35000,
-      "newPrice": 33000,
-      "quantity": 3,
-      "description": "Double coffee, extracted by double filter of coffee in total filter, the same ingredients as Espresso. Always careful in the ingredients to make a standard cup of Cappuccino coffee, always taking care of Latte art cups from Barista artisans. If you don't like drinking traditional cappuccino, why not try cool Smoothies that have the sweet taste of milk cream mixed with the slight sourness of fruit.",
-      "image1": "/images/img_product/Doppio1.jpg",
-      "image2": "/images/img_product/Doppio2.jpg",
-      "image3": "/images/img_product/Doppio3.jpg",
-      "type": "",
-      "productReviews": 4.3,
-      "totalPrice": 99000
     },
     {
       "id": 4,
