@@ -14,7 +14,7 @@
   "users": [
     {
       "name": "admin",
-      "roleId": 2,
+      "roleId": 1,
       "password": "12345",
       "phoneNumber": "0397208231",
       "email": "bao.pham25@student.passerellesnumeriques.org",
