@@ -26,7 +26,7 @@ fetch("http://localhost:3000/products")
         <button class="icon-btn" id="btn_favorite">
           <i class="fas fa-heart"></i>
       </button>
-            <button id="btn_buy" onclick="redirectToOrderPage(${product.id})">
+            <button id="btn_buy"   onclick="redirectToOrderPage(${product.id})">
                 <i id="icon_cart" class="fas fa-shopping-cart"></i>Buy
             </button>
         </div>
@@ -100,3 +100,5 @@ nextBtn.addEventListener("click", () => {
 function redirectToOrderPage(productId) {
   window.location.href = `/page/order/order.html?id=${productId}`;
 }
+
+

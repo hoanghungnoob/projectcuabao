@@ -14,13 +14,13 @@ function getUserData() {
   return userData;
 }
 
-const tableId = document.querySelector("#tableCart");
+const tableCart = document.getElementById("tableCart");
 
 fetch("http://localhost:3000/carts")
   .then((response) => response.json())
   .then((data) => {
     const dataArray = Array.isArray(data) ? data : [data];
-    let cart = "";
+    var cart = "";
     let totalPrice = 0;
     let totalItems = 0;
 
@@ -30,37 +30,37 @@ fetch("http://localhost:3000/carts")
     );
 
     cartItems.forEach((item) => {
-      tableId.innerHTML = `
-        <tr id="row_${item.id}">
-          <td>
-            <div class="product-info">
-              <img src="${item.image1}" alt="coffee">
-              <div class="product-details">
-                <h3>${item.name}</h3>
-                <p>Drink</p>
-              </div>
+      const newRow = document.createElement("tr");
+      newRow.id = `row_${item.id}`;
+      newRow.innerHTML = `
+        <td>
+          <div class="product-info">
+            <img src="${item.image1}" alt="coffee">
+            <div class="product-details">
+              <h3>${item.name}</h3>
+              <p>Drink</p>
             </div>
-          </td>
-          <td>
-            <div class="quantity-container">
-              <button class="quantity-button decrease" onclick="decreaseQuantity(${item.id})">-</button>
-              <span class="quantity" id="quantity_${item.id}">${item.quantity}</span>
-              <button class="quantity-button increase" onclick="increaseQuantity(${item.id})">+</button>
-            </div>
-          </td>
-          <td id="new_price_${item.id}">${item.newPrice}</td>
-          <td class="total-price" id="total_price_${item.id}">${item.totalPrice}</td>
-          <td><i class="fa-regular fa-trash-can" onclick="deleteItem(${item.id})"></i></td> 
-          <td><input type="checkbox" class="custom-checkbox" data-itemid="${item.id}" onchange="calculateTotalPrice()"></td>
-        </tr>      
-        `;
+          </div>
+        </td>
+        <td>
+          <div class="quantity-container">
+            <button class="quantity-button decrease" onclick="decreaseQuantity(${item.id})">-</button>
+            <span class="quantity" id="quantity_${item.id}">${item.quantity}</span>
+            <button class="quantity-button increase" onclick="increaseQuantity(${item.id})">+</button>
+          </div>
+        </td>
+        <td id="new_price_${item.id}">${item.newPrice}</td>
+        <td class="total-price" id="total_price_${item.id}">${item.totalPrice}</td>
+        <td><i class="fa-regular fa-trash-can" onclick="deleteItem(${item.id})"></i></td>
+        <td><input type="checkbox" class="custom-checkbox" data-itemid="${item.id}" onchange="calculateTotalPrice()"></td>
+      `;
+    
+      tableCart.appendChild(newRow);
+    
       totalPrice += item.totalPrice;
       totalItems++;
     });
-
-    document.getElementById("totalItems").textContent = totalItems;
-    document.getElementById("allTotalPrice").textContent =
-      "Total Price: " + totalPrice + " VND";
+    
   });
 // Hàm để cập nhật giá tổng
 function updateTotalPrice(itemId, quantity) {

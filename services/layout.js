@@ -43,6 +43,12 @@ window.onload = function () {
           <li><a href="/page/order/order_list/order_list.html">Order Management</a></li>
         </ul>
       </li>
+      <li class="ul_li">
+      <input type="checkbox" id="dark-mode" class="input" />
+    <label for="dark-mode" class="label">
+      <div class="circle"></div>
+    </label>
+    <script src="index.js"></script></li>
       <li class="navbar__li--mobile" id="login"><a href="/page/login/login.html"><button>Login</button></a></li>
       <li class="navbar__li--mobile">
         <div class="border2">
@@ -63,6 +69,7 @@ window.onload = function () {
   </nav>
 </div>
     `;
+    
 
   document.body.insertBefore(header, document.body.firstChild);
   document.getElementById("log_out").style.display = "none";
@@ -318,6 +325,7 @@ window.onload = function () {
       signUpElement.style.display = "none";
     }
   }
+  dark_light()
 };
 
 function logout() {
@@ -363,4 +371,34 @@ function closeNav() {
     document.getElementById("opacity").style.display = "none";
     document.getElementById("open_sideBar").style.opacity = 1;
   }, 10);
+}
+function dark_light(){
+  const inputEl = document.querySelector(".input");
+
+  const bodyEl = document.querySelector("html");
+  
+  inputEl.checked = JSON.parse(localStorage.getItem("mode"));
+  
+  updateBody();
+  
+  function updateBody() {
+    if (inputEl.checked) {
+      bodyEl.style.background = "rgb(88, 22, 22)";
+      bodyEl.style.color = "white";
+    } else {
+      bodyEl.style.background = "white";
+      bodyEl.style.color = "black";
+
+    }
+  }
+  
+  inputEl.addEventListener("input", () => {
+    updateBody();
+    updateLocalStorage();
+  });
+  
+  function updateLocalStorage() {
+    localStorage.setItem("mode", JSON.stringify(inputEl.checked));
+  }
+  
 }

@@ -172,14 +172,6 @@ function addToCart(id) {
     alert("Khách hàng chưa đăng nhập");
   }
 
-  var existingItem = cartItems.find(
-    (item) => item.id === id && item.userId === userId
-  );
-
-  if (existingItem) {
-    alert("Sản phẩm đã tồn tại trong giỏ hàng");
-    return;
-  }
   console.log(productId,"id2222")
 
   fetch(`http://localhost:3000/products/${id}`)
@@ -188,6 +180,7 @@ function addToCart(id) {
       var quantity = document.getElementById("input__qty").value;
 
       const cartItem = {
+        id : productId,
         userId: userId,
         name: productData.name,
         oldPrice: productData.oldPrice,
@@ -294,3 +287,19 @@ function addComment() {
   // Xóa nội dung trong textarea sau khi comment được thêm
   document.getElementById("comment-input").value = "";
 }
+
+
+
+function change_color_btn(){
+  const btnEl = document.querySelector(".btn");
+
+  btnEl.addEventListener("mouseover", (event) => {
+    const x = event.pageX - btnEl.offsetLeft;
+    const y = event.pageY - btnEl.offsetTop;
+  
+    btnEl.style.setProperty("--xPos", x + "px");
+    btnEl.style.setProperty("--yPos", y + "px");
+  });
+}
+
+change_color_btn();

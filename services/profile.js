@@ -63,6 +63,12 @@ function updateData() {
   updateBtn.style.display = "none";
 }
 
+
+function hashPassword(password) {
+  const hashedPassword = CryptoJS.SHA256(password).toString();
+  return hashedPassword;
+}
+
 function fetch_cus() {
   if (userData.roleId == 1) {
     fetch(`http://localhost:3000/users/${userData?.id}`)
@@ -73,7 +79,7 @@ function fetch_cus() {
         document.getElementById("show_name").value = customer.name;
         document.getElementById("show_email").value = customer.email;
         document.getElementById("show_phone").value = customer.phoneNumber;
-        document.getElementById("show_password").value = customer.password;
+        document.getElementById("show_password").value = hashPassword(customer.password);
         document.getElementById("show_address").value = customer.address;
         document.getElementById("update").style.display = "none";
       });
@@ -86,7 +92,7 @@ function fetch_cus() {
         document.getElementById("show_name").value = customer.name;
         document.getElementById("show_email").value = customer.email;
         document.getElementById("show_phone").value = customer.phoneNumber;
-        document.getElementById("show_password").value = customer.password;
+        document.getElementById("show_password").value = hashPassword(customer.password);
         document.getElementById("show_address").value = customer.address;
         document.getElementById("update").style.display = "none";
       });
@@ -134,4 +140,16 @@ function uploadFile() {
   if (file) {
     reader.readAsDataURL(file);
   }
+}
+
+
+const bgImageEl = document.getElementById("bg-image");
+
+window.addEventListener("scroll", () => {
+  updateImage();
+});
+
+function updateImage() {
+  bgImageEl.style.opacity = 1 - window.pageYOffset / 900;
+  bgImageEl.style.backgroundSize = 160 - window.pageYOffset / 12 + "%";
 }

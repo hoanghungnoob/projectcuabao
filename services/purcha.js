@@ -13,33 +13,42 @@ function getUserData() {
 
   return userData;
 }
+const user_id = getUserData().id;
 
-const listContainer = document.querySelector("#container_purcha");
+
 async function fetchData() {
   try {
+    // Fetch customer data
+    const customerResponse = await fetch(`http://localhost:3000/users/${user_id}`);
+    const customerData = await customerResponse.json();
+
+    // Fetch order data
     const orderResponse = await fetch("http://localhost:3000/orders");
     const orderData = await orderResponse.json();
-
-    const orderedProducts = orderData.filter(
-      (order) => Number(order.customerId) === Number(getUserData()?.id)
-    );
-
-    orderedProducts.filter((product) => Number(product.id) === Number());
+    console.log(orderData,"odsdfs")
 
     // Fetch product data
     const productResponse = await fetch("http://localhost:3000/products");
     const productData = await productResponse.json();
 
-    const productList = productData.filter(
-      ({ id: id1 }) => !orderedProducts.some(({ id: id2 }) => id2 === id1)
-    );
+    // Filter orders for the customer
+    const orderedProducts = orderData.filter((order) => order.customerId == user_id);
+    console.log(orderedProducts,"qunr")
 
     let data = "";
+    orderedProducts.forEach((order) => {
 
-    productList.forEach((product) => {
-      data += `<a target="_self" id="card" href="/page/product/ProductDetail/ProductDetail.html?id=${
-        product.id
-      }">
+      order.productId.forEach((id) => {
+
+          const product = productData.find((product) => product.id == id);
+    
+
+          if (product) {
+            console.log(product.quantity,"hello")
+
+            data += `
+
+            <a target="_self" id="card" href="/page/product/ProductDetail/ProductDetail.html?id=${product.id}">
               <div class="card_product">
                 <div class="card_product_img">
                   <img id="img_product" src="${product.image1}">
@@ -47,31 +56,32 @@ async function fetchData() {
                 <div class="content_product">
                   <h1 id="product__name">${product.name}</h1>
                   <p id="describe">${product.description}</p>
-                  <p>x${product.quantity}</p>
+                  <p>x${order.quantity}</p>
                   <div class="prices">
                     <p class="price" id="old__price">${product.oldPrice} VND</p>
                     <p id="new__price">${product.newPrice} VND</p>
                   </div>
                   <div class="d-flex justify-content-between align-items-center">
-                    <p id="total_product">Total: ${
-                      product.quantity * product.newPrice
-                    } VND</p>
+                    <p id="total_product">Total: ${order.quantity * product.newPrice} VND</p>
                     <div class="buttons">
-                      <button id="product__btn__buy" class="btn btn_buy_qtt btn-small" type="button" onclick="redirectToOrderPage(${
-                        product.id
-                      })">Buy again</button>
-                      <button id="product__btn__detail" class="btn btn_detail_qtt btn-small" type="button" onclick="rederectDetailPage(${
-                        product.id
-                      })">Product detail</button>
+                      <button id="product__btn__buy" class="btn btn_buy_qtt btn-small" type="button" onclick="redirectToOrderPage(${product.id})">Buy again</button>
+                      <button id="product__btn__detail" class="btn btn_detail_qtt btn-small" type="button" onclick="rederectDetailPage(${product.id})">Product detail</button>
                     </div>
                   </div>
                 </div>
               </div>
               </a>
             `;
+          }
+      })
+      
+
+
     });
 
-    listContainer.innerHTML = data;
+
+    const container = document.querySelector("#container_purcha");
+    container.innerHTML = data;
   } catch (error) {
     console.error(error);
   }
@@ -86,19 +96,17 @@ function rederectDetailPage(id) {
 
 async function detailProduct() {
   try {
-    const urlParams = new URLSearchParams(window.location.search);
-    const id = urlParams.get("id");
+    const urlParams = new URLSearchParams(window.location.search)
+    const id=urlParams.get('id')
+
 
     if (id) {
-      const productResponse = await fetch(
-        `http://localhost:3000/products/${id}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const productResponse = await fetch(`http://localhost:3000/products/${id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (productResponse) {
         const details = await productResponse.json();
@@ -149,31 +157,33 @@ async function detailProduct() {
                   </div>
               </div>
               <div class="btn__buy">
-              <button id="product__btn__add" class="btn_add_qtt" type="button" onclick="addToCart(${id})">
-              <img src="/images/img_icon/icon shoping cart.svg" alt="">
-              Add to Cart
-          </button>
+                  <button id="product__btn__add" class="btn_add_qtt" type="button" onclick="addToCart()">
+                      <img src="/images/img_icon/icon shoping cart.svg" alt="">
+                      Add to Cart
+                  </button>
                   <button id="product__btn__buy" class="btn_add_qtt" type="button" onclick="buy(${id})">Buy</button>
               </div>
           </div>
-          `;
-      } else {
-        console.log("Item not found");
+          `
+      }else{
+          console.log("Item not found");
       }
-    } else {
-      console.log("Id not found");
-    }
-  } catch (error) {}
+      }else{
+          console.log("Id not found");
+      }
+
+  } catch (error) {
+  }
 }
 
 document.addEventListener("DOMContentLoaded", detailProduct);
 
 function buy(productId) {
   var quantity = document.getElementById("input__qty").value;
-  var orderUrl =
-    "/page/order/order.html?id=" + productId + "&quantity=" + quantity;
+  var orderUrl = "/page/order/order.html?id=" + productId + "&quantity=" + quantity;
   window.location.href = orderUrl;
 }
 function redirectToOrderPage(productId) {
   window.location.href = `/page/order/order.html?id=${productId}`;
+
 }

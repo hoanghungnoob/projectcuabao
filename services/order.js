@@ -191,7 +191,6 @@ function getDataFormOrder() {
   return data;
 }
 getDataFormOrder();
-
 function placeOrder() {
   if (userIdentity.id) {
     var data = getDataFormOrder();
@@ -209,7 +208,7 @@ function placeOrder() {
       return;
     }
 
-    // Gửi dữ liệu đi
+    // Send data
     fetch("http://localhost:3000/orders", {
       method: "POST",
       headers: {
@@ -218,19 +217,21 @@ function placeOrder() {
       body: JSON.stringify(data),
     })
       .then((response) => response.json())
-      .then(() => {
-        // Hiển thị thông báo thành công
-        Swal.fire({
-          icon: "success",
-          title: "Đơn hàng của bạn đã được gửi thành công!",
-          showConfirmButton: true,
-        });
+      .then((order) => {
+        // Show bill
+        document.getElementById("bill").style.display = "block";
+
+        // Update bill content
+        updateBill(order);
+
+        // Print and save the bill
+        printBill(order);
       })
       .catch((error) => {
-        // Xử lý lỗi nếu có
+        // Handle error if needed
       });
 
-    // date time
+    // Get current time
     var date__order = "";
     function getCurrentTime() {
       var currentDate = new Date();
@@ -238,7 +239,7 @@ function placeOrder() {
       var month = currentDate.getMonth() + 1;
       var day = currentDate.getDate();
 
-      // Định dạng lại đối tượng thời gian
+      // Format the time object
       if (month < 10) {
         month = "0" + month;
       }
@@ -253,11 +254,36 @@ function placeOrder() {
 
     getCurrentTime();
   } else {
-    // Không có userId trong LocalStorage
+    // No userId in LocalStorage
     alert("Bạn phải đăng nhập!");
   }
 }
 
+function updateBill(order) {
+  const billElement = document.getElementById("bill");
+  billElement.innerHTML = `
+    <h2>Bill</h2>
+    <p>Order ID: ${order.id}</p>
+    <p>Name: ${order.name}</p>
+    <p>Email: ${order.email}</p>
+    <p>Phone Number: ${order.phoneNumber}</p>
+    <p>Address: ${order.address}</p>
+    <p>Province: ${order.province}</p>
+    <p>District: ${order.district}</p>
+    <p>Quantity: ${order.quantity}</p>
+    <p>Date: ${order.date}</p>
+    <p>Total Price: ${order.totalPrice} VND</p>
+  `;
+}
+
+function printBill(order) {
+  const doc = new jsPDF();
+
+  const billContent = document.getElementById("bill").innerHTML;
+  doc.text(billContent, 10, 10);
+
+  doc.save("bill.pdf");
+}
 
 // Xử lý sự kiện thay đổi Local Storage
 // Lấy dữ liệu từ Local Storage
