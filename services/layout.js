@@ -375,7 +375,7 @@ function closeNav() {
 function dark_light(){
   const inputEl = document.querySelector(".input");
 
-  const bodyEl = document.querySelector("html");
+  const bodyEl = document.querySelector("#content");
   
   inputEl.checked = JSON.parse(localStorage.getItem("mode"));
   

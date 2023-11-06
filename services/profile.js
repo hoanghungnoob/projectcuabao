@@ -1,7 +1,20 @@
 function goBack() {
   window.history.back();
 }
+function viewMore() {
+  document.getElementById('list_order').style.height = "auto";
+  document.getElementById('hide_list').style.display = "block";
+  document.getElementById('view_more').style.display = "none";
+}
+document.getElementById('hide_list').style.display = "none";
 
+function hideListOrder() {
+  document.getElementById('list_order').style.height = "300px";
+  document.getElementById('list_order').style.overflow = "hidden";
+
+  document.getElementById('hide_list').style.display = "none";
+  document.getElementById('view_more').style.display = "block";
+}
 function getUserData() {
   let userData;
   const hashKey = "Abcd123@";
@@ -94,7 +107,7 @@ function fetch_cus() {
         document.getElementById("show_phone").value = customer.phoneNumber;
         document.getElementById("show_password").value = hashPassword(customer.password);
         document.getElementById("show_address").value = customer.address;
-        document.getElementById("update").style.display = "none";
+        // document.getElementById("update").style.display = "none";
       });
   }
 }
@@ -153,3 +166,66 @@ function updateImage() {
   bgImageEl.style.opacity = 1 - window.pageYOffset / 900;
   bgImageEl.style.backgroundSize = 160 - window.pageYOffset / 12 + "%";
 }
+
+function getUserData1() {
+  let userData;
+  const hashKey = "Abcd123@";
+  const token = localStorage.getItem("token");
+
+  const decryptedUserInfo = CryptoJS.AES.decrypt(token, hashKey).toString(
+    CryptoJS.enc.Utf8
+  );
+
+  if (decryptedUserInfo) {
+    userData = JSON.parse(decryptedUserInfo);
+  }
+
+  return userData;
+}
+const user_id = getUserData1().id;
+
+  async function getOrder() {
+    const listOrderElement = document.getElementById("list_order");
+
+    try {
+      // Fetch order data
+      const customerResponse = await fetch(`http://localhost:3000/users/${user_id}`);
+      const customerData = await customerResponse.json();
+
+      // Fetch order data
+      const orderResponse = await fetch("http://localhost:3000/orders");
+      const orderData = await orderResponse.json();
+      console.log(orderData,"odsdfs")
+
+      // Fetch product data
+      const productResponse = await fetch("http://localhost:3000/products");
+      const productData = await productResponse.json();
+
+      // Filter orders for the customer
+      const orderedProducts = orderData.filter((order) => order.customerId == user_id);
+      console.log(orderedProducts,"qunr")
+      let data = "";
+      orderedProducts.forEach((order) => {
+        order.productId.forEach((productId) => {
+          const product = productData.find((product) => product.id == productId);
+
+          if (product) {
+            data += `
+              <li>
+                <h2>Product: ${product.name}</h2>
+                <p>Quantity: ${order.quantity}</p>
+                <p>Price per unit: ${product.newPrice} VND</p>
+                <p>Total: ${order.quantity * product.newPrice} VND</p>
+              </li>
+            `;
+          }
+        });
+      });
+  console.log(data,"=============data")
+      listOrderElement.innerHTML = data;
+    } catch (error) {
+      console.log(data);
+    }
+  }
+
+  getOrder();

@@ -21,15 +21,7 @@ fetch("http://localhost:3000/products")
     </a>
     <div class="descriptiom_and_btn">
         <p>${product.description}</p>
-        <div class="icon-container">
-       
-        <button class="icon-btn" id="btn_favorite">
-          <i class="fas fa-heart"></i>
-      </button>
-            <button id="btn_buy"   onclick="redirectToOrderPage(${product.id})">
-                <i id="icon_cart" class="fas fa-shopping-cart"></i>Buy
-            </button>
-        </div>
+        
     </div>
 </div>
                     `;

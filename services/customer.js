@@ -23,8 +23,7 @@ function fetchCustomers() {
 }
 
 fetchCustomers();
-
-function createCustomer() {
+async function createCustomer() {
   const name = document.getElementById("name").value;
   const password = document.getElementById("password").value;
   const phone = document.getElementById("phone").value;
@@ -32,7 +31,7 @@ function createCustomer() {
   const roleId = document.getElementById("role_id").value;
   const address = document.getElementById("address").value;
 
-  const users = {
+  const user = {
     name: name,
     password: password,
     phoneNumber: phone,
@@ -40,26 +39,26 @@ function createCustomer() {
     roleId: parseInt(roleId),
     address: address,
   };
-
-  fetch("http://localhost:3000/users", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(users),
-  })
-    .then((response) => {
-      if (response.ok) {
-        Swal.fire("Thêm khách hàng thành công!", "", "success");
-      } else {
-        Swal.fire("Thêm khách hàng thất bại!", "", "error");
-      }
-    })
-    .catch((error) => {
-      Swal.fire("Lỗi", "Đã xảy ra lỗi khi thêm khách hàng", "error");
+console.log(user,"'user")
+  try {
+    const response = await fetch("http://localhost:3000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
     });
-}
 
+    if (response.ok) {
+      fetchCustomers();
+      alert("Success");
+    } else {
+      alert("Error");
+    }
+  } catch (error) {
+    alert("Error");
+  }
+}
 function delete_customer(id) {
   Swal.fire({
     title: "Xác nhận xóa",
@@ -156,16 +155,18 @@ function update_customer(id) {
     });
 }
 
+const customerForm = document.getElementById('cusForm');
 customerForm.addEventListener("submit", function (event) {
   event.preventDefault();
-
+  
   const submitButton = document.getElementById("sub");
+  console.log(submitButton.innerHTML)
 
   if (submitButton.innerHTML === "Create") {
     createCustomer();
   } else if (submitButton.innerHTML === "Update") {
     const customerId = submitButton.getAttribute("data-id");
-    updateCustomer(customerId);
+    update_customer(customerId);
   }
 });
 

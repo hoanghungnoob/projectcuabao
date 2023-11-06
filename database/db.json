@@ -23,15 +23,6 @@
       "id": 1
     },
     {
-      "roleId": 2,
-      "password": "12345",
-      "phoneNumber": "0397208231",
-      "email": "bao.pham25@student.passerellesnumeriques.org",
-      "address": "Lang Cat village Mo O commune Dakrong district Quang Tri province",
-      "avatar": "http://127.0.0.1:5500/images/img_icon/avata_admin.jpg",
-      "id": 1
-    },
-    {
       "name": "Dinh Thi Duyen12",
       "phoneNumber": "0123432888",
       "email": "duyen.ho25@student.com",
@@ -42,14 +33,13 @@
       "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92"
     },
     {
-      "id": 11,
-      "name": "Le Van Thao",
+      "name": "Le Van Tha12",
+      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
       "phoneNumber": "0124782999",
-      "avatar": "/images/img_icon/user-removebg-preview.png",
-      "address": "101B Le Huu Trac Son Tra district Da Nang city",
-      "roleId": 2,
       "email": "thao.ho25@student.com",
-      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92"
+      "role_id": 2,
+      "address": "101B Le Huu Trac Son Tra district Da Nang city",
+      "id": 11
     },
     {
       "name": "Ho Mai Huyen",
@@ -93,20 +83,22 @@
     },
     {
       "name": "Baopham122132",
-      "password": "1222323",
+      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
       "phoneNumber": "0845042466",
       "email": "phamthithieu@gmail.com",
+      "avatar": "/images/img_icon/user-removebg-preview.png",
       "roleId": 2,
       "address": "phuc trạch",
       "id": 18
     },
     {
-      "name": "sdada",
+      "name": "Ho Thi Nguyen thiqq111",
+      "password": "1234",
+      "phoneNumber": "0845042466",
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "role_id": 2,
+      "address": "phuc trạch",
       "id": 19
-    },
-    {
-      "name": "dsadsad",
-      "id": 20
     }
   ],
   "products": [
@@ -232,25 +224,6 @@
       "name": "phamgiabao",
       "customerId": "16",
       "productId": [
-        "3",
-        "4",
-        "2"
-      ],
-      "email": "bao.pham25@student.passerellesnumeriques.org",
-      "phoneNumber": "0845042466",
-      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
-      "province": "26",
-      "district": "243",
-      "productName": "Americanosasasa",
-      "productPrice": "13500",
-      "quantity": "1",
-      "totalPrice": "91500 VND",
-      "id": 1
-    },
-    {
-      "name": "phamgiabao",
-      "customerId": "16",
-      "productId": [
         "10"
       ],
       "email": "bao.pham25@student.passerellesnumeriques.org",
@@ -285,24 +258,6 @@
       "name": "phamgiabao",
       "customerId": "16",
       "productId": [
-        "3",
-        "4"
-      ],
-      "email": "bao.pham25@student.passerellesnumeriques.org",
-      "phoneNumber": "0845042466",
-      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
-      "province": "04",
-      "district": "040",
-      "productName": "Espresso",
-      "productPrice": "28000",
-      "quantity": "1",
-      "totalPrice": "78000 VND",
-      "id": 4
-    },
-    {
-      "name": "phamgiabao",
-      "customerId": "16",
-      "productId": [
         "3"
       ],
       "email": "bao.pham25@student.passerellesnumeriques.org",
@@ -315,6 +270,199 @@
       "quantity": "1",
       "totalPrice": "28000 VND",
       "id": 5
+    },
+    {
+      "name": "phamgiabao",
+      "customerId": "16",
+      "productId": [
+        "10",
+        "2"
+      ],
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "26",
+      "district": "243",
+      "productName": "Americanosasasa",
+      "productPrice": "13500",
+      "quantity": "1",
+      "totalPrice": "91500 VND",
+      "id": 6
+    },
+    {
+      "name": "phamgiabao",
+      "customerId": "16",
+      "productId": [
+        "3"
+      ],
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "22",
+      "district": "193",
+      "productName": "Espresso",
+      "productPrice": "28000",
+      "quantity": "1",
+      "totalPrice": "28000 VND",
+      "id": 7
+    },
+    {
+      "name": "phamgiabao",
+      "customerId": "16",
+      "productId": [
+        "3",
+        "4"
+      ],
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "26",
+      "district": "243",
+      "productName": "Espresso",
+      "productPrice": "28000",
+      "quantity": "1",
+      "totalPrice": "78000 VND",
+      "id": 8
+    },
+    {
+      "name": "phamgiabao",
+      "customerId": "16",
+      "productId": [
+        "3"
+      ],
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "27",
+      "district": "256",
+      "productName": "Espresso",
+      "productPrice": "28000",
+      "quantity": "1",
+      "totalPrice": "28000 VND",
+      "id": 9
+    },
+    {
+      "name": "phamgiabao",
+      "customerId": "16",
+      "productId": [
+        "3"
+      ],
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "04",
+      "district": "040",
+      "productName": "Espresso",
+      "productPrice": "28000 VND",
+      "quantity": "2",
+      "totalPrice": "56000 VND",
+      "id": 10
+    },
+    {
+      "name": "phamgiabao",
+      "customerId": "16",
+      "productId": [
+        "4"
+      ],
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "26",
+      "district": "243",
+      "productName": "Latte1",
+      "productPrice": "50000 VND",
+      "quantity": "1",
+      "totalPrice": "50000 VND",
+      "id": 11
+    },
+    {
+      "name": "phamgiabao",
+      "customerId": "16",
+      "productId": [
+        "3"
+      ],
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "15",
+      "district": "137",
+      "productName": "Espresso",
+      "productPrice": "28000",
+      "quantity": "1",
+      "totalPrice": "28000 VND",
+      "id": 12
+    },
+    {
+      "name": "phamgiabao",
+      "customerId": "16",
+      "productId": [
+        "3",
+        "4",
+        "2"
+      ],
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "14",
+      "district": "116",
+      "productName": "Americanosasasa",
+      "productPrice": "13500",
+      "quantity": "1",
+      "totalPrice": "91500 VND",
+      "id": 13
+    },
+    {
+      "name": "phamgiabao",
+      "customerId": "16",
+      "productId": [
+        "3",
+        "4",
+        "2"
+      ],
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "06",
+      "district": "058",
+      "productName": "Americanosasasa",
+      "productPrice": "13500",
+      "quantity": "1",
+      "totalPrice": "91500",
+      "id": 14
+    },
+    {
+      "name": "phamgiabao",
+      "customerId": "16",
+      "productId": [
+        "3"
+      ],
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "04",
+      "district": "040",
+      "productName": "Espresso",
+      "productPrice": "28000",
+      "quantity": "1",
+      "totalPrice": "28000",
+      "id": 15
+    },
+    {
+      "name": "phamgiabao",
+      "customerId": "16",
+      "productId": [
+        "3"
+      ],
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "02",
+      "district": "024",
+      "productName": "Espresso",
+      "productPrice": "28000",
+      "quantity": "1",
+      "totalPrice": "28000",
+      "id": 16
     }
   ],
   "contacts": [
@@ -2674,6 +2822,19 @@
       "image2": "/images/img_product/Red Eye2.png",
       "image3": "/images/img_product/Red Eye3.png",
       "totalPrice": 78000
+    },
+    {
+      "id": "8",
+      "userId": 16,
+      "name": "Macchiato",
+      "oldPrice": 60000,
+      "newPrice": 58000,
+      "quantity": "3",
+      "description": "A coffee based on the perfect combination of coffee, milk tea, goat tea with a layer of rich cream. Macchiato has the characteristic fatty taste of milk mixed with a slightly sweet or slightly salty taste depending on the recipe of the drink maker.",
+      "image1": "/images/img_product/Macchiato1.jpg",
+      "image2": "/images/img_product/Macchiato2.jpg",
+      "image3": "/images/img_product/Macchiato3.jpg",
+      "totalPrice": 174000
     }
   ]
 }

@@ -190,6 +190,7 @@ function getDataFormOrder() {
 
   return data;
 }
+
 getDataFormOrder();
 function placeOrder() {
   if (userIdentity.id) {
@@ -218,14 +219,7 @@ function placeOrder() {
     })
       .then((response) => response.json())
       .then((order) => {
-        // Show bill
-        document.getElementById("bill").style.display = "block";
-
-        // Update bill content
-        updateBill(order);
-
-        // Print and save the bill
-        printBill(order);
+          alert("Succsess !!")
       })
       .catch((error) => {
         // Handle error if needed
@@ -259,32 +253,6 @@ function placeOrder() {
   }
 }
 
-function updateBill(order) {
-  const billElement = document.getElementById("bill");
-  billElement.innerHTML = `
-    <h2>Bill</h2>
-    <p>Order ID: ${order.id}</p>
-    <p>Name: ${order.name}</p>
-    <p>Email: ${order.email}</p>
-    <p>Phone Number: ${order.phoneNumber}</p>
-    <p>Address: ${order.address}</p>
-    <p>Province: ${order.province}</p>
-    <p>District: ${order.district}</p>
-    <p>Quantity: ${order.quantity}</p>
-    <p>Date: ${order.date}</p>
-    <p>Total Price: ${order.totalPrice} VND</p>
-  `;
-}
-
-function printBill(order) {
-  const doc = new jsPDF();
-
-  const billContent = document.getElementById("bill").innerHTML;
-  doc.text(billContent, 10, 10);
-
-  doc.save("bill.pdf");
-}
-
 // Xử lý sự kiện thay đổi Local Storage
 // Lấy dữ liệu từ Local Storage
 var selectedQuantities = JSON.parse(localStorage.getItem('selectedQuantities'));
@@ -312,11 +280,10 @@ window.addEventListener('beforeunload', () => {
   localStorage.removeItem('selectedQuantities');
   localStorage.removeItem('selectedIds');
 });
-
-// Cập nhật lại giao diện đơn hàng
 function updateOrderPage() {
   const productOrderElement = document.getElementById('product__order1');
   const totalPriceElement = document.getElementById('price__order');
+  const qrCodeElement = document.getElementById('qrcode-payment');
   let productsHTML = '';
   let totalPrice = 0;
 
@@ -344,15 +311,76 @@ function updateOrderPage() {
           }
         });
       });
+      var qrcode = new QRCode(document.getElementById("qrcode"), {
+        width : 100,
+        height : 100,
+        useSVG: true
+    });
 
+   // Ẩn hiện mã QR code dựa trên phương thức thanh toán MoMo
+var qrCodeElement = document.getElementById('qrcode');
+qrCodeElement.style.display = 'none';
+
+var momoPaymentRadio = document.getElementById('payment-method-momo');
+var momoPaymentRadio2 = document.getElementById('payment-method-cod');
+
+momoPaymentRadio.addEventListener('change', function() {
+  if (momoPaymentRadio.checked) {
+    qrCodeElement.style.display = 'block';
+  } else {
+    qrCodeElement.style.display = 'none';
+  }
+  if (momoPaymentRadio2.checked){
+    qrCodeElement.style.display = 'none';
+     
+  }
+});
+momoPaymentRadio2.addEventListener('change', function() {
+  if (momoPaymentRadio.checked) {
+    qrCodeElement.style.display = 'block';
+  } else {
+    qrCodeElement.style.display = 'none';
+  }
+  if (momoPaymentRadio2.checked){
+    qrCodeElement.style.display = 'none';
+     
+  }
+});
       // Thêm các sản phẩm vào phần tử HTML có id là "product__order"
       productOrderElement.innerHTML = productsHTML;
 
       // Hiển thị tổng số tiền
-      totalPriceElement.textContent = `${totalPrice} VND`;
-    });
+      totalPriceElement.textContent = `${totalPrice}`;
+   
+    const total = document.getElementById('text1').value = totalPriceElement.textContent;
+    document.getElementById('text1').style.display = "none";
+    function makeCode () {		
+        var elText = document.getElementById("text1");
+  
+        if (!elText.value) {
+            alert("Input a text");
+            elText.focus();
+            return;
+        }
+  
+        qrcode.makeCode(elText.value);
+    }
+  
+    makeCode();
+  
+    $("#text1").
+        on("blur", function () {
+            makeCode();
+        }).
+        on("keydown", function (e) {
+            if (e.keyCode == 13) {
+                makeCode();
+            }
+        });
+  
+    
+  });
 }
-
 // Hàm lấy ngày giờ hiện tại
 function getDate() {
   const currentDate = new Date();
@@ -363,3 +391,4 @@ function getDate() {
 
 // Gọi hàm cập nhật giao diện ban đầu
 updateOrderPage();
+

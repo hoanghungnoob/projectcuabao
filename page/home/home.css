@@ -594,7 +594,7 @@ p {
 .descriptiom_and_btn p {
   height: 50px;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1097,7 +1097,7 @@ p {
 }
 
 
-.input {
+#dark-mode {
   visibility: hidden;
 }
 
