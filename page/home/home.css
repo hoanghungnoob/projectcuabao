@@ -99,7 +99,7 @@ p {
 
 .retangle {
   width: 80%;
-  height: 550px;
+  height: 440px;
   border-radius: 10px;
   overflow: hidden;
   margin: 0 auto;
@@ -536,7 +536,7 @@ p {
 
 .product {
   width: 95%;
-  height: 450px;
+  height: 350px;
   margin: 30px;
   margin-bottom: 20px;
   border-radius: 10px;

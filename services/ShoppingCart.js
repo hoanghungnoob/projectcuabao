@@ -16,7 +16,7 @@ function getUserData() {
 
 const tableCart = document.getElementById("tableCart");
 
-fetch("http://localhost:3000/carts")
+fetch("https://coffee-web-api-dkrq.onrender.com/carts")
   .then((response) => response.json())
   .then((data) => {
     const dataArray = Array.isArray(data) ? data : [data];
@@ -112,7 +112,7 @@ function updateCartItem(itemId, quantity) {
 
 function deleteItem(itemId) {
   // Gửi yêu cầu DELETE đến máy chủ
-  fetch(`http://localhost:3000/carts/${itemId}`, {
+  fetch(`https://coffee-web-api-dkrq.onrender.com/carts/${itemId}`, {
     method: "DELETE",
   })
     .then((response) => {

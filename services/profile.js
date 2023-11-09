@@ -84,7 +84,7 @@ function hashPassword(password) {
 
 function fetch_cus() {
   if (userData.roleId == 1) {
-    fetch(`http://localhost:3000/users/${userData?.id}`)
+    fetch(`https://coffee-web-api-dkrq.onrender.com/users/${userData?.id}`)
       .then((response) => response.json())
       .then((customer) => {
         document.getElementById("name_user1").innerHTML = customer.name;
@@ -97,7 +97,7 @@ function fetch_cus() {
         document.getElementById("update").style.display = "none";
       });
   } else {
-    fetch(`http://localhost:3000/users/${userData?.id}`)
+    fetch(`https://coffee-web-api-dkrq.onrender.com/users/${userData?.id}`)
       .then((response) => response.json())
       .then((customer) => {
         document.getElementById("name_user1").innerHTML = customer.name;
@@ -115,7 +115,7 @@ function fetch_cus() {
 fetch_cus();
 
 function update_cus(id, data) {
-  fetch(`http://localhost:3000/users/${id}`, {
+  fetch(`https://coffee-web-api-dkrq.onrender.com/users/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -125,7 +125,7 @@ function update_cus(id, data) {
     .then((response) => {
       if (response.ok) {
         Swal.fire("Cập nhật thành công", "", "success");
-        fetch("http://localhost:3000/users"); // Refresh the customer table
+        fetch("https://coffee-web-api-dkrq.onrender.com/users"); // Refresh the customer table
       } else {
         Swal.fire("Cập nhật thất bại", "", "error");
       }
@@ -188,16 +188,16 @@ async function getOrder() {
 
   try {
     // Fetch order data
-    const customerResponse = await fetch(`http://localhost:3000/users/${user_id}`);
+    const customerResponse = await fetch(`https://coffee-web-api-dkrq.onrender.com/users/${user_id}`);
     const customerData = await customerResponse.json();
 
     // Fetch order data
-    const orderResponse = await fetch("http://localhost:3000/orders");
+    const orderResponse = await fetch("https://coffee-web-api-dkrq.onrender.com/orders");
     const orderData = await orderResponse.json();
     console.log(orderData, "odsdfs");
 
     // Fetch product data
-    const productResponse = await fetch("http://localhost:3000/products");
+    const productResponse = await fetch("https://coffee-web-api-dkrq.onrender.com/products");
     const productData = await productResponse.json();
 
     // Filter orders for the customer

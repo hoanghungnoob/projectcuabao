@@ -3,7 +3,7 @@ if (!isLoggedIn) {
   window.location.href = "/page/login/login.html";
 }
 
-fetch("http://localhost:3000/products")
+fetch("https://coffee-web-api-dkrq.onrender.com/products")
   .then((res) => res.json())
   .then((data) => {
     const productList = data;
