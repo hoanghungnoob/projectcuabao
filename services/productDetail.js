@@ -29,7 +29,7 @@ idUser.addEventListener("click", function (event) {
 });
 
 function detail() {
-  fetch("http://localhost:3000/products")
+  fetch("https://coffee-web-api-dkrq.onrender.com/products")
     .then((res) => res.json())
     .then((data) => {
       const productHTML = data.map((product) => {
@@ -160,7 +160,7 @@ const userData = getUserData();
 var userId = userData.id;
 
 let cartItem = [];
-fetch(`http://localhost:3000/carts`)
+fetch(`https://coffee-web-api-dkrq.onrender.com/carts`)
   .then((response) => response.json())
   .then((productData) => {
     cartItems = cartItem.concat(productData);
@@ -174,7 +174,7 @@ function addToCart(id) {
 
   console.log(productId,"id2222")
 
-  fetch(`http://localhost:3000/products/${id}`)
+  fetch(`https://coffee-web-api-dkrq.onrender.com/products/${id}`)
     .then((response) => response.json())
     .then((productData) => {
       var quantity = document.getElementById("input__qty").value;
@@ -193,7 +193,7 @@ function addToCart(id) {
         totalPrice: Number(productData.newPrice) * Number(quantity),
       };
 
-      fetch("http://localhost:3000/carts", {
+      fetch("https://coffee-web-api-dkrq.onrender.com/carts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

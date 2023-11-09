@@ -19,16 +19,16 @@ const user_id = getUserData().id;
 async function fetchData() {
   try {
     // Fetch customer data
-    const customerResponse = await fetch(`http://localhost:3000/users/${user_id}`);
+    const customerResponse = await fetch(`https://coffee-web-api-dkrq.onrender.com/users/${user_id}`);
     const customerData = await customerResponse.json();
 
     // Fetch order data
-    const orderResponse = await fetch("http://localhost:3000/orders");
+    const orderResponse = await fetch("https://coffee-web-api-dkrq.onrender.com/orders");
     const orderData = await orderResponse.json();
     console.log(orderData,"odsdfs")
 
     // Fetch product data
-    const productResponse = await fetch("http://localhost:3000/products");
+    const productResponse = await fetch("https://coffee-web-api-dkrq.onrender.com/products");
     const productData = await productResponse.json();
 
     // Filter orders for the customer
@@ -101,7 +101,7 @@ async function detailProduct() {
 
 
     if (id) {
-      const productResponse = await fetch(`http://localhost:3000/products/${id}`, {
+      const productResponse = await fetch(`https://coffee-web-api-dkrq.onrender.com/products/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

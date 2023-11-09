@@ -94,13 +94,13 @@ window.onload = function () {
 
   function fetch_cus() {
     if (userData.roleId == 1) {
-      fetch(`http://localhost:3000/users/${userData.id}`)
+      fetch(`https://coffee-web-api-dkrq.onrender.com/users/${userData.id}`)
         .then((response) => response.json())
         .then((customer) => {
           document.getElementById("avatar_layout").src = customer.avatar;
         });
     } else {
-      fetch(`http://localhost:3000/users/${userData.id}`)
+      fetch(`https://coffee-web-api-dkrq.onrender.com/users/${userData.id}`)
         .then((response) => response.json())
         .then((customer) => {
           console.log(customer.avatar, "avata3333");
@@ -153,7 +153,7 @@ window.onload = function () {
   });
 
   function searchProductByName(searchTerm) {
-    fetch("http://localhost:3000/products")
+    fetch("https://coffee-web-api-dkrq.onrender.com/products")
       .then((response) => response.json())
       .then((data) => {
         const matchingSuggestions = data.filter(function (product) {
@@ -186,7 +186,7 @@ window.onload = function () {
     });
   }
   function displayProducts(searchTerm) {
-    fetch("http://localhost:3000/products")
+    fetch("https://coffee-web-api-dkrq.onrender.com/products")
       .then((response) => response.json())
       .then((data) => {
         const matchingProducts = data.filter(function (product) {

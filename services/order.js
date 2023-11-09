@@ -1,8 +1,8 @@
 //location
 const provinceSelect = document.getElementById("province__order");
 const districtSelect = document.getElementById("district__order");
-const provinceUrl = "http://localhost:3000/provinces";
-const districtUrl = "http://localhost:3000/districts";
+const provinceUrl = "https://coffee-web-api-dkrq.onrender.com/provinces";
+const districtUrl = "https://coffee-web-api-dkrq.onrender.com/districts";
 
 function getUserData() {
   let userData;
@@ -67,7 +67,7 @@ function product_order_detail() {
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get("id");
 
-  fetch("http://localhost:3000/products")
+  fetch("https://coffee-web-api-dkrq.onrender.com/products")
     .then((res) => res.json())
     .then((data) => {
       var product = false;
@@ -111,7 +111,7 @@ if (quantity_detail == null || quantity_detail == NaN) {
 
 function useCustomerData(customerId) {
   if (userIdentity?.roleId == 2) {
-    fetch(`http://localhost:3000/users?id=${customerId}`)
+    fetch(`https://coffee-web-api-dkrq.onrender.com/users?id=${customerId}`)
       .then((res) => res.json())
       .then((data) => {
         data.forEach((element) => {
@@ -126,7 +126,7 @@ function useCustomerData(customerId) {
       })
       .catch((error) => {});
   } else {
-    fetch(`http://localhost:3000/users?id=${customerId}`)
+    fetch(`https://coffee-web-api-dkrq.onrender.com/users?id=${customerId}`)
       .then((res) => res.json())
       .then((data) => {
         data.forEach((element) => {
@@ -210,7 +210,7 @@ function placeOrder() {
     }
 
     // Send data
-    fetch("http://localhost:3000/orders", {
+    fetch("https://coffee-web-api-dkrq.onrender.com/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -287,7 +287,7 @@ function updateOrderPage() {
   let productsHTML = '';
   let totalPrice = 0;
 
-  fetch("http://localhost:3000/products")
+  fetch("https://coffee-web-api-dkrq.onrender.com/products")
     .then((res) => res.json())
     .then((data) => {
       data.forEach((element) => {

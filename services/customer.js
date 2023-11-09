@@ -1,5 +1,5 @@
 function fetchCustomers() {
-  fetch("http://localhost:3000/users")
+  fetch("https://coffee-web-api-dkrq.onrender.com/users")
     .then((response) => response.json())
     .then((data) => {
       var listCustomerTable = document.getElementById("list_customer");
@@ -41,7 +41,7 @@ async function createCustomer() {
   };
 console.log(user,"'user")
   try {
-    const response = await fetch("http://localhost:3000/users", {
+    const response = await fetch("https://coffee-web-api-dkrq.onrender.com/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -71,7 +71,7 @@ function delete_customer(id) {
     cancelButtonColor: "rgb(220, 53, 69)",
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(`http://localhost:3000/users/${id}`, {
+      fetch(`https://coffee-web-api-dkrq.onrender.com/users/${id}`, {
         method: "DELETE",
       })
         .then(() => {
@@ -86,7 +86,7 @@ function delete_customer(id) {
 }
 
 function update_customer(id) {
-  fetch(`http://localhost:3000/users/${id}`)
+  fetch(`https://coffee-web-api-dkrq.onrender.com/users/${id}`)
     .then((response) => response.json())
     .then((users) => {
       document.getElementById("name").value = users.name;
@@ -96,7 +96,7 @@ function update_customer(id) {
       document.getElementById("role_id").value = users.roleId;
       document.getElementById("address").value = users.address;
 
-      fetch(`http://localhost:3000/users/${id}`)
+      fetch(`https://coffee-web-api-dkrq.onrender.com/users/${id}`)
         .then((response) => response.json())
         .then((customer) => {
           document.getElementById("name").value = customer.name;
@@ -125,7 +125,7 @@ function update_customer(id) {
               address: document.getElementById("address").value,
             };
 
-            fetch(`http://localhost:3000/users/${id}`, {
+            fetch(`https://coffee-web-api-dkrq.onrender.com/users/${id}`, {
               method: "PUT",
               headers: {
                 "Content-Type": "application/json",
@@ -135,7 +135,7 @@ function update_customer(id) {
               .then((response) => {
                 if (response.ok) {
                   Swal.fire("Cập nhật thành công", "", "success");
-                  fetch("http://localhost:3000/users"); // Refresh the customer table
+                  fetch("https://coffee-web-api-dkrq.onrender.com/users"); // Refresh the customer table
                 } else {
                   Swal.fire("Cập nhật thất bại", "", "error");
                 }

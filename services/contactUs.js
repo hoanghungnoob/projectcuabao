@@ -30,7 +30,7 @@ function saveUser() {
   const phoneCustomer = document.getElementById("phone").value;
   const messageCustomer = document.getElementById("message").value;
 
-  const url = `http://localhost:3000/contacts`;
+  const url = `https://coffee-web-api-dkrq.onrender.com/contacts`;
   const method = "POST";
   const data = {
     id_customer: userData.id,

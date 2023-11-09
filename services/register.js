@@ -48,7 +48,7 @@ document
       password: password,
     };
     localStorage.setItem("customer", JSON.stringify(customer));
-    fetch("http://localhost:3000/users", {
+    fetch("https://coffee-web-api-dkrq.onrender.com/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

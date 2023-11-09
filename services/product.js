@@ -1,5 +1,5 @@
 function fetchProducts() {
-  fetch("http://localhost:3000/products")
+  fetch("https://coffee-web-api-dkrq.onrender.com/products")
     .then((response) => response.json())
     .then((data) => {
       var list_product = document.getElementById("list_product");
@@ -90,7 +90,7 @@ function addProducts() {
     productReviews: 4,
   };
 
-  fetch("http://localhost:3000/products", {
+  fetch("https://coffee-web-api-dkrq.onrender.com/products", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -103,7 +103,7 @@ function addProducts() {
 }
 
 function deleteProduct(id) {
-  fetch(`http://localhost:3000/products/${id}`, {
+  fetch(`https://coffee-web-api-dkrq.onrender.com/products/${id}`, {
     method: "DELETE",
   })
     .then(() => {
@@ -121,7 +121,7 @@ function deleteProduct(id) {
 }
 function edit_product(id) {
   // Get the product by ID
-  fetch(`http://localhost:3000/products/${id}`)
+  fetch(`https://coffee-web-api-dkrq.onrender.com/products/${id}`)
     .then((response) => response.json())
     .then((product) => {
       console.log(product);
@@ -175,7 +175,7 @@ function edit_product(id) {
           image3: `/images/img_product/${imageFileName3}`,
         };
 
-        fetch(`http://localhost:3000/products/${updatedProduct.id}`, {
+        fetch(`https://coffee-web-api-dkrq.onrender.com/products/${updatedProduct.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -221,7 +221,7 @@ function decrement() {
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id");
 
-fetch("http://localhost:3000/products")
+fetch("https://coffee-web-api-dkrq.onrender.com/products")
   .then((res) => res.json())
   .then((data) => {
     var product = false;
