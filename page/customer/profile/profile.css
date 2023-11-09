@@ -3,6 +3,9 @@
   height: 100px !important;
   object-fit: cover;
 }
+body{
+   background-color: white;
+}
 #upload-input {
   /* border: none; */
   /* clip: rect(0, 0, 0, 1); */
@@ -12,13 +15,16 @@
   display: none;
   /* width: 1px; */
 }
+.card{
+   background-color: white;
+}
 iframe{
    border: 0;
 }
 #list_order{
    width: 100vw;
    height: 500px;
-   background-color: rgb(196, 196, 196);
+   background-color:  rgb(234, 234, 234);
    overflow: hidden;
 }
 #cusForm{
@@ -28,11 +34,11 @@ iframe{
   margin-top: 20px;
   padding: 10px;
   font-size: 10px;
-  color: rgb(4, 164, 138);
+  color: rgb(4, 164, 138) !important;
   border-radius: 5%;
   border: 1px solid rgb(4, 164, 138);
   background-color: transparent;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease !important;
 }
 #label_change_avatar:hover {
   background-color: rgb(234, 234, 234);
@@ -114,6 +120,7 @@ li {
   border: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 20px;
+  position: relative;
 }
 
 h2 {
@@ -164,7 +171,7 @@ p {
 }
 
 .btn-primary {
-  background-color: #007bff;
+  background-color: #1972d1;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -179,4 +186,20 @@ p {
 #list_order,.show_hide{
    width: 80vw;
    margin: 0 auto;
+}
+.row,.card ,.profile_box,.input_show{
+   background-color: rgb(255, 255, 255);
+  box-shadow: none;
+margin: 0;}
+  
+
+#view_bill{
+   border: 0;
+   background-color: rgb(254, 50, 50);
+   color:  white;
+
+   position: absolute;
+   top: 40px;
+   right: 10px;
+   cursor: pointer;
 }

@@ -97,7 +97,7 @@ function addProducts() {
     },
     body: JSON.stringify(data),
   }).then(() => {
-    Swal.fire("Cập nhật thành công", "", "success");
+    alert("Cập nhật thành công", "", "success")
     fetchProducts();
   });
 }

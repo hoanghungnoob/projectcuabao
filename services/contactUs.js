@@ -1,30 +1,44 @@
-function saveUser(event) {
-  event.preventDefault();
 
-  const userId = document.querySelector("#userId").value;
+function getUserData() {
+  let userData;
+  const hashKey = "Abcd123@";
+  const token = localStorage.getItem("token");
+
+  const decryptedUserInfo = CryptoJS.AES.decrypt(token, hashKey).toString(
+    CryptoJS.enc.Utf8
+  );
+
+  if (decryptedUserInfo) {
+    userData = JSON.parse(decryptedUserInfo);
+  }
+
+  return userData;
+}
+
+console.log(getUserData().id)
+function saveUser() {
+
+
+  const userData = getUserData();
+  if (!userData || !userData.id) {
+    // handle missing data
+    return;
+  }
+
   const nameCustomer = document.getElementById("name").value;
   const emailCustomer = document.getElementById("email").value;
   const phoneCustomer = document.getElementById("phone").value;
   const messageCustomer = document.getElementById("message").value;
 
-  const url = userId
-    ? `http://localhost:3000/contacts/${userId}`
-    : "http://localhost:3000/contacts";
-  const method = userId ? "PUT" : "POST";
+  const url = `http://localhost:3000/contacts`;
+  const method = "POST";
   const data = {
+    id_customer: userData.id,
     name: nameCustomer,
     phoneNumber: phoneCustomer,
     email: emailCustomer,
     message: messageCustomer,
   };
-
-  switch (userId) {
-    case value:
-      break;
-
-    default:
-      break;
-  }
 
   fetch(url, {
     method: method,
@@ -57,5 +71,3 @@ function saveUser(event) {
     });
 }
 
-const contactForm = document.getElementById("contactForm");
-contactForm.addEventListener("submit", saveUser);

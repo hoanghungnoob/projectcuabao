@@ -73,7 +73,7 @@
             <!-- /Breadcrumb -->
 
             <div class="row gutters-sm">
-                <div class="col-md-4 mb-3">
+                <div class="">
                     <div class="card">
                         <div class="card-body profile_box">
                             <div class="d-flex flex-column align-items-center text-center">
@@ -170,7 +170,20 @@
           <button id="view_more" onclick="viewMore()">View More</button>
         <button id="hide_list" onclick="hideListOrder()">Hide</button>
         </div>
-   
+   <!-- Modal -->
+  <div class="modal fade" id="billModal" tabindex="-1" role="dialog" aria-labelledby="billModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="billModalLabel">Product Bill</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="billModalBody"></div>
+      </div>
+    </div>
+  </div>
     
 
 <!-- The modal -->
@@ -215,5 +228,7 @@
     integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
     crossorigin="anonymous"
   ></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
   <script src="/services/profile.js"></script>
 </body>

@@ -30,7 +30,7 @@ window.onload = function () {
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <li class="ul_li"><a href="/page/home/home.html"><i class="fas fa-home"></i>Home</a></li>
       <li class="ul_li"><a href="/page/contact_us/contact_us.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
-      <li class="ul_li"><a href="/page/product/ShoppingCart/ShoppingCart.html"><i class="fas fa-shopping-cart"></i>Order</a></li>
+      <li class="ul_li"><a href="/page/product/ShoppingCart/ShoppingCart.html"><i class="fas fa-shopping-cart"></i></a></li>
       <li class="ul_li"><a href="/page/purcha_list/purcha_list.html"><i class="fas fa-history"></i>History</a></li>
      
       <li class="dropdown" id="management">
@@ -43,12 +43,7 @@ window.onload = function () {
           <li><a href="/page/order/order_list/order_list.html">Order Management</a></li>
         </ul>
       </li>
-      <li class="ul_li">
-      <input type="checkbox" id="dark-mode" class="input" />
-    <label for="dark-mode" class="label">
-      <div class="circle"></div>
-    </label>
-    <script src="index.js"></script></li>
+     
       <li class="navbar__li--mobile" id="login"><a href="/page/login/login.html"><button>Login</button></a></li>
       <li class="navbar__li--mobile">
         <div class="border2">

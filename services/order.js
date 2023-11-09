@@ -185,7 +185,7 @@ function getDataFormOrder() {
     productPrice: productPrice,
     quantity: quantity,
     totalPrice: totalPrice,
-    date: date,
+    date: getDate(),
   };
 
   return data;

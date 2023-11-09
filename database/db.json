@@ -64,11 +64,11 @@
     {
       "name": "phamgiabao",
       "roleId": 2,
-      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+      "password": "49dc52e6bf2abe5ef6e2bb5b0f1ee2d765b922ae6cc8b95d39dc06c21c848f8c",
       "phoneNumber": "0845042466",
       "email": "bao.pham25@student.passerellesnumeriques.org",
       "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
-      "avatar": "http://127.0.0.1:5500/images/img_icon/avatar_admin.jpg",
+      "avatar": "/images/img_icon/user-removebg-preview.png",
       "id": 16
     },
     {
@@ -78,7 +78,7 @@
       "email": "phamthithieu@gmail.com",
       "roleId": 2,
       "address": "phuc trạch",
-      "avatar": "http://127.0.0.1:5500/images/img_icon/avata_admin.jpg",
+      "avatar": "/images/img_icon/user-removebg-preview.png",
       "id": 17
     },
     {
@@ -97,8 +97,18 @@
       "phoneNumber": "0845042466",
       "email": "bao.pham25@student.passerellesnumeriques.org",
       "role_id": 2,
+      "avatar": "/images/img_icon/user-removebg-preview.png",
       "address": "phuc trạch",
       "id": 19
+    },
+    {
+      "name": "Baopham11111111111111111111111",
+      "password": "1234",
+      "phoneNumber": "1212212121",
+      "email": "bao.pham25@student.passerellesnumeriques.orgd",
+      "roleId": 2,
+      "address": "phuc tráchasasas",
+      "id": 20
     }
   ],
   "products": [
@@ -275,24 +285,6 @@
       "name": "phamgiabao",
       "customerId": "16",
       "productId": [
-        "10",
-        "2"
-      ],
-      "email": "bao.pham25@student.passerellesnumeriques.org",
-      "phoneNumber": "0845042466",
-      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
-      "province": "26",
-      "district": "243",
-      "productName": "Americanosasasa",
-      "productPrice": "13500",
-      "quantity": "1",
-      "totalPrice": "91500 VND",
-      "id": 6
-    },
-    {
-      "name": "phamgiabao",
-      "customerId": "16",
-      "productId": [
         "3"
       ],
       "email": "bao.pham25@student.passerellesnumeriques.org",
@@ -305,24 +297,6 @@
       "quantity": "1",
       "totalPrice": "28000 VND",
       "id": 7
-    },
-    {
-      "name": "phamgiabao",
-      "customerId": "16",
-      "productId": [
-        "3",
-        "4"
-      ],
-      "email": "bao.pham25@student.passerellesnumeriques.org",
-      "phoneNumber": "0845042466",
-      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
-      "province": "26",
-      "district": "243",
-      "productName": "Espresso",
-      "productPrice": "28000",
-      "quantity": "1",
-      "totalPrice": "78000 VND",
-      "id": 8
     },
     {
       "name": "phamgiabao",
@@ -396,44 +370,6 @@
       "name": "phamgiabao",
       "customerId": "16",
       "productId": [
-        "3",
-        "4",
-        "2"
-      ],
-      "email": "bao.pham25@student.passerellesnumeriques.org",
-      "phoneNumber": "0845042466",
-      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
-      "province": "14",
-      "district": "116",
-      "productName": "Americanosasasa",
-      "productPrice": "13500",
-      "quantity": "1",
-      "totalPrice": "91500 VND",
-      "id": 13
-    },
-    {
-      "name": "phamgiabao",
-      "customerId": "16",
-      "productId": [
-        "3",
-        "4",
-        "2"
-      ],
-      "email": "bao.pham25@student.passerellesnumeriques.org",
-      "phoneNumber": "0845042466",
-      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
-      "province": "06",
-      "district": "058",
-      "productName": "Americanosasasa",
-      "productPrice": "13500",
-      "quantity": "1",
-      "totalPrice": "91500",
-      "id": 14
-    },
-    {
-      "name": "phamgiabao",
-      "customerId": "16",
-      "productId": [
         "3"
       ],
       "email": "bao.pham25@student.passerellesnumeriques.org",
@@ -463,6 +399,25 @@
       "quantity": "1",
       "totalPrice": "28000",
       "id": 16
+    },
+    {
+      "name": "phamgiabao",
+      "customerId": "16",
+      "productId": [
+        "2",
+        "3"
+      ],
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "06",
+      "district": "058",
+      "productName": "Americanosasasa",
+      "productPrice": "13500",
+      "quantity": "6",
+      "totalPrice": "193000",
+      "date": "8/11/2023 23:06:26",
+      "id": 17
     }
   ],
   "contacts": [
@@ -503,6 +458,14 @@
       "email": "phamthithieu@gmail.com",
       "message": "lkhiohgt",
       "id": 5
+    },
+    {
+      "id_customer": 16,
+      "name": "âsas",
+      "phoneNumber": "2323232",
+      "email": "sâsasa@gmail.com",
+      "message": "sdsd",
+      "id": 6
     }
   ],
   "provinces": [
@@ -2772,43 +2735,30 @@
   ],
   "carts": [
     {
-      "id": "3",
-      "userId": 16,
-      "name": "Espresso",
-      "oldPrice": "30000",
-      "newPrice": "28000",
-      "quantity": "1",
-      "description": "Coffee is brewed with a small amount of boiling water that is almost pressed under pressure (squeezing) the ground coffee beans.Espresso, is a method of roasting and preparing coffee originating from Italy, in which a small amount of boiling water is forced under pressure through ground coffee beans. Espresso is also the basis for many drinks from Other coffees such as latte, cappuccino, macchiato, mocha, flat white, Americano.",
-      "image1": "/images/img_product/Cherry3.jpg",
-      "image2": "/images/img_product/Americano3.jpg",
-      "image3": "/images/img_product/coconut_coffee.jpg",
-      "totalPrice": 28000
-    },
-    {
-      "id": "4",
-      "userId": 16,
-      "name": "Latte1",
-      "oldPrice": 55000,
-      "newPrice": 50000,
-      "quantity": "1",
-      "description": "Coffee is made using the Espresso method but with steamed milk added.Coffee latte is a drink originating from Italy consisting of the main ingredients of coffee and whipped milk. This drink is consumed regularly both at home and in cafes and bars.",
-      "image1": "/images/img_product/Latte1.jpg",
-      "image2": "/images/img_product/Latte2.jpg",
-      "image3": "/images/img_product/Latte3.jpg",
-      "totalPrice": 50000
-    },
-    {
       "id": "2",
       "userId": 16,
       "name": "Americanosasasa",
       "oldPrice": "15000",
       "newPrice": "13500",
-      "quantity": "1",
+      "quantity": "6",
       "description": "Coffee made using the Espresso method but with hot water added.Caffè Americano, or Americano, is a style of coffee prepared by adding hot water to espresso, giving the coffee a similar strength but a different flavor, similar to filter coffee.",
       "image1": "/images/img_product/Americano1.jpg",
       "image2": "/images/img_product/Americano2.jpg",
       "image3": "/images/img_product/Americano3.jpg",
-      "totalPrice": 13500
+      "totalPrice": 81000
+    },
+    {
+      "id": "3",
+      "userId": 16,
+      "name": "Espresso",
+      "oldPrice": "30000",
+      "newPrice": "28000",
+      "quantity": "4",
+      "description": "Coffee is brewed with a small amount of boiling water that is almost pressed under pressure (squeezing) the ground coffee beans.Espresso, is a method of roasting and preparing coffee originating from Italy, in which a small amount of boiling water is forced under pressure through ground coffee beans. Espresso is also the basis for many drinks from Other coffees such as latte, cappuccino, macchiato, mocha, flat white, Americano.",
+      "image1": "/images/img_product/Cherry3.jpg",
+      "image2": "/images/img_product/Americano3.jpg",
+      "image3": "/images/img_product/coconut_coffee.jpg",
+      "totalPrice": 112000
     },
     {
       "id": "10",
@@ -2824,17 +2774,17 @@
       "totalPrice": 78000
     },
     {
-      "id": "8",
-      "userId": 16,
-      "name": "Macchiato",
-      "oldPrice": 60000,
-      "newPrice": 58000,
-      "quantity": "3",
-      "description": "A coffee based on the perfect combination of coffee, milk tea, goat tea with a layer of rich cream. Macchiato has the characteristic fatty taste of milk mixed with a slightly sweet or slightly salty taste depending on the recipe of the drink maker.",
-      "image1": "/images/img_product/Macchiato1.jpg",
-      "image2": "/images/img_product/Macchiato2.jpg",
-      "image3": "/images/img_product/Macchiato3.jpg",
-      "totalPrice": 174000
+      "id": "15",
+      "userId": 1,
+      "name": "phamgiabao",
+      "oldPrice": "2122",
+      "newPrice": "11212",
+      "quantity": "1",
+      "description": "asasas",
+      "image1": "/images/img_product/Americano3.jpg",
+      "image2": "/images/img_product/black-coffee1.jpg",
+      "image3": "/images/img_product/Black-Coffee2.avif",
+      "totalPrice": 11212
     }
   ]
 }

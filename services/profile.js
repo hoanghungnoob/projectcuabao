@@ -183,49 +183,84 @@ function getUserData1() {
   return userData;
 }
 const user_id = getUserData1().id;
+async function getOrder() {
+  const listOrderElement = document.getElementById("list_order");
 
-  async function getOrder() {
-    const listOrderElement = document.getElementById("list_order");
+  try {
+    // Fetch order data
+    const customerResponse = await fetch(`http://localhost:3000/users/${user_id}`);
+    const customerData = await customerResponse.json();
 
-    try {
-      // Fetch order data
-      const customerResponse = await fetch(`http://localhost:3000/users/${user_id}`);
-      const customerData = await customerResponse.json();
+    // Fetch order data
+    const orderResponse = await fetch("http://localhost:3000/orders");
+    const orderData = await orderResponse.json();
+    console.log(orderData, "odsdfs");
 
-      // Fetch order data
-      const orderResponse = await fetch("http://localhost:3000/orders");
-      const orderData = await orderResponse.json();
-      console.log(orderData,"odsdfs")
+    // Fetch product data
+    const productResponse = await fetch("http://localhost:3000/products");
+    const productData = await productResponse.json();
 
-      // Fetch product data
-      const productResponse = await fetch("http://localhost:3000/products");
-      const productData = await productResponse.json();
+    // Filter orders for the customer
+    const orderedProducts = orderData.filter((order) => order.customerId == user_id);
+    console.log(orderedProducts, "qunr");
+    let data = "";
+    orderedProducts.forEach((order) => {
+      order.productId.forEach((productId) => {
+        const product = productData.find((product) => product.id == productId);
 
-      // Filter orders for the customer
-      const orderedProducts = orderData.filter((order) => order.customerId == user_id);
-      console.log(orderedProducts,"qunr")
-      let data = "";
-      orderedProducts.forEach((order) => {
-        order.productId.forEach((productId) => {
-          const product = productData.find((product) => product.id == productId);
-
-          if (product) {
-            data += `
-              <li>
-                <h2>Product: ${product.name}</h2>
-                <p>Quantity: ${order.quantity}</p>
-                <p>Price per unit: ${product.newPrice} VND</p>
-                <p>Total: ${order.quantity * product.newPrice} VND</p>
-              </li>
-            `;
-          }
-        });
+        if (product) {
+          data += `
+            <li>
+              <h2>Product: ${product.name}</h2>
+              <p>Quantity: ${order.quantity}</p>
+              <p>Price per unit: ${product.newPrice} VND</p>
+              <p>Total: ${order.quantity * product.newPrice} VND</p>
+              <button class="view-btn" onclick="displayProductBill(${product}); data-product-id="${product.id}">View</button>
+            </li>
+          `;
+         
+        }
+        
       });
-  console.log(data,"=============data")
-      listOrderElement.innerHTML = data;
-    } catch (error) {
-      console.log(data);
-    }
+      
+    });
+    
+    listOrderElement.innerHTML = data;
+
+   
+  } catch (error) {
+    console.log(data);
   }
+}
+
+
 
   getOrder();
+  function displayProductBill(product) {
+    const billContainer = document.createElement("div");
+    billContainer.classList.add("bill-container");
+  
+    const billHTML = `
+      <h2>Product: ${product.name}</h2>
+      <p>Price: ${product.newPrice} VND</p>
+      <p>Description: ${product.description}</p>
+      <p>Image: <br><img src="${product.image}" alt="${product.name}"></p>
+      <button id="bill-ok-btn">OK</button>
+      <button id="bill-cancel-btn">Cancel</button>
+    `;
+  
+    billContainer.innerHTML = billHTML;
+  
+    document.body.appendChild(billContainer);
+    
+    // Add click event listeners to OK and Cancel buttons
+    const okButton = document.getElementById("bill-ok-btn");
+    okButton.addEventListener("click", () => {
+      document.body.removeChild(billContainer);
+    });
+  
+    const cancelButton = document.getElementById("bill-cancel-btn");
+    cancelButton.addEventListener("click", () => {
+      document.body.removeChild(billContainer);
+    });
+  }
