@@ -1,5 +1,4 @@
 window.onload = function () {
-
   const header = document.createElement("div");
   header.innerHTML = `
   <div class="header" id="header">
@@ -31,7 +30,7 @@ window.onload = function () {
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <li class="ul_li"><a href="/page/home/home.html"><i class="fas fa-home"></i>Home</a></li>
       <li class="ul_li"><a href="/page/contact_us/contact_us.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
-      <li class="ul_li"><a href="/page/product/ShoppingCart/ShoppingCart.html"><i class="fas fa-shopping-cart"></i>Order</a></li>
+      <li class="ul_li"><a href="/page/product/ShoppingCart/ShoppingCart.html"><i class="fas fa-shopping-cart"></i></a></li>
       <li class="ul_li"><a href="/page/purcha_list/purcha_list.html"><i class="fas fa-history"></i>History</a></li>
      
       <li class="dropdown" id="management">
@@ -44,6 +43,7 @@ window.onload = function () {
           <li><a href="/page/order/order_list/order_list.html">Order Management</a></li>
         </ul>
       </li>
+     
       <li class="navbar__li--mobile" id="login"><a href="/page/login/login.html"><button>Login</button></a></li>
       <li class="navbar__li--mobile">
         <div class="border2">
@@ -53,7 +53,7 @@ window.onload = function () {
       <!-- profile -->
       <li class="profile" id="profile">
       <a href="/page/customer/profile/profile.html">
-      <img src="/images/img_icon/user-removebg-preview.png" alt="Profile Picture" id="avata_layout" class="profile__picture">
+      <img src="/images/img_icon/user-removebg-preview.png" alt="Profile Picture" id="avatar_layout" class="profile__picture">
       </a>
       </li>
       <!-- logout -->
@@ -64,129 +64,147 @@ window.onload = function () {
   </nav>
 </div>
     `;
-  const roleId = localStorage.getItem("roleId");
-  console.log(roleId,"6136235265")
-
-  document.body.insertBefore(header, document.body.firstChild);
-  document.getElementById('log_out').style.display = "none";
-  document.getElementById('profile').style.display = "none";
-  document.getElementById('management').style.display = "none";
-  const userId = localStorage.getItem('userId');
-
-
-function fetch_cus() {
-  if(roleId == 1){
-  fetch(`http://localhost:3000/users/${userId}`)
-    .then(response => response.json())
-    .then(customer => {
-        document.getElementById('avata_layout').src = customer.avata;
-    });}
-    else{
-      fetch(`http://localhost:3000/users/${userId}`)
-      .then(response => response.json())
-      .then(customer => {
-          document.getElementById('avata_layout').src = customer.avata;
-      });
-    }
-}
-
-fetch_cus();
-document.getElementById('box_search').style.display = "none";
-
-// Get the input and ul elements
-const searchInput = document.getElementById("searchInput");
-const suggestionList = document.getElementById("suggestionList");
-
-searchInput.addEventListener("input", function () {
-  const searchValue = searchInput.value.toLowerCase();
-  searchProductByName(searchValue);
-  suggestionList.style.display = "block";
-});
-
-searchInput.addEventListener("focus", function () {
-  const searchValue = searchInput.value.toLowerCase();
-  searchProductByName(searchValue);
-  suggestionList.style.display = "block";
-});
-
-document.addEventListener("click", function (event) {
-  const target = event.target;
-  if (!searchInput.contains(target) && !suggestionList.contains(target)) {
-    suggestionList.style.display = "none";
-  }
-});
     
 
-const searchButton = document.getElementById("searchButton");
-const productContainer = document.getElementById("product4");
+  document.body.insertBefore(header, document.body.firstChild);
+  document.getElementById("log_out").style.display = "none";
+  document.getElementById("profile").style.display = "none";
+  document.getElementById("management").style.display = "none";
 
-searchInput.addEventListener("input", function () {
-  const searchValue = searchInput.value.toLowerCase();
-  searchProductByName(searchValue);
-  document.getElementById("suggestionList").style.display = "block";
-});
+  function getUserData() {
+    let userData;
+    const hashKey = "Abcd123@";
+    const token = localStorage.getItem("token");
+    const decryptedUserInfo = CryptoJS.AES.decrypt(token, hashKey).toString(
+      CryptoJS.enc.Utf8
+    );
 
-searchButton.addEventListener("click", function (event) {
-  event.preventDefault(); // Ngăn chặn sự kiện submit mặc định của button
-  const searchValue = searchInput.value.toLowerCase();
-  searchProductByName(searchValue);
-  document.getElementById("suggestionList").style.display = "none";
-  displayProducts(searchValue);
-});
+    if (decryptedUserInfo) {
+      userData = JSON.parse(decryptedUserInfo);
+    }
 
-function searchProductByName(searchTerm) {
-  fetch("http://localhost:3000/products")
-    .then((response) => response.json())
-    .then((data) => {
-      const matchingSuggestions = data.filter(function (product) {
-        return product.name.toLowerCase().includes(searchTerm);
-      });
-      displaySuggestions(matchingSuggestions);
-    })
-    .catch((error) => {
-    });
-}
-function displaySuggestions(suggestions) {
-  suggestionList.innerHTML = "";
-  suggestions.forEach(function (suggestion) {
-    const listItem = document.createElement("li");
-    const suggestionText = document.createElement("span");
-    const searchIcon = document.createElement("i");
+    document.getElementById("avatar_layout").src = userData.avatar
+      ? userData.avatar
+      : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4CRKPij6o2waFROp-89BCE8lEf96jLsndRQ&usqp=CAU";
 
-    suggestionText.textContent = suggestion.name;
-    searchIcon.className = "fas fa-search"; // Thay đổi lớp (class) của icon tùy theo yêu cầu
+    return userData;
+  }
 
-    listItem.addEventListener("click", function () {
-      searchInput.value = suggestion.name;
-      suggestionList.innerHTML = "";
-      document.getElementById("suggestionList").style.display = "none";
-    });
+  const userData = getUserData();
 
-    listItem.appendChild(searchIcon);
-    listItem.appendChild(suggestionText);
-    suggestionList.appendChild(listItem);
+  function fetch_cus() {
+    if (userData.roleId == 1) {
+      fetch(`http://localhost:3000/users/${userData.id}`)
+        .then((response) => response.json())
+        .then((customer) => {
+          document.getElementById("avatar_layout").src = customer.avatar;
+        });
+    } else {
+      fetch(`http://localhost:3000/users/${userData.id}`)
+        .then((response) => response.json())
+        .then((customer) => {
+          console.log(customer.avatar, "avata3333");
+          document.getElementById("avatar_layout").src = customer.avatar;
+        });
+    }
+  }
+
+  fetch_cus();
+  document.getElementById("box_search").style.display = "none";
+
+  // Get the input and ul elements
+  const searchInput = document.getElementById("searchInput");
+  const suggestionList = document.getElementById("suggestionList");
+
+  searchInput.addEventListener("input", function () {
+    const searchValue = searchInput.value.toLowerCase();
+    searchProductByName(searchValue);
+    suggestionList.style.display = "block";
   });
-}
-function displayProducts(searchTerm) {
-  fetch("http://localhost:3000/products")
-    .then((response) => response.json())
-    .then((data) => {
-        const matchingProducts = data.filter(function (product) {
-            return product.name.toLowerCase().includes(searchTerm);
-          });
-          if (matchingProducts.length === 0) {
-              const notFoundMessage = document.createElement("div");
-              notFoundMessage.textContent = "Not found";
-              productContainer.innerHTML = "";
-              productContainer.appendChild(notFoundMessage);
-          } else {
-              document.getElementById('content').style.display = "none";
-document.getElementById('box_search').style.display = "block";
 
-              productContainer.innerHTML = "";
-              matchingProducts.forEach(function (product) {
-          const productItem = document.createElement("div");
-          productItem.innerHTML = `
+  searchInput.addEventListener("focus", function () {
+    const searchValue = searchInput.value.toLowerCase();
+    searchProductByName(searchValue);
+    suggestionList.style.display = "block";
+  });
+
+  document.addEventListener("click", function (event) {
+    const target = event.target;
+    if (!searchInput.contains(target) && !suggestionList.contains(target)) {
+      suggestionList.style.display = "none";
+    }
+  });
+
+  const searchButton = document.getElementById("searchButton");
+  const productContainer = document.getElementById("product4");
+
+  searchInput.addEventListener("input", function () {
+    const searchValue = searchInput.value.toLowerCase();
+    searchProductByName(searchValue);
+    document.getElementById("suggestionList").style.display = "block";
+  });
+
+  searchButton.addEventListener("click", function (event) {
+    event.preventDefault(); // Ngăn chặn sự kiện submit mặc định của button
+    const searchValue = searchInput.value.toLowerCase();
+    searchProductByName(searchValue);
+    document.getElementById("suggestionList").style.display = "none";
+    displayProducts(searchValue);
+  });
+
+  function searchProductByName(searchTerm) {
+    fetch("http://localhost:3000/products")
+      .then((response) => response.json())
+      .then((data) => {
+        const matchingSuggestions = data.filter(function (product) {
+          return product.name.toLowerCase().includes(searchTerm);
+        });
+        displaySuggestions(matchingSuggestions);
+      })
+      .catch((error) => {});
+  }
+
+  function displaySuggestions(suggestions) {
+    suggestionList.innerHTML = "";
+    suggestions.forEach(function (suggestion) {
+      const listItem = document.createElement("li");
+      const suggestionText = document.createElement("span");
+      const searchIcon = document.createElement("i");
+
+      suggestionText.textContent = suggestion.name;
+      searchIcon.className = "fas fa-search"; // Thay đổi lớp (class) của icon tùy theo yêu cầu
+
+      listItem.addEventListener("click", function () {
+        searchInput.value = suggestion.name;
+        suggestionList.innerHTML = "";
+        document.getElementById("suggestionList").style.display = "none";
+      });
+
+      listItem.appendChild(searchIcon);
+      listItem.appendChild(suggestionText);
+      suggestionList.appendChild(listItem);
+    });
+  }
+  function displayProducts(searchTerm) {
+    fetch("http://localhost:3000/products")
+      .then((response) => response.json())
+      .then((data) => {
+        const matchingProducts = data.filter(function (product) {
+          return product.name.toLowerCase().includes(searchTerm);
+        });
+        if (matchingProducts.length === 0) {
+          const notFoundMessage = document.createElement("div");
+          notFoundMessage.textContent = "Not found";
+          productContainer.innerHTML = "";
+          productContainer.appendChild(notFoundMessage);
+        } else {
+          document.getElementById("content").style.display = "none";
+          document.getElementById("box_search").style.display = "block";
+
+          productContainer.innerHTML = "";
+          matchingProducts.forEach(function (product) {
+            const productItem = document.createElement("div");
+            productItem.innerHTML = `
           <div class="product">
           <a target="_self" id="card" href="/page/product/ProductDetail/ProductDetail.html?id=${product.id}">
               <p id="evaluate1">${product.productReviews}<i class="material-symbols-outlined">star</i></p>
@@ -211,24 +229,20 @@ document.getElementById('box_search').style.display = "block";
           </div>
       </div>
  `;
-          productContainer.appendChild(productItem);
-        });
-      }
-    })
-    .catch((error) => {
-    });
-}
-
-// Xóa dữ liệu khi input rỗng
-searchInput.addEventListener("input", function () {
-  if (searchInput.value === "") {
-    suggestionList.innerHTML = "";
-    document.getElementById("suggestionList").style.display = "none";
-
+            productContainer.appendChild(productItem);
+          });
+        }
+      })
+      .catch((error) => {});
   }
-});
 
-
+  // Xóa dữ liệu khi input rỗng
+  searchInput.addEventListener("input", function () {
+    if (searchInput.value === "") {
+      suggestionList.innerHTML = "";
+      document.getElementById("suggestionList").style.display = "none";
+    }
+  });
 
   const footer = document.createElement("div");
   footer.innerHTML = `
@@ -273,45 +287,43 @@ searchInput.addEventListener("input", function () {
     `;
 
   document.body.appendChild(footer);
-  console.log(roleId,"jdajsdgajshg===============================")
-  // Lấy giá trị roleId từ local storage
-  if(roleId == 1){
 
-    document.getElementById('profile').style.display = "block";
-    document.getElementById('log_out').style.display = "block";   
-    document.getElementById('sign_up').style.display = "none";
-    document.getElementById('login').style.display = "none";
-  document.getElementById('management').style.display = "block";
-
-
+  if (userData.roleId == 1) {
+    document.getElementById("profile").style.display = "block";
+    document.getElementById("log_out").style.display = "block";
+    document.getElementById("sign_up").style.display = "none";
+    document.getElementById("login").style.display = "none";
+    document.getElementById("management").style.display = "block";
   }
 
   // Kiểm tra giá trị roleId và ẩn các phần tử tương ứng khi roleId là 2
-  if (roleId == 2) {
+  if (userData.roleId == 2) {
     const managementElement = document.querySelector(".dropdown");
-    const loginElement = document.querySelector(".navbar__li--mobile a[href='/page/login/login.html']");
-    const signUpElement = document.querySelector(".navbar__li--mobile .border2");
-    document.getElementById('profile').style.display = "block";
-    document.getElementById('log_out').style.display = "block";
+    const loginElement = document.querySelector(
+      ".navbar__li--mobile a[href='/page/login/login.html']"
+    );
+    const signUpElement = document.querySelector(
+      ".navbar__li--mobile .border2"
+    );
+    document.getElementById("profile").style.display = "block";
+    document.getElementById("log_out").style.display = "block";
 
-    // Ẩn phần tử "Management"
     if (managementElement) {
       managementElement.style.display = "none";
     }
 
-    // Ẩn phần tử "Login"
     if (loginElement) {
       loginElement.style.display = "none";
     }
 
-    // Ẩn phần tử "Sign up"
     if (signUpElement) {
       signUpElement.style.display = "none";
     }
   }
+  dark_light()
 };
-function logout() {
 
+function logout() {
   Swal.fire({
     icon: "info",
     title: "Confirm Logout",
@@ -319,26 +331,23 @@ function logout() {
     showCancelButton: true,
     confirmButtonText: "Logout",
     cancelButtonText: "Cancel",
-    reverseButtons: true
-  }).then((result) => {
-    if (result.isConfirmed) {
-      // Xóa giá trị roleId trong localStorage
-      localStorage.removeItem("roleId");
-      localStorage.removeItem("userId");
-      
-      // Chuyển hướng người dùng đến trang logout.html (hoặc trang chủ, tùy thuộc vào yêu cầu của bạn)
-      window.location.href = "/page/home/home.html";
-      
-      document.getElementById('log_out').style.display = "none";
-
+    reverseButtons: true,
+  })
+    .then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem("token");
+      }
+    })
+    .then(() => {
+      document.getElementById("log_out").style.display = "none";
+      window.location.href = "/page/login/login.html";
       Swal.fire({
         icon: "success",
         title: "Logout Successful!",
         showConfirmButton: false,
-        timer: 3000
+        timer: 3000,
       });
-    }
-  });
+    });
 }
 
 function openNav() {
@@ -355,9 +364,36 @@ function closeNav() {
   setTimeout(function () {
     document.getElementById("navbar__ul").style.width = "0";
     document.getElementById("opacity").style.display = "none";
-    document.getElementById('open_sideBar').style.opacity = 1;
-
+    document.getElementById("open_sideBar").style.opacity = 1;
   }, 10);
+}
+function dark_light(){
+  const inputEl = document.querySelector(".input");
 
+  const bodyEl = document.querySelector("#content");
+  
+  inputEl.checked = JSON.parse(localStorage.getItem("mode"));
+  
+  updateBody();
+  
+  function updateBody() {
+    if (inputEl.checked) {
+      bodyEl.style.background = "rgb(88, 22, 22)";
+      bodyEl.style.color = "white";
+    } else {
+      bodyEl.style.background = "white";
+      bodyEl.style.color = "black";
+
+    }
+  }
+  
+  inputEl.addEventListener("input", () => {
+    updateBody();
+    updateLocalStorage();
+  });
+  
+  function updateLocalStorage() {
+    localStorage.setItem("mode", JSON.stringify(inputEl.checked));
+  }
   
 }

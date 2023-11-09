@@ -2,6 +2,11 @@ body {
   background-color: rgb(255, 255, 255);
 
 }
+#text_animation{
+  width: 40vw;
+  border: 0;
+  background-color: transparent;
+}
 #content{
    width: 100vw !important;
    margin: 0;

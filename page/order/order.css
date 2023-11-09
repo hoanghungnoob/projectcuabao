@@ -17,13 +17,17 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  max-width: 1100px;
+  max-width: 100%;
   margin: 0 auto;
+  padding: 50px;
+}
+
+#content .container__order > * {
+  flex-basis: calc(50% - 10px); /* Điều chỉnh giá trị 10px tùy theo khoảng cách giữa hai cột */
 }
 
 #content .information__order {
   flex-basis: 50%;
-  margin-bottom: 50px;
   padding: 20px;
   background-color: #fff;
 }
@@ -85,15 +89,11 @@ body {
   text-align: center;
 }
 
-.product__order {
-  flex-basis: 40%;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  /* box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1); */
-}
 
 .product__order1 {
   margin-bottom: 30px;
+ 
+  
 }
 
 .total__price__order {
@@ -347,4 +347,33 @@ nav .navbar-nav li a {
 
 .btn__hero {
   background-color: var(--orange);
+}
+.product__order {
+  /* flex-basis: 40%; */
+  background-color: rgba(255, 255, 255, 0.9);
+
+  max-height: 80vh;
+  padding: 20px;
+  overflow-x: scroll;
+  width: 1000px !important;
+ 
+  /* box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1); */
+}
+.information__order label{
+   display: block !important;
+
+}
+label{
+   display: block !important;
+}
+#product__img__order{
+   width: 100px;
+}
+
+#qrcode,#code{
+   width: 30vw;
+}
+#qr-code,#qrcode-payment {
+  width: 100px; /* Điều chỉnh kích thước chiều rộng */
+  height: 100px; /* Điều chỉnh kích thước chiều cao */
 }
