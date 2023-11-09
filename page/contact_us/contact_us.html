@@ -20,6 +20,13 @@
   <link rel="stylesheet" href="/page/home/reponsive_nav.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script src="crypto-js.min.js"></script>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="/page/home/heart-trail-animation/style.css">
+
+  <script src="/page/home/heart-trail-animation/index.js"></script>
+
   <title>Contact Us</title>
 </head>
 <body>
@@ -28,8 +35,9 @@
   </div>
   <div id="content">
     <div class="container">
-    
+      
     </div>
+ 
     <div class="main_conatct">
       <div class="main_contact_form">
         <!-- team member -->
@@ -72,7 +80,7 @@
         <div class="container_contact">
           <h1>Contact Us</h1>
           <form id="contactForm">
-            <input type="hidden" id="userId">
+           
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Email</label>
@@ -83,7 +91,7 @@
             <textarea id="message" name="message" rows="4" required></textarea>
             <button type="submit" onclick="saveUser()">Submit</button>
           </form>
-          <script src="/services/contact_us.js"></script>
+          <script src="/services/contactUs.js"></script>
         </div>
       </div>
     </div>
@@ -110,6 +118,6 @@
     </div>
   </div>
   </div>
-  <script src="/services/log_out.js"></script>
+  <!-- <script src="/services/log_out.js"></script -->
 </body>
 </html>

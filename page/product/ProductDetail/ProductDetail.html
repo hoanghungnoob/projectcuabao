@@ -33,8 +33,7 @@
     />
 
     <!-- style -->
-    <link rel="stylesheet" href="./home.css" />
-    <link rel="stylesheet" href="./reponsive_nav.css" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -50,9 +49,12 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-    <!-- Latest compiled JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+   <script src="crypto-js.min.js"></script>
+   <script src="script.js"></script>
+ 
     <link rel="stylesheet" href="/page/home/home.css" />
-    <script src="/services/log_out.js"></script>
+  
     <title>Home</title>
   </head>
 
@@ -135,22 +137,21 @@
 
           <div class="btn__buy">
             <button
-            onclick="addToCart(productId)"
+       
               id="product__btn__add"
-              class="btn_add_qtt"
+              class="btn_add_qtt btn"
               type="button"
             >
               <img src="/images/img_icon/icon shoping cart.svg" alt="" />
               Add cart
             </button>
-            <button
+            <!-- <button
               id="product__btn__buy"
-              class="btn_add_qtt"
+              class="btn_add_qtt btn"
               type="button"
-              onclick="redirectToOrderPage(productId)"
             >
               Buy
-            </button>
+            </button> -->
           </div>
         </div>
       </div>
@@ -162,11 +163,10 @@
           <button id="submit-comment-btn" onclick="addComment()">Submit</button>
         </div>
         <div class="comment-list" id="comment-list">
-          <!-- Comments will be dynamically added here -->
         </div>
       </div>
 
-      <script src="/services/order.js"></script>
+      <!-- <script src="/services/order.js"></script> -->
 
       <div class="comment-list" id="comment-list">
         <div class="comment">
@@ -352,9 +352,9 @@
         <!-- Product container -->
       </div>
     </main>
-    <script src="/services/product_detail.js"></script>
-    <!-- <script src="/services/home.js"></script> -->
-    <script src="/services/order.js"></script>
+    <script src="/services/productDetail.js"></script>
+    <script src="/services/home.js"></script>
+    <script src="/services/order.js"></script> 
     <script src="/services/layout.js"></script>
   </body>
 </html>

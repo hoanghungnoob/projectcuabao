@@ -14,39 +14,38 @@
   "users": [
     {
       "name": "admin",
-      "roleId": 2,
-      "password": "12345",
+      "roleId": 1,
+      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
       "phoneNumber": "0397208231",
-      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "email": "hue.ho25@student.passerellesnumeriques.org",
       "address": "Lang Cat village Mo O commune Dakrong district Quang Tri province",
-      "avata": "http://127.0.0.1:5500/images/img_icon/avata_admin.jpg",
+      "avatar": "/images/img_icon/user-removebg-preview.png",
       "id": 1
     },
     {
       "name": "Dinh Thi Duyen12",
-      "password": "56789",
       "phoneNumber": "0123432888",
       "email": "duyen.ho25@student.com",
-      "avata": "/images/img_icon/user-removebg-preview.png",
+      "avatar": "/images/img_icon/user-removebg-preview.png",
       "roleId": 2,
       "address": "56 Phuoc My ward Son Tra district Da Nang city",
-      "id": 10
+      "id": 10,
+      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92"
     },
     {
-      "id": 11,
-      "name": "Le Van Thao",
+      "name": "Le Van Tha12",
+      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
       "phoneNumber": "0124782999",
-      "avata": "/images/img_icon/user-removebg-preview.png",
-      "address": "101B Le Huu Trac Son Tra district Da Nang city",
-      "roleId": 2,
       "email": "thao.ho25@student.com",
-      "password": "thao.com123"
+      "role_id": 2,
+      "address": "101B Le Huu Trac Son Tra district Da Nang city",
+      "id": 11
     },
     {
       "name": "Ho Mai Huyen",
-      "password": "huyen.com123",
+      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
       "phoneNumber": "0123432111",
-      "avata": "/images/img_icon/user-removebg-preview.png",
+      "avatar": "/images/img_icon/user-removebg-preview.png",
       "email": "huyen.ho25@student.com",
       "roleId": 2,
       "address": "56 Phuoc My ward Son Tra district Da Nang city",
@@ -54,9 +53,9 @@
     },
     {
       "name": "To Ngol Nien123",
-      "password": "nien.com123",
+      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
       "phoneNumber": "0123432444",
-      "avata": "/images/img_icon/user-removebg-preview.png",
+      "avatar": "/images/img_icon/user-removebg-preview.png",
       "email": "nien.to25@student.com",
       "roleId": 2,
       "address": "101B Le Huu Trac Son Tra district Da Nang city",
@@ -65,34 +64,67 @@
     {
       "name": "phamgiabao",
       "roleId": 2,
-      "password": "123456",
+      "password": "49dc52e6bf2abe5ef6e2bb5b0f1ee2d765b922ae6cc8b95d39dc06c21c848f8c",
       "phoneNumber": "0845042466",
       "email": "bao.pham25@student.passerellesnumeriques.org",
       "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
-      "avata": "http://127.0.0.1:5500/images/img_icon/avata_admin.jpg",
+      "avatar": "/images/img_icon/user-removebg-preview.png",
       "id": 16
     },
     {
       "name": "Em boss",
-      "password": "11111",
+      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
       "phoneNumber": "0845042466",
       "email": "phamthithieu@gmail.com",
       "roleId": 2,
       "address": "phuc trạch",
-      "avata": "http://127.0.0.1:5500/images/img_icon/avata_admin.jpg",
+      "avatar": "/images/img_icon/user-removebg-preview.png",
       "id": 17
     },
     {
       "name": "Baopham122132",
-      "password": "1222323",
+      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
       "phoneNumber": "0845042466",
       "email": "phamthithieu@gmail.com",
+      "avatar": "/images/img_icon/user-removebg-preview.png",
       "roleId": 2,
       "address": "phuc trạch",
       "id": 18
+    },
+    {
+      "name": "Ho Thi Nguyen thiqq111",
+      "password": "1234",
+      "phoneNumber": "0845042466",
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "role_id": 2,
+      "avatar": "/images/img_icon/user-removebg-preview.png",
+      "address": "phuc trạch",
+      "id": 19
+    },
+    {
+      "name": "Baopham11111111111111111111111",
+      "password": "1234",
+      "phoneNumber": "1212212121",
+      "email": "bao.pham25@student.passerellesnumeriques.orgd",
+      "roleId": 2,
+      "address": "phuc tráchasasas",
+      "id": 20
     }
   ],
   "products": [
+    {
+      "name": "Americanosasasa",
+      "quantity": "50",
+      "newPrice": "13500",
+      "oldPrice": "15000",
+      "image1": "/images/img_product/Americano1.jpg",
+      "image2": "/images/img_product/Americano2.jpg",
+      "image3": "/images/img_product/Americano3.jpg",
+      "description": "Coffee made using the Espresso method but with hot water added.Caffè Americano, or Americano, is a style of coffee prepared by adding hot water to espresso, giving the coffee a similar strength but a different flavor, similar to filter coffee.",
+      "type": "",
+      "productReviews": 4,
+      "id": 2
+    },
     {
       "id": 3,
       "name": "Espresso",
@@ -200,183 +232,199 @@
   "orders": [
     {
       "name": "phamgiabao",
-      "date": "2023-10-22",
       "customerId": "16",
-      "productId": "5",
-      "email": "bao.pham25@student.passerellesnumeriques.org",
-      "phoneNumber": "0845042466",
-      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
-      "province": "06",
-      "district": "058",
-      "productName": "Arabica",
-      "productPrice": "100.000 VND",
-      "quantity": "1",
-      "totalPrice": "100.000 VND",
-      "id": 5
-    },
-    {
-      "name": "phamgiabao",
-      "date": "2023-10-22",
-      "customerId": "16",
-      "productId": "3",
-      "email": "bao.pham25@student.passerellesnumeriques.org",
-      "phoneNumber": "0845042466",
-      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
-      "province": "06",
-      "district": "058",
-      "productName": "Arabica",
-      "productPrice": "100.000 VND",
-      "quantity": "1",
-      "totalPrice": "100.000 VND",
-      "id": 5
-    },
-    {
-      "name": "phamgiabao",
-      "date": "2023-10-22",
-      "customerId": "16",
-      "productId": "4",
-      "email": "bao.pham25@student.passerellesnumeriques.org",
-      "phoneNumber": "0845042466",
-      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
-      "province": "06",
-      "district": "058",
-      "productName": "Arabica",
-      "productPrice": "100.000 VND",
-      "quantity": "1",
-      "totalPrice": "100.000 VND",
-      "id": 5
-    },
-    {
-      "name": "phamgiabao",
-      "date": "2023-10-22",
-      "customerId": "16",
-      "productId": "2",
-      "email": "bao.pham25@student.passerellesnumeriques.org",
-      "phoneNumber": "0845042466",
-      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
-      "province": "06",
-      "district": "058",
-      "productName": "Arabica",
-      "productPrice": "100.000 VND",
-      "quantity": "1",
-      "totalPrice": "100.000 VND",
-      "id": 5
-    },
-    {
-      "name": "phamgiabao",
-      "date": "2023-10-12",
-      "customerId": "16",
-      "productId": "4",
-      "email": "bao.pham25@student.passerellesnumeriques.org",
-      "phoneNumber": "0845042466",
-      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
-      "province": "04",
-      "district": "040",
-      "productName": "Arabica",
-      "productPrice": "100.000 VND",
-      "quantity": "1",
-      "totalPrice": "100.000 VND",
-      "id": 6
-    },
-    {
-      "name": "Em boss",
-      "customerId": "17",
       "productId": [
-        "3",
-        "8"
-      ],
-      "email": "phamthithieu@gmail.com",
-      "phoneNumber": "0845042466",
-      "address": "phuc trạch",
-      "province": "25",
-      "district": "227",
-      "productName": "Espresso",
-      "productPrice": "28000",
-      "quantity": "1",
-      "totalPrice": "202000 VND",
-      "id": 13
-    },
-    {
-      "name": "Em boss",
-      "customerId": "17",
-      "productId": [
-        "5"
-      ],
-      "email": "phamthithieu@gmail.com",
-      "phoneNumber": "0845042466",
-      "address": "phuc trạch",
-      "province": "14",
-      "district": "116",
-      "productName": "Cappuccino",
-      "productPrice": "22000 VND",
-      "quantity": "1",
-      "totalPrice": "22000 VND",
-      "id": 15
-    },
-    {
-      "name": "Em boss",
-      "customerId": "17",
-      "productId": [
-        "3",
-        "8",
-        "14",
         "10"
       ],
-      "email": "phamthithieu@gmail.com",
+      "email": "bao.pham25@student.passerellesnumeriques.org",
       "phoneNumber": "0845042466",
-      "address": "phuc trạch",
-      "province": "04",
-      "district": "040",
-      "productName": "Espresso",
-      "productPrice": "28000",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "20",
+      "district": "178",
+      "productName": "Red Eye",
+      "productPrice": "78000",
       "quantity": "1",
-      "totalPrice": "380000 VND",
-      "id": 16
+      "totalPrice": "78000 VND",
+      "id": 2
     },
     {
-      "name": "Em boss",
-      "customerId": "17",
+      "name": "phamgiabao",
+      "customerId": "16",
       "productId": [
-        "3",
-        "8",
-        "14",
-        "10"
+        "3"
       ],
-      "email": "phamthithieu@gmail.com",
+      "email": "bao.pham25@student.passerellesnumeriques.org",
       "phoneNumber": "0845042466",
-      "address": "phuc trạch",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "24",
+      "district": "213",
+      "productName": "Espresso",
+      "productPrice": "28000 VND",
+      "quantity": "1",
+      "totalPrice": "28000 VND",
+      "id": 3
+    },
+    {
+      "name": "phamgiabao",
+      "customerId": "16",
+      "productId": [
+        "3"
+      ],
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "06",
+      "district": "058",
+      "productName": "Espresso",
+      "productPrice": "28000 VND",
+      "quantity": "1",
+      "totalPrice": "28000 VND",
+      "id": 5
+    },
+    {
+      "name": "phamgiabao",
+      "customerId": "16",
+      "productId": [
+        "3"
+      ],
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
       "province": "22",
       "district": "193",
       "productName": "Espresso",
       "productPrice": "28000",
       "quantity": "1",
-      "totalPrice": "380000 VND",
-      "id": 17
+      "totalPrice": "28000 VND",
+      "id": 7
     },
     {
-      "name": "Dinh Thi Duyen12",
-      "customerId": "10",
+      "name": "phamgiabao",
+      "customerId": "16",
       "productId": [
-        "6",
+        "3"
+      ],
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "27",
+      "district": "256",
+      "productName": "Espresso",
+      "productPrice": "28000",
+      "quantity": "1",
+      "totalPrice": "28000 VND",
+      "id": 9
+    },
+    {
+      "name": "phamgiabao",
+      "customerId": "16",
+      "productId": [
+        "3"
+      ],
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "04",
+      "district": "040",
+      "productName": "Espresso",
+      "productPrice": "28000 VND",
+      "quantity": "2",
+      "totalPrice": "56000 VND",
+      "id": 10
+    },
+    {
+      "name": "phamgiabao",
+      "customerId": "16",
+      "productId": [
         "4"
       ],
-      "email": "duyen.ho25@student.com",
-      "phoneNumber": "0123432888",
-      "address": "56 Phuoc My ward Son Tra district Da Nang city",
-      "province": "25",
-      "district": "227",
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "26",
+      "district": "243",
       "productName": "Latte1",
-      "productPrice": "50000",
-      "quantity": "4",
-      "totalPrice": "299000 VND",
-      "id": 18
+      "productPrice": "50000 VND",
+      "quantity": "1",
+      "totalPrice": "50000 VND",
+      "id": 11
+    },
+    {
+      "name": "phamgiabao",
+      "customerId": "16",
+      "productId": [
+        "3"
+      ],
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "15",
+      "district": "137",
+      "productName": "Espresso",
+      "productPrice": "28000",
+      "quantity": "1",
+      "totalPrice": "28000 VND",
+      "id": 12
+    },
+    {
+      "name": "phamgiabao",
+      "customerId": "16",
+      "productId": [
+        "3"
+      ],
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "04",
+      "district": "040",
+      "productName": "Espresso",
+      "productPrice": "28000",
+      "quantity": "1",
+      "totalPrice": "28000",
+      "id": 15
+    },
+    {
+      "name": "phamgiabao",
+      "customerId": "16",
+      "productId": [
+        "3"
+      ],
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "02",
+      "district": "024",
+      "productName": "Espresso",
+      "productPrice": "28000",
+      "quantity": "1",
+      "totalPrice": "28000",
+      "id": 16
+    },
+    {
+      "name": "phamgiabao",
+      "customerId": "16",
+      "productId": [
+        "2",
+        "3"
+      ],
+      "email": "bao.pham25@student.passerellesnumeriques.org",
+      "phoneNumber": "0845042466",
+      "address": "thon 2 thanh sen, phuc trach, bo trach , QB",
+      "province": "06",
+      "district": "058",
+      "productName": "Americanosasasa",
+      "productPrice": "13500",
+      "quantity": "6",
+      "totalPrice": "193000",
+      "date": "8/11/2023 23:06:26",
+      "id": 17
     }
   ],
   "contacts": [
     {
       "name": "Baopham",
       "phoneNumber": "0845042466",
-      "avata": "/images/img_icon/user-removebg-preview.png",
+      "avatar": "/images/img_icon/user-removebg-preview.png",
       "email": "phamthithieu@gmail.com",
       "message": "asas",
       "id": 1
@@ -384,7 +432,7 @@
     {
       "name": "sasasa",
       "phoneNumber": "1212312",
-      "avata": "/images/img_icon/user-removebg-preview.png",
+      "avatar": "/images/img_icon/user-removebg-preview.png",
       "email": "bao.pham25@student.passerellesnumeriques.org",
       "message": "saqwqwqwwqqw",
       "id": 2
@@ -392,7 +440,7 @@
     {
       "name": "Em boss",
       "phoneNumber": "1212312",
-      "avata": "/images/img_icon/user-removebg-preview.png",
+      "avatar": "/images/img_icon/user-removebg-preview.png",
       "email": "bao.pham25@student.passerellesnumeriques.org",
       "message": "sá",
       "id": 3
@@ -410,6 +458,14 @@
       "email": "phamthithieu@gmail.com",
       "message": "lkhiohgt",
       "id": 5
+    },
+    {
+      "id_customer": 16,
+      "name": "âsas",
+      "phoneNumber": "2323232",
+      "email": "sâsasa@gmail.com",
+      "message": "sdsd",
+      "id": 6
     }
   ],
   "provinces": [
@@ -2679,108 +2735,56 @@
   ],
   "carts": [
     {
-      "id": 5,
-      "userId": "16",
-      "name": "Cappuccino",
-      "oldPrice": 23,
-      "newPrice": 22,
-      "quantity": 9,
-      "description": "Coffee is made using the Espresso method but with steamed milk and foam added. Cappuccino is a type of coffee consisting of coffee and milk foam (whipped on top), along with a little cocoa powder or cinnamon powder sprinkled on the surface of the drink before serving.",
-      "image1": "/images/img_product/Cappuccino1.jpg",
-      "image2": "/images/img_product/Cappuccino2.jpg",
-      "image3": "/images/img_product/Cappuccino3.jpg",
-      "type": "",
-      "productReviews": 5,
-      "totalPrice": 88
+      "id": "2",
+      "userId": 16,
+      "name": "Americanosasasa",
+      "oldPrice": "15000",
+      "newPrice": "13500",
+      "quantity": "6",
+      "description": "Coffee made using the Espresso method but with hot water added.Caffè Americano, or Americano, is a style of coffee prepared by adding hot water to espresso, giving the coffee a similar strength but a different flavor, similar to filter coffee.",
+      "image1": "/images/img_product/Americano1.jpg",
+      "image2": "/images/img_product/Americano2.jpg",
+      "image3": "/images/img_product/Americano3.jpg",
+      "totalPrice": 81000
     },
     {
-      "id": 6,
-      "userId": "10",
-      "name": "Doppio",
-      "oldPrice": 35000,
-      "newPrice": 33000,
-      "quantity": 3,
-      "description": "Double coffee, extracted by double filter of coffee in total filter, the same ingredients as Espresso. Always careful in the ingredients to make a standard cup of Cappuccino coffee, always taking care of Latte art cups from Barista artisans. If you don't like drinking traditional cappuccino, why not try cool Smoothies that have the sweet taste of milk cream mixed with the slight sourness of fruit.",
-      "image1": "/images/img_product/Doppio1.jpg",
-      "image2": "/images/img_product/Doppio2.jpg",
-      "image3": "/images/img_product/Doppio3.jpg",
-      "type": "",
-      "productReviews": 4.3,
-      "totalPrice": 99000
-    },
-    {
-      "id": 4,
-      "userId": "10",
-      "name": "Latte1",
-      "quantity": 4,
-      "newPrice": 50000,
-      "oldPrice": 55000,
-      "image1": "/images/img_product/Latte1.jpg",
-      "image2": "/images/img_product/Latte2.jpg",
-      "image3": "/images/img_product/Latte3.jpg",
-      "description": "Coffee is made using the Espresso method but with steamed milk added.Coffee latte is a drink originating from Italy consisting of the main ingredients of coffee and whipped milk. This drink is consumed regularly both at home and in cafes and bars.",
-      "type": "",
-      "productReviews": 4,
-      "totalPrice": 150000
-    },
-    {
-      "id": 3,
-      "userId": "17",
+      "id": "3",
+      "userId": 16,
       "name": "Espresso",
-      "quantity": 1,
-      "newPrice": "28000",
       "oldPrice": "30000",
+      "newPrice": "28000",
+      "quantity": "4",
       "description": "Coffee is brewed with a small amount of boiling water that is almost pressed under pressure (squeezing) the ground coffee beans.Espresso, is a method of roasting and preparing coffee originating from Italy, in which a small amount of boiling water is forced under pressure through ground coffee beans. Espresso is also the basis for many drinks from Other coffees such as latte, cappuccino, macchiato, mocha, flat white, Americano.",
-      "productReviews": 5,
       "image1": "/images/img_product/Cherry3.jpg",
       "image2": "/images/img_product/Americano3.jpg",
       "image3": "/images/img_product/coconut_coffee.jpg",
-      "totalPrice": 28000
+      "totalPrice": 112000
     },
     {
-      "id": 8,
-      "userId": "17",
-      "name": "Macchiato",
-      "oldPrice": 60000,
-      "newPrice": 58000,
-      "quantity": 3,
-      "description": "A coffee based on the perfect combination of coffee, milk tea, goat tea with a layer of rich cream. Macchiato has the characteristic fatty taste of milk mixed with a slightly sweet or slightly salty taste depending on the recipe of the drink maker.",
-      "image1": "/images/img_product/Macchiato1.jpg",
-      "image2": "/images/img_product/Macchiato2.jpg",
-      "image3": "/images/img_product/Macchiato3.jpg",
-      "type": "",
-      "productReviews": 5,
-      "totalPrice": 174000
-    },
-    {
-      "id": 14,
-      "userId": "17",
-      "name": "Cherry",
-      "oldPrice": 54,
-      "newPrice": 50000,
-      "quantity": 2,
-      "description": "Cherry coffee gives off a faint scent when brewed and the sour taste of Cherry creates a refreshing inspiration. Although the flavor is not as rich as Robusta, nor as passionate as Arabica, Cherry coffee has its own characteristics: mildly sour, slightly astringent, low caffeine content.",
-      "image1": "/images/img_product/Cherry1.jpg",
-      "image2": "/images/img_product/Cherry2.jpg",
-      "image3": "/images/img_product/Cherry3.jpg",
-      "type": "",
-      "productReviews": 5,
-      "totalPrice": 100000
-    },
-    {
-      "id": 10,
-      "userId": "17",
+      "id": "10",
+      "userId": 16,
       "name": "Red Eye",
       "oldPrice": 80000,
       "newPrice": 78000,
-      "quantity": 1,
+      "quantity": "1",
       "description": "An enhanced coffee drink in which espresso is combined with normal drip coffee.A red eye, black eye, and dead eye coffee basically mean how much caffeine you want in your cup of brewed coffee. The red eye has one shot of espresso added, the black eye has two shots, and the dead eye has three whole shots of espresso! These will definitely keep you up as long as you want.",
       "image1": "/images/img_product/Red Eye1.jpg",
       "image2": "/images/img_product/Red Eye2.png",
       "image3": "/images/img_product/Red Eye3.png",
-      "type": "",
-      "productReviews": 4,
       "totalPrice": 78000
+    },
+    {
+      "id": "15",
+      "userId": 1,
+      "name": "phamgiabao",
+      "oldPrice": "2122",
+      "newPrice": "11212",
+      "quantity": "1",
+      "description": "asasas",
+      "image1": "/images/img_product/Americano3.jpg",
+      "image2": "/images/img_product/black-coffee1.jpg",
+      "image3": "/images/img_product/Black-Coffee2.avif",
+      "totalPrice": 11212
     }
   ]
 }

@@ -1,46 +1,53 @@
 //location
-const provinceSelect = document.getElementById('province__order');
-const districtSelect = document.getElementById('district__order');
-const provinceUrl = 'http://localhost:3000/provinces';
-const districtUrl = 'http://localhost:3000/districts';
+const provinceSelect = document.getElementById("province__order");
+const districtSelect = document.getElementById("district__order");
+const provinceUrl = "http://localhost:3000/provinces";
+const districtUrl = "http://localhost:3000/districts";
 
-const user_id = localStorage.getItem('userId');
-const role_Id = localStorage.getItem('roleId')
+function getUserData() {
+  let userData;
+  const hashKey = "Abcd123@";
+  const token = localStorage.getItem("token");
 
-// Function fetch dữ liệu từ API
-function fetchData(url) {
-  return fetch(url)
-    .then(response => response.json())
-    .catch(error => {
-    });
+  const decryptedUserInfo = CryptoJS.AES.decrypt(token, hashKey).toString(
+    CryptoJS.enc.Utf8
+  );
+
+  if (decryptedUserInfo) {
+    userData = JSON.parse(decryptedUserInfo);
+  }
+
+  return userData;
 }
 
-// Fetch dữ liệu tỉnh từ localhost
-fetchData(provinceUrl)
-  .then(data => {
+const userIdentity = getUserData();
+
+fetch(provinceUrl)
+  .then((data) => data.json())
+  .then((data) => {
+    console.log(data);
     const provinces = data;
-    // Đẩy dữ liệu tỉnh vào select tỉnh
     provinces.forEach(function (province) {
-      var option = document.createElement('option');
+      var option = document.createElement("option");
       option.value = province.code;
       option.text = province.name;
       provinceSelect.appendChild(option);
     });
 
-    // Xử lý sự kiện khi chọn tỉnh
-    provinceSelect.addEventListener('change', function () {
+    provinceSelect.addEventListener("change", function () {
       var selectedProvinceCode = provinceSelect.value;
 
       // Fetch dữ liệu huyện từ localhost dựa trên mã tỉnh đã chọn
-      fetchData(`${districtUrl}?parent_code=${selectedProvinceCode}`)
-        .then(data => {
+      fetch(`${districtUrl}?parent_code=${selectedProvinceCode}`)
+        .then((data) => data.json())
+        .then((data) => {
           const districts = data;
           // Xóa tất cả các option cũ trong select huyện
-          districtSelect.innerHTML = '';
+          districtSelect.innerHTML = "";
 
           // Đẩy dữ liệu huyện vào select huyện
           districts.forEach(function (district) {
-            var option = document.createElement('option');
+            var option = document.createElement("option");
             option.value = district.code;
             option.text = district.name;
             districtSelect.appendChild(option);
@@ -49,24 +56,16 @@ fetchData(provinceUrl)
     });
   });
 //chuyển về trang order khi nhất button
-function redirectToOrderPage(productId) {
-  window.location.href = `/page/order/order.html?id=${productId}`;
-
-}
-
-
 
 const urlParams3 = new URLSearchParams(window.location.search);
-const productId1 = urlParams3.get('id');
+const productId1 = urlParams3.get("id");
 const list_id = [];
-list_id.push(productId1)
-console.log(list_id,"hello")
+list_id.push(productId1);
 
 function product_order_detail() {
-
   // JavaScript code
   const urlParams = new URLSearchParams(window.location.search);
-  const productId = urlParams.get('id');
+  const productId = urlParams.get("id");
 
   fetch("http://localhost:3000/products")
     .then((res) => res.json())
@@ -74,102 +73,104 @@ function product_order_detail() {
       var product = false;
       const productList = data;
 
-      productList.forEach(element => {
+      productList.forEach((element) => {
         if (productId == element.id) {
           product = true;
-          var productDetailHTML = '';
+          var productDetailHTML = "";
 
           if (product) {
-            document.getElementById('price__order').innerHTML = element.newPrice * quantity_order_after + " VND";
-            document.getElementById('product__img__order').src = element.image1;
-            document.getElementById('procuct__name__order').innerHTML = element.name;
-            document.getElementById('product__price__order').innerHTML = element.newPrice + " VND";
-            document.getElementById('product__quantity__order').innerHTML = document.get('input__qty').value;
+            document.getElementById("price__order").innerHTML =
+              element.newPrice * quantity_order_after + " VND";
+            document.getElementById("product__img__order").src = element.image1;
+            document.getElementById("procuct__name__order").innerHTML =
+              element.name;
+            document.getElementById("product__price__order").innerHTML =
+              element.newPrice + " VND";
+            document.getElementById("product__quantity__order").innerHTML =
+              document.get("input__qty").value;
           } else {
-            document.getElementById("product-detail").innerHTML = "Product not found.";
+            document.getElementById("product-detail").innerHTML =
+              "Product not found.";
           }
         }
-
       });
     });
-
 }
 var urlParams1 = new URLSearchParams(window.location.search);
-var quantity_detail = urlParams1.get('quantity');
+var quantity_detail = urlParams1.get("quantity");
 
 if (quantity_detail == null || quantity_detail == NaN) {
-  var quantity_order_after = document.getElementById("quantity_order").innerHTML = 1;
-}
-else {
-  var quantity_order_after = document.getElementById("quantity_order").innerHTML = quantity_detail;
+  var quantity_order_after = (document.getElementById(
+    "quantity_order"
+  ).innerHTML = 1);
+} else {
+  var quantity_order_after = (document.getElementById(
+    "quantity_order"
+  ).innerHTML = quantity_detail);
 }
 
 function useCustomerData(customerId) {
-   if(role_Id == 2){
+  if (userIdentity?.roleId == 2) {
     fetch(`http://localhost:3000/users?id=${customerId}`)
-    .then((res) => res.json())
-    .then((data) => {
-      data.forEach((element) => {
-        document.getElementById('name__order').value = element.name;
-        document.getElementById('customerID__order').value = element.id;
-        document.getElementById('email__order').value = element.email;
-        document.getElementById('phone__order').value = element.phoneNumber;
-        document.getElementById('address__order').value = element.address;
-        // Gán giá trị mặc định cho các ô select province và district
-        document.getElementById('date__order').value = getCurrentTime();
-
+      .then((res) => res.json())
+      .then((data) => {
+        data.forEach((element) => {
+          document.getElementById("name__order").value = element.name;
+          document.getElementById("customerID__order").value = element.id;
+          document.getElementById("email__order").value = element.email;
+          document.getElementById("phone__order").value = element.phoneNumber;
+          document.getElementById("address__order").value = element.address;
+          // Gán giá trị mặc định cho các ô select province và district
+          document.getElementById("date__order").value = getCurrentTime();
+        });
       })
-    })
-    .catch((error) => {
-    });
-   }
-   else{
+      .catch((error) => {});
+  } else {
     fetch(`http://localhost:3000/users?id=${customerId}`)
-    .then((res) => res.json())
-    .then((data) => {
-      data.forEach((element) => {
-        document.getElementById('name__order').value = element.name;
-        document.getElementById('customerID__order').value = element.id;
-        document.getElementById('email__order').value = element.email;
-        document.getElementById('phone__order').value = element.phoneNumber;
-        document.getElementById('address__order').value = element.address;
-        // Gán giá trị mặc định cho các ô select province và district
-        document.getElementById('date__order').value = getCurrentTime();
-
+      .then((res) => res.json())
+      .then((data) => {
+        data.forEach((element) => {
+          document.getElementById("name__order").value = element.name;
+          document.getElementById("customerID__order").value = element.id;
+          document.getElementById("email__order").value = element.email;
+          document.getElementById("phone__order").value = element.phoneNumber;
+          document.getElementById("address__order").value = element.address;
+          // Gán giá trị mặc định cho các ô select province và district
+          document.getElementById("date__order").value = getCurrentTime();
+        });
       })
-    })
-    .catch((error) => {
-    });
-   }
+      .catch((error) => {});
+  }
 }
 
-useCustomerData(user_id);
+useCustomerData(userIdentity.id);
 
 function getDataFormOrder() {
   product_order_detail();
-  var fullName = document.getElementById('name__order').value;
-  var customerID = document.getElementById('customerID__order').value;
+  var fullName = document.getElementById("name__order").value;
+  var customerID = document.getElementById("customerID__order").value;
 
-  var productId2 ;
+  var productId2;
   var productId_list_id = [];
-  var cartItems = JSON.parse(localStorage.getItem('selectedIds'));
+  var cartItems = JSON.parse(localStorage.getItem("selectedIds"));
   if (cartItems && Array.isArray(cartItems)) {
     productId_list_id = cartItems;
     productId2 = productId_list_id;
   } else {
-     productId2 = list_id;
+    productId2 = list_id;
   }
-  var email = document.getElementById('email__order').value;
-  var phoneNumber = document.getElementById('phone__order').value;
-  var address = document.getElementById('address__order').value;
-  var province = document.getElementById('province__order').value;
-  var district = document.getElementById('district__order').value;
-  var productName = document.getElementById('procuct__name__order').textContent;
-  var productPrice = document.getElementById('product__price__order').textContent;
-  var quantity = document.getElementById('quantity_order').textContent;
-  var totalPrice = document.getElementById('price__order').textContent;
-  var date = document.getElementById('date__order').value;
-
+  var email = document.getElementById("email__order").value;
+  var phoneNumber = document.getElementById("phone__order").value;
+  var address = document.getElementById("address__order").value;
+  var province = document.getElementById("province__order").value;
+  var district = document.getElementById("district__order").value;
+  var productName = document.getElementById("procuct__name__order").textContent;
+  var productPrice = document.getElementById(
+    "product__price__order"
+  ).textContent;
+  var quantity = document.getElementById("quantity_order").textContent;
+  var totalPrice = document.getElementById("price__order").textContent;
+  var date = document.getElementById("date__order").value;
 
   var data = {
     name: fullName,
@@ -184,27 +185,31 @@ function getDataFormOrder() {
     productPrice: productPrice,
     quantity: quantity,
     totalPrice: totalPrice,
-    date: date
+    date: getDate(),
   };
 
   return data;
 }
-getDataFormOrder()
 
+getDataFormOrder();
 function placeOrder() {
-  if (user_id) {
-    // Đã có userId trong LocalStorage
-
-    // Tiếp tục thực hiện đơn hàng
+  if (userIdentity.id) {
     var data = getDataFormOrder();
 
-    // Kiểm tra các trường nhập liệu bắt buộc
-    if (!data.name || !data.email || !data.phoneNumber || !data.address || !data.province || !data.district || !data.quantity) {
+    if (
+      !data.name ||
+      !data.email ||
+      !data.phoneNumber ||
+      !data.address ||
+      !data.province ||
+      !data.district ||
+      !data.quantity
+    ) {
       alert("Vui lòng nhập đầy đủ thông tin.");
       return;
     }
 
-    // Gửi dữ liệu đi
+    // Send data
     fetch("http://localhost:3000/orders", {
       method: "POST",
       headers: {
@@ -213,19 +218,14 @@ function placeOrder() {
       body: JSON.stringify(data),
     })
       .then((response) => response.json())
-      .then(() => {
-        // Hiển thị thông báo thành công
-        Swal.fire({
-          icon: "success",
-          title: "Đơn hàng của bạn đã được gửi thành công!",
-          showConfirmButton: true,
-        });
+      .then((order) => {
+          alert("Succsess !!")
       })
       .catch((error) => {
-        // Xử lý lỗi nếu có
+        // Handle error if needed
       });
 
-    // date time
+    // Get current time
     var date__order = "";
     function getCurrentTime() {
       var currentDate = new Date();
@@ -233,24 +233,23 @@ function placeOrder() {
       var month = currentDate.getMonth() + 1;
       var day = currentDate.getDate();
 
-      // Định dạng lại đối tượng thời gian
+      // Format the time object
       if (month < 10) {
-        month = '0' + month;
+        month = "0" + month;
       }
       if (day < 10) {
-        day = '0' + day;
+        day = "0" + day;
       }
 
-      var formattedDate = year + '-' + month + '-' + day;
+      var formattedDate = year + "-" + month + "-" + day;
       date__order = formattedDate;
       document.getElementById("date__order").innerHTML = date__order;
-
     }
 
     getCurrentTime();
   } else {
-    // Không có userId trong LocalStorage
-    alert('Bạn phải đăng nhập!');
+    // No userId in LocalStorage
+    alert("Bạn phải đăng nhập!");
   }
 }
 
@@ -281,11 +280,10 @@ window.addEventListener('beforeunload', () => {
   localStorage.removeItem('selectedQuantities');
   localStorage.removeItem('selectedIds');
 });
-
-// Cập nhật lại giao diện đơn hàng
 function updateOrderPage() {
   const productOrderElement = document.getElementById('product__order1');
   const totalPriceElement = document.getElementById('price__order');
+  const qrCodeElement = document.getElementById('qrcode-payment');
   let productsHTML = '';
   let totalPrice = 0;
 
@@ -313,15 +311,76 @@ function updateOrderPage() {
           }
         });
       });
+      var qrcode = new QRCode(document.getElementById("qrcode"), {
+        width : 100,
+        height : 100,
+        useSVG: true
+    });
 
+   // Ẩn hiện mã QR code dựa trên phương thức thanh toán MoMo
+var qrCodeElement = document.getElementById('qrcode');
+qrCodeElement.style.display = 'none';
+
+var momoPaymentRadio = document.getElementById('payment-method-momo');
+var momoPaymentRadio2 = document.getElementById('payment-method-cod');
+
+momoPaymentRadio.addEventListener('change', function() {
+  if (momoPaymentRadio.checked) {
+    qrCodeElement.style.display = 'block';
+  } else {
+    qrCodeElement.style.display = 'none';
+  }
+  if (momoPaymentRadio2.checked){
+    qrCodeElement.style.display = 'none';
+     
+  }
+});
+momoPaymentRadio2.addEventListener('change', function() {
+  if (momoPaymentRadio.checked) {
+    qrCodeElement.style.display = 'block';
+  } else {
+    qrCodeElement.style.display = 'none';
+  }
+  if (momoPaymentRadio2.checked){
+    qrCodeElement.style.display = 'none';
+     
+  }
+});
       // Thêm các sản phẩm vào phần tử HTML có id là "product__order"
       productOrderElement.innerHTML = productsHTML;
 
       // Hiển thị tổng số tiền
-      totalPriceElement.textContent = `${totalPrice} VND`;
-    });
+      totalPriceElement.textContent = `${totalPrice}`;
+   
+    const total = document.getElementById('text1').value = totalPriceElement.textContent;
+    document.getElementById('text1').style.display = "none";
+    function makeCode () {		
+        var elText = document.getElementById("text1");
+  
+        if (!elText.value) {
+            alert("Input a text");
+            elText.focus();
+            return;
+        }
+  
+        qrcode.makeCode(elText.value);
+    }
+  
+    makeCode();
+  
+    $("#text1").
+        on("blur", function () {
+            makeCode();
+        }).
+        on("keydown", function (e) {
+            if (e.keyCode == 13) {
+                makeCode();
+            }
+        });
+  
+    
+  });
 }
-
 // Hàm lấy ngày giờ hiện tại
 function getDate() {
   const currentDate = new Date();
@@ -332,3 +391,4 @@ function getDate() {
 
 // Gọi hàm cập nhật giao diện ban đầu
 updateOrderPage();
+

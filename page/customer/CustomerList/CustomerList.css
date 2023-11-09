@@ -21,7 +21,7 @@ button {
 .input-field input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #ccc !important;
   border-radius: 5px;
   font-size: 16px;
 }
@@ -191,4 +191,7 @@ h3 {
 }
 #delete_btn_product:hover {
   background-color: rgb(202, 62, 62);
+}
+.input{
+   visibility: unset;
 }
